@@ -7,15 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A2F724AABFBAD9DB22B1DCD /* Pods_Positive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD209406F6D8EAB4B1C9C358 /* Pods_Positive.framework */; };
+		CE3ECB052839FBD90077EDF2 /* ReportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3ECB032839FBD90077EDF2 /* ReportTableViewCell.swift */; };
+		CE3ECB062839FBD90077EDF2 /* ReportTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE3ECB042839FBD90077EDF2 /* ReportTableViewCell.xib */; };
 		CE73D15A2839DF4C00B20D0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE73D1592839DF4C00B20D0D /* AppDelegate.swift */; };
 		CE73D15C2839DF4C00B20D0D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE73D15B2839DF4C00B20D0D /* SceneDelegate.swift */; };
 		CE73D15E2839DF4C00B20D0D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE73D15D2839DF4C00B20D0D /* ViewController.swift */; };
 		CE73D1612839DF4C00B20D0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE73D15F2839DF4C00B20D0D /* Main.storyboard */; };
 		CE73D1632839DF4E00B20D0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE73D1622839DF4E00B20D0D /* Assets.xcassets */; };
 		CE73D1662839DF4E00B20D0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE73D1642839DF4E00B20D0D /* LaunchScreen.storyboard */; };
+		CE73D16E2839F62600B20D0D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE73D16D2839F62600B20D0D /* HomeViewController.swift */; };
+		CE73D1702839F8AE00B20D0D /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE73D16F2839F8AE00B20D0D /* CalendarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C07CA5A68ADB0DFDE8C95F9D /* Pods-Positive.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Positive.release.xcconfig"; path = "Target Support Files/Pods-Positive/Pods-Positive.release.xcconfig"; sourceTree = "<group>"; };
+		CE3ECB032839FBD90077EDF2 /* ReportTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTableViewCell.swift; sourceTree = "<group>"; };
+		CE3ECB042839FBD90077EDF2 /* ReportTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReportTableViewCell.xib; sourceTree = "<group>"; };
 		CE73D1562839DF4C00B20D0D /* Positive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Positive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE73D1592839DF4C00B20D0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE73D15B2839DF4C00B20D0D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +32,10 @@
 		CE73D1622839DF4E00B20D0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE73D1652839DF4E00B20D0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE73D1672839DF4E00B20D0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE73D16D2839F62600B20D0D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		CE73D16F2839F8AE00B20D0D /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		F29FE63471133EAD6DACB805 /* Pods-Positive.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Positive.debug.xcconfig"; path = "Target Support Files/Pods-Positive/Pods-Positive.debug.xcconfig"; sourceTree = "<group>"; };
+		FD209406F6D8EAB4B1C9C358 /* Pods_Positive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Positive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +43,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A2F724AABFBAD9DB22B1DCD /* Pods_Positive.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		812D2D2DE70A75520B83F103 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F29FE63471133EAD6DACB805 /* Pods-Positive.debug.xcconfig */,
+				C07CA5A68ADB0DFDE8C95F9D /* Pods-Positive.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C3278182D79C017D0B74DA11 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FD209406F6D8EAB4B1C9C358 /* Pods_Positive.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CE73D14D2839DF4C00B20D0D = {
 			isa = PBXGroup;
 			children = (
 				CE73D1582839DF4C00B20D0D /* Positive */,
 				CE73D1572839DF4C00B20D0D /* Products */,
+				812D2D2DE70A75520B83F103 /* Pods */,
+				C3278182D79C017D0B74DA11 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -59,8 +91,12 @@
 				CE73D1592839DF4C00B20D0D /* AppDelegate.swift */,
 				CE73D15B2839DF4C00B20D0D /* SceneDelegate.swift */,
 				CE73D15D2839DF4C00B20D0D /* ViewController.swift */,
+				CE73D16D2839F62600B20D0D /* HomeViewController.swift */,
+				CE73D16F2839F8AE00B20D0D /* CalendarViewController.swift */,
 				CE73D15F2839DF4C00B20D0D /* Main.storyboard */,
 				CE73D1622839DF4E00B20D0D /* Assets.xcassets */,
+				CE3ECB032839FBD90077EDF2 /* ReportTableViewCell.swift */,
+				CE3ECB042839FBD90077EDF2 /* ReportTableViewCell.xib */,
 				CE73D1642839DF4E00B20D0D /* LaunchScreen.storyboard */,
 				CE73D1672839DF4E00B20D0D /* Info.plist */,
 			);
@@ -74,9 +110,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE73D16A2839DF4E00B20D0D /* Build configuration list for PBXNativeTarget "Positive" */;
 			buildPhases = (
+				9A943E0287A23FD824F192BE /* [CP] Check Pods Manifest.lock */,
 				CE73D1522839DF4C00B20D0D /* Sources */,
 				CE73D1532839DF4C00B20D0D /* Frameworks */,
 				CE73D1542839DF4C00B20D0D /* Resources */,
+				9599EE606A368643550B2A81 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -128,19 +166,65 @@
 				CE73D1662839DF4E00B20D0D /* LaunchScreen.storyboard in Resources */,
 				CE73D1632839DF4E00B20D0D /* Assets.xcassets in Resources */,
 				CE73D1612839DF4C00B20D0D /* Main.storyboard in Resources */,
+				CE3ECB062839FBD90077EDF2 /* ReportTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9599EE606A368643550B2A81 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Positive/Pods-Positive-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Positive/Pods-Positive-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Positive/Pods-Positive-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9A943E0287A23FD824F192BE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Positive-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CE73D1522839DF4C00B20D0D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE73D1702839F8AE00B20D0D /* CalendarViewController.swift in Sources */,
 				CE73D15E2839DF4C00B20D0D /* ViewController.swift in Sources */,
 				CE73D15A2839DF4C00B20D0D /* AppDelegate.swift in Sources */,
+				CE3ECB052839FBD90077EDF2 /* ReportTableViewCell.swift in Sources */,
 				CE73D15C2839DF4C00B20D0D /* SceneDelegate.swift in Sources */,
+				CE73D16E2839F62600B20D0D /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,11 +368,14 @@
 		};
 		CE73D16B2839DF4E00B20D0D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F29FE63471133EAD6DACB805 /* Pods-Positive.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				EXCLUDED_ARCHS = "";
+				"EXCLUDED_ARCHS[sdk=*]" = arm64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Positive/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -311,11 +398,13 @@
 		};
 		CE73D16C2839DF4E00B20D0D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C07CA5A68ADB0DFDE8C95F9D /* Pods-Positive.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Positive/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
