@@ -16,7 +16,8 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var reportTableView: UITableView!
     @IBOutlet weak var calendarHeight: NSLayoutConstraint!
     
-    var data: Bool = false
+    var data: [Bool] = []
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,9 +26,14 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         reportTableView.register(UINib(nibName: "ReportTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
         calendarView.scope = .week
         calendarView.textInputMode?.accessibilityFrame.size
+        for _ in 0...4 {
+            data.append(false)
+        }
+//        var indexPath = IndexPath(row: 4, section: 0)
+//        indexPath = data[false]
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -39,11 +45,11 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
-            if data {
+            if data[indexPath.row] {
                 print("伸び縮み")
-                return 380
+                return 200
             } else {
-                return 44
+                return 50
             }
         }
         return tableView.estimatedRowHeight
@@ -59,7 +65,7 @@ extension CalendarViewController: CellExtendDelegate {
     
     func didExtendButton(cell: ReportTableViewCell) {
         if let indexPath = reportTableView.indexPath(for: cell){
-            data.toggle()
+            data[indexPath.row].toggle()
             reportTableView.reloadRows(at: [indexPath], with: .automatic)
             print(data)
         }
