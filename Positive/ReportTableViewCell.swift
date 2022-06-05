@@ -11,11 +11,13 @@ class ReportTableViewCell: UITableViewCell {
     
     @IBOutlet weak var goalLabel: UILabel!
     @IBOutlet weak var popButton: UIButton!
+    @IBOutlet weak var targetText: UITextField!
     
     weak var delegate: CellExtendDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        targetText.borderStyle = .none
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

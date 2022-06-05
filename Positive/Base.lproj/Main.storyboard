@@ -8,45 +8,143 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home View Controller-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="Positive" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="list_icon 1x" selectedImage="listed_icon 1x" id="1Cu-Rn-WhH" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
-                        <connections>
-                            <outlet property="animation" destination="6pi-Vl-MsB" id="0jS-An-yea"/>
-                        </connections>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" tag="2" title="" image="list_icon1x" selectedImage="listed_icon1x" id="1Cu-Rn-WhH"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <customObject id="6pi-Vl-MsB" customClass="RAMBounceAnimation" customModule="RAMAnimatedTabBarController"/>
             </objects>
             <point key="canvasLocation" x="1664" y="779"/>
         </scene>
+        <!--Home View Controller-->
+        <scene sceneID="7tl-0Q-aEC">
+            <objects>
+                <viewController id="jp8-iU-SUd" customClass="HomeViewController" customModule="Positive" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Der-CW-NuN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CwH-cO-wj0">
+                                <rect key="frame" x="174" y="317" width="67" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="selectAlert:" destination="jp8-iU-SUd" eventType="touchUpInside" id="iiX-P8-b8q"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="P6b-ac-Ypj"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="home_icon1x" selectedImage="homed_icon1x" id="0Pg-wG-zco"/>
+                    <connections>
+                        <outlet property="alertButton" destination="CwH-cO-wj0" id="WNG-c7-Gxj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G0M-MF-ffq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1664" y="-629"/>
+        </scene>
         <!--Item-->
+        <scene sceneID="2fx-x6-U6m">
+            <objects>
+                <viewController id="7PP-yv-UsF" customClass="GoalViewController" customModule="Positive" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ofG-ky-Ddz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dec-In-9lY">
+                                <rect key="frame" x="143" y="395" width="128" height="71"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="tappedSave:" destination="7PP-yv-UsF" eventType="touchUpInside" id="zD4-oa-bu1"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="may-2m-z6Z">
+                                <rect key="frame" x="121" y="309" width="172" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="irK-vh-cQm"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="VKO-wl-36l"/>
+                    <connections>
+                        <outlet property="goalText" destination="may-2m-z6Z" id="BTw-o3-Zaf"/>
+                        <segue destination="0wV-1f-1dk" kind="show" identifier="toTarget" id="hkC-mR-Zkt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r7w-fz-nyv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1663.7681159420292" y="91.741071428571431"/>
+        </scene>
+        <!--Calendar View Controller-->
         <scene sceneID="01S-XP-ahf">
             <objects>
-                <viewController id="0wV-1f-1dk" customClass="CalendarViewController" customModule="Positive" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="toTarget" modalPresentationStyle="fullScreen" id="0wV-1f-1dk" customClass="CalendarViewController" customModule="Positive" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nls-3r-T4F">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fur-PU-EDx" customClass="FSCalendar">
-                                <rect key="frame" x="20" y="69" width="374" height="280"/>
+                                <rect key="frame" x="20" y="69" width="374" height="329"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="0.0" green="0.78039215689999997" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="headerTitleColor">
+                                        <color key="value" systemColor="labelColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleDefaultColor">
+                                        <color key="value" systemColor="labelColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleWeekendColor">
+                                        <color key="value" systemColor="labelColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="subtitleWeekendColor">
+                                        <color key="value" systemColor="labelColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="weekdayTextColor">
+                                        <color key="value" systemColor="labelColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="headerDateFormat" value="yyyy/mm/dd"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="todaySelectionColor">
+                                        <color key="value" red="0.32549019610000002" green="0.82352941180000006" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleSelectionColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectionColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="todayColor">
+                                        <color key="value" red="0.32549019610000002" green="0.82352941180000006" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleTodayColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="dataSource" destination="0wV-1f-1dk" id="8xq-Od-4N5"/>
                                     <outlet property="delegate" destination="0wV-1f-1dk" id="GbY-La-Jau"/>
                                 </connections>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="0K6-gU-8s5">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="0K6-gU-8s5">
                                 <rect key="frame" x="0.0" y="245" width="414" height="651"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
@@ -73,11 +171,8 @@
                             <constraint firstItem="Fur-PU-EDx" firstAttribute="top" secondItem="Puu-g1-pdQ" secondAttribute="top" constant="25" id="yse-Ei-x8s"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" image="calendar_icon 1x" selectedImage="calendared_icon 1x" id="1i7-Dk-Fi6" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
-                        <connections>
-                            <outlet property="animation" destination="BeY-Df-VTb" id="TTm-Pl-uU1"/>
-                        </connections>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" tag="1" title="" image="calendar_icon1x" selectedImage="calendared_icon1x" id="1i7-Dk-Fi6"/>
+                    <navigationItem key="navigationItem" id="rsX-c7-1i9"/>
                     <connections>
                         <outlet property="calendarHeight" destination="Fur-PU-EDx" id="ec0-fC-rjb"/>
                         <outlet property="calendarView" destination="Fur-PU-EDx" id="pUH-ZB-5cB"/>
@@ -86,14 +181,87 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o8x-JY-xDt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <customObject id="BeY-Df-VTb" customClass="RAMBounceAnimation" customModule="RAMAnimatedTabBarController"/>
             </objects>
-            <point key="canvasLocation" x="1663.7681159420292" y="91.741071428571431"/>
+            <point key="canvasLocation" x="2604" y="92"/>
         </scene>
-        <!--Animated Tab Bar Controller-->
+        <!--Sign Up View Controller-->
+        <scene sceneID="bAL-7I-PS2">
+            <objects>
+                <viewController id="fYg-ej-sSj" customClass="SignUpViewController" customModule="Positive" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ku5-nI-bdM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hpk-la-t66">
+                                <rect key="frame" x="24" y="76" width="102.5" height="36"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="91g-Jh-VSU">
+                                <rect key="frame" x="40" y="192" width="334" height="48"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="0.48760865069999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="Myd-ho-3HW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gCo-l2-3R2">
+                                <rect key="frame" x="40" y="160" width="93" height="24"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="e-mail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4RY-nN-bkG">
+                                <rect key="frame" x="40" y="256" width="54" height="24"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fne-J2-0nZ">
+                                <rect key="frame" x="40" y="288" width="334" height="48"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="0.48760865069999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="1aw-k4-jiU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pass Ward" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3Q-lj-rHu">
+                                <rect key="frame" x="46" y="356" width="86" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="2Vg-EV-tdY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4RY-nN-bkG" firstAttribute="leading" secondItem="2Vg-EV-tdY" secondAttribute="leading" constant="40" id="42H-b9-fjD"/>
+                            <constraint firstItem="91g-Jh-VSU" firstAttribute="leading" secondItem="2Vg-EV-tdY" secondAttribute="leading" constant="40" id="8Hb-H7-qlS"/>
+                            <constraint firstItem="gCo-l2-3R2" firstAttribute="leading" secondItem="2Vg-EV-tdY" secondAttribute="leading" constant="40" id="JBH-Qi-qf8"/>
+                            <constraint firstItem="91g-Jh-VSU" firstAttribute="top" secondItem="gCo-l2-3R2" secondAttribute="bottom" constant="8" id="M0w-00-PBU"/>
+                            <constraint firstItem="fne-J2-0nZ" firstAttribute="top" secondItem="4RY-nN-bkG" secondAttribute="bottom" constant="8" id="Rel-4c-xpm"/>
+                            <constraint firstItem="91g-Jh-VSU" firstAttribute="centerX" secondItem="ku5-nI-bdM" secondAttribute="centerX" id="WoP-EL-FCl"/>
+                            <constraint firstItem="Hpk-la-t66" firstAttribute="leading" secondItem="2Vg-EV-tdY" secondAttribute="leading" constant="24" id="aid-iS-5oJ"/>
+                            <constraint firstItem="fne-J2-0nZ" firstAttribute="leading" secondItem="2Vg-EV-tdY" secondAttribute="leading" constant="40" id="bci-B7-H4d"/>
+                            <constraint firstItem="4RY-nN-bkG" firstAttribute="top" secondItem="91g-Jh-VSU" secondAttribute="bottom" constant="16" id="jlb-bX-yNO"/>
+                            <constraint firstItem="Hpk-la-t66" firstAttribute="top" secondItem="2Vg-EV-tdY" secondAttribute="top" constant="32" id="k4d-H7-tZg"/>
+                            <constraint firstItem="gCo-l2-3R2" firstAttribute="top" secondItem="Hpk-la-t66" secondAttribute="bottom" constant="48" id="kkx-Dg-UaA"/>
+                            <constraint firstItem="fne-J2-0nZ" firstAttribute="centerX" secondItem="ku5-nI-bdM" secondAttribute="centerX" id="l9j-1K-LfQ"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3mi-Us-M16" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-414.49275362318843" y="102.45535714285714"/>
+        </scene>
+        <!--Tab Bar View Controller-->
         <scene sceneID="Sxv-hO-pK0">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="cGl-eN-8mf" customClass="RAMAnimatedTabBarController" customModule="RAMAnimatedTabBarController" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="cGl-eN-8mf" customClass="TabBarViewController" customModule="Positive" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YNP-6C-89k">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -101,8 +269,9 @@
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="0wV-1f-1dk" kind="relationship" relationship="viewControllers" id="I3P-vG-3fu"/>
+                        <segue destination="jp8-iU-SUd" kind="relationship" relationship="viewControllers" id="QBy-5t-uda"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="2lL-qO-Um8"/>
+                        <segue destination="7PP-yv-UsF" kind="relationship" relationship="viewControllers" id="j5t-XN-NDL"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6IN-gT-HQ8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -111,10 +280,15 @@
         </scene>
     </scenes>
     <resources>
-        <image name="calendar_icon 1x" width="24" height="24"/>
-        <image name="calendared_icon 1x" width="24" height="24"/>
-        <image name="list_icon 1x" width="24" height="24"/>
-        <image name="listed_icon 1x" width="24" height="24"/>
+        <image name="calendar_icon1x" width="24" height="24"/>
+        <image name="calendared_icon1x" width="24" height="24"/>
+        <image name="home_icon1x" width="24" height="24"/>
+        <image name="homed_icon1x" width="24" height="24"/>
+        <image name="list_icon1x" width="24" height="24"/>
+        <image name="listed_icon1x" width="24" height="24"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

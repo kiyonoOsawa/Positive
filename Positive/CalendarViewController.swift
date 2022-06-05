@@ -8,8 +8,10 @@
 import UIKit
 import FSCalendar
 import Firebase
+import FirebaseFirestore
+import FirebaseAuth
 
-class CalendarViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CalendarViewController: UIViewController {
     
     @IBOutlet weak var calendarView: FSCalendar!
     @IBOutlet weak var segmentBar: UISegmentedControl!
@@ -17,7 +19,12 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var calendarHeight: NSLayoutConstraint!
     
     var data: [Bool] = []
-
+    let fsCalendar = FSCalendar()
+    let db = Firestore.firestore()
+    let user = Auth.auth().currentUser
+    var goal: String = ""
+    fileprivate let cellHeight: CGFloat = 30
+    fileprivate let numberOfCells: Int = 10
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,16 +36,45 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         for _ in 0...4 {
             data.append(false)
         }
-//        var indexPath = IndexPath(row: 4, section: 0)
-//        indexPath = data[false]
+        saved()
     }
+    
+    func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
+            calendarHeight.constant = bounds.height
+            self.view.layoutIfNeeded()
+    }
+    
+    func saved() {
+        guard let user = user else {
+            return
+        }
+        let addData:[String:Any] = [
+            "goal": goal
+        ]
+        db.collection("users")
+            .document(user.uid)
+            .collection("goals")
+            .addDocument(data: addData)
+    }
+
+}
+extension CalendarViewController: CellExtendDelegate,UITableViewDelegate, UITableViewDataSource  {
+    
+    func didExtendButton(cell: ReportTableViewCell) {
+        if let indexPath = reportTableView.indexPath(for: cell){
+            data[indexPath.row].toggle()
+            reportTableView.reloadRows(at: [indexPath], with: .automatic)
+            print(data)
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return numberOfCells
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! ReportTableViewCell
-        cell.delegate = self
+        let cell = tableView.dequeueReusableCell(withIdentifier: "targetCell") as! ReportTableViewCell
+//        cell.delegate = self
         return cell
         
     }
@@ -52,23 +88,6 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
                 return 50
             }
         }
-        return tableView.estimatedRowHeight
+        return cellHeight
     }
-    
-    func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
-            calendarHeight.constant = bounds.height
-            self.view.layoutIfNeeded()
-    }
-
-}
-extension CalendarViewController: CellExtendDelegate {
-    
-    func didExtendButton(cell: ReportTableViewCell) {
-        if let indexPath = reportTableView.indexPath(for: cell){
-            data[indexPath.row].toggle()
-            reportTableView.reloadRows(at: [indexPath], with: .automatic)
-            print(data)
-        }
-    }
-    
 }
