@@ -56,9 +56,9 @@ class CalendarViewController: UIViewController {
             .collection("goals")
             .addDocument(data: addData)
     }
-
 }
-extension CalendarViewController: CellExtendDelegate,UITableViewDelegate, UITableViewDataSource  {
+
+extension CalendarViewController: CellExtendDelegate,UITableViewDelegate, UITableViewDataSource {
     
     func didExtendButton(cell: ReportTableViewCell) {
         if let indexPath = reportTableView.indexPath(for: cell){
@@ -74,9 +74,8 @@ extension CalendarViewController: CellExtendDelegate,UITableViewDelegate, UITabl
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "targetCell") as! ReportTableViewCell
-//        cell.delegate = self
         return cell
-        
+//        return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

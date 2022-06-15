@@ -17,14 +17,14 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var userNameField: UITextField!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet var textFieldCollection: [UITextField]!
     
     let storageRef = Storage.storage().reference(forURL: "gs://positive-898d1.appspot.com")
     let user = Auth.auth().currentUser
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        fieldImage()
     }
     
     @IBAction func tappedImageButton(_ sender: Any) {
@@ -58,26 +58,42 @@ class SignUpViewController: UIViewController {
             guard let uploadImage = image.jpegData(compressionQuality: 0.2) else {
                 return
             }
-            reference.putData(uploadImage, metadata: nil) { metadata, err } in
+            reference.putData(uploadImage, metadata: nil) { (metadata, err) in
             if let error = err {
                 print("error: \(error)")
             }
+            }
+            let addData = [
+                "userName": self.userNameField.text!
+            ]
+            let db = Firebase.Firestore.firestore()
+            db.collection("users")
+                .document(authResult.user.uid)
+                .setData(addData)
+            self.transition()
         }
-        let addData = [
-            "userName": self.userNameField.text!
-        ]
-        let db = Firebase.Firestore.firestore()
-        db.collection("users")
-            .document(authResult.user.uid)
-            .setData(addData)
-        self.transition()
     }
+    
     func transition() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let tabView = storyboard.instantiateViewController(withIdentifier: "tab") as! UITabBarController
-        tabView.modalTransitionStyle = .fullScreen
+        tabView.modalPresentationStyle = .fullScreen
         tabView.selectedIndex = 0
         self.present(tabView, animated: true, completion: nil)
+    }
+    
+    func fieldImage() {
+        for textFieldImage in textFieldCollection {
+            textFieldImage.layer.shadowOpacity = 0.5
+            textFieldImage.layer.shadowColor = UIColor.gray.cgColor
+            textFieldImage.layer.shadowOffset = CGSize(width: 1, height: 1)
+            textFieldImage.layer.masksToBounds = false
+            textFieldImage.layer.cornerRadius = 24
+            let leftPadding = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 0))
+            textFieldImage.leftView = leftPadding
+            textFieldImage.leftViewMode = .always
+            textFieldImage.backgroundColor = UIColor.white
+        }
     }
 }
 
