@@ -37,6 +37,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <segue destination="Zl5-xe-fwi" kind="show" id="RbY-6u-7g5"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BcW-Of-rnM"/>
@@ -48,12 +51,12 @@
             </objects>
             <point key="canvasLocation" x="1664" y="1602"/>
         </scene>
-        <!--View Controller-->
+        <!--Account View Controller-->
         <scene sceneID="VcU-XZ-Eyi">
             <objects>
-                <viewController id="Zl5-xe-fwi" sceneMemberID="viewController">
+                <viewController id="Zl5-xe-fwi" customClass="AccountViewController" customModule="Positive" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TC7-LD-1Ck">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WHF-Rp-Rtd">
@@ -97,6 +100,12 @@
                             <constraint firstItem="WHF-Rp-Rtd" firstAttribute="top" secondItem="rHD-tP-O3s" secondAttribute="top" constant="96" id="ybv-q3-edv"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="dM8-sy-975"/>
+                    <connections>
+                        <outlet property="fireLabel" destination="aSF-oi-sbw" id="8UQ-N6-ZFg"/>
+                        <outlet property="imageButton" destination="WHF-Rp-Rtd" id="dnK-ZG-jiB"/>
+                        <outlet property="nameLabel" destination="Wfs-fP-KXX" id="SQS-qY-5Y8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GiT-dI-Sqk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

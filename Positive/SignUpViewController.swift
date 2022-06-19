@@ -21,7 +21,7 @@ class SignUpViewController: UIViewController {
     
     let storageRef = Storage.storage().reference(forURL: "gs://positive-898d1.appspot.com")
     let user = Auth.auth().currentUser
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         fieldImage()
@@ -29,10 +29,10 @@ class SignUpViewController: UIViewController {
     
     @IBAction func tappedImageButton(_ sender: Any) {
         let imagePickerController = UIImagePickerController()
-               imagePickerController.delegate = self
-               imagePickerController.allowsEditing = true
-
-               self.present(imagePickerController, animated: true, completion: nil)
+        imagePickerController.delegate = self
+        imagePickerController.allowsEditing = true
+        
+        self.present(imagePickerController, animated: true, completion: nil)
     }
     
     @IBAction func tappedSignUp(_ sender: Any) {
@@ -59,9 +59,9 @@ class SignUpViewController: UIViewController {
                 return
             }
             reference.putData(uploadImage, metadata: nil) { (metadata, err) in
-            if let error = err {
-                print("error: \(error)")
-            }
+                if let error = err {
+                    print("error: \(error)")
+                }
             }
             let addData = [
                 "userName": self.userNameField.text!
