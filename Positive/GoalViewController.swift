@@ -26,6 +26,7 @@ class GoalViewController: UIViewController {
     
     @IBAction func tappedSave(_ sender: Any) {
         self.performSegue(withIdentifier: "toTarget", sender: nil)
+        print("ボタン押した")
     }
     
 

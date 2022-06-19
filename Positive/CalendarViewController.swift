@@ -30,13 +30,14 @@ class CalendarViewController: UIViewController {
         super.viewDidLoad()
         reportTableView.delegate = self
         reportTableView.dataSource = self
-        reportTableView.register(UINib(nibName: "ReportTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
-        calendarView.scope = .week
+        reportTableView.register(UINib(nibName: "ReportTableViewCell", bundle: nil), forCellReuseIdentifier: "targetCell")
+        calendarView.scope = .month
         calendarView.textInputMode?.accessibilityFrame.size
-        for _ in 0...4 {
+        for _ in 0...numberOfCells {
             data.append(false)
         }
         saved()
+        print(data)
     }
     
     func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
@@ -74,19 +75,19 @@ extension CalendarViewController: CellExtendDelegate,UITableViewDelegate, UITabl
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "targetCell") as! ReportTableViewCell
+        cell.delegate = self
         return cell
-//        return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0 {
+//        if indexPath.section == 0 {
             if data[indexPath.row] {
                 print("伸び縮み")
                 return 200
             } else {
                 return 50
             }
-        }
+//        }
         return cellHeight
     }
 }
