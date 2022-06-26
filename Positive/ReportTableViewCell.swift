@@ -19,10 +19,10 @@ class ReportTableViewCell: UITableViewCell {
         super.awakeFromNib()
         targetText.borderStyle = .none
     }
-    
+
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
+
     }
     @IBAction func tapPopButton() {
         delegate?.didExtendButton(cell: self)

@@ -6,26 +6,35 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseFirestore
+import FirebaseAuth
 
 class HomeViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var alertButton: UIBarButtonItem!
     @IBOutlet weak var goalListCollectionView: UICollectionView!
+    
+    let db = Firestore.firestore()
+    var targets: [[String:Any]] = []
     var viewWidth: CGFloat = 0.0
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        design()
         goalListCollectionView.delegate = self
         goalListCollectionView.dataSource = self
         goalListCollectionView.register(UINib(nibName: "HomeTargetCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "homeTarget")
         viewWidth = view.frame.width
+        self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController!.navigationBar.shadowImage = UIImage()
     }
         
     @IBAction func selectAlert(_ sender: Any){
         let alert: UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
+        //textfieldの中身を保存
+        let okAction = UIAlertAction(title: "OK", style: .default){ (UIAlertAction) in
+        }
         alert.title = "目標"
-        
         alert.addTextField(configurationHandler: {(textField) -> Void in
             textField.delegate = self
         })
@@ -35,7 +44,6 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
                 title: "追加",
                 style: .default,
                 handler: {(action) -> Void in
-//                    self.hello(action.title!)
                 })
         )
         alert.addAction(
@@ -82,16 +90,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         self.performSegue(withIdentifier: "toDetailView", sender: nil)
     }
     
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,  section: Int) -> UIEdgeInsets {
-//        return UIEdgeInsets(top: 15, left: 10, bottom: 10, right: 10)
-//    }
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 20
-    }
-    
-    func design() {
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
     }
 }
