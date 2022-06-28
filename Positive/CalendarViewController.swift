@@ -23,12 +23,16 @@ class CalendarViewController: UIViewController {
     let db = Firestore.firestore()
     let user = Auth.auth().currentUser
     var goal: String = ""
-
+    var viewWidth: CGFloat = 0.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         calendarView.scope = .month
         calendarView.textInputMode?.accessibilityFrame.size
-//        self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        reportCollectionView.dataSource = self
+        reportCollectionView.delegate = self
+        reportCollectionView.register(UINib(nibName: "CalendarTargetCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "calTarget")
+        viewWidth = view.frame.width
         print(data)
     }
     
@@ -36,50 +40,31 @@ class CalendarViewController: UIViewController {
             calendarHeight.constant = bounds.height
             self.view.layoutIfNeeded()
     }
-//
-//    func saved() {
-//        guard let user = user else {
-//            return
-//        }
-//        let addData:[String:Any] = [
-//            "goal": goal
-//        ]
-//        db.collection("users")
-//            .document(user.uid)
-//            .collection("goals")
-//            .addDocument(data: addData)
-//    }
 }
 
-//extension CalendarViewController: CellExtendDelegate,UITableViewDelegate, UITableViewDataSource {
-//
-//    func didExtendButton(cell: ReportTableViewCell) {
-//        if let indexPath = reportTableView.indexPath(for: cell){
-//            data[indexPath.row].toggle()
-//            reportTableView.reloadRows(at: [indexPath], with: .automatic)
-//            print(data)
-//        }
-//    }
-//
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return numberOfCells
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "targetCell") as! ReportTableViewCell
-//        cell.delegate = self
-//        return cell
-//    }
+extension CalendarViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 8
+    }
     
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-////        if indexPath.section == 0 {
-//            if data[indexPath.row] {
-//                print("伸び縮み")
-//                return 200
-//            } else {
-//                return 50
-//            }
-////        }
-//        return cellHeight
-//    }
-
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "calTarget", for: indexPath)
+        cell.layer.cornerRadius = 10
+        cell.layer.shadowColor = UIColor.black.cgColor
+        cell.layer.shadowOpacity = 0.25
+        cell.layer.shadowOffset = CGSize(width: 0, height: 0)
+        cell.layer.masksToBounds = false
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let space: CGFloat = 56
+        let cellWidth: CGFloat = viewWidth - space
+        let cellHeight: CGFloat = 110
+        return CGSize(width: cellWidth, height: cellHeight)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 20
+    }
+}
