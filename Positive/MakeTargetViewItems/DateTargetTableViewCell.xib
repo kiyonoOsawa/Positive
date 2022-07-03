@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="dateTargetCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="dateTargetCell" rowHeight="197" id="KGk-i7-Jjw" customClass="DateTargetTableViewCell" customModule="Positive" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="終了日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfL-rb-bAA">
+                        <rect key="frame" x="16" y="16" width="52" height="20"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ild-S2-hkX">
+                        <rect key="frame" x="16" y="44" width="288" height="172"/>
+                    </datePicker>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Ild-S2-hkX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="0qJ-Uz-Jyb"/>
+                    <constraint firstItem="Ild-S2-hkX" firstAttribute="top" secondItem="tfL-rb-bAA" secondAttribute="bottom" constant="8" id="2Qy-Nu-onO"/>
+                    <constraint firstItem="Ild-S2-hkX" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="DCq-m3-uYA"/>
+                    <constraint firstItem="tfL-rb-bAA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="Q3D-6R-jto"/>
+                    <constraint firstItem="tfL-rb-bAA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="WVi-dT-dY3"/>
+                    <constraint firstAttribute="bottom" secondItem="Ild-S2-hkX" secondAttribute="bottom" id="jMy-47-I06"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="datePicker" destination="Ild-S2-hkX" id="D5C-JL-TPS"/>
+            </connections>
+            <point key="canvasLocation" x="144.92753623188406" y="142.63392857142856"/>
+        </tableViewCell>
+    </objects>
+</document>

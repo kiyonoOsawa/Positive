@@ -11,8 +11,6 @@ class TabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let mainColor = UIColor(named: "MainColor")
-//        guard let mainColor = mainColor else { return }
         UITabBar.appearance().tintColor = UIColor(named: "MainColor")
     }
 }

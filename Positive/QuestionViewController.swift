@@ -15,13 +15,15 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var goalLabel: UILabel!
     @IBOutlet weak var questionTableView: UITableView!
     
-    let db = Firestore.firestore()
-    let user = Auth.auth().currentUser
+//    let db = Firestore.firestore()
+//    let user = Auth.auth().currentUser
     var data: [Bool] = []
-    var targets: [[String:Any]] = []
+    var targets: [[String: Any]] = []
+    var answers: [[String: Any]] = []
+    let questions: [String] = ["今すぐにできることは？","頑張ればできることは？", "このために必要なモノ・コトは？", "きっかけは？", "具体的にどんな人？"]
     
     fileprivate let cellHeight: CGFloat = 30
-    fileprivate let numberOfQuestion: Int = 10
+    fileprivate let numberOfQuestion: Int = 5
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,19 +33,19 @@ class QuestionViewController: UIViewController {
         for _ in 0...numberOfQuestion {
             data.append(false)
         }
-        updateFireStore()
+//        updateFireStore()
     }
     
-    func updateFireStore() {
-        let user = user
-        guard let user = user else { return }
-        let addData:[String: Any] = ["targets": targets]
-        db.collection("users")
-            .document(user.uid)
-            .collection("target")
-            .addDocument(data: addData)
-        print("ここ通った")
-    }
+//    func updateFireStore() {
+//        let user = user
+//        guard let user = user else { return }
+//        let addData:[String: Any] = ["targets": targets]
+//        db.collection("users")
+//            .document(user.uid)
+//            .collection("target")
+//            .addDocument(data: addData)
+//        print("ここ通った")
+//    }
 }
 
 extension QuestionViewController: QuestionTableViewCellDelegate, UITableViewDelegate, UITableViewDataSource {
@@ -63,6 +65,8 @@ extension QuestionViewController: QuestionTableViewCellDelegate, UITableViewDele
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "questionCell") as! QuestionTableViewCell
         cell.delegate = self
+        cell.questionLabel.text = questions[indexPath.row]
+        let answer = cell.answerField.text
         return cell
     }
     

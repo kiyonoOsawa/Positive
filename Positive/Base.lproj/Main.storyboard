@@ -128,12 +128,12 @@
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="ECc-fo-inF">
                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <action selector="selectAlert:" destination="jp8-iU-SUd" id="Jlz-7U-Uwe"/>
+                                <segue destination="UUt-YI-H8f" kind="modal" identifier="nextMakeView" id="YS5-k5-80q"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="alertButton" destination="ECc-fo-inF" id="h9h-IG-2PS"/>
+                        <outlet property="addItem" destination="ECc-fo-inF" id="iRa-Td-lsl"/>
                         <outlet property="goalListCollectionView" destination="5RS-59-fCH" id="kFa-R1-1ql"/>
                         <segue destination="qHf-zB-6oR" kind="show" identifier="toDetailView" id="FbC-9b-JnQ"/>
                     </connections>
@@ -142,32 +142,69 @@
             </objects>
             <point key="canvasLocation" x="2573.913043478261" y="-629.46428571428567"/>
         </scene>
+        <!--Make Target View Controller-->
+        <scene sceneID="I8M-o4-Zwl">
+            <objects>
+                <viewController storyboardIdentifier="nextMakeView" id="7us-eC-Zr0" customClass="MakeTargetViewController" customModule="Positive" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iaj-W1-qC0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="tGl-bP-pRb">
+                                <rect key="frame" x="0.0" y="56" width="414" height="786"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="i7z-GJ-HQm"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="tGl-bP-pRb" firstAttribute="leading" secondItem="i7z-GJ-HQm" secondAttribute="leading" id="0Sr-B5-pvl"/>
+                            <constraint firstItem="tGl-bP-pRb" firstAttribute="centerX" secondItem="iaj-W1-qC0" secondAttribute="centerX" id="6tf-S1-LvQ"/>
+                            <constraint firstAttribute="bottom" secondItem="tGl-bP-pRb" secondAttribute="bottom" id="PFo-vP-i6o"/>
+                            <constraint firstItem="tGl-bP-pRb" firstAttribute="top" secondItem="i7z-GJ-HQm" secondAttribute="top" id="bkZ-CE-rIb"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="bbq-eg-xBo">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="kxW-gD-LXI">
+                            <connections>
+                                <action selector="tappedSaveButton" destination="7us-eC-Zr0" id="zLp-5o-XpE"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="sectionTableView" destination="tGl-bP-pRb" id="mED-yj-vXj"/>
+                        <segue destination="qHf-zB-6oR" kind="show" identifier="toQuestion" id="BXW-EN-9oX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yf5-Jt-CFM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4421.739130434783" y="-1333.2589285714284"/>
+        </scene>
         <!--Question View Controller-->
         <scene sceneID="89b-aZ-XKR">
             <objects>
                 <viewController id="qHf-zB-6oR" customClass="QuestionViewController" customModule="Positive" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZQA-Nt-KN4">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gr6-39-Lr3">
-                                <rect key="frame" x="20" y="88" width="374" height="36"/>
+                                <rect key="frame" x="20" y="56" width="374" height="36"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="WUs-yC-5NC">
-                                <rect key="frame" x="20" y="132" width="374" height="681"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="WUs-yC-5NC">
+                                <rect key="frame" x="0.0" y="100" width="414" height="742"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="pXm-zh-8Ba"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="pXm-zh-8Ba" firstAttribute="trailing" secondItem="WUs-yC-5NC" secondAttribute="trailing" constant="20" id="Gtr-xh-tpW"/>
+                            <constraint firstItem="pXm-zh-8Ba" firstAttribute="trailing" secondItem="WUs-yC-5NC" secondAttribute="trailing" id="Gtr-xh-tpW"/>
                             <constraint firstItem="WUs-yC-5NC" firstAttribute="bottom" secondItem="pXm-zh-8Ba" secondAttribute="bottom" id="KRc-7L-8Ic"/>
                             <constraint firstItem="WUs-yC-5NC" firstAttribute="top" secondItem="Gr6-39-Lr3" secondAttribute="bottom" constant="8" symbolic="YES" id="OBZ-fR-PgJ"/>
-                            <constraint firstItem="WUs-yC-5NC" firstAttribute="leading" secondItem="pXm-zh-8Ba" secondAttribute="leading" constant="20" id="YAP-xb-99j"/>
+                            <constraint firstItem="WUs-yC-5NC" firstAttribute="leading" secondItem="pXm-zh-8Ba" secondAttribute="leading" id="YAP-xb-99j"/>
                             <constraint firstItem="Gr6-39-Lr3" firstAttribute="leading" secondItem="pXm-zh-8Ba" secondAttribute="leading" constant="20" id="Zgp-pq-GNg"/>
                             <constraint firstItem="pXm-zh-8Ba" firstAttribute="trailing" secondItem="Gr6-39-Lr3" secondAttribute="trailing" constant="20" id="glh-XP-Cih"/>
                             <constraint firstItem="Gr6-39-Lr3" firstAttribute="top" secondItem="pXm-zh-8Ba" secondAttribute="top" id="u6u-WG-x56"/>
@@ -569,7 +606,28 @@
             </objects>
             <point key="canvasLocation" x="1663.7681159420292" y="-629.46428571428567"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="asX-P1-kvA">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UUt-YI-H8f" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bDL-KJ-ndp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="7us-eC-Zr0" kind="relationship" relationship="rootViewController" id="d8T-a8-xTm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K7u-O5-uwE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3511.594202898551" y="-1333.2589285714284"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="BXW-EN-9oX"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="calendar_icon1x" width="24" height="24"/>
         <image name="calendared_icon1x" width="24" height="24"/>

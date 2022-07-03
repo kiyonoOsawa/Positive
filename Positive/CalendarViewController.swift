@@ -20,8 +20,8 @@ class CalendarViewController: UIViewController {
     
     var data: [Bool] = []
     let fsCalendar = FSCalendar()
-    let db = Firestore.firestore()
-    let user = Auth.auth().currentUser
+//    let db = Firestore.firestore()
+//    let user = Auth.auth().currentUser
     var goal: String = ""
     var viewWidth: CGFloat = 0.0
     

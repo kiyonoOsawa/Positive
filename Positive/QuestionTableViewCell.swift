@@ -11,6 +11,7 @@ class QuestionTableViewCell: UITableViewCell {
     
     @IBOutlet weak var popButton: UIButton!
     @IBOutlet weak var answerField: UITextField!
+    @IBOutlet weak var questionLabel: UILabel!
     weak var delegate: QuestionTableViewCellDelegate?
 
     override func awakeFromNib() {

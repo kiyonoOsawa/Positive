@@ -12,10 +12,11 @@ import FirebaseAuth
 
 class HomeViewController: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var alertButton: UIBarButtonItem!
+    @IBOutlet weak var addItem: UIBarButtonItem!
     @IBOutlet weak var goalListCollectionView: UICollectionView!
     
     let db = Firestore.firestore()
+    let user = Auth.auth().currentUser
     var targets: [[String:Any]] = []
     var viewWidth: CGFloat = 0.0
 
@@ -28,45 +29,18 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
         self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController!.navigationBar.shadowImage = UIImage()
     }
-        
-    @IBAction func selectAlert(_ sender: Any){
-        let alert: UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
-        //textfieldの中身を保存
-        let okAction = UIAlertAction(title: "OK", style: .default){ (UIAlertAction) in
-        }
-        alert.title = "目標"
-        alert.addTextField(configurationHandler: {(textField) -> Void in
-            textField.delegate = self
-        })
-        
-        alert.addAction(
-            UIAlertAction(
-                title: "追加",
-                style: .default,
-                handler: {(action) -> Void in
-                })
-        )
-        alert.addAction(
-            UIAlertAction(
-            title: "キャンセル",
-            style: .cancel,
-            handler: {(action) -> Void in
-            })
-        )
-        self.present(
-                alert,
-                animated: true,
-                completion: {
-                    print("アラートが表示された")
-                })
-    }
-
+    
+//    @IBAction func tappedAddButton() {
+//        let nextView = self.storyboard?.instantiateViewController(identifier: "nextMakeView")
+//        let nav = UINavigationController(rootViewController: nextView!)
+//        present(nav, animated: true, completion: nil)
+//    }
 }
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

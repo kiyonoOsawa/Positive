@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -42,7 +41,6 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemGray4Color"/>
                         <constraints>
                             <constraint firstItem="yBc-R1-MMz" firstAttribute="leading" secondItem="E7I-zb-Ukr" secondAttribute="leading" id="6MX-AD-5sk"/>
                             <constraint firstItem="yBc-R1-MMz" firstAttribute="top" secondItem="E7I-zb-Ukr" secondAttribute="top" id="8o0-Kh-2R9"/>
@@ -72,14 +70,12 @@
             <connections>
                 <outlet property="answerField" destination="XdU-Pg-mtB" id="P4J-Ah-5ef"/>
                 <outlet property="popButton" destination="yBc-R1-MMz" id="xRZ-y3-TSc"/>
+                <outlet property="questionLabel" destination="LK0-ee-bT3" id="yJE-w5-2d3"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="53.90625"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="chevron.down" catalog="system" width="128" height="72"/>
-        <systemColor name="systemGray4Color">
-            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
     </resources>
 </document>
