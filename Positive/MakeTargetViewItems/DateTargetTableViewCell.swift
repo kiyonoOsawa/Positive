@@ -10,10 +10,12 @@ import UIKit
 class DateTargetTableViewCell: UITableViewCell {
     
     @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var label: UILabel!
+    
+    weak var delegate: DateTargetTableViewCellDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         datePicker.preferredDatePickerStyle = .inline
         datePicker.datePickerMode = .date
     }
@@ -21,8 +23,12 @@ class DateTargetTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
+    
+    @IBAction func tapChangeVisibleButton() {
+        delegate?.didTapChangeVisibleButton(cell: self)
+    }
 }
 
 protocol DateTargetTableViewCellDelegate: AnyObject {
-    func didExtendButton(cell: DateTargetTableViewCell)
+    func didTapChangeVisibleButton(cell: DateTargetTableViewCell)
 }

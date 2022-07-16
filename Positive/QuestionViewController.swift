@@ -30,22 +30,12 @@ class QuestionViewController: UIViewController {
         questionTableView.delegate = self
         questionTableView.dataSource = self
         questionTableView.register(UINib(nibName: "QuestionTableViewCell", bundle: nil), forCellReuseIdentifier: "questionCell")
+        navigationItem.title = "Question"
         for _ in 0...numberOfQuestion {
             data.append(false)
         }
 //        updateFireStore()
     }
-    
-//    func updateFireStore() {
-//        let user = user
-//        guard let user = user else { return }
-//        let addData:[String: Any] = ["targets": targets]
-//        db.collection("users")
-//            .document(user.uid)
-//            .collection("target")
-//            .addDocument(data: addData)
-//        print("ここ通った")
-//    }
 }
 
 extension QuestionViewController: QuestionTableViewCellDelegate, UITableViewDelegate, UITableViewDataSource {
@@ -65,6 +55,7 @@ extension QuestionViewController: QuestionTableViewCellDelegate, UITableViewDele
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "questionCell") as! QuestionTableViewCell
         cell.delegate = self
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none
         cell.questionLabel.text = questions[indexPath.row]
         let answer = cell.answerField.text
         return cell
@@ -74,7 +65,7 @@ extension QuestionViewController: QuestionTableViewCellDelegate, UITableViewDele
         if data[indexPath.row] {
                 return 200
             } else {
-                return 68
+                return 56
             }
         return tableView.estimatedRowHeight
     }

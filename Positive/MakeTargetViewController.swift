@@ -16,6 +16,7 @@ class MakeTargetViewController: UIViewController {
     
     let db = Firestore.firestore()
     let user = Auth.auth().currentUser
+    var data: Bool = false
     var addData: [String: Any] = [:]
     var targetCell: MakeTargetTableViewCell!
     var importanceCell: ImportanceTableViewCell!
@@ -47,25 +48,37 @@ class MakeTargetViewController: UIViewController {
     }
 }
 
-extension MakeTargetViewController: UITableViewDelegate, UITableViewDataSource {
+extension MakeTargetViewController: DateTargetTableViewCellDelegate, UITableViewDelegate, UITableViewDataSource {
+    
+    func didTapChangeVisibleButton(cell: DateTargetTableViewCell) {
+        if let indexPath = sectionTableView.indexPath(for: cell) {
+            data.toggle()
+            sectionTableView.reloadRows(at: [indexPath], with: .automatic)
+            print(data)
+        }
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let targetCell = tableView.dequeueReusableCell(withIdentifier: "makeTargetCell") as! MakeTargetTableViewCell
+            targetCell.selectionStyle = UITableViewCell.SelectionStyle.none
             return targetCell
         } else if indexPath.section == 1 {
             let importanceCell = tableView.dequeueReusableCell(withIdentifier: "importanceCell") as! ImportanceTableViewCell
+            importanceCell.selectionStyle = UITableViewCell.SelectionStyle.none
             importanceCell.accessoryType = .none
             return importanceCell
         } else if indexPath.section == 2 {
             let detailCell = tableView.dequeueReusableCell(withIdentifier: "importanceCell") as! ImportanceTableViewCell
+            detailCell.selectionStyle = UITableViewCell.SelectionStyle.none
             detailCell.titleLabel.text = "詳細"
             detailCell.levelStepper.isHidden = true
             return detailCell
         } else {
             let dateCell = tableView.dequeueReusableCell(withIdentifier: "dateTargetCell") as! DateTargetTableViewCell
+            dateCell.selectionStyle = UITableViewCell.SelectionStyle.none
             return dateCell
         }
     }
@@ -87,7 +100,13 @@ extension MakeTargetViewController: UITableViewDelegate, UITableViewDataSource {
         } else if indexPath.section == 2 {
             return 50
         } else {
-            return 380
+            if data {
+                return 380
+            } else {
+                return 50
+            }
+            return tableView.estimatedRowHeight
         }
+//        return tableView.estimatedRowHeight
     }
 }

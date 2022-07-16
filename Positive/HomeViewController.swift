@@ -29,12 +29,6 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
         self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController!.navigationBar.shadowImage = UIImage()
     }
-    
-//    @IBAction func tappedAddButton() {
-//        let nextView = self.storyboard?.instantiateViewController(identifier: "nextMakeView")
-//        let nav = UINavigationController(rootViewController: nextView!)
-//        present(nav, animated: true, completion: nil)
-//    }
 }
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {

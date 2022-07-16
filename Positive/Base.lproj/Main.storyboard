@@ -187,32 +187,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gr6-39-Lr3">
-                                <rect key="frame" x="20" y="56" width="374" height="36"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="WUs-yC-5NC">
-                                <rect key="frame" x="0.0" y="100" width="414" height="742"/>
+                                <rect key="frame" x="0.0" y="56" width="414" height="786"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="pXm-zh-8Ba"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="WUs-yC-5NC" firstAttribute="top" secondItem="pXm-zh-8Ba" secondAttribute="top" id="4b3-Of-zBk"/>
                             <constraint firstItem="pXm-zh-8Ba" firstAttribute="trailing" secondItem="WUs-yC-5NC" secondAttribute="trailing" id="Gtr-xh-tpW"/>
                             <constraint firstItem="WUs-yC-5NC" firstAttribute="bottom" secondItem="pXm-zh-8Ba" secondAttribute="bottom" id="KRc-7L-8Ic"/>
-                            <constraint firstItem="WUs-yC-5NC" firstAttribute="top" secondItem="Gr6-39-Lr3" secondAttribute="bottom" constant="8" symbolic="YES" id="OBZ-fR-PgJ"/>
                             <constraint firstItem="WUs-yC-5NC" firstAttribute="leading" secondItem="pXm-zh-8Ba" secondAttribute="leading" id="YAP-xb-99j"/>
-                            <constraint firstItem="Gr6-39-Lr3" firstAttribute="leading" secondItem="pXm-zh-8Ba" secondAttribute="leading" constant="20" id="Zgp-pq-GNg"/>
-                            <constraint firstItem="pXm-zh-8Ba" firstAttribute="trailing" secondItem="Gr6-39-Lr3" secondAttribute="trailing" constant="20" id="glh-XP-Cih"/>
-                            <constraint firstItem="Gr6-39-Lr3" firstAttribute="top" secondItem="pXm-zh-8Ba" secondAttribute="top" id="u6u-WG-x56"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cbs-Sj-8mR"/>
                     <connections>
-                        <outlet property="goalLabel" destination="Gr6-39-Lr3" id="dkR-X3-szI"/>
                         <outlet property="questionTableView" destination="WUs-yC-5NC" id="sOz-FF-z5q"/>
                     </connections>
                 </viewController>
