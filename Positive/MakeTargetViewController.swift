@@ -17,7 +17,7 @@ class MakeTargetViewController: UIViewController {
     let db = Firestore.firestore()
     let user = Auth.auth().currentUser
     var data: Bool = false
-    var addData: [String: Any] = [:]
+//    var addData: [String: Any] = [:]
     var targetCell: MakeTargetTableViewCell!
     var importanceCell: ImportanceTableViewCell!
     var detailCell: ImportanceTableViewCell!
@@ -34,18 +34,39 @@ class MakeTargetViewController: UIViewController {
     }
     
     @IBAction func tappedSaveButton() {
-        addData = ["goal": targetCell.targetTextField.text,
-                   "importance": importanceCell.levelStepper.value,
-//                   "date": Timestamp(date: dateCell.datePicker.date)
-                   "date": dateCell.datePicker.date
-        ]
+        addQuestion()
+    }
+    
+    private func addQuestion() {
         guard let user = user else {
             return
         }
+//        let convertedDate = dateFormat(date: DateTargetTableViewCell.datePicker.date)
+        let addData: [String:Any] = [
+            "goal": targetCell.targetTextField.text ?? "",
+            "importance": importanceCell.levelStepper.value,
+            "nowTodo": self.person,
+            "fightTodo": self.fightTodo,
+            "essentialThing": self.essentialThing,
+            "trigger": self.trigger,
+            "person": self.person,
+            "review": "review",
+//            "date": convertedDate
+        ]
+        
         db.collection("users")
             .document(user.uid)
             .collection("goals")
             .addDocument(data: addData)
+    }
+    
+    func dateFormat(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.calendar = Calendar(identifier: .gregorian)
+        dateFormatter.locale = Locale(identifier: "ja_JP")
+        dateFormatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
+        dateFormatter.dateFormat = "yyyy/MM/dd"
+        return dateFormatter.string(from: date)
     }
 }
 

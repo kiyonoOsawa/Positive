@@ -42,8 +42,17 @@ class QuestionViewController: UIViewController {
     private func transferValue() {
         let preNC = self.navigationController!
         let preVC = preNC.viewControllers[preNC.viewControllers.count - 2] as! MakeTargetViewController
-//        let firstCell: QuestionTableViewCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! QuestionTableViewCell
-//        preVC.person = firstCell.textField.text ?? ""
+        let firstCell: QuestionTableViewCell = questionTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! QuestionTableViewCell
+        preVC.nowTodo = firstCell.answerField.text ?? ""
+        let secondCell: QuestionTableViewCell = questionTableView.cellForRow(at: IndexPath(row: 1, section: 0)) as! QuestionTableViewCell
+        preVC.fightTodo = secondCell.answerField.text ?? ""
+        let thirdCell: QuestionTableViewCell = questionTableView.cellForRow(at: IndexPath(row: 2, section: 0)) as! QuestionTableViewCell
+        preVC.essentialThing = thirdCell.answerField.text ?? ""
+        let fourthCell: QuestionTableViewCell = questionTableView.cellForRow(at: IndexPath(row: 3, section: 0)) as! QuestionTableViewCell
+        preVC.trigger = fourthCell.answerField.text ?? ""
+        let fifthCell: QuestionTableViewCell = questionTableView.cellForRow(at: IndexPath(row: 4, section: 0)) as! QuestionTableViewCell
+        preVC.person = fifthCell.answerField.text ?? ""
+        
     }
 }
 
