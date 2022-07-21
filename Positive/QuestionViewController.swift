@@ -14,9 +14,7 @@ class QuestionViewController: UIViewController {
     
     @IBOutlet weak var goalLabel: UILabel!
     @IBOutlet weak var questionTableView: UITableView!
-    
-//    let db = Firestore.firestore()
-//    let user = Auth.auth().currentUser
+
     var data: [Bool] = []
     var targets: [[String: Any]] = []
     var answers: [[String: Any]] = []
@@ -31,10 +29,21 @@ class QuestionViewController: UIViewController {
         questionTableView.dataSource = self
         questionTableView.register(UINib(nibName: "QuestionTableViewCell", bundle: nil), forCellReuseIdentifier: "questionCell")
         navigationItem.title = "Question"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "戻る", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.back))
         for _ in 0...numberOfQuestion {
             data.append(false)
         }
-//        updateFireStore()
+    }
+    
+    @objc private func back() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    private func transferValue() {
+        let preNC = self.navigationController!
+        let preVC = preNC.viewControllers[preNC.viewControllers.count - 2] as! MakeTargetViewController
+//        let firstCell: QuestionTableViewCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! QuestionTableViewCell
+//        preVC.person = firstCell.textField.text ?? ""
     }
 }
 

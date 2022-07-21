@@ -50,7 +50,7 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "calTarget", for: indexPath)
-        cell.layer.cornerRadius = 10
+        cell.layer.cornerRadius = 13
         cell.layer.shadowColor = UIColor.black.cgColor
         cell.layer.shadowOpacity = 0.25
         cell.layer.shadowOffset = CGSize(width: 0, height: 0)

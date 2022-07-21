@@ -29,6 +29,13 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
         self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController!.navigationBar.shadowImage = UIImage()
     }
+//
+//    override func viewWillAppear(_ animated: Bool) {
+//        self.targets.append(
+//            ["goal": goal,
+//             "nowTodo": nowTodo
+//        ])
+//    }
 }
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -39,7 +46,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "homeTarget", for: indexPath) as! HomeTargetCollectionViewCell
-        cell.layer.cornerRadius = 10
+        cell.layer.cornerRadius = 15
         cell.layer.shadowColor = UIColor.black.cgColor
         cell.layer.shadowOpacity = 0.25
         cell.layer.shadowOffset = CGSize(width: 0, height: 0)

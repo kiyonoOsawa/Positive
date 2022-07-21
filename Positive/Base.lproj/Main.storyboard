@@ -295,7 +295,6 @@
                             <constraint firstItem="Fur-PU-EDx" firstAttribute="top" secondItem="Puu-g1-pdQ" secondAttribute="top" id="yse-Ei-x8s"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="1" title="Calendar" image="calendar_icon1x" selectedImage="calendared_icon1x" id="1i7-Dk-Fi6"/>
                     <navigationItem key="navigationItem" title="Calendar" id="rsX-c7-1i9"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
@@ -307,7 +306,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o8x-JY-xDt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1663.7681159420292" y="91.741071428571431"/>
+            <point key="canvasLocation" x="2573.913043478261" y="91.741071428571431"/>
         </scene>
         <!--Report Calendar View Controller-->
         <scene sceneID="7Cf-fr-7r8">
@@ -322,7 +321,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a0C-ib-ngk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2487" y="92"/>
+            <point key="canvasLocation" x="3397.1014492753625" y="91.741071428571431"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="bAL-7I-PS2">
@@ -568,7 +567,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="bTv-61-HcM" kind="relationship" relationship="viewControllers" id="QBy-5t-uda"/>
-                        <segue destination="0wV-1f-1dk" kind="relationship" relationship="viewControllers" id="nPy-hm-VNo"/>
+                        <segue destination="qho-vq-CdK" kind="relationship" relationship="viewControllers" id="nPy-hm-VNo"/>
                         <segue destination="i3V-Ua-srT" kind="relationship" relationship="viewControllers" id="AtP-G5-buh"/>
                     </connections>
                 </tabBarController>
@@ -604,6 +603,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bDL-KJ-ndp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" systemColor="systemBackgroundColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -613,6 +613,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K7u-O5-uwE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3511.594202898551" y="-1333.2589285714284"/>
+        </scene>
+        <!--Calendar-->
+        <scene sceneID="VTm-gY-Do3">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qho-vq-CdK" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" tag="1" title="Calendar" image="calendar_icon1x" selectedImage="calendared_icon1x" id="1i7-Dk-Fi6"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="V9t-hJ-287">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0wV-1f-1dk" kind="relationship" relationship="rootViewController" id="puo-KF-2m0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hw2-Hn-oFw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1663.7681159420292" y="91.741071428571431"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

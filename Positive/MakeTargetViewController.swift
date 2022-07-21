@@ -28,7 +28,7 @@ class MakeTargetViewController: UIViewController {
         sectionTableView.register(UINib(nibName: "MakeTargetTableViewCell", bundle: nil), forCellReuseIdentifier: "makeTargetCell")
         sectionTableView.register(UINib(nibName: "ImportanceTableViewCell", bundle: nil), forCellReuseIdentifier: "importanceCell")
         sectionTableView.register(UINib(nibName: "DateTargetTableViewCell", bundle: nil), forCellReuseIdentifier: "dateTargetCell")
-        sectionTableView.delegate = self
+//        dateCell.delegate = self
         sectionTableView.dataSource = self
         navigationItem.title = "New Goal"
     }
@@ -36,7 +36,8 @@ class MakeTargetViewController: UIViewController {
     @IBAction func tappedSaveButton() {
         addData = ["goal": targetCell.targetTextField.text,
                    "importance": importanceCell.levelStepper.value,
-                   "date": Timestamp(date: dateCell.datePicker.date)
+//                   "date": Timestamp(date: dateCell.datePicker.date)
+                   "date": dateCell.datePicker.date
         ]
         guard let user = user else {
             return
@@ -79,6 +80,7 @@ extension MakeTargetViewController: DateTargetTableViewCellDelegate, UITableView
         } else {
             let dateCell = tableView.dequeueReusableCell(withIdentifier: "dateTargetCell") as! DateTargetTableViewCell
             dateCell.selectionStyle = UITableViewCell.SelectionStyle.none
+//            dateCell.delegate = self
             return dateCell
         }
     }

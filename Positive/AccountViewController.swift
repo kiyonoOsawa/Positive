@@ -18,6 +18,7 @@ class AccountViewController: UIViewController {
     @IBOutlet weak var fireLabel: UILabel!
 
     let storageRef = Storage.storage().reference(forURL: "gs://positive-898d1.appspot.com")
+    let user = Auth.auth().currentUser
 
     override func viewDidLoad() {
         super.viewDidLoad()

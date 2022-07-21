@@ -64,8 +64,9 @@ class SignUpViewController: UIViewController {
                 }
             }
             let addData = [
-                "userName": self.userNameField.text!
-            ]
+                "person": self.userNameField.text!,
+                "person": self.userImageButton.imageView
+            ] as [String : Any]
             let db = Firebase.Firestore.firestore()
             db.collection("users")
                 .document(authResult.user.uid)
