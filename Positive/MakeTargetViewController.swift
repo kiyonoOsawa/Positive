@@ -18,15 +18,15 @@ class MakeTargetViewController: UIViewController {
     let user = Auth.auth().currentUser
     var data: Bool = false
     var addData: [String: Any] = [:]
-    var dateCell: DateTargetTableViewCell!
     var targetCell: MakeTargetTableViewCell!
-    var importanceCell: ImportanceTableViewCell!
-    var nowTodo: QuestionTableViewCell!
     var detailCell: ImportanceTableViewCell!
-    var person: QuestionTableViewCell!
-    var fightTodo: QuestionTableViewCell!
-    var essentialThing: QuestionTableViewCell!
-    var trigger: QuestionTableViewCell!
+    var importanceCell: ImportanceTableViewCell!
+    var nowTodo = String()
+    var fightTodo = String()
+    var essentialThing = String()
+    var trigger = String()
+    var person = String()
+    var dateCell: DateTargetTableViewCell!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -113,6 +113,8 @@ extension MakeTargetViewController: DateTargetTableViewCellDelegate, UITableView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 2 {
             self.performSegue(withIdentifier: "toQuestion", sender: nil)
+        } else {
+            return
         }
     }
     

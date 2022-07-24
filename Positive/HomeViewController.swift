@@ -26,12 +26,12 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
         goalListCollectionView.dataSource = self
         goalListCollectionView.register(UINib(nibName: "HomeTargetCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "homeTarget")
         viewWidth = view.frame.width
-        self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController!.navigationBar.shadowImage = UIImage()
         design()
     }
     
     func design() {
+        self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController!.navigationBar.shadowImage = UIImage()
         goalListCollectionView.layer.cornerRadius = 20
         goalListCollectionView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }

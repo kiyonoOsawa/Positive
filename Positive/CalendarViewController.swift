@@ -20,10 +20,13 @@ class CalendarViewController: UIViewController {
     
     var data: [Bool] = []
     let fsCalendar = FSCalendar()
-//    let db = Firestore.firestore()
-//    let user = Auth.auth().currentUser
+    let db = Firestore.firestore()
+    let user = Auth.auth().currentUser
     var goal: String = ""
     var viewWidth: CGFloat = 0.0
+    var addresses: [DetailGoal] = []
+    //addressesにフィルターをかけたものを格納
+    var applicableData: [DetailGoal] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +37,28 @@ class CalendarViewController: UIViewController {
         reportCollectionView.register(UINib(nibName: "CalendarTargetCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "calTarget")
         viewWidth = view.frame.width
         print(data)
+        fetchData()
+    }
+    
+    private func fetchData(){
+        guard let user = user else {
+            return
+        }
+        self.addresses.removeAll()
+        db.collection("users")
+            .document(user.uid)
+            .collection("goals")
+            .addSnapshotListener { QuerySnapshot, Error in
+                guard let querySnapshot = QuerySnapshot else {
+                    print("error: \(Error.debugDescription)")
+                    return
+                }
+                for doc in querySnapshot.documents{
+                    let detailGoal = DetailGoal(dictionary: doc.data())
+                    self.addresses.append(detailGoal)
+                }
+                self.reportCollectionView.reloadData()
+            }
     }
     
     func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
