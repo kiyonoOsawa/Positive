@@ -28,14 +28,13 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
         viewWidth = view.frame.width
         self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController!.navigationBar.shadowImage = UIImage()
+        design()
     }
-//
-//    override func viewWillAppear(_ animated: Bool) {
-//        self.targets.append(
-//            ["goal": goal,
-//             "nowTodo": nowTodo
-//        ])
-//    }
+    
+    func design() {
+        goalListCollectionView.layer.cornerRadius = 20
+        goalListCollectionView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+    }
 }
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -70,6 +69,6 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
+        return UIEdgeInsets(top: 25, left: 0, bottom: 0, right: 0)
     }
 }

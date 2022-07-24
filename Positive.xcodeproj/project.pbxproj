@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0A2F724AABFBAD9DB22B1DCD /* Pods_Positive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD209406F6D8EAB4B1C9C358 /* Pods_Positive.framework */; };
+		CE3E7834288C40A000548FFD /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3E7833288C40A000548FFD /* TabBar.swift */; };
 		CE73D15A2839DF4C00B20D0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE73D1592839DF4C00B20D0D /* AppDelegate.swift */; };
 		CE73D15C2839DF4C00B20D0D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE73D15B2839DF4C00B20D0D /* SceneDelegate.swift */; };
 		CE73D15E2839DF4C00B20D0D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE73D15D2839DF4C00B20D0D /* ViewController.swift */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		C07CA5A68ADB0DFDE8C95F9D /* Pods-Positive.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Positive.release.xcconfig"; path = "Target Support Files/Pods-Positive/Pods-Positive.release.xcconfig"; sourceTree = "<group>"; };
+		CE3E7833288C40A000548FFD /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		CE73D1562839DF4C00B20D0D /* Positive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Positive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE73D1592839DF4C00B20D0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE73D15B2839DF4C00B20D0D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				CE73D15D2839DF4C00B20D0D /* ViewController.swift */,
 				CE80C15628716EF9000646B2 /* Goal.swift */,
 				CEEE82B7284B6A4400732497 /* TabBarViewController.swift */,
+				CE3E7833288C40A000548FFD /* TabBar.swift */,
 				CEEE82B32847A99A00732497 /* SignUpViewController.swift */,
 				CEB475482859220A002654E6 /* LogInViewController.swift */,
 				CE73D16D2839F62600B20D0D /* HomeViewController.swift */,
@@ -309,6 +312,7 @@
 				CEB47556285EF74A002654E6 /* HomeTargetCollectionViewCell.swift in Sources */,
 				CEB4757E28713B11002654E6 /* DateTargetTableViewCell.swift in Sources */,
 				CEB4754B2859F894002654E6 /* AccountViewController.swift in Sources */,
+				CE3E7834288C40A000548FFD /* TabBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -52,7 +52,6 @@ class QuestionViewController: UIViewController {
         preVC.trigger = fourthCell.answerField.text ?? ""
         let fifthCell: QuestionTableViewCell = questionTableView.cellForRow(at: IndexPath(row: 4, section: 0)) as! QuestionTableViewCell
         preVC.person = fifthCell.answerField.text ?? ""
-        
     }
 }
 

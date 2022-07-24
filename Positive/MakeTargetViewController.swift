@@ -17,11 +17,16 @@ class MakeTargetViewController: UIViewController {
     let db = Firestore.firestore()
     let user = Auth.auth().currentUser
     var data: Bool = false
-//    var addData: [String: Any] = [:]
+    var addData: [String: Any] = [:]
+    var dateCell: DateTargetTableViewCell!
     var targetCell: MakeTargetTableViewCell!
     var importanceCell: ImportanceTableViewCell!
+    var nowTodo: QuestionTableViewCell!
     var detailCell: ImportanceTableViewCell!
-    var dateCell: DateTargetTableViewCell!
+    var person: QuestionTableViewCell!
+    var fightTodo: QuestionTableViewCell!
+    var essentialThing: QuestionTableViewCell!
+    var trigger: QuestionTableViewCell!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,17 +46,17 @@ class MakeTargetViewController: UIViewController {
         guard let user = user else {
             return
         }
-//        let convertedDate = dateFormat(date: DateTargetTableViewCell.datePicker.date)
+        let convertedDate = dateFormat(date: dateCell.datePicker.date)
         let addData: [String:Any] = [
             "goal": targetCell.targetTextField.text ?? "",
             "importance": importanceCell.levelStepper.value,
-            "nowTodo": self.person,
+            "nowTodo": self.nowTodo,
             "fightTodo": self.fightTodo,
             "essentialThing": self.essentialThing,
             "trigger": self.trigger,
             "person": self.person,
             "review": "review",
-//            "date": convertedDate
+            "date": convertedDate
         ]
         
         db.collection("users")
