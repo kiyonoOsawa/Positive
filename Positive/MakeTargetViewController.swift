@@ -99,7 +99,7 @@ extension MakeTargetViewController: DateTargetTableViewCellDelegate, UITableView
             return importanceCell
         } else if indexPath.section == 2 {
             let detailCell = tableView.dequeueReusableCell(withIdentifier: "importanceCell") as! ImportanceTableViewCell
-            detailCell.selectionStyle = UITableViewCell.SelectionStyle.none
+//            detailCell.selectionStyle = UITableViewCell.SelectionStyle.none
             detailCell.titleLabel.text = "詳細"
             detailCell.levelStepper.isHidden = true
             return detailCell

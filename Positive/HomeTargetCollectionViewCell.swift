@@ -13,6 +13,7 @@ class HomeTargetCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var miniGoalLabel1: UILabel!
     @IBOutlet weak var miniGoalLabel2: UILabel!
     @IBOutlet weak var miniGoalLabel3: UILabel!
+//    @IBOutlet weak var stepImage: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()

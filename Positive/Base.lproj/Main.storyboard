@@ -135,7 +135,6 @@
                     <connections>
                         <outlet property="addItem" destination="ECc-fo-inF" id="iRa-Td-lsl"/>
                         <outlet property="goalListCollectionView" destination="5RS-59-fCH" id="kFa-R1-1ql"/>
-                        <segue destination="qHf-zB-6oR" kind="show" identifier="toDetailView" id="FbC-9b-JnQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G0M-MF-ffq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -637,9 +636,6 @@
             <point key="canvasLocation" x="1663.7681159420292" y="91.741071428571431"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="BXW-EN-9oX"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="calendar_icon1x" width="24" height="24"/>
         <image name="calendared_icon1x" width="24" height="24"/>
