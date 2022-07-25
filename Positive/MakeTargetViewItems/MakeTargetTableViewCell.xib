@@ -17,13 +17,15 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JdZ-MR-RhH">
-                        <rect key="frame" x="16" y="8" width="288" height="74"/>
+                        <rect key="frame" x="16" y="17.5" width="288" height="55"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="55" id="32X-Nz-egf"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="JdZ-MR-RhH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="BZ8-b7-zs4"/>
                     <constraint firstItem="JdZ-MR-RhH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Gjo-qT-9ju"/>
                     <constraint firstItem="JdZ-MR-RhH" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="IZR-Pn-PZn"/>
                     <constraint firstItem="JdZ-MR-RhH" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="nUO-Z4-zKw"/>

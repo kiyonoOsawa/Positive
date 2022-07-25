@@ -17,40 +17,44 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="終了日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfL-rb-bAA">
-                        <rect key="frame" x="16" y="16" width="52" height="20"/>
+                        <rect key="frame" x="16" y="0.0" width="52" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="aih-Ff-Ey1"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ild-S2-hkX">
-                        <rect key="frame" x="16" y="44" width="288" height="172"/>
+                        <rect key="frame" x="16" y="50" width="288" height="166"/>
                     </datePicker>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cys-Rh-uwp">
-                        <rect key="frame" x="253" y="0.0" width="67" height="50"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="kBq-P8-STu"/>
                         </constraints>
                         <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain"/>
                         <connections>
-                            <action selector="tapChangeVisibleButton" destination="KGk-i7-Jjw" eventType="touchUpInside" id="167-Rc-eYl"/>
+                            <action selector="tapChangeVisibleButton" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Ypv-pu-k7D"/>
                         </connections>
                     </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Ild-S2-hkX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="0qJ-Uz-Jyb"/>
-                    <constraint firstItem="Ild-S2-hkX" firstAttribute="top" secondItem="tfL-rb-bAA" secondAttribute="bottom" constant="8" id="2Qy-Nu-onO"/>
+                    <constraint firstItem="Ild-S2-hkX" firstAttribute="top" secondItem="tfL-rb-bAA" secondAttribute="bottom" id="2Qy-Nu-onO"/>
                     <constraint firstItem="Ild-S2-hkX" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="DCq-m3-uYA"/>
                     <constraint firstAttribute="trailing" secondItem="Cys-Rh-uwp" secondAttribute="trailing" id="E1f-T8-kXX"/>
-                    <constraint firstItem="tfL-rb-bAA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="Q3D-6R-jto"/>
+                    <constraint firstItem="tfL-rb-bAA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Q3D-6R-jto"/>
                     <constraint firstItem="tfL-rb-bAA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="WVi-dT-dY3"/>
+                    <constraint firstItem="Cys-Rh-uwp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="dLp-AB-4GB"/>
                     <constraint firstAttribute="bottom" secondItem="Ild-S2-hkX" secondAttribute="bottom" id="jMy-47-I06"/>
                     <constraint firstItem="Cys-Rh-uwp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="wgh-uZ-bzI"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="datePicker" destination="Ild-S2-hkX" id="D5C-JL-TPS"/>
+                <outlet property="datePicker" destination="Ild-S2-hkX" id="5z0-cF-GaT"/>
                 <outlet property="label" destination="tfL-rb-bAA" id="Dqn-7L-nS9"/>
             </connections>
             <point key="canvasLocation" x="144.92753623188406" y="141.29464285714286"/>

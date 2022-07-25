@@ -35,6 +35,7 @@ class MakeTargetViewController: UIViewController {
         sectionTableView.register(UINib(nibName: "DateTargetTableViewCell", bundle: nil), forCellReuseIdentifier: "dateTargetCell")
 //        dateCell.delegate = self
         sectionTableView.dataSource = self
+        sectionTableView.delegate = self
         navigationItem.title = "New Goal"
     }
     
@@ -105,14 +106,15 @@ extension MakeTargetViewController: DateTargetTableViewCellDelegate, UITableView
             return detailCell
         } else {
             let dateCell = tableView.dequeueReusableCell(withIdentifier: "dateTargetCell") as! DateTargetTableViewCell
-            dateCell.selectionStyle = UITableViewCell.SelectionStyle.none
-//            dateCell.delegate = self
+//            dateCell.selectionStyle = UITableViewCell.SelectionStyle.none
+            dateCell.delegate = self
             return dateCell
         }
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 2 {
             self.performSegue(withIdentifier: "toQuestion", sender: nil)
+            print("画面遷移")
         } else {
             return
         }

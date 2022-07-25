@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0A2F724AABFBAD9DB22B1DCD /* Pods_Positive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD209406F6D8EAB4B1C9C358 /* Pods_Positive.framework */; };
+		CE0595FA288E82950066E327 /* ShareCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0595F8288E82950066E327 /* ShareCollectionViewCell.swift */; };
+		CE0595FB288E82950066E327 /* ShareCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE0595F9288E82950066E327 /* ShareCollectionViewCell.xib */; };
 		CE3E7834288C40A000548FFD /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3E7833288C40A000548FFD /* TabBar.swift */; };
 		CE73D15A2839DF4C00B20D0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE73D1592839DF4C00B20D0D /* AppDelegate.swift */; };
 		CE73D15C2839DF4C00B20D0D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE73D15B2839DF4C00B20D0D /* SceneDelegate.swift */; };
@@ -42,13 +44,15 @@
 
 /* Begin PBXFileReference section */
 		C07CA5A68ADB0DFDE8C95F9D /* Pods-Positive.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Positive.release.xcconfig"; path = "Target Support Files/Pods-Positive/Pods-Positive.release.xcconfig"; sourceTree = "<group>"; };
+		CE0595F8288E82950066E327 /* ShareCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareCollectionViewCell.swift; sourceTree = "<group>"; };
+		CE0595F9288E82950066E327 /* ShareCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShareCollectionViewCell.xib; sourceTree = "<group>"; };
 		CE3E7833288C40A000548FFD /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		CE73D1562839DF4C00B20D0D /* Positive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Positive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE73D1592839DF4C00B20D0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE73D15B2839DF4C00B20D0D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CE73D15D2839DF4C00B20D0D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CE73D1602839DF4C00B20D0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		CE73D1622839DF4E00B20D0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CE73D1622839DF4E00B20D0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = /Users/oosawakiyono/Desktop/Positive/Positive/Assets.xcassets; sourceTree = "<absolute>"; };
 		CE73D1652839DF4E00B20D0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE73D1672839DF4E00B20D0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE73D16D2839F62600B20D0D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -158,6 +162,8 @@
 				CE73D15F2839DF4C00B20D0D /* Main.storyboard */,
 				CE73D1622839DF4E00B20D0D /* Assets.xcassets */,
 				CE6488E0287169DD0054408F /* MakeTargetViewItems */,
+				CE0595F8288E82950066E327 /* ShareCollectionViewCell.swift */,
+				CE0595F9288E82950066E327 /* ShareCollectionViewCell.xib */,
 				CEB47560285F6981002654E6 /* QuestionTableViewCell.swift */,
 				CEB47561285F6981002654E6 /* QuestionTableViewCell.xib */,
 				CEB47564286B499C002654E6 /* CalendarTargetCollectionViewCell.swift */,
@@ -238,6 +244,7 @@
 				CEB47567286B499C002654E6 /* CalendarTargetCollectionViewCell.xib in Resources */,
 				CEB4757328713863002654E6 /* MakeTargetTableViewCell.xib in Resources */,
 				CEB4757F28713B11002654E6 /* DateTargetTableViewCell.xib in Resources */,
+				CE0595FB288E82950066E327 /* ShareCollectionViewCell.xib in Resources */,
 				CEEE82BA284B911600732497 /* GoogleService-Info.plist in Resources */,
 				CEB47563285F6981002654E6 /* QuestionTableViewCell.xib in Resources */,
 				CE73D1612839DF4C00B20D0D /* Main.storyboard in Resources */,
@@ -300,6 +307,7 @@
 				CE73D1702839F8AE00B20D0D /* CalendarViewController.swift in Sources */,
 				CEB4756B28713450002654E6 /* MakeTargetViewController.swift in Sources */,
 				CEB47566286B499C002654E6 /* CalendarTargetCollectionViewCell.swift in Sources */,
+				CE0595FA288E82950066E327 /* ShareCollectionViewCell.swift in Sources */,
 				CEB4755B285F65CD002654E6 /* QuestionViewController.swift in Sources */,
 				CE73D15E2839DF4C00B20D0D /* ViewController.swift in Sources */,
 				CEB47569286B559E002654E6 /* ReportCalendarViewController.swift in Sources */,

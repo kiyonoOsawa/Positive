@@ -40,15 +40,24 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vmz-Jx-OBE">
+                        <rect key="frame" x="226" y="45" width="70" height="70"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="70" id="1yy-8a-OeA"/>
+                            <constraint firstAttribute="height" constant="70" id="dDn-VE-nmW"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="d4Y-1y-0kK" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="6Vm-Ek-vmx"/>
+                <constraint firstItem="Vmz-Jx-OBE" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="HMg-LF-2ND"/>
                 <constraint firstItem="r6e-Me-xYy" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="24" id="V1a-pf-tlT"/>
                 <constraint firstItem="o84-LC-sht" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="24" id="ZQ5-Io-gi2"/>
                 <constraint firstItem="o84-LC-sht" firstAttribute="top" secondItem="d4Y-1y-0kK" secondAttribute="bottom" constant="8" id="cbJ-d1-yZ3"/>
+                <constraint firstAttribute="trailing" secondItem="Vmz-Jx-OBE" secondAttribute="trailing" constant="24" id="jIc-hp-Bud"/>
                 <constraint firstItem="d4Y-1y-0kK" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="njv-Yl-dHd"/>
                 <constraint firstItem="BYG-zN-lhM" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="24" id="wHm-wH-hU1"/>
                 <constraint firstItem="BYG-zN-lhM" firstAttribute="top" secondItem="o84-LC-sht" secondAttribute="bottom" constant="8" id="xbk-WK-eBD"/>
@@ -60,6 +69,7 @@
                 <outlet property="miniGoalLabel1" destination="o84-LC-sht" id="7oZ-ZQ-oPx"/>
                 <outlet property="miniGoalLabel2" destination="BYG-zN-lhM" id="NXa-C3-tR3"/>
                 <outlet property="miniGoalLabel3" destination="r6e-Me-xYy" id="4Kl-m4-LbV"/>
+                <outlet property="stepImage" destination="Vmz-Jx-OBE" id="2fi-xk-YZ8"/>
             </connections>
             <point key="canvasLocation" x="263.768115942029" y="77.678571428571431"/>
         </collectionViewCell>

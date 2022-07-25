@@ -17,6 +17,7 @@ class CalendarViewController: UIViewController {
     @IBOutlet weak var segmentBar: UISegmentedControl!
     @IBOutlet weak var reportCollectionView: UICollectionView!
     @IBOutlet weak var calendarHeight: NSLayoutConstraint!
+    @IBOutlet weak var backView: UIView!
     
     var data: [Bool] = []
     let fsCalendar = FSCalendar()
@@ -38,6 +39,7 @@ class CalendarViewController: UIViewController {
         viewWidth = view.frame.width
         print(data)
         fetchData()
+        design()
     }
     
     private func fetchData(){
@@ -65,6 +67,12 @@ class CalendarViewController: UIViewController {
             calendarHeight.constant = bounds.height
             self.view.layoutIfNeeded()
     }
+    
+    func design() {
+//        UINavigationBar.appearance().barTintColor = UIColor(named: "MainColor")
+        backView.layer.cornerRadius = 20
+        backView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+    }
 }
 
 extension CalendarViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
@@ -86,7 +94,7 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let space: CGFloat = 56
         let cellWidth: CGFloat = viewWidth - space
-        let cellHeight: CGFloat = 110
+        let cellHeight: CGFloat = 98
         return CGSize(width: cellWidth, height: cellHeight)
     }
     

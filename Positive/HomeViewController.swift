@@ -19,6 +19,8 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
     let user = Auth.auth().currentUser
     var targets: [[String:Any]] = []
     var viewWidth: CGFloat = 0.0
+    var addresses: [DetailGoal] = []
+    var applicableData: [DetailGoal] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +29,27 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
         goalListCollectionView.register(UINib(nibName: "HomeTargetCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "homeTarget")
         viewWidth = view.frame.width
         design()
+    }
+    
+    private func fetchData() {
+        guard let user = user else {
+            return
+        }
+        self.addresses.removeAll()
+        db.collection("users")
+            .document(user.uid)
+            .collection("goals")
+            .addSnapshotListener { QuerySnapshot, Error in
+                guard let querySnapShot = QuerySnapshot else {
+                    print("error: \(Error.debugDescription)")
+                    return
+                }
+                for doc in querySnapShot.documents {
+                    let detailGoal = DetailGoal(dictionary: doc.data())
+                    self.addresses.append(detailGoal)
+                }
+                self.goalListCollectionView.reloadData()
+            }
     }
     
     func design() {
@@ -40,7 +63,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return addresses.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -50,7 +73,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         cell.layer.shadowOpacity = 0.25
         cell.layer.shadowOffset = CGSize(width: 0, height: 0)
         cell.layer.masksToBounds = false
-//        cell.stepImage.image = UIImage(named: "step_now")
+        cell.stepImage.image = UIImage(named: "step_now")
         return cell
     }
     
