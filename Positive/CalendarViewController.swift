@@ -85,7 +85,7 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "calTarget", for: indexPath)
         cell.layer.cornerRadius = 13
         cell.layer.shadowColor = UIColor.black.cgColor
-        cell.layer.shadowOpacity = 0.25
+        cell.layer.shadowOpacity = 0.2
         cell.layer.shadowOffset = CGSize(width: 0, height: 0)
         cell.layer.masksToBounds = false
         return cell
@@ -99,10 +99,10 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 20
+        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
+        return UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
     }
 }
