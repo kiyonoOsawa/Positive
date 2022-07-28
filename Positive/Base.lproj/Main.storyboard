@@ -46,7 +46,7 @@
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BcW-Of-rnM"/>
-                        <color key="backgroundColor" name="MainColor"/>
+                        <color key="backgroundColor" red="0.46274509803921571" green="0.49019607843137253" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="4Iu-mh-Wwg" firstAttribute="leading" secondItem="BcW-Of-rnM" secondAttribute="leading" id="0L4-Xp-22B"/>
                             <constraint firstItem="u9K-fF-Oab" firstAttribute="top" secondItem="BcW-Of-rnM" secondAttribute="top" constant="11" id="7Nu-2l-z4H"/>
@@ -148,7 +148,7 @@
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="P6b-ac-Ypj"/>
-                        <color key="backgroundColor" name="MainColor"/>
+                        <color key="backgroundColor" red="0.46274509803921571" green="0.49019607843137253" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="5RS-59-fCH" firstAttribute="leading" secondItem="P6b-ac-Ypj" secondAttribute="leading" id="22K-Dh-5Oo"/>
                             <constraint firstAttribute="bottom" secondItem="5RS-59-fCH" secondAttribute="bottom" id="EQK-dz-CC3"/>
@@ -208,7 +208,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yf5-Jt-CFM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4421.739130434783" y="-1333.2589285714284"/>
+            <point key="canvasLocation" x="4297" y="-629"/>
         </scene>
         <!--Question View Controller-->
         <scene sceneID="89b-aZ-XKR">
@@ -239,7 +239,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e2w-D6-rlP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3511.594202898551" y="-629.46428571428567"/>
+            <point key="canvasLocation" x="5157" y="-629"/>
         </scene>
         <!--Calendar View Controller-->
         <scene sceneID="01S-XP-ahf">
@@ -320,7 +320,7 @@
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Puu-g1-pdQ"/>
-                        <color key="backgroundColor" name="MainColor"/>
+                        <color key="backgroundColor" red="0.46274509803921571" green="0.49019607843137253" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="DKW-Jz-UvK" firstAttribute="leading" secondItem="Puu-g1-pdQ" secondAttribute="leading" id="09H-IC-lHQ"/>
                             <constraint firstItem="jZb-vQ-g1s" firstAttribute="leading" secondItem="Puu-g1-pdQ" secondAttribute="leading" id="0Ml-WH-H0N"/>
@@ -462,7 +462,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kko-A8-IB0">
                                 <rect key="frame" x="131" y="600" width="152" height="48"/>
-                                <color key="backgroundColor" name="MainColor"/>
+                                <color key="backgroundColor" red="0.46274509803921571" green="0.49019607843137253" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="152" id="HH9-cl-YHK"/>
                                     <constraint firstAttribute="height" constant="48" id="sbU-yZ-bdR"/>
@@ -574,7 +574,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mz3-8H-vzy">
                                 <rect key="frame" x="131" y="592" width="152" height="48"/>
-                                <color key="backgroundColor" name="MainColor"/>
+                                <color key="backgroundColor" red="0.46274509803921571" green="0.49019607843137253" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="drn-B4-AId"/>
                                     <constraint firstAttribute="width" constant="152" id="wPm-RO-ih9"/>
@@ -681,7 +681,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K7u-O5-uwE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3511.594202898551" y="-1333.2589285714284"/>
+            <point key="canvasLocation" x="3396" y="-629"/>
         </scene>
         <!--Calendar-->
         <scene sceneID="VTm-gY-Do3">

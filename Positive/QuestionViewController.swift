@@ -17,7 +17,7 @@ class QuestionViewController: UIViewController {
 
     var data: [Bool] = []
     var targets: [[String: Any]] = []
-    var answers: [[String: Any]] = []
+    var answers: [String] = []
     let questions: [String] = ["今すぐにできることは？","頑張ればできることは？", "このために必要なモノ・コトは？", "きっかけは？", "具体的にどんな人？"]
     
     fileprivate let cellHeight: CGFloat = 30
@@ -74,7 +74,10 @@ extension QuestionViewController: QuestionTableViewCellDelegate, UITableViewDele
         cell.delegate = self
         cell.selectionStyle = UITableViewCell.SelectionStyle.none
         cell.questionLabel.text = questions[indexPath.row]
-        let answer = cell.answerField.text
+        if indexPath.row == 0 {
+//            cell.answerField = nowTodo
+        }
+//        let answer = cell.answerField.text
         return cell
     }
     

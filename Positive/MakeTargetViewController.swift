@@ -85,9 +85,6 @@ extension MakeTargetViewController: DateTargetTableViewCellDelegate, UITableView
         }
     }
     
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return 1
-//    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
