@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u9K-fF-Oab">
-                                <rect key="frame" x="359" y="59" width="35" height="35"/>
+                                <rect key="frame" x="359" y="55" width="35" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="35" id="18R-o0-uMP"/>
                                     <constraint firstAttribute="height" constant="35" id="5zR-uM-AQD"/>
@@ -34,7 +34,7 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4Iu-mh-Wwg">
-                                <rect key="frame" x="0.0" y="102" width="414" height="794"/>
+                                <rect key="frame" x="0.0" y="98" width="414" height="798"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jqa-Qq-BNt">
                                     <size key="itemSize" width="128" height="128"/>
@@ -49,22 +49,23 @@
                         <color key="backgroundColor" name="MainColor"/>
                         <constraints>
                             <constraint firstItem="4Iu-mh-Wwg" firstAttribute="leading" secondItem="BcW-Of-rnM" secondAttribute="leading" id="0L4-Xp-22B"/>
-                            <constraint firstItem="u9K-fF-Oab" firstAttribute="top" secondItem="BcW-Of-rnM" secondAttribute="top" constant="15" id="7Nu-2l-z4H"/>
+                            <constraint firstItem="u9K-fF-Oab" firstAttribute="top" secondItem="BcW-Of-rnM" secondAttribute="top" constant="11" id="7Nu-2l-z4H"/>
+                            <constraint firstItem="4Iu-mh-Wwg" firstAttribute="top" secondItem="u9K-fF-Oab" secondAttribute="bottom" constant="8" id="I8i-jT-Wgw"/>
                             <constraint firstItem="4Iu-mh-Wwg" firstAttribute="trailing" secondItem="BcW-Of-rnM" secondAttribute="trailing" id="MDp-Zw-Svs"/>
                             <constraint firstItem="BcW-Of-rnM" firstAttribute="trailing" secondItem="u9K-fF-Oab" secondAttribute="trailing" constant="20" id="YNt-EJ-3El"/>
-                            <constraint firstItem="4Iu-mh-Wwg" firstAttribute="top" secondItem="u9K-fF-Oab" secondAttribute="bottom" constant="8" symbolic="YES" id="thR-Vl-e8V"/>
                             <constraint firstAttribute="bottom" secondItem="4Iu-mh-Wwg" secondAttribute="bottom" id="ttB-oT-Wdj"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="acc_1x" selectedImage="acced_1x" id="hbP-Mg-bUI"/>
                     <navigationItem key="navigationItem" title="Profile" id="pUJ-YZ-uX6"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="shareCollectionView" destination="4Iu-mh-Wwg" id="FHm-qu-9pQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kvf-e6-YqM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1663.7681159420292" y="822.99107142857144"/>
+            <point key="canvasLocation" x="1664" y="1559"/>
         </scene>
         <!--Account View Controller-->
         <scene sceneID="VcU-XZ-Eyi">
@@ -124,7 +125,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GiT-dI-Sqk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2574" y="823"/>
+            <point key="canvasLocation" x="2574" y="1559"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="7tl-0Q-aEC">
@@ -240,7 +241,7 @@
             </objects>
             <point key="canvasLocation" x="3511.594202898551" y="-629.46428571428567"/>
         </scene>
-        <!--Calendar-->
+        <!--Calendar View Controller-->
         <scene sceneID="01S-XP-ahf">
             <objects>
                 <viewController storyboardIdentifier="targetVC" id="0wV-1f-1dk" customClass="CalendarViewController" customModule="Positive" customModuleProvider="target" sceneMemberID="viewController">
@@ -297,11 +298,14 @@
                                 </connections>
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xwU-dS-3W9">
-                                <rect key="frame" x="141.5" y="438" width="131" height="32"/>
+                                <rect key="frame" x="143.5" y="438" width="127" height="32"/>
                                 <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
+                                    <segment title="Target"/>
+                                    <segment title="Review"/>
                                 </segments>
+                                <connections>
+                                    <action selector="tapSegmentControll:" destination="0wV-1f-1dk" eventType="touchUpInside" id="Jd0-CX-9Qe"/>
+                                </connections>
                             </segmentedControl>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DKW-Jz-UvK">
                                 <rect key="frame" x="0.0" y="474" width="414" height="422"/>
@@ -333,7 +337,7 @@
                             <constraint firstItem="Fur-PU-EDx" firstAttribute="top" secondItem="Puu-g1-pdQ" secondAttribute="top" constant="15" id="yse-Ei-x8s"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Calendar" id="rsX-c7-1i9"/>
+                    <navigationItem key="navigationItem" id="rsX-c7-1i9"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="backView" destination="jZb-vQ-g1s" id="eh9-ya-uad"/>
@@ -346,6 +350,29 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o8x-JY-xDt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2573.913043478261" y="91.741071428571431"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Gl2-W0-SBl">
+            <objects>
+                <viewController id="5A2-sW-cAp" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EJP-Ta-H4E">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5hq-qt-oEZ">
+                                <rect key="frame" x="20" y="152" width="374" height="343"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="aqw-CU-f0v"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYb-xl-0P4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3395.652173913044" y="811.60714285714278"/>
         </scene>
         <!--Report Calendar View Controller-->
         <scene sceneID="7Cf-fr-7r8">
@@ -665,7 +692,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="V9t-hJ-287">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" name="MainColor"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>

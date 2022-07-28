@@ -9,7 +9,9 @@ import UIKit
 
 class CalendarTargetCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var bigTargetLabel: UILabel!
     @IBOutlet weak var miniTargetLabel: UILabel!
+    @IBOutlet weak var textLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

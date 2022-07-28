@@ -11,6 +11,11 @@ import Firebase
 import FirebaseFirestore
 import FirebaseAuth
 
+enum SegmentState {
+    case affirmation
+    case record
+}
+
 class CalendarViewController: UIViewController {
     
     @IBOutlet weak var calendarView: FSCalendar!
@@ -24,10 +29,11 @@ class CalendarViewController: UIViewController {
     let db = Firestore.firestore()
     let user = Auth.auth().currentUser
     var goal: String = ""
-    var viewWidth: CGFloat = 0.0
     var addresses: [DetailGoal] = []
     //addressesにフィルターをかけたものを格納
     var applicableData: [DetailGoal] = []
+    var segmentState: SegmentState? = .affirmation
+    var viewWidth: CGFloat = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,36 +69,70 @@ class CalendarViewController: UIViewController {
             }
     }
     
-    func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
-            calendarHeight.constant = bounds.height
-            self.view.layoutIfNeeded()
+    func dateFormat(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.calendar = Calendar(identifier: .gregorian)
+        dateFormatter.locale = Locale(identifier: "ja_JP")
+        dateFormatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
+        dateFormatter.dateFormat = "yyyy/M/d"
+        return dateFormatter.string(from: date)
+    }
+    
+    @IBAction func tapSegmentControll(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            segmentState = .affirmation
+            reportCollectionView.reloadData()
+            break
+        case 1:
+            segmentState = .record
+            reportCollectionView.reloadData()
+            break
+        default:
+            break
+        }
     }
     
     func design() {
-//        UINavigationBar.appearance().barTintColor = UIColor(named: "MainColor")
         backView.layer.cornerRadius = 20
         backView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
 }
 
-extension CalendarViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+extension CalendarViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 8
+        return applicableData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "calTarget", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "reportCell", for: indexPath) as! CalendarTargetCollectionViewCell
         cell.layer.cornerRadius = 13
         cell.layer.shadowColor = UIColor.black.cgColor
         cell.layer.shadowOpacity = 0.2
         cell.layer.shadowOffset = CGSize(width: 0, height: 0)
         cell.layer.masksToBounds = false
+        cell.bigTargetLabel.text = applicableData[indexPath.row].goal
+        switch segmentState {
+        case .affirmation:
+            cell.miniTargetLabel.text = applicableData[indexPath.row].essentialThing
+            break
+        case .record:
+            cell.miniTargetLabel.text = applicableData[indexPath.row].review
+            if cell.miniTargetLabel.text == nil {
+                cell.textLabel.text = ""
+            } else {
+                cell.textLabel.text = "振り返り"
+            }
+            break
+        default:
+            break
+        }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let space: CGFloat = 56
+        let space: CGFloat = 32
         let cellWidth: CGFloat = viewWidth - space
         let cellHeight: CGFloat = 98
         return CGSize(width: cellWidth, height: cellHeight)
@@ -104,5 +144,20 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
+    }
+}
+
+extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource {
+    
+    func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
+        calendarHeight.constant = bounds.height
+        self.view.layoutIfNeeded()
+    }
+    
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        let calendarDate = dateFormat(date: date)
+        applicableData.removeAll()
+        applicableData = addresses.filter({$0.date == calendarDate})
+        reportCollectionView.reloadData()
     }
 }

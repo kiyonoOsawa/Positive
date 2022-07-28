@@ -47,7 +47,7 @@ class MakeTargetViewController: UIViewController {
         guard let user = user else {
             return
         }
-        let convertedDate = dateFormat(date: dateCell.datePicker.date)
+//        let convertedDate = dateFormat(date: dateCell.datePicker.date)
         let addData: [String:Any] = [
             "goal": targetCell.targetTextField.text ?? "",
             "importance": importanceCell.levelStepper.value,
@@ -56,10 +56,9 @@ class MakeTargetViewController: UIViewController {
             "essentialThing": self.essentialThing,
             "trigger": self.trigger,
             "person": self.person,
-            "review": "review",
-            "date": convertedDate
+            "review": "review"
+//            "date": convertedDate
         ]
-        
         db.collection("users")
             .document(user.uid)
             .collection("goals")
@@ -85,9 +84,14 @@ extension MakeTargetViewController: DateTargetTableViewCellDelegate, UITableView
             print(data)
         }
     }
+    
+//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return 1
+//    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let targetCell = tableView.dequeueReusableCell(withIdentifier: "makeTargetCell") as! MakeTargetTableViewCell
@@ -111,6 +115,7 @@ extension MakeTargetViewController: DateTargetTableViewCellDelegate, UITableView
             return dateCell
         }
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 2 {
             self.performSegue(withIdentifier: "toQuestion", sender: nil)
@@ -123,10 +128,10 @@ extension MakeTargetViewController: DateTargetTableViewCellDelegate, UITableView
     func numberOfSections(in tableView: UITableView) -> Int {
         return 4
     }
-
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
-            return 60
+            return 50
         } else if indexPath.section == 1 {
             return 50
         } else if indexPath.section == 2 {
@@ -139,6 +144,5 @@ extension MakeTargetViewController: DateTargetTableViewCellDelegate, UITableView
             }
             return tableView.estimatedRowHeight
         }
-//        return tableView.estimatedRowHeight
     }
 }

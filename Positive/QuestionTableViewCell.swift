@@ -16,9 +16,20 @@ class QuestionTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        design()
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
+    
+    func design() {
+        answerField.layer.cornerRadius = 15
+        let leftPadding = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+        answerField.inputView = leftPadding
+        answerField.leftViewMode = .always
+//        answerField.topAnchor = .alwa
+//        answerField.padding(.top)
+//        answerField.frame(alignm)
     }
     
     @IBAction func tappedQuestionCell() {

@@ -19,6 +19,12 @@ class ShareViewController: UIViewController {
         shareCollectionView.delegate = self
         shareCollectionView.register(UINib(nibName: "ShareCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "shareCell")
         viewWidth = view.frame.width
+        design()
+    }
+    
+    func design() {
+        shareCollectionView.layer.cornerRadius = 20
+        shareCollectionView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
 }
 
@@ -39,9 +45,9 @@ extension ShareViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let space: CGFloat = 56
+        let space: CGFloat = 40
         let cellWidth: CGFloat = viewWidth - space
-        let cellHeight: CGFloat = 160
+        let cellHeight: CGFloat = 96
         return CGSize(width: cellWidth, height: cellHeight)
     }
     

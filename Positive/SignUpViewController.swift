@@ -31,7 +31,6 @@ class SignUpViewController: UIViewController {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
         imagePickerController.allowsEditing = true
-        
         self.present(imagePickerController, animated: true, completion: nil)
     }
     
