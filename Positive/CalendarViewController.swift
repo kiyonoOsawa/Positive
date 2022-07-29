@@ -23,6 +23,7 @@ class CalendarViewController: UIViewController {
     @IBOutlet weak var reportCollectionView: UICollectionView!
     @IBOutlet weak var calendarHeight: NSLayoutConstraint!
     @IBOutlet weak var backView: UIView!
+    @IBOutlet weak var reviewButton: UIButton!
     
     var data: [Bool] = []
     let fsCalendar = FSCalendar()
@@ -30,8 +31,7 @@ class CalendarViewController: UIViewController {
     let user = Auth.auth().currentUser
     var goal: String = ""
     var addresses: [DetailGoal] = []
-    //addressesにフィルターをかけたものを格納
-    var applicableData: [DetailGoal] = []
+    var applicableData: [DetailGoal] = []         //addressesにフィルターをかけたものを格納
     var segmentState: SegmentState? = .affirmation
     var viewWidth: CGFloat = 0.0
     
@@ -81,6 +81,7 @@ class CalendarViewController: UIViewController {
     @IBAction func tapSegmentControll(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
+            reviewButton.isHidden = true
             segmentState = .affirmation
             reportCollectionView.reloadData()
             break
@@ -96,6 +97,11 @@ class CalendarViewController: UIViewController {
     func design() {
         backView.layer.cornerRadius = 20
         backView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        reviewButton.layer.cornerRadius = 32
+        reviewButton.layer.shadowColor = UIColor.black.cgColor
+        reviewButton.layer.shadowOpacity = 0.15
+        reviewButton.layer.shadowOffset = CGSize(width: 0, height: 0)
+        reviewButton.layer.masksToBounds = false
     }
 }
 

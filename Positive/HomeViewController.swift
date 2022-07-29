@@ -17,10 +17,10 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
     
     let db = Firestore.firestore()
     let user = Auth.auth().currentUser
-    var targets: [[String:Any]] = []
+//    var targets: [[String:Any]] = []
     var viewWidth: CGFloat = 0.0
     var addresses: [DetailGoal] = []
-    var applicableData: [DetailGoal] = []
+//    var applicableData: [DetailGoal] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -318,6 +318,16 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7GM-nT-e6Y">
+                                <rect key="frame" x="330" y="729" width="64" height="64"/>
+                                <color key="backgroundColor" red="0.46274509800000002" green="0.49019607840000001" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="2sQ-qa-gqk"/>
+                                    <constraint firstAttribute="width" constant="64" id="xAh-KM-Cph"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Puu-g1-pdQ"/>
                         <color key="backgroundColor" red="0.46274509803921571" green="0.49019607843137253" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -330,8 +340,10 @@
                             <constraint firstItem="jZb-vQ-g1s" firstAttribute="trailing" secondItem="Puu-g1-pdQ" secondAttribute="trailing" id="Ww2-mh-IkF"/>
                             <constraint firstItem="Puu-g1-pdQ" firstAttribute="trailing" secondItem="Fur-PU-EDx" secondAttribute="trailing" constant="20" id="hgb-TU-cMu"/>
                             <constraint firstItem="Fur-PU-EDx" firstAttribute="leading" secondItem="Puu-g1-pdQ" secondAttribute="leading" constant="20" id="kuf-2k-Mqo"/>
+                            <constraint firstItem="Puu-g1-pdQ" firstAttribute="trailing" secondItem="7GM-nT-e6Y" secondAttribute="trailing" constant="20" id="nBp-gD-t6v"/>
                             <constraint firstAttribute="bottom" secondItem="jZb-vQ-g1s" secondAttribute="bottom" id="pD2-G2-LCf"/>
                             <constraint firstItem="DKW-Jz-UvK" firstAttribute="top" secondItem="xwU-dS-3W9" secondAttribute="bottom" constant="5" id="qZQ-Aq-oLb"/>
+                            <constraint firstItem="7GM-nT-e6Y" firstAttribute="bottom" secondItem="Puu-g1-pdQ" secondAttribute="bottom" constant="-20" id="qg3-cO-1xb"/>
                             <constraint firstItem="xwU-dS-3W9" firstAttribute="top" secondItem="Fur-PU-EDx" secondAttribute="bottom" constant="5" id="sEj-jy-Pn2"/>
                             <constraint firstAttribute="bottom" secondItem="DKW-Jz-UvK" secondAttribute="bottom" id="str-E5-L6C"/>
                             <constraint firstItem="Fur-PU-EDx" firstAttribute="top" secondItem="Puu-g1-pdQ" secondAttribute="top" constant="15" id="yse-Ei-x8s"/>
@@ -344,6 +356,7 @@
                         <outlet property="calendarHeight" destination="Fur-PU-EDx" id="ec0-fC-rjb"/>
                         <outlet property="calendarView" destination="Fur-PU-EDx" id="pUH-ZB-5cB"/>
                         <outlet property="reportCollectionView" destination="DKW-Jz-UvK" id="YPw-nT-hfZ"/>
+                        <outlet property="reviewButton" destination="7GM-nT-e6Y" id="yhe-un-z0w"/>
                         <outlet property="segmentBar" destination="xwU-dS-3W9" id="Pk8-89-kKV"/>
                     </connections>
                 </viewController>

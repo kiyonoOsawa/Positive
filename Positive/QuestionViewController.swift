@@ -37,6 +37,7 @@ class QuestionViewController: UIViewController {
     
     @objc private func back() {
         self.navigationController?.popViewController(animated: true)
+        transferValue()
     }
     
     private func transferValue() {
