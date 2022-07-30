@@ -17,7 +17,9 @@ class QuestionViewController: UIViewController {
 
     var data: [Bool] = []
     var targets: [[String: Any]] = []
-    var answers: [String] = []
+    var answers: [DetailGoal] = []
+    let user = Auth.auth().currentUser
+    let db = Firestore.firestore()
     let questions: [String] = ["今すぐにできることは？","頑張ればできることは？", "このために必要なモノ・コトは？", "きっかけは？", "具体的にどんな人？"]
     
     fileprivate let cellHeight: CGFloat = 30
@@ -36,8 +38,8 @@ class QuestionViewController: UIViewController {
     }
     
     @objc private func back() {
-        self.navigationController?.popViewController(animated: true)
         transferValue()
+        self.navigationController?.popViewController(animated: true)
     }
     
     private func transferValue() {
@@ -53,6 +55,27 @@ class QuestionViewController: UIViewController {
         preVC.trigger = fourthCell.answerField.text ?? ""
         let fifthCell: QuestionTableViewCell = questionTableView.cellForRow(at: IndexPath(row: 4, section: 0)) as! QuestionTableViewCell
         preVC.person = fifthCell.answerField.text ?? ""
+    }
+    
+    private func fetchData() {
+        guard let user = user else {
+            return
+        }
+        self.answers.removeAll()
+        db.collection("users")
+            .document(user.uid)
+            .collection("goals")
+            .addSnapshotListener { QuerySnapshot, Error in
+                guard let querySnapshot = QuerySnapshot else {
+                    print("error: \(Error.debugDescription)")
+                    return
+                }
+                for doc in querySnapshot.documents{
+                    let detailGoal = DetailGoal(dictionary: doc.data())
+                    self.answers.append(detailGoal)
+                }
+                self.questionTableView.reloadData()
+            }
     }
 }
 
@@ -75,10 +98,19 @@ extension QuestionViewController: QuestionTableViewCellDelegate, UITableViewDele
         cell.delegate = self
         cell.selectionStyle = UITableViewCell.SelectionStyle.none
         cell.questionLabel.text = questions[indexPath.row]
-        if indexPath.row == 0 {
-//            cell.answerField = nowTodo
-        }
-//        let answer = cell.answerField.text
+//        let detailData = answers.
+//        cell.answerField.text = answers[indexPath.row].
+//        if indexPath.row == 0 {
+//            cell.answerField.text = answers[indexPath.row].nowTodo
+//        } else if indexPath.row == 1 {
+//            cell.answerField.text = answers[indexPath.row].fightTodo
+//        } else if indexPath.row == 2 {
+//            cell.answerField.text = answers[indexPath.row].essentialThing
+//        } else if indexPath.row == 3 {
+//            cell.answerField.text = answers[indexPath.row].trigger
+//        } else if indexPath.row == 4 {
+//            cell.answerField.text = answers[indexPath.row].person
+//        }
         return cell
     }
     

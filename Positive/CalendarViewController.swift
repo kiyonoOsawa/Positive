@@ -108,6 +108,7 @@ class CalendarViewController: UIViewController {
 extension CalendarViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        //        return 1
         return applicableData.count
     }
     
