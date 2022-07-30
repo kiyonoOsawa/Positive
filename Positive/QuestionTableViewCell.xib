@@ -51,7 +51,7 @@
                             <constraint firstAttribute="trailing" secondItem="yBc-R1-MMz" secondAttribute="trailing" id="xCF-O6-KZH"/>
                         </constraints>
                     </view>
-                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XdU-Pg-mtB">
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XdU-Pg-mtB">
                         <rect key="frame" x="16" y="63" width="288" height="119"/>
                         <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>

@@ -20,6 +20,7 @@
 		CE73D16E2839F62600B20D0D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE73D16D2839F62600B20D0D /* HomeViewController.swift */; };
 		CE73D1702839F8AE00B20D0D /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE73D16F2839F8AE00B20D0D /* CalendarViewController.swift */; };
 		CE80C15728716EF9000646B2 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80C15628716EF9000646B2 /* Goal.swift */; };
+		CEACDF50289571AF0005F4A6 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEACDF4F289571AF0005F4A6 /* ReviewViewController.swift */; };
 		CEB475492859220A002654E6 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB475482859220A002654E6 /* LogInViewController.swift */; };
 		CEB4754B2859F894002654E6 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB4754A2859F894002654E6 /* AccountViewController.swift */; };
 		CEB47556285EF74A002654E6 /* HomeTargetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB47554285EF74A002654E6 /* HomeTargetCollectionViewCell.swift */; };
@@ -59,6 +60,7 @@
 		CE73D16D2839F62600B20D0D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CE73D16F2839F8AE00B20D0D /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		CE80C15628716EF9000646B2 /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
+		CEACDF4F289571AF0005F4A6 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		CEB475482859220A002654E6 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		CEB4754A2859F894002654E6 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		CEB47554285EF74A002654E6 /* HomeTargetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTargetCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				CEB4756A28713450002654E6 /* MakeTargetViewController.swift */,
 				CE73D16F2839F8AE00B20D0D /* CalendarViewController.swift */,
 				CEB47568286B559E002654E6 /* ReportCalendarViewController.swift */,
+				CEACDF4F289571AF0005F4A6 /* ReviewViewController.swift */,
 				CEF21594288ED36900E71E5C /* ShareViewController.swift */,
 				CEB4754A2859F894002654E6 /* AccountViewController.swift */,
 				CE73D15F2839DF4C00B20D0D /* Main.storyboard */,
@@ -303,6 +306,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEACDF50289571AF0005F4A6 /* ReviewViewController.swift in Sources */,
 				CEB4757628713986002654E6 /* ImportanceTableViewCell.swift in Sources */,
 				CEB4757228713863002654E6 /* MakeTargetTableViewCell.swift in Sources */,
 				CEEE82B8284B6A4400732497 /* TabBarViewController.swift in Sources */,

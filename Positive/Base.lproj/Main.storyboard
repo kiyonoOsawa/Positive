@@ -327,6 +327,9 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain"/>
+                                <connections>
+                                    <segue destination="Q3V-M2-vus" kind="modal" id="Q0V-5t-Ah9"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Puu-g1-pdQ"/>
@@ -364,28 +367,45 @@
             </objects>
             <point key="canvasLocation" x="2573.913043478261" y="91.741071428571431"/>
         </scene>
-        <!--View Controller-->
+        <!--Review View Controller-->
         <scene sceneID="Gl2-W0-SBl">
             <objects>
-                <viewController id="5A2-sW-cAp" sceneMemberID="viewController">
+                <viewController id="5A2-sW-cAp" customClass="ReviewViewController" customModule="Positive" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EJP-Ta-H4E">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5hq-qt-oEZ">
-                                <rect key="frame" x="20" y="152" width="374" height="343"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5hq-qt-oEZ">
+                                <rect key="frame" x="20" y="76" width="374" height="320"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="320" id="CGB-ZR-mrl"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aqw-CU-f0v"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="aqw-CU-f0v" firstAttribute="trailing" secondItem="5hq-qt-oEZ" secondAttribute="trailing" constant="20" id="OAl-y2-kEQ"/>
+                            <constraint firstItem="5hq-qt-oEZ" firstAttribute="top" secondItem="aqw-CU-f0v" secondAttribute="top" constant="20" id="ST9-nV-38c"/>
+                            <constraint firstItem="5hq-qt-oEZ" firstAttribute="leading" secondItem="aqw-CU-f0v" secondAttribute="leading" constant="20" id="Vao-L2-VRL"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="g2C-4L-cPn">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="1W6-B6-ExA">
+                            <connections>
+                                <action selector="tappedSave" destination="5A2-sW-cAp" id="ZzO-zb-bQ4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="reviewTextField" destination="5hq-qt-oEZ" id="WfH-E8-ivd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYb-xl-0P4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3395.652173913044" y="811.60714285714278"/>
+            <point key="canvasLocation" x="4305.7971014492759" y="811.60714285714278"/>
         </scene>
         <!--Report Calendar View Controller-->
         <scene sceneID="7Cf-fr-7r8">
@@ -717,6 +737,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hw2-Hn-oFw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1663.7681159420292" y="91.741071428571431"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="cFW-Jz-BB5">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Q3V-M2-vus" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fUt-Hv-4v7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="5A2-sW-cAp" kind="relationship" relationship="rootViewController" id="mul-RU-Wdj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gXE-AC-wz4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3395.652173913044" y="811.60714285714278"/>
         </scene>
     </scenes>
     <resources>
