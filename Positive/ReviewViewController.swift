@@ -11,9 +11,11 @@ class ReviewViewController: UIViewController {
     
 //    @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var reviewTextField: UITextField!
+    @IBOutlet weak var targetPickerView: UIPickerView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        design()
     }
     
     @IBAction func tappedSave() {
@@ -22,6 +24,7 @@ class ReviewViewController: UIViewController {
     
     func design() {
         reviewTextField.layer.cornerRadius = 15
-//        reviewTextField.background
+        reviewTextField.placeholder = "Review..."
+//        reviewTextField.backgroundColor = UIColor.black
     }
 }

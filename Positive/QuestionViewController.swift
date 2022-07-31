@@ -98,6 +98,7 @@ extension QuestionViewController: QuestionTableViewCellDelegate, UITableViewDele
         cell.delegate = self
         cell.selectionStyle = UITableViewCell.SelectionStyle.none
         cell.questionLabel.text = questions[indexPath.row]
+        cell.answerField.placeholder = "Input..."
 //        let detailData = answers.
 //        cell.answerField.text = answers[indexPath.row].
 //        if indexPath.row == 0 {

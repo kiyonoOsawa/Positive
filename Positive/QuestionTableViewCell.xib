@@ -52,20 +52,28 @@
                         </constraints>
                     </view>
                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XdU-Pg-mtB">
-                        <rect key="frame" x="16" y="63" width="288" height="119"/>
+                        <rect key="frame" x="16" y="71" width="288" height="111"/>
                         <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="txQ-OB-sTc">
+                        <rect key="frame" x="16" y="63" width="288" height="119"/>
+                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="XdU-Pg-mtB" firstAttribute="top" secondItem="E7I-zb-Ukr" secondAttribute="bottom" constant="12" id="03V-hV-C8f"/>
+                    <constraint firstItem="XdU-Pg-mtB" firstAttribute="top" secondItem="E7I-zb-Ukr" secondAttribute="bottom" constant="20" id="03V-hV-C8f"/>
                     <constraint firstAttribute="trailing" secondItem="XdU-Pg-mtB" secondAttribute="trailing" constant="16" id="2F8-SK-AB4"/>
+                    <constraint firstItem="txQ-OB-sTc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="83j-Lk-cRb"/>
+                    <constraint firstAttribute="bottom" secondItem="txQ-OB-sTc" secondAttribute="bottom" constant="8" id="Lbh-dx-5RQ"/>
                     <constraint firstItem="XdU-Pg-mtB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="NDJ-Dr-kIn"/>
                     <constraint firstAttribute="trailing" secondItem="E7I-zb-Ukr" secondAttribute="trailing" id="TPg-mK-IJV"/>
                     <constraint firstItem="E7I-zb-Ukr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Uu5-0h-cQz"/>
                     <constraint firstItem="E7I-zb-Ukr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="h5x-n4-L41"/>
                     <constraint firstAttribute="bottom" secondItem="XdU-Pg-mtB" secondAttribute="bottom" constant="8" id="hHD-OV-jYc"/>
+                    <constraint firstItem="txQ-OB-sTc" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="xzs-QI-NmA"/>
+                    <constraint firstItem="txQ-OB-sTc" firstAttribute="top" secondItem="E7I-zb-Ukr" secondAttribute="bottom" constant="12" id="y4g-Sf-kkx"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

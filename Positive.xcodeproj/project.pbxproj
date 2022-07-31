@@ -21,6 +21,12 @@
 		CE73D1702839F8AE00B20D0D /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE73D16F2839F8AE00B20D0D /* CalendarViewController.swift */; };
 		CE80C15728716EF9000646B2 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80C15628716EF9000646B2 /* Goal.swift */; };
 		CEACDF50289571AF0005F4A6 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEACDF4F289571AF0005F4A6 /* ReviewViewController.swift */; };
+		CEAE56B028962D00002DBEA2 /* MyTargetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAE56AE28962D00002DBEA2 /* MyTargetTableViewCell.swift */; };
+		CEAE56B128962D00002DBEA2 /* MyTargetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEAE56AF28962D00002DBEA2 /* MyTargetTableViewCell.xib */; };
+		CEAE56B42896BC91002DBEA2 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAE56B22896BC91002DBEA2 /* HomeTableViewCell.swift */; };
+		CEAE56B52896BC91002DBEA2 /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEAE56B32896BC91002DBEA2 /* HomeTableViewCell.xib */; };
+		CEAE56B82896BF88002DBEA2 /* FriendsTargetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAE56B62896BF88002DBEA2 /* FriendsTargetTableViewCell.swift */; };
+		CEAE56B92896BF88002DBEA2 /* FriendsTargetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEAE56B72896BF88002DBEA2 /* FriendsTargetTableViewCell.xib */; };
 		CEB475492859220A002654E6 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB475482859220A002654E6 /* LogInViewController.swift */; };
 		CEB4754B2859F894002654E6 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB4754A2859F894002654E6 /* AccountViewController.swift */; };
 		CEB47556285EF74A002654E6 /* HomeTargetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB47554285EF74A002654E6 /* HomeTargetCollectionViewCell.swift */; };
@@ -30,7 +36,6 @@
 		CEB47563285F6981002654E6 /* QuestionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEB47561285F6981002654E6 /* QuestionTableViewCell.xib */; };
 		CEB47566286B499C002654E6 /* CalendarTargetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB47564286B499C002654E6 /* CalendarTargetCollectionViewCell.swift */; };
 		CEB47567286B499C002654E6 /* CalendarTargetCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEB47565286B499C002654E6 /* CalendarTargetCollectionViewCell.xib */; };
-		CEB47569286B559E002654E6 /* ReportCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB47568286B559E002654E6 /* ReportCalendarViewController.swift */; };
 		CEB4756B28713450002654E6 /* MakeTargetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB4756A28713450002654E6 /* MakeTargetViewController.swift */; };
 		CEB4757228713863002654E6 /* MakeTargetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB4757028713863002654E6 /* MakeTargetTableViewCell.swift */; };
 		CEB4757328713863002654E6 /* MakeTargetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEB4757128713863002654E6 /* MakeTargetTableViewCell.xib */; };
@@ -61,6 +66,12 @@
 		CE73D16F2839F8AE00B20D0D /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		CE80C15628716EF9000646B2 /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		CEACDF4F289571AF0005F4A6 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
+		CEAE56AE28962D00002DBEA2 /* MyTargetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTargetTableViewCell.swift; sourceTree = "<group>"; };
+		CEAE56AF28962D00002DBEA2 /* MyTargetTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyTargetTableViewCell.xib; sourceTree = "<group>"; };
+		CEAE56B22896BC91002DBEA2 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		CEAE56B32896BC91002DBEA2 /* HomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
+		CEAE56B62896BF88002DBEA2 /* FriendsTargetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTargetTableViewCell.swift; sourceTree = "<group>"; };
+		CEAE56B72896BF88002DBEA2 /* FriendsTargetTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendsTargetTableViewCell.xib; sourceTree = "<group>"; };
 		CEB475482859220A002654E6 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		CEB4754A2859F894002654E6 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		CEB47554285EF74A002654E6 /* HomeTargetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTargetCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -70,7 +81,6 @@
 		CEB47561285F6981002654E6 /* QuestionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionTableViewCell.xib; sourceTree = "<group>"; };
 		CEB47564286B499C002654E6 /* CalendarTargetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTargetCollectionViewCell.swift; sourceTree = "<group>"; };
 		CEB47565286B499C002654E6 /* CalendarTargetCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarTargetCollectionViewCell.xib; sourceTree = "<group>"; };
-		CEB47568286B559E002654E6 /* ReportCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCalendarViewController.swift; sourceTree = "<group>"; };
 		CEB4756A28713450002654E6 /* MakeTargetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeTargetViewController.swift; sourceTree = "<group>"; };
 		CEB4757028713863002654E6 /* MakeTargetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeTargetTableViewCell.swift; sourceTree = "<group>"; };
 		CEB4757128713863002654E6 /* MakeTargetTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MakeTargetTableViewCell.xib; sourceTree = "<group>"; };
@@ -161,7 +171,6 @@
 				CEB4755A285F65CD002654E6 /* QuestionViewController.swift */,
 				CEB4756A28713450002654E6 /* MakeTargetViewController.swift */,
 				CE73D16F2839F8AE00B20D0D /* CalendarViewController.swift */,
-				CEB47568286B559E002654E6 /* ReportCalendarViewController.swift */,
 				CEACDF4F289571AF0005F4A6 /* ReviewViewController.swift */,
 				CEF21594288ED36900E71E5C /* ShareViewController.swift */,
 				CEB4754A2859F894002654E6 /* AccountViewController.swift */,
@@ -170,6 +179,12 @@
 				CE6488E0287169DD0054408F /* MakeTargetViewItems */,
 				CE0595F8288E82950066E327 /* ShareCollectionViewCell.swift */,
 				CE0595F9288E82950066E327 /* ShareCollectionViewCell.xib */,
+				CEAE56AE28962D00002DBEA2 /* MyTargetTableViewCell.swift */,
+				CEAE56AF28962D00002DBEA2 /* MyTargetTableViewCell.xib */,
+				CEAE56B22896BC91002DBEA2 /* HomeTableViewCell.swift */,
+				CEAE56B32896BC91002DBEA2 /* HomeTableViewCell.xib */,
+				CEAE56B62896BF88002DBEA2 /* FriendsTargetTableViewCell.swift */,
+				CEAE56B72896BF88002DBEA2 /* FriendsTargetTableViewCell.xib */,
 				CEB47560285F6981002654E6 /* QuestionTableViewCell.swift */,
 				CEB47561285F6981002654E6 /* QuestionTableViewCell.xib */,
 				CEB47564286B499C002654E6 /* CalendarTargetCollectionViewCell.swift */,
@@ -245,11 +260,14 @@
 			files = (
 				CEB4757728713986002654E6 /* ImportanceTableViewCell.xib in Resources */,
 				CE73D1662839DF4E00B20D0D /* LaunchScreen.storyboard in Resources */,
+				CEAE56B128962D00002DBEA2 /* MyTargetTableViewCell.xib in Resources */,
 				CE73D1632839DF4E00B20D0D /* Assets.xcassets in Resources */,
 				CEB47557285EF74A002654E6 /* HomeTargetCollectionViewCell.xib in Resources */,
 				CEB47567286B499C002654E6 /* CalendarTargetCollectionViewCell.xib in Resources */,
 				CEB4757328713863002654E6 /* MakeTargetTableViewCell.xib in Resources */,
 				CEB4757F28713B11002654E6 /* DateTargetTableViewCell.xib in Resources */,
+				CEAE56B92896BF88002DBEA2 /* FriendsTargetTableViewCell.xib in Resources */,
+				CEAE56B52896BC91002DBEA2 /* HomeTableViewCell.xib in Resources */,
 				CE0595FB288E82950066E327 /* ShareCollectionViewCell.xib in Resources */,
 				CEEE82BA284B911600732497 /* GoogleService-Info.plist in Resources */,
 				CEB47563285F6981002654E6 /* QuestionTableViewCell.xib in Resources */,
@@ -307,23 +325,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEACDF50289571AF0005F4A6 /* ReviewViewController.swift in Sources */,
+				CEAE56B028962D00002DBEA2 /* MyTargetTableViewCell.swift in Sources */,
 				CEB4757628713986002654E6 /* ImportanceTableViewCell.swift in Sources */,
 				CEB4757228713863002654E6 /* MakeTargetTableViewCell.swift in Sources */,
 				CEEE82B8284B6A4400732497 /* TabBarViewController.swift in Sources */,
 				CEB47562285F6981002654E6 /* QuestionTableViewCell.swift in Sources */,
+				CEAE56B42896BC91002DBEA2 /* HomeTableViewCell.swift in Sources */,
 				CE73D1702839F8AE00B20D0D /* CalendarViewController.swift in Sources */,
 				CEB4756B28713450002654E6 /* MakeTargetViewController.swift in Sources */,
 				CEB47566286B499C002654E6 /* CalendarTargetCollectionViewCell.swift in Sources */,
 				CE0595FA288E82950066E327 /* ShareCollectionViewCell.swift in Sources */,
 				CEB4755B285F65CD002654E6 /* QuestionViewController.swift in Sources */,
 				CE73D15E2839DF4C00B20D0D /* ViewController.swift in Sources */,
-				CEB47569286B559E002654E6 /* ReportCalendarViewController.swift in Sources */,
 				CEEE82B42847A99A00732497 /* SignUpViewController.swift in Sources */,
 				CEF21595288ED36900E71E5C /* ShareViewController.swift in Sources */,
 				CE73D15A2839DF4C00B20D0D /* AppDelegate.swift in Sources */,
 				CE73D15C2839DF4C00B20D0D /* SceneDelegate.swift in Sources */,
 				CEB475492859220A002654E6 /* LogInViewController.swift in Sources */,
 				CE80C15728716EF9000646B2 /* Goal.swift in Sources */,
+				CEAE56B82896BF88002DBEA2 /* FriendsTargetTableViewCell.swift in Sources */,
 				CE73D16E2839F62600B20D0D /* HomeViewController.swift in Sources */,
 				CEB47556285EF74A002654E6 /* HomeTargetCollectionViewCell.swift in Sources */,
 				CEB4757E28713B11002654E6 /* DateTargetTableViewCell.swift in Sources */,

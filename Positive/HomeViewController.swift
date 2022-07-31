@@ -13,21 +13,23 @@ import FirebaseAuth
 class HomeViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var addItem: UIBarButtonItem!
-    @IBOutlet weak var goalListCollectionView: UICollectionView!
+    @IBOutlet weak var backTableView: UITableView!
+    //    @IBOutlet weak var goalListCollectionView: UICollectionView!
     
     let db = Firestore.firestore()
     let user = Auth.auth().currentUser
-//    var targets: [[String:Any]] = []
+    //    var targets: [[String:Any]] = []
     var viewWidth: CGFloat = 0.0
     var addresses: [DetailGoal] = []
-//    var applicableData: [DetailGoal] = []
-
+    //    var applicableData: [DetailGoal] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        goalListCollectionView.delegate = self
-        goalListCollectionView.dataSource = self
-        goalListCollectionView.register(UINib(nibName: "HomeTargetCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "homeTarget")
-        viewWidth = view.frame.width
+        backTableView.delegate = self
+        backTableView.dataSource = self
+        //        goalListCollectionView.register(UINib(nibName: "HomeTargetCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "homeTarget")
+        //        viewWidth = view.frame.width
+        backTableView.register(UINib(nibName: "MyTargetTableViewCell", bundle: nil), forCellReuseIdentifier: "targetTable")
         design()
     }
     
@@ -48,51 +50,61 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
                     let detailGoal = DetailGoal(dictionary: doc.data())
                     self.addresses.append(detailGoal)
                 }
-                self.goalListCollectionView.reloadData()
+                self.backTableView.reloadData()
             }
     }
     
     func design() {
         self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController!.navigationBar.shadowImage = UIImage()
-        goalListCollectionView.layer.cornerRadius = 20
-        goalListCollectionView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        //        goalListCollectionView.layer.cornerRadius = 20
+        backTableView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
 }
 
-extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return addresses.count
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 1 {
+            return 3
+        } else {
+            return 1
+        }
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "homeTarget", for: indexPath) as! HomeTargetCollectionViewCell
-        cell.layer.cornerRadius = 15
-        cell.layer.shadowColor = UIColor.black.cgColor
-        cell.layer.shadowOpacity = 0.25
-        cell.layer.shadowOffset = CGSize(width: 0, height: 0)
-        cell.layer.masksToBounds = false
-        cell.stepImage.image = UIImage(named: "step_now")
-        return cell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.section == 0 {
+            let myTarget = tableView.dequeueReusableCell(withIdentifier: "targetTable") as! MyTargetTableViewCell
+            return myTarget
+        } else if indexPath.section == 1 {
+            if indexPath.row == 0 {
+                let reviewCell = tableView.dequeueReusableCell(withIdentifier: "variusCell") as! HomeTableViewCell
+                reviewCell.titleLabel.text = "Review"
+                return reviewCell
+            } else if indexPath.row == 1 {
+                let levelCell = tableView.dequeueReusableCell(withIdentifier: "variusCell") as! HomeTableViewCell
+                levelCell.titleLabel.text = "Level"
+                return levelCell
+            } else {
+                let finishCell = tableView.dequeueReusableCell(withIdentifier: "variusCell") as! HomeTableViewCell
+                finishCell.titleLabel.text = "Finish Targets"
+                return finishCell
+            }
+        } else {
+            let friendTarget = tableView.dequeueReusableCell(withIdentifier: "friendsTarget") as! FriendsTargetTableViewCell
+            return friendTarget
+        }
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let space: CGFloat = 56
-        let cellWidth: CGFloat = viewWidth - space
-        let cellHeight: CGFloat = 160
-        return CGSize(width: cellWidth, height: cellHeight)
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 3
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "nextMakeView", sender: nil)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 20
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 25, left: 0, bottom: 0, right: 0)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            self.performSegue(withIdentifier: "nextMakeView", sender: nil)
+        } else {
+            return
+        }
     }
 }
