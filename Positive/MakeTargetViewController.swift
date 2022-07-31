@@ -18,9 +18,9 @@ class MakeTargetViewController: UIViewController {
     let user = Auth.auth().currentUser
     var data: Bool = false
     var addData: [String: Any] = [:]
-    var targetCell: MakeTargetTableViewCell!
-    var detailCell: ImportanceTableViewCell!
-    var importanceCell: ImportanceTableViewCell!
+    var targetCell = MakeTargetTableViewCell()
+    var detailCell = ImportanceTableViewCell()
+    var importanceCell = ImportanceTableViewCell()
     var nowTodo = String()
     var fightTodo = String()
     var essentialThing = String()
@@ -47,7 +47,7 @@ class MakeTargetViewController: UIViewController {
         guard let user = user else {
             return
         }
-//        let convertedDate = dateFormat(date: dateCell.datePicker.date)
+        let convertedDate = dateFormat(date: dateCell.datePicker.date)
         let addData: [String:Any] = [
             "goal": targetCell.targetTextField.text ?? "",
             "importance": importanceCell.levelStepper.value,
@@ -56,8 +56,8 @@ class MakeTargetViewController: UIViewController {
             "essentialThing": self.essentialThing,
             "trigger": self.trigger,
             "person": self.person,
-            "review": "review"
-//            "date": convertedDate
+            "review": "review",
+            "date": convertedDate
         ]
         db.collection("users")
             .document(user.uid)
@@ -91,22 +91,22 @@ extension MakeTargetViewController: DateTargetTableViewCellDelegate, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            let targetCell = tableView.dequeueReusableCell(withIdentifier: "makeTargetCell") as! MakeTargetTableViewCell
+            targetCell = tableView.dequeueReusableCell(withIdentifier: "makeTargetCell") as! MakeTargetTableViewCell
             targetCell.selectionStyle = UITableViewCell.SelectionStyle.none
             return targetCell
         } else if indexPath.section == 1 {
-            let importanceCell = tableView.dequeueReusableCell(withIdentifier: "importanceCell") as! ImportanceTableViewCell
+            importanceCell = tableView.dequeueReusableCell(withIdentifier: "importanceCell") as! ImportanceTableViewCell
             importanceCell.selectionStyle = UITableViewCell.SelectionStyle.none
             importanceCell.accessoryType = .none
             return importanceCell
         } else if indexPath.section == 2 {
-            let detailCell = tableView.dequeueReusableCell(withIdentifier: "importanceCell") as! ImportanceTableViewCell
+            detailCell = tableView.dequeueReusableCell(withIdentifier: "importanceCell") as! ImportanceTableViewCell
             detailCell.selectionStyle = UITableViewCell.SelectionStyle.none
             detailCell.titleLabel.text = "詳細"
             detailCell.levelStepper.isHidden = true
             return detailCell
         } else {
-            let dateCell = tableView.dequeueReusableCell(withIdentifier: "dateTargetCell") as! DateTargetTableViewCell
+            dateCell = tableView.dequeueReusableCell(withIdentifier: "dateTargetCell") as! DateTargetTableViewCell
             dateCell.selectionStyle = UITableViewCell.SelectionStyle.none
             dateCell.delegate = self
             return dateCell
