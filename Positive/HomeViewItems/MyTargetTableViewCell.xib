@@ -10,17 +10,17 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendsTarget" rowHeight="157" id="KGk-i7-Jjw" customClass="FriendsTargetTableViewCell" customModule="Positive" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="157"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OuterCell" rowHeight="195" id="KGk-i7-Jjw" customClass="MyTargetTableViewCell" customModule="Positive" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="195"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="157"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="195"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="5OI-NM-mu6">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="157"/>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="PsZ-jY-RA6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="195"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="MfR-jj-FwP">
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vJG-Ka-Yre">
                             <size key="itemSize" width="128" height="128"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -29,17 +29,17 @@
                     </collectionView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="5OI-NM-mu6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="DOh-XK-OS3"/>
-                    <constraint firstItem="5OI-NM-mu6" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="KRa-2s-nVb"/>
-                    <constraint firstItem="5OI-NM-mu6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="RcQ-0U-p7B"/>
-                    <constraint firstAttribute="bottom" secondItem="5OI-NM-mu6" secondAttribute="bottom" id="n7x-lt-hjx"/>
+                    <constraint firstAttribute="trailing" secondItem="PsZ-jY-RA6" secondAttribute="trailing" id="Au6-O8-QB9"/>
+                    <constraint firstItem="PsZ-jY-RA6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="D6l-dQ-sJW"/>
+                    <constraint firstItem="PsZ-jY-RA6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="N6o-yc-TTY"/>
+                    <constraint firstAttribute="bottom" secondItem="PsZ-jY-RA6" secondAttribute="bottom" id="uwC-zR-tu9"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="friendsTargetCollection" destination="5OI-NM-mu6" id="9xx-Y5-yE7"/>
+                <outlet property="myTargetCollectionView" destination="PsZ-jY-RA6" id="aS0-FQ-xL7"/>
             </connections>
-            <point key="canvasLocation" x="137.68115942028987" y="107.47767857142857"/>
+            <point key="canvasLocation" x="137.68115942028987" y="120.20089285714285"/>
         </tableViewCell>
     </objects>
     <resources>
