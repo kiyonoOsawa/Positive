@@ -41,7 +41,7 @@ class CalendarViewController: UIViewController {
         calendarView.textInputMode?.accessibilityFrame.size
         reportCollectionView.dataSource = self
         reportCollectionView.delegate = self
-        reportCollectionView.register(UINib(nibName: "CalendarTargetCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "calTarget")
+        reportCollectionView.register(UINib(nibName: "CalendarTargetCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "reportCell")
         viewWidth = view.frame.width
         print(data)
         fetchData()
@@ -74,7 +74,7 @@ class CalendarViewController: UIViewController {
         dateFormatter.calendar = Calendar(identifier: .gregorian)
         dateFormatter.locale = Locale(identifier: "ja_JP")
         dateFormatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
-        dateFormatter.dateFormat = "yyyy/M/d"
+        dateFormatter.dateFormat = "yyyy/MM/dd"
         return dateFormatter.string(from: date)
     }
     
@@ -86,6 +86,7 @@ class CalendarViewController: UIViewController {
             reportCollectionView.reloadData()
             break
         case 1:
+            reviewButton.isHidden = false
             segmentState = .record
             reportCollectionView.reloadData()
             break
@@ -102,6 +103,9 @@ class CalendarViewController: UIViewController {
         reviewButton.layer.shadowOpacity = 0.15
         reviewButton.layer.shadowOffset = CGSize(width: 0, height: 0)
         reviewButton.layer.masksToBounds = false
+        reviewButton.imageView?.contentMode = .scaleAspectFill
+        reviewButton.contentHorizontalAlignment = .fill
+        reviewButton.contentVerticalAlignment = .fill
     }
 }
 

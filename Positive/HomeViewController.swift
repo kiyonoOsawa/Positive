@@ -14,21 +14,16 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var addItem: UIBarButtonItem!
     @IBOutlet weak var backTableView: UITableView!
-    //    @IBOutlet weak var goalListCollectionView: UICollectionView!
     
     let db = Firestore.firestore()
     let user = Auth.auth().currentUser
-    //    var targets: [[String:Any]] = []
     var viewWidth: CGFloat = 0.0
     var addresses: [DetailGoal] = []
-    //    var applicableData: [DetailGoal] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         backTableView.delegate = self
         backTableView.dataSource = self
-        //        goalListCollectionView.register(UINib(nibName: "HomeTargetCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "homeTarget")
-        //        viewWidth = view.frame.width
         backTableView.register(UINib(nibName: "MyTargetTableViewCell", bundle: nil), forCellReuseIdentifier: "OuterCell")
         backTableView.register(UINib(nibName: "HomeTableViewCell", bundle: nil), forCellReuseIdentifier: "variusCell")
         backTableView.register(UINib(nibName: "FriendsTargetTableViewCell", bundle: nil), forCellReuseIdentifier: "friendsTarget")

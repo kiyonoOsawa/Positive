@@ -13,6 +13,7 @@ pod 'Firebase/Firestore'
 pod 'Firebase/Auth'
 pod 'Firebase/Storage'
 pod 'FirebaseUI/Storage'
+pod 'Charts'
 # Add the Firebase pod for Google Analytics
 # For Analytics without IDFA collection capability, use this pod instead
 # pod ‘Firebase/AnalyticsWithoutAdIdSupport’
