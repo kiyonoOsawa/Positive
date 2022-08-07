@@ -20,6 +20,7 @@
 		CE73D16E2839F62600B20D0D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE73D16D2839F62600B20D0D /* HomeViewController.swift */; };
 		CE73D1702839F8AE00B20D0D /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE73D16F2839F8AE00B20D0D /* CalendarViewController.swift */; };
 		CE7A58BB289AC3B200AD3946 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7A58BA289AC3B200AD3946 /* APIClient.swift */; };
+		CE7A58C2289E1D5000AD3946 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7A58C1289E1D5000AD3946 /* DataModel.swift */; };
 		CE80C15728716EF9000646B2 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80C15628716EF9000646B2 /* Goal.swift */; };
 		CEACDF50289571AF0005F4A6 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEACDF4F289571AF0005F4A6 /* ReviewViewController.swift */; };
 		CEAE56B028962D00002DBEA2 /* MyTargetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAE56AE28962D00002DBEA2 /* MyTargetTableViewCell.swift */; };
@@ -68,6 +69,7 @@
 		CE73D16D2839F62600B20D0D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CE73D16F2839F8AE00B20D0D /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		CE7A58BA289AC3B200AD3946 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		CE7A58C1289E1D5000AD3946 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		CE80C15628716EF9000646B2 /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		CEACDF4F289571AF0005F4A6 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		CEAE56AE28962D00002DBEA2 /* MyTargetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTargetTableViewCell.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				CEEE82B7284B6A4400732497 /* TabBarViewController.swift */,
 				CE3E7833288C40A000548FFD /* TabBar.swift */,
 				CE80C15628716EF9000646B2 /* Goal.swift */,
+				CE7A58C1289E1D5000AD3946 /* DataModel.swift */,
 				CE7A58BA289AC3B200AD3946 /* APIClient.swift */,
 				CEEE82B32847A99A00732497 /* SignUpViewController.swift */,
 				CEB475482859220A002654E6 /* LogInViewController.swift */,
@@ -363,6 +366,7 @@
 				CE73D15C2839DF4C00B20D0D /* SceneDelegate.swift in Sources */,
 				CEB475492859220A002654E6 /* LogInViewController.swift in Sources */,
 				CE80C15728716EF9000646B2 /* Goal.swift in Sources */,
+				CE7A58C2289E1D5000AD3946 /* DataModel.swift in Sources */,
 				CEAE56B82896BF88002DBEA2 /* FriendsTargetTableViewCell.swift in Sources */,
 				CE73D16E2839F62600B20D0D /* HomeViewController.swift in Sources */,
 				CEB4757E28713B11002654E6 /* DateTargetTableViewCell.swift in Sources */,
