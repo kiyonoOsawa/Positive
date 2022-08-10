@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -21,9 +20,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="51"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yBc-R1-MMz">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="51"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="56"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="51" id="7xO-fg-EDy"/>
+                                    <constraint firstAttribute="height" constant="56" id="7xO-fg-EDy"/>
                                 </constraints>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
@@ -33,9 +32,9 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LK0-ee-bT3">
-                                <rect key="frame" x="16" y="10" width="42" height="31"/>
+                                <rect key="frame" x="16" y="0.0" width="42" height="56"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="STA-gE-0az"/>
+                                    <constraint firstAttribute="height" constant="56" id="STA-gE-0az"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -45,35 +44,27 @@
                         <constraints>
                             <constraint firstItem="yBc-R1-MMz" firstAttribute="leading" secondItem="E7I-zb-Ukr" secondAttribute="leading" id="6MX-AD-5sk"/>
                             <constraint firstItem="yBc-R1-MMz" firstAttribute="top" secondItem="E7I-zb-Ukr" secondAttribute="top" id="8o0-Kh-2R9"/>
-                            <constraint firstItem="LK0-ee-bT3" firstAttribute="top" secondItem="E7I-zb-Ukr" secondAttribute="top" constant="10" id="AwC-bl-JWi"/>
+                            <constraint firstItem="LK0-ee-bT3" firstAttribute="top" secondItem="E7I-zb-Ukr" secondAttribute="top" id="AwC-bl-JWi"/>
                             <constraint firstAttribute="height" constant="51" id="Qpn-tm-dCi"/>
                             <constraint firstItem="LK0-ee-bT3" firstAttribute="leading" secondItem="E7I-zb-Ukr" secondAttribute="leading" constant="16" id="sHR-za-MQB"/>
                             <constraint firstAttribute="trailing" secondItem="yBc-R1-MMz" secondAttribute="trailing" id="xCF-O6-KZH"/>
                         </constraints>
                     </view>
                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XdU-Pg-mtB">
-                        <rect key="frame" x="16" y="71" width="288" height="111"/>
-                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                        <rect key="frame" x="16" y="59" width="288" height="123"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="txQ-OB-sTc">
-                        <rect key="frame" x="16" y="63" width="288" height="119"/>
-                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
-                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="XdU-Pg-mtB" firstAttribute="top" secondItem="E7I-zb-Ukr" secondAttribute="bottom" constant="20" id="03V-hV-C8f"/>
+                    <constraint firstItem="XdU-Pg-mtB" firstAttribute="top" secondItem="E7I-zb-Ukr" secondAttribute="bottom" constant="8" id="03V-hV-C8f"/>
                     <constraint firstAttribute="trailing" secondItem="XdU-Pg-mtB" secondAttribute="trailing" constant="16" id="2F8-SK-AB4"/>
-                    <constraint firstItem="txQ-OB-sTc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="83j-Lk-cRb"/>
-                    <constraint firstAttribute="bottom" secondItem="txQ-OB-sTc" secondAttribute="bottom" constant="8" id="Lbh-dx-5RQ"/>
                     <constraint firstItem="XdU-Pg-mtB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="NDJ-Dr-kIn"/>
                     <constraint firstAttribute="trailing" secondItem="E7I-zb-Ukr" secondAttribute="trailing" id="TPg-mK-IJV"/>
                     <constraint firstItem="E7I-zb-Ukr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Uu5-0h-cQz"/>
                     <constraint firstItem="E7I-zb-Ukr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="h5x-n4-L41"/>
                     <constraint firstAttribute="bottom" secondItem="XdU-Pg-mtB" secondAttribute="bottom" constant="8" id="hHD-OV-jYc"/>
-                    <constraint firstItem="txQ-OB-sTc" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="xzs-QI-NmA"/>
-                    <constraint firstItem="txQ-OB-sTc" firstAttribute="top" secondItem="E7I-zb-Ukr" secondAttribute="bottom" constant="12" id="y4g-Sf-kkx"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -87,8 +78,5 @@
     </objects>
     <resources>
         <image name="chevron.down" catalog="system" width="128" height="72"/>
-        <systemColor name="systemGroupedBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
     </resources>
 </document>

@@ -62,7 +62,7 @@ class CalendarViewController: UIViewController {
                     return
                 }
                 for doc in querySnapshot.documents{
-                    let detailGoal = DetailGoal(dictionary: doc.data())
+                    let detailGoal = DetailGoal(dictionary: doc.data(), documentID: doc.documentID)
                     self.addresses.append(detailGoal)
                 }
                 self.reportCollectionView.reloadData()
@@ -76,6 +76,22 @@ class CalendarViewController: UIViewController {
         dateFormatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
         dateFormatter.dateFormat = "yyyy/MM/dd"
         return dateFormatter.string(from: date)
+    }
+    
+    @IBAction func toReviewView() {
+        self.performSegue(withIdentifier: "toAddReview", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toAddReview" {
+            let nextVC = segue.destination as! ReviewViewController
+            let deadlineData = addresses.filter { data in
+                let convertedDate = dateFormat(date: data.date.dateValue())
+                let calendarDate = dateFormat(date: calendarView.selectedDate!)
+                return convertedDate.compare(calendarDate) == .orderedAscending || convertedDate.compare(calendarDate) == .orderedSame
+            }
+//            nextVC.deadlineD
+        }
     }
     
     @IBAction func tapSegmentControll(_ sender: UISegmentedControl) {
@@ -168,7 +184,10 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         let calendarDate = dateFormat(date: date)
         applicableData.removeAll()
-        applicableData = addresses.filter({$0.date == calendarDate})
+        applicableData = addresses.filter({data in
+            let convertedDate = dateFormat(date: data.date.dateValue())
+            return calendarDate == convertedDate
+        })
         reportCollectionView.reloadData()
     }
 }

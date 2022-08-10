@@ -71,7 +71,7 @@ class QuestionViewController: UIViewController {
                     return
                 }
                 for doc in querySnapshot.documents{
-                    let detailGoal = DetailGoal(dictionary: doc.data())
+                    let detailGoal = DetailGoal(dictionary: doc.data(), documentID: doc.documentID)
                     self.answers.append(detailGoal)
                 }
                 self.questionTableView.reloadData()
@@ -98,20 +98,12 @@ extension QuestionViewController: QuestionTableViewCellDelegate, UITableViewDele
         cell.delegate = self
         cell.selectionStyle = UITableViewCell.SelectionStyle.none
         cell.questionLabel.text = questions[indexPath.row]
-        cell.answerField.placeholder = "Input..."
-//        let detailData = answers.
-//        cell.answerField.text = answers[indexPath.row].
-//        if indexPath.row == 0 {
-//            cell.answerField.text = answers[indexPath.row].nowTodo
-//        } else if indexPath.row == 1 {
-//            cell.answerField.text = answers[indexPath.row].fightTodo
-//        } else if indexPath.row == 2 {
-//            cell.answerField.text = answers[indexPath.row].essentialThing
-//        } else if indexPath.row == 3 {
-//            cell.answerField.text = answers[indexPath.row].trigger
-//        } else if indexPath.row == 4 {
-//            cell.answerField.text = answers[indexPath.row].person
-//        }
+        if indexPath.row == 2 {
+            cell.answerField.placeholder = "お金、能力..."
+//            cell.answerField.placeholderco
+        } else {
+            cell.answerField.placeholder = "Input..."
+        }
         return cell
     }
     

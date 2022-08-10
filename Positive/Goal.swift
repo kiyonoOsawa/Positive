@@ -18,9 +18,10 @@ struct DetailGoal {
     let essentialThing: String?
     let review: String?
     let importance: Double?
-    let date: String?
+    let date: Timestamp
+    let documentID: String
     
-    init(dictionary: [String:Any]) {
+    init(dictionary: [String:Any], documentID: String) {
         self.goal = dictionary["goal"] as! String
         self.person = dictionary["person"] as? String
         self.trigger = dictionary["trigger"] as? String
@@ -30,6 +31,7 @@ struct DetailGoal {
         self.essentialThing = dictionary["essentialThing"] as? String
         self.review = dictionary["review"] as? String
         self.importance = dictionary["importance"] as? Double
-        self.date = dictionary["date"] as? String
+        self.date = dictionary["date"] as! Timestamp
+        self.documentID = documentID
     }
 }

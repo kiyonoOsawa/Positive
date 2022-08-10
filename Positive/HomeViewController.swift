@@ -44,7 +44,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
                     return
                 }
                 for doc in querySnapShot.documents {
-                    let detailGoal = DetailGoal(dictionary: doc.data())
+                    let detailGoal = DetailGoal(dictionary: doc.data(), documentID: doc.documentID)
                     self.addresses.append(detailGoal)
                 }
                 self.backTableView.reloadData()

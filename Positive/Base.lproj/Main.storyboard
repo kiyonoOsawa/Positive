@@ -321,7 +321,8 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="" image="reviewImage"/>
                                 <connections>
-                                    <segue destination="Q3V-M2-vus" kind="modal" id="Q0V-5t-Ah9"/>
+                                    <action selector="toReviewView" destination="0wV-1f-1dk" eventType="touchUpInside" id="2KJ-2z-lUH"/>
+                                    <segue destination="Q3V-M2-vus" kind="modal" identifier="toAddReview" id="Q0V-5t-Ah9"/>
                                 </connections>
                             </button>
                         </subviews>

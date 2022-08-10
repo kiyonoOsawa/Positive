@@ -47,7 +47,8 @@ class MakeTargetViewController: UIViewController {
         guard let user = user else {
             return
         }
-        let convertedDate = dateFormat(date: dateCell.datePicker.date)
+//        let convertedDate = Timestamp(date: DateTargetTableViewCell.datePicker.date)
+        let convertedDate = Timestamp(date: dateCell.datePicker.date)
         let addData: [String:Any] = [
             "goal": targetCell.targetTextField.text ?? "",
             "importance": importanceCell.levelStepper.value,
