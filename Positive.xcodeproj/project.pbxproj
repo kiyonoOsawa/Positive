@@ -23,10 +23,6 @@
 		CE7A58C2289E1D5000AD3946 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7A58C1289E1D5000AD3946 /* DataModel.swift */; };
 		CE80C15728716EF9000646B2 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80C15628716EF9000646B2 /* Goal.swift */; };
 		CEACDF50289571AF0005F4A6 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEACDF4F289571AF0005F4A6 /* ReviewViewController.swift */; };
-		CEAE56B028962D00002DBEA2 /* MyTargetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAE56AE28962D00002DBEA2 /* MyTargetTableViewCell.swift */; };
-		CEAE56B128962D00002DBEA2 /* MyTargetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEAE56AF28962D00002DBEA2 /* MyTargetTableViewCell.xib */; };
-		CEAE56B42896BC91002DBEA2 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAE56B22896BC91002DBEA2 /* HomeTableViewCell.swift */; };
-		CEAE56B52896BC91002DBEA2 /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEAE56B32896BC91002DBEA2 /* HomeTableViewCell.xib */; };
 		CEAE56B82896BF88002DBEA2 /* FriendsTargetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAE56B62896BF88002DBEA2 /* FriendsTargetTableViewCell.swift */; };
 		CEAE56B92896BF88002DBEA2 /* FriendsTargetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEAE56B72896BF88002DBEA2 /* FriendsTargetTableViewCell.xib */; };
 		CEAE56BD289746DB002DBEA2 /* InnerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEAE56BB289746DB002DBEA2 /* InnerCollectionViewCell.xib */; };
@@ -75,10 +71,6 @@
 		CE7A58C1289E1D5000AD3946 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		CE80C15628716EF9000646B2 /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		CEACDF4F289571AF0005F4A6 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
-		CEAE56AE28962D00002DBEA2 /* MyTargetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTargetTableViewCell.swift; sourceTree = "<group>"; };
-		CEAE56AF28962D00002DBEA2 /* MyTargetTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyTargetTableViewCell.xib; sourceTree = "<group>"; };
-		CEAE56B22896BC91002DBEA2 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
-		CEAE56B32896BC91002DBEA2 /* HomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
 		CEAE56B62896BF88002DBEA2 /* FriendsTargetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTargetTableViewCell.swift; sourceTree = "<group>"; };
 		CEAE56B72896BF88002DBEA2 /* FriendsTargetTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendsTargetTableViewCell.xib; sourceTree = "<group>"; };
 		CEAE56BB289746DB002DBEA2 /* InnerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InnerCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -215,10 +207,6 @@
 			children = (
 				CEAE56BE28974864002DBEA2 /* InnerCollectionViewCell.swift */,
 				CEAE56BB289746DB002DBEA2 /* InnerCollectionViewCell.xib */,
-				CEAE56AE28962D00002DBEA2 /* MyTargetTableViewCell.swift */,
-				CEAE56AF28962D00002DBEA2 /* MyTargetTableViewCell.xib */,
-				CEAE56B22896BC91002DBEA2 /* HomeTableViewCell.swift */,
-				CEAE56B32896BC91002DBEA2 /* HomeTableViewCell.xib */,
 				CEAE56C2289766FB002DBEA2 /* FriendsInnerCollectionViewCell.swift */,
 				CEAE56C3289766FB002DBEA2 /* FriendsInnerCollectionViewCell.xib */,
 				CEAE56B62896BF88002DBEA2 /* FriendsTargetTableViewCell.swift */,
@@ -290,14 +278,12 @@
 				CEB4757728713986002654E6 /* ImportanceTableViewCell.xib in Resources */,
 				CEAE56BD289746DB002DBEA2 /* InnerCollectionViewCell.xib in Resources */,
 				CE73D1662839DF4E00B20D0D /* LaunchScreen.storyboard in Resources */,
-				CEAE56B128962D00002DBEA2 /* MyTargetTableViewCell.xib in Resources */,
 				CE73D1632839DF4E00B20D0D /* Assets.xcassets in Resources */,
 				CEB47567286B499C002654E6 /* CalendarTargetCollectionViewCell.xib in Resources */,
 				CEB4757328713863002654E6 /* MakeTargetTableViewCell.xib in Resources */,
 				CEB4757F28713B11002654E6 /* DateTargetTableViewCell.xib in Resources */,
 				CEAE56C5289766FB002DBEA2 /* FriendsInnerCollectionViewCell.xib in Resources */,
 				CEAE56B92896BF88002DBEA2 /* FriendsTargetTableViewCell.xib in Resources */,
-				CEAE56B52896BC91002DBEA2 /* HomeTableViewCell.xib in Resources */,
 				CE0595FB288E82950066E327 /* ShareCollectionViewCell.xib in Resources */,
 				CEEE82BA284B911600732497 /* GoogleService-Info.plist in Resources */,
 				CEB47563285F6981002654E6 /* QuestionTableViewCell.xib in Resources */,
@@ -355,13 +341,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEACDF50289571AF0005F4A6 /* ReviewViewController.swift in Sources */,
-				CEAE56B028962D00002DBEA2 /* MyTargetTableViewCell.swift in Sources */,
 				CEB4757628713986002654E6 /* ImportanceTableViewCell.swift in Sources */,
 				CEB4757228713863002654E6 /* MakeTargetTableViewCell.swift in Sources */,
 				CEEE82B8284B6A4400732497 /* TabBarViewController.swift in Sources */,
 				CEB47562285F6981002654E6 /* QuestionTableViewCell.swift in Sources */,
 				CEAE56BF28974864002DBEA2 /* InnerCollectionViewCell.swift in Sources */,
-				CEAE56B42896BC91002DBEA2 /* HomeTableViewCell.swift in Sources */,
 				CE73D1702839F8AE00B20D0D /* CalendarViewController.swift in Sources */,
 				CEB4756B28713450002654E6 /* MakeTargetViewController.swift in Sources */,
 				CEB47566286B499C002654E6 /* CalendarTargetCollectionViewCell.swift in Sources */,

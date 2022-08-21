@@ -27,6 +27,7 @@ class MakeTargetViewController: UIViewController {
     var trigger = String()
     var person = String()
     var dateCell: DateTargetTableViewCell!
+    var date = Date()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +49,7 @@ class MakeTargetViewController: UIViewController {
             return
         }
 //        let convertedDate = Timestamp(date: DateTargetTableViewCell.datePicker.date)
-        let convertedDate = Timestamp(date: dateCell.datePicker.date)
+        let convertedDate = Timestamp(date: date)
         let addData: [String:Any] = [
             "goal": targetCell.targetTextField.text ?? "",
             "importance": importanceCell.levelStepper.value,
@@ -80,6 +81,7 @@ extension MakeTargetViewController: DateTargetTableViewCellDelegate, UITableView
     
     func didTapChangeVisibleButton(cell: DateTargetTableViewCell) {
         if let indexPath = sectionTableView.indexPath(for: cell) {
+            date = dateCell.datePicker.date
             data.toggle()
             sectionTableView.reloadRows(at: [indexPath], with: .automatic)
             print(data)

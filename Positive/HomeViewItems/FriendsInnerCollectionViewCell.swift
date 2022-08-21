@@ -15,7 +15,6 @@ class FriendsInnerCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-//        let label = UILabel(frame: .zero)
         friendsGoal.lineBreakMode = .byCharWrapping
     }
 

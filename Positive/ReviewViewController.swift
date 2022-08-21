@@ -57,7 +57,7 @@ class ReviewViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     // ポジティブ度を測定
     private func measuringStatus() {
         let apiClient = APIClient.shared
-        apiClient.getDegreeofSentiment(encodedWord: reviewTextField.text ?? "") { response in
+        apiClient.getDegreeofSentiment(encodedWord: reviewTextField.text ?? "") { [self] response in
             switch response {
             case .success(let data):
                 let positiveness = (data.negaposi+3)/6*100
@@ -67,7 +67,7 @@ class ReviewViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                         self.dismiss(animated: true, completion: nil)
                     }
                 } else {
-                    guard let targetData = targetData else {
+                    guard let targetData = self.targetData else {
                         return
                     }
                     AlertDialog.shared.showAlert(title: "ポジティブ度が低いです…", message: "ポジティブ\(positiveness)%…", viewController: self) {
