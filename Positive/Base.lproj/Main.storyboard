@@ -191,10 +191,10 @@
                                 <cells/>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sNq-EC-7fc">
-                                <rect key="frame" x="24" y="539" width="366" height="266"/>
+                                <rect key="frame" x="24" y="538" width="366" height="267"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friends Target" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MNO-Qw-uov">
-                                        <rect key="frame" x="16" y="24" width="120" height="24"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="友達の目標" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MNO-Qw-uov">
+                                        <rect key="frame" x="16" y="24" width="86.5" height="24"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -206,7 +206,7 @@
                                     <constraint firstItem="MNO-Qw-uov" firstAttribute="top" secondItem="sNq-EC-7fc" secondAttribute="top" constant="24" id="Zmw-QC-xb4"/>
                                 </constraints>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="osM-KT-VOZ">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="osM-KT-VOZ">
                                 <rect key="frame" x="34" y="595" width="346" height="202"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Odo-4h-NtN">
                                     <size key="itemSize" width="128" height="128"/>
@@ -241,7 +241,7 @@
                             <constraint firstItem="DUs-rS-VfQ" firstAttribute="leading" secondItem="P6b-ac-Ypj" secondAttribute="leading" id="jZT-AM-xZv"/>
                             <constraint firstItem="P6b-ac-Ypj" firstAttribute="trailing" secondItem="xX5-OA-HIi" secondAttribute="trailing" constant="67" id="lO9-mb-1Yv"/>
                             <constraint firstItem="sNq-EC-7fc" firstAttribute="leading" secondItem="P6b-ac-Ypj" secondAttribute="leading" constant="24" id="tZU-2d-k9T"/>
-                            <constraint firstItem="sNq-EC-7fc" firstAttribute="top" secondItem="xX5-OA-HIi" secondAttribute="bottom" constant="9" id="uib-RZ-eqS"/>
+                            <constraint firstItem="sNq-EC-7fc" firstAttribute="top" secondItem="xX5-OA-HIi" secondAttribute="bottom" constant="8" id="uib-RZ-eqS"/>
                             <constraint firstItem="osM-KT-VOZ" firstAttribute="top" secondItem="xX5-OA-HIi" secondAttribute="bottom" constant="65" id="zp3-gx-dxv"/>
                             <constraint firstItem="JUs-Je-Yy9" firstAttribute="top" secondItem="P6b-ac-Ypj" secondAttribute="top" constant="10" id="zth-Aj-ELc"/>
                         </constraints>
@@ -259,9 +259,9 @@
                         <outlet property="backView" destination="JUs-Je-Yy9" id="jHx-66-rxP"/>
                         <outlet property="deleteButton" destination="xX5-OA-HIi" id="XX5-mn-gqc"/>
                         <outlet property="doneButton" destination="1Ef-bc-8TE" id="xwT-uU-HAj"/>
-                        <outlet property="friendTargetCollection" destination="osM-KT-VOZ" id="HPi-Py-RUr"/>
+                        <outlet property="friendTargetCollection" destination="osM-KT-VOZ" id="ArG-4K-CJW"/>
                         <outlet property="reviewButton" destination="1Ws-6N-6U8" id="lWJ-Ln-u0Z"/>
-                        <outlet property="targetColection" destination="DUs-rS-VfQ" id="q4u-XR-SDs"/>
+                        <outlet property="targetCollection" destination="DUs-rS-VfQ" id="hSn-Ao-Ytj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G0M-MF-ffq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
