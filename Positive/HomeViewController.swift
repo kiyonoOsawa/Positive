@@ -14,15 +14,12 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var addItem: UIBarButtonItem!
     @IBOutlet weak var targetCollection: UICollectionView!
-    @IBOutlet weak var doneButton: UIButton!
-    @IBOutlet weak var reviewButton: UIButton!
-    @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var friendTargetCollection: UICollectionView!
     @IBOutlet weak var backView: UIView!
     
     let db = Firestore.firestore()
     let user = Auth.auth().currentUser
-    var viewWidth: CGFloat = 0.0
+    var viewWidth: CGFloat = 366
     var addresses: [DetailGoal] = []
     
     override func viewDidLoad() {
@@ -33,6 +30,9 @@ class HomeViewController: UIViewController {
         friendTargetCollection.dataSource = self
         targetCollection.register(UINib(nibName: "InnerCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "targetHome")
         friendTargetCollection.register(UINib(nibName: "FriendsInnerCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "friendsTarget")
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal // 横スクロール
+        targetCollection.collectionViewLayout = layout
         design()
     }
     
@@ -68,7 +68,11 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        if collectionView.tag == 0 {
+            return 3
+        } else {
+            return 3
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -95,24 +99,16 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             let cellHeight: CGFloat = 304
             return CGSize(width: cellWidth, height: cellHeight)
         } else {
-            let space: CGFloat = 11
+            let space: CGFloat = 10
             let cellWidth: CGFloat = viewWidth - space
-            let cellHeight: CGFloat = 98104
+            let cellHeight: CGFloat = 104
             return CGSize(width: cellWidth, height: cellHeight)
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        if collectionView.tag == 0 {
-            return 40
-        } else {
-            return 0
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         if collectionView.tag == 0 {
-            return UIEdgeInsets(top: 0, left: 55, bottom: 0, right: 0)
+            return UIEdgeInsets(top: 20, left:38, bottom: 0, right: 38)
         } else {
             return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         }
