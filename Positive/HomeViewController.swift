@@ -16,6 +16,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var targetCollection: UICollectionView!
     @IBOutlet weak var friendTargetCollection: UICollectionView!
     @IBOutlet weak var backView: UIView!
+    @IBOutlet weak var friendsBack: UIView!
     
     let db = Firestore.firestore()
     let user = Auth.auth().currentUser
@@ -24,6 +25,11 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("friendsBackの横幅")
+        print(friendsBack.frame.width)
+        
+        
+        
         targetCollection.delegate = self
         targetCollection.dataSource = self
         friendTargetCollection.delegate = self
@@ -62,6 +68,10 @@ class HomeViewController: UIViewController {
         self.navigationController!.navigationBar.shadowImage = UIImage()
         backView.layer.cornerRadius = 20
         backView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        targetCollection.layer.cornerRadius = 25
+        targetCollection.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        friendsBack.layer.cornerRadius = 25
+        friendsBack.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
 }
 
@@ -86,9 +96,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "friendsTarget", for: indexPath) as! FriendsInnerCollectionViewCell
-            cell.layer.cornerRadius = 15
-            cell.layer.borderWidth = 1
-            cell.layer.borderColor = UIColor.gray.cgColor
+            cell.layer.cornerRadius = 20
             return cell
         }
     }
@@ -100,7 +108,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             return CGSize(width: cellWidth, height: cellHeight)
         } else {
             let space: CGFloat = 10
-            let cellWidth: CGFloat = viewWidth - space
+            let cellWidth: CGFloat = friendTargetCollection.frame.width - space
             let cellHeight: CGFloat = 104
             return CGSize(width: cellWidth, height: cellHeight)
         }

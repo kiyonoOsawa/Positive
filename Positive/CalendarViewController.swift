@@ -31,9 +31,14 @@ class CalendarViewController: UIViewController {
     let user = Auth.auth().currentUser
     var goal: String = ""
     var addresses: [DetailGoal] = []
+    var addressesReview: [Review] = []         //振り返りデータを格納
     var applicableData: [DetailGoal] = []         //addressesにフィルターをかけたものを格納
-    var segmentState: SegmentState? = .affirmation
+    var segmentState: SegmentState? = .record
     var viewWidth: CGFloat = 0.0
+    var applicableDataReview: [Review] = []              //日付フィルターをかけた振り返りデータ
+    var startingFrame : CGRect!
+    var endingFrame : CGRect!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,11 +49,21 @@ class CalendarViewController: UIViewController {
         reportCollectionView.register(UINib(nibName: "CalendarTargetCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "reportCell")
         viewWidth = view.frame.width
         print(data)
-        fetchData()
+        fetchDataTarget()
+        reportCollectionView.reloadData()
         design()
     }
     
-    private func fetchData(){
+    func dateFormat(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.calendar = Calendar(identifier: .gregorian)
+        dateFormatter.locale = Locale(identifier: "ja_JP")
+        dateFormatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
+        dateFormatter.dateFormat = "yyyy/MM/dd"
+        return dateFormatter.string(from: date)
+    }
+    
+    private func fetchDataTarget(){
         guard let user = user else {
             return
         }
@@ -69,46 +84,91 @@ class CalendarViewController: UIViewController {
             }
     }
     
-    func dateFormat(date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.calendar = Calendar(identifier: .gregorian)
-        dateFormatter.locale = Locale(identifier: "ja_JP")
-        dateFormatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
-        dateFormatter.dateFormat = "yyyy/MM/dd"
-        return dateFormatter.string(from: date)
-    }
-    
-    @IBAction func toReviewView() {
-        self.performSegue(withIdentifier: "toAddReview", sender: nil)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toAddReview" {
-            let nextVC = segue.destination as! ReviewViewController
-            let deadlineData = addresses.filter { data in
-                let convertedDate = dateFormat(date: data.date.dateValue())
-                let calendarDate = dateFormat(date: calendarView.selectedDate!)
-                return convertedDate.compare(calendarDate) == .orderedAscending || convertedDate.compare(calendarDate) == .orderedSame
-            }
-//            nextVC.deadlineD
+    private func fetchDataReview(){
+        guard let user = user else {
+            return
         }
+        guard let calendarDate = calendarView.selectedDate else {
+            return
+        }
+        print("date: \(Timestamp(date: calendarDate))")
+        self.addressesReview.removeAll()
+        db.collection("users")
+            .document(user.uid)
+            .collection("reviews")
+            .addSnapshotListener { QuerySnapshot, Error in
+                guard let querySnapshot = QuerySnapshot else {
+                    print("error: \(Error.debugDescription)")
+                    return
+                }
+                for doc in querySnapshot.documents{
+                    let review = Review(dictionary: doc.data())
+                    self.addressesReview.append(review)
+                    print("addressesReview: \(self.addressesReview)")
+                }
+                self.reportCollectionView.reloadData()
+            }
+    }
+    
+    //    @IBAction func toReviewView() {
+    //        self.performSegue(withIdentifier: "toAddReview", sender: nil)
+    //    }
+    
+    @IBAction func toReviewViewButton() {
+        let storyboard: UIStoryboard = self.storyboard!
+        let nc: UINavigationController = storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
+        nc.modalPresentationStyle = .fullScreen
+        let nextNC = nc.viewControllers[0] as! ReviewViewController
+        nextNC.calendarSelectedDate = self.calendarView.selectedDate
+        let deadLineData = addresses.filter { data in
+            let converteDate = dateFormat(date: data.date.dateValue())
+            let calendarDate = dateFormat(date: calendarView.selectedDate!)
+            return converteDate.compare(calendarDate) == .orderedDescending || converteDate.compare(calendarDate) == .orderedSame
+        }
+        if deadLineData.isEmpty {
+            AlertDialog.shared.showAlert(title: "目標の設定がありません", message: "Home画面で目標を設定してください", viewController: self) {
+                print("empty Array:\(self.addressesReview)")
+            }
+            return
+        }
+        nextNC.deadlineData = deadLineData
+        self.present(nc, animated: true, completion: nil)
     }
     
     @IBAction func tapSegmentControll(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
-            reviewButton.isHidden = true
-            segmentState = .affirmation
+            reviewButton.isHidden = false
+            segmentState = .record
             reportCollectionView.reloadData()
             break
         case 1:
-            reviewButton.isHidden = false
-            segmentState = .record
+            reviewButton.isHidden = true
+            segmentState = .affirmation
             reportCollectionView.reloadData()
             break
         default:
             break
         }
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if (scrollView.contentOffset.y >= (scrollView.contentSize.height - scrollView.frame.size.height)) && self.reviewButton.isHidden {
+            self.reviewButton.isHidden = false
+            self.reviewButton.frame = startingFrame
+            UIView.animate(withDuration: 1.0) {
+                self.reviewButton.frame = self.endingFrame
+            }
+        }
+    }
+    
+    private func configureSizes() {
+        let screenSize = UIScreen.main.bounds
+        let screenWidth = screenSize.width
+        let screenHeight = screenSize.height
+        
+        startingFrame = CGRect(x: 0, y: screenHeight+100, width: screenWidth, height: 100)
+        endingFrame = CGRect(x: 0, y: screenHeight-100, width: screenWidth, height: 100)
     }
     
     func design() {
@@ -129,7 +189,14 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //        return 1
-        return applicableData.count
+        switch segmentState{
+        case .affirmation:
+            return applicableData.count
+        case .record:
+            return applicableDataReview.count
+        default:
+            return 0
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -172,6 +239,11 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
     }
+    
+    enum SegmentState{
+        case record
+        case affirmation
+    }
 }
 
 extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource {
@@ -185,6 +257,11 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource {
         let calendarDate = dateFormat(date: date)
         applicableData.removeAll()
         applicableData = addresses.filter({data in
+            let convertedDate = dateFormat(date: data.date.dateValue())
+            return calendarDate == convertedDate
+        })
+        applicableDataReview.removeAll()
+        applicableDataReview = addressesReview.filter({ data in
             let convertedDate = dateFormat(date: data.date.dateValue())
             return calendarDate == convertedDate
         })

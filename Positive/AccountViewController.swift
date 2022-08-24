@@ -16,12 +16,17 @@ class AccountViewController: UIViewController {
     @IBOutlet weak var imageButton: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var fireLabel: UILabel!
-
+    @IBOutlet weak var backView: UIView!
+    
     let storageRef = Storage.storage().reference(forURL: "gs://positive-898d1.appspot.com")
     let user = Auth.auth().currentUser
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
+    func design() {
+        backView.layer.cornerRadius = 20
+        backView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+    }
 }

@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0A2F724AABFBAD9DB22B1DCD /* Pods_Positive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD209406F6D8EAB4B1C9C358 /* Pods_Positive.framework */; };
-		CE0595FA288E82950066E327 /* ShareCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0595F8288E82950066E327 /* ShareCollectionViewCell.swift */; };
-		CE0595FB288E82950066E327 /* ShareCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE0595F9288E82950066E327 /* ShareCollectionViewCell.xib */; };
 		CE3E7834288C40A000548FFD /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3E7833288C40A000548FFD /* TabBar.swift */; };
 		CE73D15A2839DF4C00B20D0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE73D1592839DF4C00B20D0D /* AppDelegate.swift */; };
 		CE73D15C2839DF4C00B20D0D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE73D15B2839DF4C00B20D0D /* SceneDelegate.swift */; };
@@ -23,8 +21,6 @@
 		CE7A58C2289E1D5000AD3946 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7A58C1289E1D5000AD3946 /* DataModel.swift */; };
 		CE80C15728716EF9000646B2 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80C15628716EF9000646B2 /* Goal.swift */; };
 		CEACDF50289571AF0005F4A6 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEACDF4F289571AF0005F4A6 /* ReviewViewController.swift */; };
-		CEAE56B82896BF88002DBEA2 /* FriendsTargetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAE56B62896BF88002DBEA2 /* FriendsTargetTableViewCell.swift */; };
-		CEAE56B92896BF88002DBEA2 /* FriendsTargetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEAE56B72896BF88002DBEA2 /* FriendsTargetTableViewCell.xib */; };
 		CEAE56BD289746DB002DBEA2 /* InnerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEAE56BB289746DB002DBEA2 /* InnerCollectionViewCell.xib */; };
 		CEAE56BF28974864002DBEA2 /* InnerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAE56BE28974864002DBEA2 /* InnerCollectionViewCell.swift */; };
 		CEAE56C4289766FB002DBEA2 /* FriendsInnerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAE56C2289766FB002DBEA2 /* FriendsInnerCollectionViewCell.swift */; };
@@ -49,13 +45,10 @@
 		CEEE82B42847A99A00732497 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEE82B32847A99A00732497 /* SignUpViewController.swift */; };
 		CEEE82B8284B6A4400732497 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEE82B7284B6A4400732497 /* TabBarViewController.swift */; };
 		CEEE82BA284B911600732497 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CEEE82B9284B911500732497 /* GoogleService-Info.plist */; };
-		CEF21595288ED36900E71E5C /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF21594288ED36900E71E5C /* ShareViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C07CA5A68ADB0DFDE8C95F9D /* Pods-Positive.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Positive.release.xcconfig"; path = "Target Support Files/Pods-Positive/Pods-Positive.release.xcconfig"; sourceTree = "<group>"; };
-		CE0595F8288E82950066E327 /* ShareCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareCollectionViewCell.swift; sourceTree = "<group>"; };
-		CE0595F9288E82950066E327 /* ShareCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShareCollectionViewCell.xib; sourceTree = "<group>"; };
 		CE3E7833288C40A000548FFD /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		CE73D1562839DF4C00B20D0D /* Positive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Positive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE73D1592839DF4C00B20D0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -71,8 +64,6 @@
 		CE7A58C1289E1D5000AD3946 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		CE80C15628716EF9000646B2 /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		CEACDF4F289571AF0005F4A6 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
-		CEAE56B62896BF88002DBEA2 /* FriendsTargetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTargetTableViewCell.swift; sourceTree = "<group>"; };
-		CEAE56B72896BF88002DBEA2 /* FriendsTargetTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendsTargetTableViewCell.xib; sourceTree = "<group>"; };
 		CEAE56BB289746DB002DBEA2 /* InnerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InnerCollectionViewCell.xib; sourceTree = "<group>"; };
 		CEAE56BE28974864002DBEA2 /* InnerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnerCollectionViewCell.swift; sourceTree = "<group>"; };
 		CEAE56C2289766FB002DBEA2 /* FriendsInnerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsInnerCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -97,7 +88,6 @@
 		CEEE82B32847A99A00732497 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		CEEE82B7284B6A4400732497 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		CEEE82B9284B911500732497 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
-		CEF21594288ED36900E71E5C /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		F29FE63471133EAD6DACB805 /* Pods-Positive.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Positive.debug.xcconfig"; path = "Target Support Files/Pods-Positive/Pods-Positive.debug.xcconfig"; sourceTree = "<group>"; };
 		FD209406F6D8EAB4B1C9C358 /* Pods_Positive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Positive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -183,7 +173,6 @@
 				CEC6855928AFDA11007C0967 /* Review.swift */,
 				CEC6855B28B0B3C5007C0967 /* Alert.swift */,
 				CEC6855D28B12617007C0967 /* ReframingViewController.swift */,
-				CEF21594288ED36900E71E5C /* ShareViewController.swift */,
 				CEB4754A2859F894002654E6 /* AccountViewController.swift */,
 				CE73D15F2839DF4C00B20D0D /* Main.storyboard */,
 				CE73D1622839DF4E00B20D0D /* Assets.xcassets */,
@@ -193,8 +182,6 @@
 				CEB47561285F6981002654E6 /* QuestionTableViewCell.xib */,
 				CEB47564286B499C002654E6 /* CalendarTargetCollectionViewCell.swift */,
 				CEB47565286B499C002654E6 /* CalendarTargetCollectionViewCell.xib */,
-				CE0595F8288E82950066E327 /* ShareCollectionViewCell.swift */,
-				CE0595F9288E82950066E327 /* ShareCollectionViewCell.xib */,
 				CE73D1642839DF4E00B20D0D /* LaunchScreen.storyboard */,
 				CEEE82B9284B911500732497 /* GoogleService-Info.plist */,
 				CE73D1672839DF4E00B20D0D /* Info.plist */,
@@ -209,8 +196,6 @@
 				CEAE56BB289746DB002DBEA2 /* InnerCollectionViewCell.xib */,
 				CEAE56C2289766FB002DBEA2 /* FriendsInnerCollectionViewCell.swift */,
 				CEAE56C3289766FB002DBEA2 /* FriendsInnerCollectionViewCell.xib */,
-				CEAE56B62896BF88002DBEA2 /* FriendsTargetTableViewCell.swift */,
-				CEAE56B72896BF88002DBEA2 /* FriendsTargetTableViewCell.xib */,
 			);
 			path = HomeViewItems;
 			sourceTree = "<group>";
@@ -283,8 +268,6 @@
 				CEB4757328713863002654E6 /* MakeTargetTableViewCell.xib in Resources */,
 				CEB4757F28713B11002654E6 /* DateTargetTableViewCell.xib in Resources */,
 				CEAE56C5289766FB002DBEA2 /* FriendsInnerCollectionViewCell.xib in Resources */,
-				CEAE56B92896BF88002DBEA2 /* FriendsTargetTableViewCell.xib in Resources */,
-				CE0595FB288E82950066E327 /* ShareCollectionViewCell.xib in Resources */,
 				CEEE82BA284B911600732497 /* GoogleService-Info.plist in Resources */,
 				CEB47563285F6981002654E6 /* QuestionTableViewCell.xib in Resources */,
 				CE73D1612839DF4C00B20D0D /* Main.storyboard in Resources */,
@@ -349,12 +332,10 @@
 				CE73D1702839F8AE00B20D0D /* CalendarViewController.swift in Sources */,
 				CEB4756B28713450002654E6 /* MakeTargetViewController.swift in Sources */,
 				CEB47566286B499C002654E6 /* CalendarTargetCollectionViewCell.swift in Sources */,
-				CE0595FA288E82950066E327 /* ShareCollectionViewCell.swift in Sources */,
 				CEB4755B285F65CD002654E6 /* QuestionViewController.swift in Sources */,
 				CEAE56C4289766FB002DBEA2 /* FriendsInnerCollectionViewCell.swift in Sources */,
 				CE73D15E2839DF4C00B20D0D /* ViewController.swift in Sources */,
 				CEEE82B42847A99A00732497 /* SignUpViewController.swift in Sources */,
-				CEF21595288ED36900E71E5C /* ShareViewController.swift in Sources */,
 				CE73D15A2839DF4C00B20D0D /* AppDelegate.swift in Sources */,
 				CEC6855C28B0B3C6007C0967 /* Alert.swift in Sources */,
 				CE73D15C2839DF4C00B20D0D /* SceneDelegate.swift in Sources */,
@@ -362,7 +343,6 @@
 				CE80C15728716EF9000646B2 /* Goal.swift in Sources */,
 				CEC6855E28B12617007C0967 /* ReframingViewController.swift in Sources */,
 				CE7A58C2289E1D5000AD3946 /* DataModel.swift in Sources */,
-				CEAE56B82896BF88002DBEA2 /* FriendsTargetTableViewCell.swift in Sources */,
 				CEC6855A28AFDA11007C0967 /* Review.swift in Sources */,
 				CE73D16E2839F62600B20D0D /* HomeViewController.swift in Sources */,
 				CEB4757E28713B11002654E6 /* DateTargetTableViewCell.swift in Sources */,
