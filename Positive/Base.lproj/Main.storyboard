@@ -133,7 +133,7 @@
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="P6b-ac-Ypj"/>
-                        <color key="backgroundColor" red="1" green="0.86274509803921573" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.90196078431372551" green="0.094117647058823528" blue="0.28235294117647058" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="DUs-rS-VfQ" firstAttribute="height" secondItem="JUs-Je-Yy9" secondAttribute="height" multiplier="0.511278" id="4Du-yn-KzF"/>
                             <constraint firstItem="JUs-Je-Yy9" firstAttribute="trailing" secondItem="P6b-ac-Ypj" secondAttribute="trailing" id="6eN-wU-898"/>
