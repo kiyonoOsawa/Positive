@@ -61,6 +61,7 @@ class HomeViewController: UIViewController {
                     self.addresses.append(detailGoal)
                 }
                 self.targetCollection.reloadData()
+                print("目標が表示される")
                 self.friendTargetCollection.reloadData()
             }
     }
@@ -97,7 +98,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             cell.layer.masksToBounds = false
             cell.goalLabel.text = addresses[indexPath.row].goal
             cell.miniGoal1.text = addresses[indexPath.row].nowTodo
-//            cell.stepView = UIImage.image
+            cell.stepView.image = UIImage(named: "step_now")
             cell.reviewButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
             return cell
         } else {

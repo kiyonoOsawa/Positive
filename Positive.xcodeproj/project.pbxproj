@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0A2F724AABFBAD9DB22B1DCD /* Pods_Positive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD209406F6D8EAB4B1C9C358 /* Pods_Positive.framework */; };
 		CE3E7834288C40A000548FFD /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3E7833288C40A000548FFD /* TabBar.swift */; };
+		CE644D8F28B7C580008443BE /* FriendAccCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE644D8D28B7C580008443BE /* FriendAccCollectionViewCell.swift */; };
+		CE644D9028B7C580008443BE /* FriendAccCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE644D8E28B7C580008443BE /* FriendAccCollectionViewCell.xib */; };
 		CE73D15A2839DF4C00B20D0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE73D1592839DF4C00B20D0D /* AppDelegate.swift */; };
 		CE73D15C2839DF4C00B20D0D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE73D15B2839DF4C00B20D0D /* SceneDelegate.swift */; };
 		CE73D15E2839DF4C00B20D0D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE73D15D2839DF4C00B20D0D /* ViewController.swift */; };
@@ -50,6 +52,8 @@
 /* Begin PBXFileReference section */
 		C07CA5A68ADB0DFDE8C95F9D /* Pods-Positive.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Positive.release.xcconfig"; path = "Target Support Files/Pods-Positive/Pods-Positive.release.xcconfig"; sourceTree = "<group>"; };
 		CE3E7833288C40A000548FFD /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		CE644D8D28B7C580008443BE /* FriendAccCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendAccCollectionViewCell.swift; sourceTree = "<group>"; };
+		CE644D8E28B7C580008443BE /* FriendAccCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendAccCollectionViewCell.xib; sourceTree = "<group>"; };
 		CE73D1562839DF4C00B20D0D /* Positive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Positive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE73D1592839DF4C00B20D0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE73D15B2839DF4C00B20D0D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -166,8 +170,8 @@
 				CEEE82B32847A99A00732497 /* SignUpViewController.swift */,
 				CEB475482859220A002654E6 /* LogInViewController.swift */,
 				CE73D16D2839F62600B20D0D /* HomeViewController.swift */,
-				CEB4755A285F65CD002654E6 /* QuestionViewController.swift */,
 				CEB4756A28713450002654E6 /* MakeTargetViewController.swift */,
+				CEB4755A285F65CD002654E6 /* QuestionViewController.swift */,
 				CE73D16F2839F8AE00B20D0D /* CalendarViewController.swift */,
 				CEACDF4F289571AF0005F4A6 /* ReviewViewController.swift */,
 				CEC6855928AFDA11007C0967 /* Review.swift */,
@@ -180,6 +184,8 @@
 				CEAE56C128975FA9002DBEA2 /* HomeViewItems */,
 				CEB47560285F6981002654E6 /* QuestionTableViewCell.swift */,
 				CEB47561285F6981002654E6 /* QuestionTableViewCell.xib */,
+				CE644D8D28B7C580008443BE /* FriendAccCollectionViewCell.swift */,
+				CE644D8E28B7C580008443BE /* FriendAccCollectionViewCell.xib */,
 				CEB47564286B499C002654E6 /* CalendarTargetCollectionViewCell.swift */,
 				CEB47565286B499C002654E6 /* CalendarTargetCollectionViewCell.xib */,
 				CE73D1642839DF4E00B20D0D /* LaunchScreen.storyboard */,
@@ -262,6 +268,7 @@
 			files = (
 				CEB4757728713986002654E6 /* ImportanceTableViewCell.xib in Resources */,
 				CEAE56BD289746DB002DBEA2 /* InnerCollectionViewCell.xib in Resources */,
+				CE644D9028B7C580008443BE /* FriendAccCollectionViewCell.xib in Resources */,
 				CE73D1662839DF4E00B20D0D /* LaunchScreen.storyboard in Resources */,
 				CE73D1632839DF4E00B20D0D /* Assets.xcassets in Resources */,
 				CEB47567286B499C002654E6 /* CalendarTargetCollectionViewCell.xib in Resources */,
@@ -349,6 +356,7 @@
 				CEB4754B2859F894002654E6 /* AccountViewController.swift in Sources */,
 				CE3E7834288C40A000548FFD /* TabBar.swift in Sources */,
 				CE7A58BB289AC3B200AD3946 /* APIClient.swift in Sources */,
+				CE644D8F28B7C580008443BE /* FriendAccCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,6 +506,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				EXCLUDED_ARCHS = "";
 				"EXCLUDED_ARCHS[sdk=*]" = arm64;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -528,6 +537,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				EXCLUDED_ARCHS = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Positive/Info.plist;

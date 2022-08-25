@@ -35,6 +35,7 @@ class QuestionViewController: UIViewController {
         for _ in 0...numberOfQuestion {
             data.append(false)
         }
+        design()
     }
     
     @objc private func back() {
@@ -76,6 +77,10 @@ class QuestionViewController: UIViewController {
                 }
                 self.questionTableView.reloadData()
             }
+    }
+    
+    func design() {
+        self.navigationController?.navigationBar.tintColor = UIColor(named: "MainColor")
     }
 }
 
