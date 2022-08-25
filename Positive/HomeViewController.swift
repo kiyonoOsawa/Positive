@@ -27,9 +27,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         print("friendsBackの横幅")
         print(friendsBack.frame.width)
-        
-        
-        
+        self.dismiss(animated: true, completion: nil)
         targetCollection.delegate = self
         targetCollection.dataSource = self
         friendTargetCollection.delegate = self
@@ -40,7 +38,9 @@ class HomeViewController: UIViewController {
         layout.scrollDirection = .horizontal // 横スクロール
         targetCollection.collectionViewLayout = layout
         design()
+        fetchData()
     }
+    
     
     private func fetchData() {
         guard let user = user else {
@@ -55,10 +55,12 @@ class HomeViewController: UIViewController {
                     print("error: \(Error.debugDescription)")
                     return
                 }
+                print("ここでとる: \(querySnapShot.documents)")
                 for doc in querySnapShot.documents {
                     let detailGoal = DetailGoal(dictionary: doc.data(), documentID: doc.documentID)
                     self.addresses.append(detailGoal)
                 }
+                self.targetCollection.reloadData()
                 self.friendTargetCollection.reloadData()
             }
     }
@@ -66,8 +68,8 @@ class HomeViewController: UIViewController {
     func design() {
         self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController!.navigationBar.shadowImage = UIImage()
-        backView.layer.cornerRadius = 20
-        backView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        //        backView.layer.cornerRadius = 20
+        //        backView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         targetCollection.layer.cornerRadius = 25
         targetCollection.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         friendsBack.layer.cornerRadius = 25
@@ -79,7 +81,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView.tag == 0 {
-            return 3
+            return addresses.count
         } else {
             return 3
         }
@@ -93,10 +95,14 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             cell.layer.shadowOpacity = 0.25
             cell.layer.shadowOffset = CGSize(width: 0, height: 0)
             cell.layer.masksToBounds = false
+            cell.goalLabel.text = addresses[indexPath.row].goal
+            cell.miniGoal1.text = addresses[indexPath.row].nowTodo
+//            cell.stepView = UIImage.image
+            cell.reviewButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "friendsTarget", for: indexPath) as! FriendsInnerCollectionViewCell
-            cell.layer.cornerRadius = 20
+            //            cell.layer.cornerRadius = 20
             return cell
         }
     }
@@ -116,9 +122,19 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         if collectionView.tag == 0 {
-            return UIEdgeInsets(top: 20, left:38, bottom: 0, right: 38)
+            return UIEdgeInsets(top: 12, left:38, bottom: 0, right: 38)
         } else {
             return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 30
+    }
+    
+    @objc func buttonTapped(){
+        let vc = storyboard?.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
     }
 }

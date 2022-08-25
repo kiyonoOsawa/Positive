@@ -43,6 +43,11 @@ class MakeTargetViewController: UIViewController {
     @IBAction func tappedSaveButton() {
         print("保存したよん")
         addQuestion()
+        self.dismiss(animated: true)
+    }
+    
+    @IBAction func backView() {
+        self.dismiss(animated: true)
     }
     
     private func addQuestion() {

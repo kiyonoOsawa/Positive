@@ -11,9 +11,10 @@ import FirebaseAuth
 
 class ReframingViewController: UIViewController {
     
-    @IBOutlet weak var graphView: UIView!
-    @IBOutlet weak var graphViewWidth: NSLayoutConstraint!
-    @IBOutlet weak var reframingTextView: UITextView!
+//    @IBOutlet weak var graphView: UIView!
+//    @IBOutlet weak var graphViewWidth: NSLayoutConstraint!
+    @IBOutlet weak var badTextView: UITextView!
+    @IBOutlet weak var reframingTextField: UITextField!
     @IBOutlet weak var clearButton: UIButton!
     
     let db = Firestore.firestore()
@@ -26,17 +27,22 @@ class ReframingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
+        addReframingData()
+    }
+    
+    @IBAction func tappedClear() {
+        measuringReframing()
     }
     
     private func setUpUI() {
-        graphViewWidth.constant = CGFloat(value*50)
+//        graphViewWidth.constant = CGFloat(value*50)
         clearButton.layer.cornerRadius = 15
         clearButton.clipsToBounds = true
         clearButton.layer.shadowColor = UIColor.black.cgColor
         clearButton.layer.shadowOpacity = 0.2
         clearButton.layer.shadowOffset = CGSize(width: 0, height: 0)
         clearButton.layer.masksToBounds = false
-        reframingTextView.text = originalText
+        badTextView.text = originalText
     }
     
     private func addReframingData() {
@@ -45,7 +51,7 @@ class ReframingViewController: UIViewController {
         }
         let addReframing: [String:Any] = [
             "original": originalText,
-            "regraming": reframingTextView.text!,
+            "regraming": reframingTextField.text!,
             "target": self.targetDocumentID,
             "date": Timestamp(date: calendarDate)
         ]
@@ -57,7 +63,7 @@ class ReframingViewController: UIViewController {
     
     private func measuringReframing() {
         let apiClient = APIClient.shared
-        apiClient.getDegreeofSentiment(encodedWord: reframingTextView.text ?? "") { response in
+        apiClient.getDegreeofSentiment(encodedWord: reframingTextField.text ?? "") { response in
             switch response {
             case .success(let data):
                 if data.negaposi > 0 {

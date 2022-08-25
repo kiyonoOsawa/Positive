@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -35,16 +36,25 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cgY-PT-Tcb">
+                        <rect key="frame" x="0.0" y="103" width="346" height="1"/>
+                        <color key="backgroundColor" systemColor="systemGray4Color"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="gL3-G1-z29"/>
+                        </constraints>
+                    </view>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="Wk8-92-Y7I" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="6mM-SU-Gm9"/>
                 <constraint firstItem="NpT-lh-5nQ" firstAttribute="centerY" secondItem="Wk8-92-Y7I" secondAttribute="centerY" id="6yH-hN-gk9"/>
                 <constraint firstItem="Dmf-ip-We7" firstAttribute="leading" secondItem="NpT-lh-5nQ" secondAttribute="leading" id="Ehc-GX-dFN"/>
                 <constraint firstItem="Wk8-92-Y7I" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="12" id="Rac-Gn-BJT"/>
+                <constraint firstAttribute="bottom" secondItem="cgY-PT-Tcb" secondAttribute="bottom" id="Y4X-iG-SUp"/>
+                <constraint firstItem="cgY-PT-Tcb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="pOi-RQ-FIf"/>
                 <constraint firstItem="Dmf-ip-We7" firstAttribute="top" secondItem="NpT-lh-5nQ" secondAttribute="bottom" constant="16" id="qYB-yA-d47"/>
+                <constraint firstAttribute="trailing" secondItem="cgY-PT-Tcb" secondAttribute="trailing" id="vNg-9U-eWw"/>
                 <constraint firstItem="NpT-lh-5nQ" firstAttribute="leading" secondItem="Wk8-92-Y7I" secondAttribute="trailing" constant="8" id="xMD-hX-kjP"/>
             </constraints>
             <size key="customSize" width="206" height="143"/>
@@ -56,4 +66,9 @@
             <point key="canvasLocation" x="250.72463768115944" y="100.44642857142857"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

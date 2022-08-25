@@ -42,6 +42,7 @@ class CalendarViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        calendarView.select(Date())
         calendarView.scope = .month
         calendarView.textInputMode?.accessibilityFrame.size
         reportCollectionView.dataSource = self

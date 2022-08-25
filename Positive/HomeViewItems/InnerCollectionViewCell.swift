@@ -10,7 +10,7 @@ import UIKit
 class InnerCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var goalLabel: UILabel!
-    @IBOutlet weak var miniGoal1: UILabel!
+    @IBOutlet weak var miniGoal1: UITextView!
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var reviewButton: UIButton!
@@ -22,9 +22,7 @@ class InnerCollectionViewCell: UICollectionViewCell {
         design()
     }
     
-    @IBAction func tappedDone() {
-        
-    }
+
     
 //    @IBAction func tappedReview() {
 //        let vc = storyboard?.instantiateViewController(withIdentifier: "reviewVC") as! ReviewViewController
