@@ -38,10 +38,10 @@ class ReframingViewController: UIViewController {
 //        graphViewWidth.constant = CGFloat(value*50)
         clearButton.layer.cornerRadius = 15
         clearButton.clipsToBounds = true
-        clearButton.layer.shadowColor = UIColor.black.cgColor
-        clearButton.layer.shadowOpacity = 0.2
-        clearButton.layer.shadowOffset = CGSize(width: 0, height: 0)
-        clearButton.layer.masksToBounds = false
+//        clearButton.layer.shadowColor = UIColor.black.cgColor
+//        clearButton.layer.shadowOpacity = 0.2
+//        clearButton.layer.shadowOffset = CGSize(width: 0, height: 0)
+//        clearButton.layer.masksToBounds = false
         badTextView.text = originalText
     }
     

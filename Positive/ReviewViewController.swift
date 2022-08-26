@@ -13,6 +13,7 @@ class ReviewViewController: UIViewController {
     
     @IBOutlet weak var reviewTextField: UITextField!
     @IBOutlet weak var targetPickerView: UIPickerView!
+    @IBOutlet weak var saveButton: UIButton!
     
     let db = Firestore.firestore()
     let user = Auth.auth().currentUser
@@ -100,6 +101,7 @@ class ReviewViewController: UIViewController {
     func design() {
         reviewTextField.layer.cornerRadius = 15
         reviewTextField.placeholder = "Review..."
+        saveButton.layer.cornerRadius = 10
     }
 }
 

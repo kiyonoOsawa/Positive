@@ -25,6 +25,7 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fieldImage()
+        design()
     }
     
     @IBAction func tappedImageButton(_ sender: Any) {
@@ -47,7 +48,7 @@ class SignUpViewController: UIViewController {
     func createUser(emailText: String, passwordText: String) {
         Auth.auth().createUser(withEmail: emailText, password: passwordText) { FIRAuthDataResult, Error in
             guard let authResult = FIRAuthDataResult else {
-                print("error: SignUp")
+                print("error: \(Error)")
                 return
             }
             let reference = self.storageRef.child("userProfile").child("\(authResult.user.uid).jpg")
@@ -63,10 +64,10 @@ class SignUpViewController: UIViewController {
                 }
             }
             let addData = [
-                "person": self.userNameField.text!,
-                "person": self.userImageButton.imageView
+//                "image": self.userImageButton.imageView!,
+                "name": self.userNameField.text!
             ] as [String : Any]
-            let db = Firebase.Firestore.firestore()
+            let db = Firestore.firestore()
             db.collection("users")
                 .document(authResult.user.uid)
                 .setData(addData)
@@ -94,6 +95,12 @@ class SignUpViewController: UIViewController {
             textFieldImage.leftViewMode = .always
             textFieldImage.backgroundColor = UIColor.white
         }
+    }
+    
+    func design() {
+        userImageButton.layer.cornerRadius = 52
+        userImageButton.layer.borderWidth = 1
+        userImageButton.layer.borderColor = UIColor.darkGray.cgColor
     }
 }
 

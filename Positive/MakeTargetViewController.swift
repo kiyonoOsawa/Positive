@@ -54,6 +54,9 @@ class MakeTargetViewController: UIViewController {
         guard let user = user else {
             return
         }
+        if data == true {
+            date = dateCell.datePicker.date
+        }
 //        let convertedDate = Timestamp(date: DateTargetTableViewCell.datePicker.date)
         let convertedDate = Timestamp(date: date)
         let addData: [String:Any] = [
@@ -87,7 +90,7 @@ extension MakeTargetViewController: DateTargetTableViewCellDelegate, UITableView
     
     func didTapChangeVisibleButton(cell: DateTargetTableViewCell) {
         if let indexPath = sectionTableView.indexPath(for: cell) {
-            date = dateCell.datePicker.date
+            date = cell.datePicker.date
             data.toggle()
             sectionTableView.reloadRows(at: [indexPath], with: .automatic)
             print(data)

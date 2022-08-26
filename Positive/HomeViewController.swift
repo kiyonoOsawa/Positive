@@ -27,7 +27,6 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         print("friendsBackの横幅")
         print(friendsBack.frame.width)
-        self.dismiss(animated: true, completion: nil)
         targetCollection.delegate = self
         targetCollection.dataSource = self
         friendTargetCollection.delegate = self

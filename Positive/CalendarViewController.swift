@@ -42,6 +42,7 @@ class CalendarViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        reviewButton.isHidden = false
         calendarView.select(Date())
         calendarView.scope = .month
         calendarView.textInputMode?.accessibilityFrame.size
@@ -173,8 +174,8 @@ class CalendarViewController: UIViewController {
     }
     
     func design() {
-        backView.layer.cornerRadius = 20
-        backView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+//        backView.layer.cornerRadius = 20
+//        backView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         reviewButton.layer.cornerRadius = 32
         reviewButton.layer.shadowColor = UIColor.black.cgColor
         reviewButton.layer.shadowOpacity = 0.15

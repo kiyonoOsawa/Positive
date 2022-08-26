@@ -21,6 +21,7 @@ class QuestionViewController: UIViewController {
     let user = Auth.auth().currentUser
     let db = Firestore.firestore()
     let questions: [String] = ["今すぐにできることは？","頑張ればできることは？", "このために必要なモノ・コトは？", "きっかけは？", "具体的にどんな人？"]
+    var eachAnswer: [String] = ["","","","",""]
     
     fileprivate let cellHeight: CGFloat = 30
     fileprivate let numberOfQuestion: Int = 5
@@ -46,16 +47,21 @@ class QuestionViewController: UIViewController {
     private func transferValue() {
         let preNC = self.navigationController!
         let preVC = preNC.viewControllers[preNC.viewControllers.count - 2] as! MakeTargetViewController
-        let firstCell: QuestionTableViewCell = questionTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! QuestionTableViewCell
-        preVC.nowTodo = firstCell.answerField.text ?? ""
-        let secondCell: QuestionTableViewCell = questionTableView.cellForRow(at: IndexPath(row: 1, section: 0)) as! QuestionTableViewCell
-        preVC.fightTodo = secondCell.answerField.text ?? ""
-        let thirdCell: QuestionTableViewCell = questionTableView.cellForRow(at: IndexPath(row: 2, section: 0)) as! QuestionTableViewCell
-        preVC.essentialThing = thirdCell.answerField.text ?? ""
-        let fourthCell: QuestionTableViewCell = questionTableView.cellForRow(at: IndexPath(row: 3, section: 0)) as! QuestionTableViewCell
-        preVC.trigger = fourthCell.answerField.text ?? ""
-        let fifthCell: QuestionTableViewCell = questionTableView.cellForRow(at: IndexPath(row: 4, section: 0)) as! QuestionTableViewCell
-        preVC.person = fifthCell.answerField.text ?? ""
+        preVC.nowTodo = eachAnswer[0]
+        preVC.fightTodo = eachAnswer[1]
+        preVC.essentialThing = eachAnswer[2]
+        preVC.trigger = eachAnswer[3]
+        preVC.person = eachAnswer[4]
+//        let firstCell: QuestionTableViewCell = questionTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! QuestionTableViewCell
+//        preVC.nowTodo = firstCell.answerField.text ?? ""
+//        let secondCell: QuestionTableViewCell = questionTableView.cellForRow(at: IndexPath(row: 1, section: 0)) as! QuestionTableViewCell
+//        preVC.fightTodo = secondCell.answerField.text ?? ""
+//        let thirdCell: QuestionTableViewCell = questionTableView.cellForRow(at: IndexPath(row: 2, section: 0)) as! QuestionTableViewCell
+//        preVC.essentialThing = thirdCell.answerField.text ?? ""
+//        let fourthCell: QuestionTableViewCell = questionTableView.cellForRow(at: IndexPath(row: 3, section: 0)) as! QuestionTableViewCell
+//        preVC.trigger = fourthCell.answerField.text ?? ""
+//        let fifthCell: QuestionTableViewCell = questionTableView.cellForRow(at: IndexPath(row: 4, section: 0)) as! QuestionTableViewCell
+//        preVC.person = fifthCell.answerField.text ?? ""
     }
     
     private func fetchData() {
@@ -80,7 +86,7 @@ class QuestionViewController: UIViewController {
     }
     
     func design() {
-        self.navigationController?.navigationBar.tintColor = UIColor(named: "MainColor")
+        self.navigationController?.navigationBar.tintColor = UIColor(named: "rightTextColor")
     }
 }
 
@@ -88,6 +94,10 @@ extension QuestionViewController: QuestionTableViewCellDelegate, UITableViewDele
     
     func didExtendButton(cell: QuestionTableViewCell) {
         if let indexPath = questionTableView.indexPath(for: cell) {
+            if data[indexPath.row] {
+                eachAnswer[indexPath.row] = cell.answerField.text!
+            }
+            cell.answerField.text?.removeAll()
             data[indexPath.row].toggle()
             questionTableView.reloadRows(at: [indexPath], with: .automatic)
             print(data)
@@ -103,9 +113,9 @@ extension QuestionViewController: QuestionTableViewCellDelegate, UITableViewDele
         cell.delegate = self
         cell.selectionStyle = UITableViewCell.SelectionStyle.none
         cell.questionLabel.text = questions[indexPath.row]
+        cell.answerField.text = eachAnswer[indexPath.row]
         if indexPath.row == 2 {
             cell.answerField.placeholder = "お金、能力..."
-//            cell.answerField.placeholderco
         } else {
             cell.answerField.placeholder = "Input..."
         }
