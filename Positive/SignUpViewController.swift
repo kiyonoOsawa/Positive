@@ -18,14 +18,29 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet var textFieldCollection: [UITextField]!
+    @IBOutlet weak var signUp: UIButton!
+    @IBOutlet weak var backView: UIView!
     
     let storageRef = Storage.storage().reference(forURL: "gs://positive-898d1.appspot.com")
     let user = Auth.auth().currentUser
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         fieldImage()
         design()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        //            let userDefaults = UserDefaults.standard
+        //            let firstLunchKey = "firstLunchKey"
+        //            if userDefaults.bool(forKey: firstLunchKey) {
+        //            performSegue(withIdentifier: "tab.identifier", sender: self)
+        //        }
+        if user != nil {
+            transition()
+        }
     }
     
     @IBAction func tappedImageButton(_ sender: Any) {
@@ -64,7 +79,7 @@ class SignUpViewController: UIViewController {
                 }
             }
             let addData = [
-//                "image": self.userImageButton.imageView!,
+                //                "image": self.userImageButton.imageView!,
                 "name": self.userNameField.text!
             ] as [String : Any]
             let db = Firestore.firestore()
@@ -98,9 +113,12 @@ class SignUpViewController: UIViewController {
     }
     
     func design() {
-        userImageButton.layer.cornerRadius = 52
+        userImageButton.layer.cornerRadius = 40
         userImageButton.layer.borderWidth = 1
         userImageButton.layer.borderColor = UIColor.darkGray.cgColor
+        backView.layer.cornerRadius = 15
+        signUp.layer.cornerRadius = 10
+        
     }
 }
 

@@ -20,11 +20,11 @@ class QuestionViewController: UIViewController {
     var answers: [DetailGoal] = []
     let user = Auth.auth().currentUser
     let db = Firestore.firestore()
-    let questions: [String] = ["今すぐにできることは？","頑張ればできることは？", "このために必要なモノ・コトは？", "きっかけは？", "具体的にどんな人？"]
+    let questions: [String] = ["このためにできることは？", "このために必要なモノ・コトは？", "きっかけは？", "具体的にどんな人？"]
     var eachAnswer: [String] = ["","","","",""]
     
     fileprivate let cellHeight: CGFloat = 30
-    fileprivate let numberOfQuestion: Int = 5
+    fileprivate let numberOfQuestion: Int = 4
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,10 +48,10 @@ class QuestionViewController: UIViewController {
         let preNC = self.navigationController!
         let preVC = preNC.viewControllers[preNC.viewControllers.count - 2] as! MakeTargetViewController
         preVC.nowTodo = eachAnswer[0]
-        preVC.fightTodo = eachAnswer[1]
-        preVC.essentialThing = eachAnswer[2]
-        preVC.trigger = eachAnswer[3]
-        preVC.person = eachAnswer[4]
+//        preVC.fightTodo = eachAnswer[1]
+        preVC.essentialThing = eachAnswer[1]
+        preVC.trigger = eachAnswer[2]
+        preVC.person = eachAnswer[3]
 //        let firstCell: QuestionTableViewCell = questionTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! QuestionTableViewCell
 //        preVC.nowTodo = firstCell.answerField.text ?? ""
 //        let secondCell: QuestionTableViewCell = questionTableView.cellForRow(at: IndexPath(row: 1, section: 0)) as! QuestionTableViewCell
@@ -95,9 +95,9 @@ extension QuestionViewController: QuestionTableViewCellDelegate, UITableViewDele
     func didExtendButton(cell: QuestionTableViewCell) {
         if let indexPath = questionTableView.indexPath(for: cell) {
             if data[indexPath.row] {
-                eachAnswer[indexPath.row] = cell.answerField.text!
+                eachAnswer[indexPath.row] = cell.answerTextView.text!
             }
-            cell.answerField.text?.removeAll()
+            cell.answerTextView.text?.removeAll()
             data[indexPath.row].toggle()
             questionTableView.reloadRows(at: [indexPath], with: .automatic)
             print(data)
@@ -113,21 +113,28 @@ extension QuestionViewController: QuestionTableViewCellDelegate, UITableViewDele
         cell.delegate = self
         cell.selectionStyle = UITableViewCell.SelectionStyle.none
         cell.questionLabel.text = questions[indexPath.row]
-        cell.answerField.text = eachAnswer[indexPath.row]
-        if indexPath.row == 2 {
-            cell.answerField.placeholder = "お金、能力..."
-        } else {
-            cell.answerField.placeholder = "Input..."
+        cell.answerTextView.text = eachAnswer[indexPath.row]
+        if indexPath.row == 0 {
+            cell.popButton.isHidden = true
         }
+//        if indexPath.row == 2 {
+////            cell.answerTextView.placeholder = "お金、能力..."
+//        } else {
+////            cell.answerTextView.placeholder = "Input..."
+//        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if data[indexPath.row] {
-                return 200
-            } else {
-                return 56
-            }
+        if  indexPath.row == 0 {
+            return 200
+        } else {
+            if data[indexPath.row] {
+                    return 200
+                } else {
+                    return 56
+                }
+        }
         return tableView.estimatedRowHeight
     }
 }

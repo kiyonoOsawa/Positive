@@ -22,7 +22,7 @@ class MakeTargetViewController: UIViewController {
     var detailCell = ImportanceTableViewCell()
     var importanceCell = ImportanceTableViewCell()
     var nowTodo = String()
-    var fightTodo = String()
+    //    var fightTodo = String()
     var essentialThing = String()
     var trigger = String()
     var person = String()
@@ -34,7 +34,7 @@ class MakeTargetViewController: UIViewController {
         sectionTableView.register(UINib(nibName: "MakeTargetTableViewCell", bundle: nil), forCellReuseIdentifier: "makeTargetCell")
         sectionTableView.register(UINib(nibName: "ImportanceTableViewCell", bundle: nil), forCellReuseIdentifier: "importanceCell")
         sectionTableView.register(UINib(nibName: "DateTargetTableViewCell", bundle: nil), forCellReuseIdentifier: "dateTargetCell")
-//        dateCell.delegate = self
+        //        dateCell.delegate = self
         sectionTableView.dataSource = self
         sectionTableView.delegate = self
         navigationItem.title = "New Goal"
@@ -42,8 +42,10 @@ class MakeTargetViewController: UIViewController {
     
     @IBAction func tappedSaveButton() {
         print("保存したよん")
-        addQuestion()
-//        self.dismiss(animated: true)
+            addQuestion()
+            self.dismiss(animated: true)
+        //        addQuestion()
+        //        self.dismiss(animated: true)
     }
     
     @IBAction func backView() {
@@ -57,13 +59,13 @@ class MakeTargetViewController: UIViewController {
         if data == true {
             date = dateCell.datePicker.date
         }
-//        let convertedDate = Timestamp(date: DateTargetTableViewCell.datePicker.date)
+        //        let convertedDate = Timestamp(date: DateTargetTableViewCell.datePicker.date)
         let convertedDate = Timestamp(date: date)
         let addData: [String:Any] = [
             "goal": targetCell.targetTextField.text ?? "",
             "importance": importanceCell.levelStepper.value,
             "nowTodo": self.nowTodo,
-            "fightTodo": self.fightTodo,
+            //            "fightTodo": self.fightTodo,
             "essentialThing": self.essentialThing,
             "trigger": self.trigger,
             "person": self.person,

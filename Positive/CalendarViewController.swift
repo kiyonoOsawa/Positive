@@ -211,7 +211,7 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
         cell.bigTargetLabel.text = applicableData[indexPath.row].goal
         switch segmentState {
         case .affirmation:
-            cell.miniTargetLabel.text = applicableData[indexPath.row].essentialThing
+            cell.miniTargetLabel.text = applicableData[indexPath.row].nowTodo
             break
         case .record:
             cell.miniTargetLabel.text = applicableData[indexPath.row].review

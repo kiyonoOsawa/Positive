@@ -14,6 +14,7 @@ class FriendAccCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        design()
     }
     
     func design() {

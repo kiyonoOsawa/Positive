@@ -31,11 +31,14 @@ class AccountViewController: UIViewController, ChartViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        friendsCollection.dataSource = self
-//        friendsCollection.delegate = self
+        friendsCollection.dataSource = self
+        friendsCollection.delegate = self
+        friendsCollection.register(UINib(nibName: "FriendAccCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "accCell")
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal // 横スクロール
+        friendsCollection.collectionViewLayout = layout
         fetchData()
         design()
-        chart()
     }
     
     private func fetchData() {
@@ -57,8 +60,6 @@ class AccountViewController: UIViewController, ChartViewDelegate {
     }
     
     func design() {
-//        backView.layer.cornerRadius = 20
-//        backView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         chartBack1.layer.cornerRadius = 20
         chartBack1.layer.shadowColor = UIColor.black.cgColor
         chartBack1.layer.shadowOpacity = 0.25
@@ -73,53 +74,29 @@ class AccountViewController: UIViewController, ChartViewDelegate {
         friendsBack.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         friendsCollection.register(UINib(nibName: "FriendAccCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "accCell")
     }
-
-    func chart() {
-        let entries = rawDataGraph.enumerated().map { ChartDataEntry(x: Double($0.offset), y: Double($0.element)) }
-        let dataSet = LineChartDataSet(entries: entries)
-        dataSet.lineWidth = 5
-        dataSet.drawValuesEnabled = false
-        dataSet.drawCirclesEnabled = false   //プロットの丸表示
-        dataSet.circleRadius = 2
-        dataSet.circleColors = [UIColor.gray]
-        lineChartView.data = LineChartData(dataSet: dataSet)
-        lineChartView.xAxis.labelPosition = .bottom
-        lineChartView.xAxis.labelTextColor = .systemGray
-        lineChartView.xAxis.drawGridLinesEnabled = false
-        lineChartView.xAxis.drawAxisLineEnabled = false
-        lineChartView.rightAxis.enabled = false
-        lineChartView.leftAxis.axisMinimum = 0.0
-        lineChartView.leftAxis.axisMaximum = 10000.0
-        lineChartView.leftAxis.drawZeroLineEnabled = true
-        lineChartView.leftAxis.zeroLineColor = .systemGray
-        let limitLine = ChartLimitLine(limit: 5000, label: "ポジティブライン")
-        limitLine.lineColor = .darkGray
-        limitLine.valueTextColor = .darkGray
-        lineChartView.leftAxis.addLimitLine(limitLine)
-//        let limitLineX = ChartLimitLine(limit: 3, label: "BBBBB")
-//        limitLineX.lineColor = .darkGray
-//        limitLineX.valueTextColor = .darkGray
-//        lineChartView.xAxis.addLimitLine(limitLineX)
-        lineChartView.leftAxis.labelCount = 5
-        lineChartView.leftAxis.labelTextColor = .systemGray
-        lineChartView.leftAxis.gridColor = .systemGray
-        lineChartView.leftAxis.drawAxisLineEnabled = false
-        lineChartView.legend.enabled = false
-        lineChartView.highlightPerTapEnabled = false
-        lineChartView.pinchZoomEnabled = false
-        lineChartView.doubleTapToZoomEnabled = false
-        lineChartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.3, easingOption: .easeInCubic)
-    }
-    
-//    func profile() {
-//        nameLabel.text =
-//    }
 }
 
-//extension AccountViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-//
-////    func collection
-//}
+extension AccountViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "accCell", for: indexPath) as! FriendAccCollectionViewCell
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let cellWidth: CGFloat = 72
+        let cellHeight: CGFloat = 100
+        return CGSize(width: cellWidth, height: cellHeight)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 38, bottom: 0, right: 38)
+    }
+}
 
 
 

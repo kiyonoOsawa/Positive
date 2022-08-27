@@ -13,7 +13,11 @@ class ReviewViewController: UIViewController {
     
     @IBOutlet weak var reviewTextField: UITextField!
     @IBOutlet weak var targetPickerView: UIPickerView!
-    @IBOutlet weak var saveButton: UIButton!
+//    @IBOutlet weak var saveButton: UIButton! {
+//        didSet {
+//            saveButton.layer.cornerRadius = 10
+//        }
+//    }
     
     let db = Firestore.firestore()
     let user = Auth.auth().currentUser
@@ -22,14 +26,14 @@ class ReviewViewController: UIViewController {
     var deadlineData: [DetailGoal] = []
     var targetData: DetailGoal?
     
-//    let pickerData = []
+    //    let pickerData = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.navigationController?.popViewController(animated: true)
+        //        self.navigationController?.popViewController(animated: true)
         targetPickerView.delegate = self
         targetPickerView.dataSource = self
-        design()
+        //        design()
     }
     
     @IBAction func tappedSave() {
@@ -97,12 +101,6 @@ class ReviewViewController: UIViewController {
     @IBAction func backView() {
         self.dismiss(animated: true)
     }
-    
-    func design() {
-        reviewTextField.layer.cornerRadius = 15
-        reviewTextField.placeholder = "Review..."
-        saveButton.layer.cornerRadius = 10
-    }
 }
 
 extension ReviewViewController: UIPickerViewDelegate, UIPickerViewDataSource {
@@ -113,12 +111,12 @@ extension ReviewViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return deadlineData.count
     }
-//
-//    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> String? {
-//        targetData = deadlineData[row]
-//        documentID = deadlineData[row].documentID
-//        return deadlineData[row].goal
-//    }
+    //
+    //    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> String? {
+    //        targetData = deadlineData[row]
+    //        documentID = deadlineData[row].documentID
+    //        return deadlineData[row].goal
+    //    }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         targetData = deadlineData[row]
@@ -128,5 +126,11 @@ extension ReviewViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         documentID = deadlineData[row].documentID
+    }
+    
+    func design() {
+        reviewTextField.layer.cornerRadius = 15
+        reviewTextField.placeholder = "Review..."
+        
     }
 }

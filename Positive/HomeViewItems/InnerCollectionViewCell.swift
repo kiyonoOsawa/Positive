@@ -15,34 +15,21 @@ class InnerCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var reviewButton: UIButton!
     @IBOutlet weak var stepView: UIImageView!
-    @IBOutlet weak var buttonBack: UIView!
+//    @IBOutlet weak var buttonBack: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         design()
     }
     
-
-    
-//    @IBAction func tappedReview() {
-//        let vc = storyboard?.instantiateViewController(withIdentifier: "reviewVC") as! ReviewViewController
-//        self.navigationController?.pushViewController(vc, animated: true)
-//    }
-    
-//    func performSegueToResults() {
-//        performSegue(widthIden)
-//    }
-    
     func design() {
-//        let topBorder = CALayer()
-//        topBorder.frame = CGRect(x: 0, y: 0, width: buttonBack.frame.width, height: 1.0)
-//        topBorder.backgroundColor = UIColor.lightGray.cgColor
-//        buttonBack.layer.addSublayer(topBorder)
-//        let rightBorder = CALayer()
-//        rightBorder.frame = CGRect(x: doneButton.frame.width, y: 0, width: 1.0, height:doneButton.frame.height)
-//        rightBorder.backgroundColor = UIColor.lightGray.cgColor
-//        doneButton.layer.addSublayer(rightBorder)
-        buttonBack.layer.cornerRadius = 25
-        buttonBack.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        let mainColor = UIColor(named: "MainColor")
+        guard let mainColor = mainColor else { return }
+//        buttonBack.layer.cornerRadius = 25
+//        buttonBack.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        doneButton.layer.cornerRadius = 15
+        reviewButton.layer.cornerRadius = 15
+        reviewButton.layer.borderWidth = 3
+        reviewButton.layer.borderColor = mainColor.cgColor
     }
 }

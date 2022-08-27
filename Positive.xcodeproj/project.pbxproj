@@ -22,6 +22,8 @@
 		CE7A58BB289AC3B200AD3946 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7A58BA289AC3B200AD3946 /* APIClient.swift */; };
 		CE7A58C2289E1D5000AD3946 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7A58C1289E1D5000AD3946 /* DataModel.swift */; };
 		CE80C15728716EF9000646B2 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80C15628716EF9000646B2 /* Goal.swift */; };
+		CE8D8BE928B911840024B322 /* TargetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D8BE828B911840024B322 /* TargetDetailViewController.swift */; };
+		CE8D8BEB28B9194C0024B322 /* CircleChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D8BEA28B9194C0024B322 /* CircleChart.swift */; };
 		CEACDF50289571AF0005F4A6 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEACDF4F289571AF0005F4A6 /* ReviewViewController.swift */; };
 		CEAE56BD289746DB002DBEA2 /* InnerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEAE56BB289746DB002DBEA2 /* InnerCollectionViewCell.xib */; };
 		CEAE56BF28974864002DBEA2 /* InnerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAE56BE28974864002DBEA2 /* InnerCollectionViewCell.swift */; };
@@ -67,6 +69,8 @@
 		CE7A58BA289AC3B200AD3946 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		CE7A58C1289E1D5000AD3946 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		CE80C15628716EF9000646B2 /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
+		CE8D8BE828B911840024B322 /* TargetDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetDetailViewController.swift; sourceTree = "<group>"; };
+		CE8D8BEA28B9194C0024B322 /* CircleChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleChart.swift; sourceTree = "<group>"; };
 		CEACDF4F289571AF0005F4A6 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		CEAE56BB289746DB002DBEA2 /* InnerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InnerCollectionViewCell.xib; sourceTree = "<group>"; };
 		CEAE56BE28974864002DBEA2 /* InnerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnerCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -170,6 +174,7 @@
 				CEEE82B32847A99A00732497 /* SignUpViewController.swift */,
 				CEB475482859220A002654E6 /* LogInViewController.swift */,
 				CE73D16D2839F62600B20D0D /* HomeViewController.swift */,
+				CE8D8BE828B911840024B322 /* TargetDetailViewController.swift */,
 				CEB4756A28713450002654E6 /* MakeTargetViewController.swift */,
 				CEB4755A285F65CD002654E6 /* QuestionViewController.swift */,
 				CE73D16F2839F8AE00B20D0D /* CalendarViewController.swift */,
@@ -178,6 +183,7 @@
 				CEC6855B28B0B3C5007C0967 /* Alert.swift */,
 				CEC6855D28B12617007C0967 /* ReframingViewController.swift */,
 				CEB4754A2859F894002654E6 /* AccountViewController.swift */,
+				CE8D8BEA28B9194C0024B322 /* CircleChart.swift */,
 				CE73D15F2839DF4C00B20D0D /* Main.storyboard */,
 				CE73D1622839DF4E00B20D0D /* Assets.xcassets */,
 				CE6488E0287169DD0054408F /* MakeTargetViewItems */,
@@ -346,10 +352,12 @@
 				CE73D15A2839DF4C00B20D0D /* AppDelegate.swift in Sources */,
 				CEC6855C28B0B3C6007C0967 /* Alert.swift in Sources */,
 				CE73D15C2839DF4C00B20D0D /* SceneDelegate.swift in Sources */,
+				CE8D8BE928B911840024B322 /* TargetDetailViewController.swift in Sources */,
 				CEB475492859220A002654E6 /* LogInViewController.swift in Sources */,
 				CE80C15728716EF9000646B2 /* Goal.swift in Sources */,
 				CEC6855E28B12617007C0967 /* ReframingViewController.swift in Sources */,
 				CE7A58C2289E1D5000AD3946 /* DataModel.swift in Sources */,
+				CE8D8BEB28B9194C0024B322 /* CircleChart.swift in Sources */,
 				CEC6855A28AFDA11007C0967 /* Review.swift in Sources */,
 				CE73D16E2839F62600B20D0D /* HomeViewController.swift in Sources */,
 				CEB4757E28713B11002654E6 /* DateTargetTableViewCell.swift in Sources */,

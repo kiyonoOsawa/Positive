@@ -38,6 +38,7 @@ class HomeViewController: UIViewController {
         targetCollection.collectionViewLayout = layout
         design()
         fetchData()
+//        targetCollection.reloadData()
     }
     
     
@@ -90,15 +91,19 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView.tag == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "targetHome", for: indexPath) as! InnerCollectionViewCell
-            cell.layer.cornerRadius = 15
+            cell.layer.cornerRadius = 25
             cell.layer.shadowColor = UIColor.black.cgColor
             cell.layer.shadowOpacity = 0.25
             cell.layer.shadowOffset = CGSize(width: 0, height: 0)
+            cell.layer.shadowRadius = 5
             cell.layer.masksToBounds = false
             cell.goalLabel.text = addresses[indexPath.row].goal
             cell.miniGoal1.text = addresses[indexPath.row].nowTodo
-            cell.stepView.image = UIImage(named: "step_now")
+            cell.stepView.image = UIImage(named: "step_fire")
+            cell.deleteButton.addTarget(self, action: #selector(deleteTapped), for: .touchUpInside)
+            cell.doneButton.addTarget(self, action: #selector(doneTapped), for: .touchUpInside)
             cell.reviewButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+            cell.miniGoal1.isEditable = false
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "friendsTarget", for: indexPath) as! FriendsInnerCollectionViewCell
@@ -130,6 +135,32 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 30
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "detailTarget", sender: nil)
+    }
+    
+    @objc func deleteTapped(){
+        guard let user = user else { return }
+        db.collection("users")
+            .document(user.uid)
+            .collection("goals")
+            .document()
+            .delete() { err in
+                if let err = err {
+                    print("Error removing document: \(err)")
+                    return
+                } else {
+                    print("Document successfully removed!")
+                    self.targetCollection.reloadData()
+                    return
+                }
+            }
+    }
+    
+    @objc func doneTapped() {
+        
     }
     
     @objc func buttonTapped(){
