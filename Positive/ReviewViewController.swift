@@ -11,13 +11,8 @@ import FirebaseAuth
 
 class ReviewViewController: UIViewController {
     
-    @IBOutlet weak var reviewTextField: UITextField!
+    @IBOutlet weak var reviewTextView: UITextView!
     @IBOutlet weak var targetPickerView: UIPickerView!
-//    @IBOutlet weak var saveButton: UIButton! {
-//        didSet {
-//            saveButton.layer.cornerRadius = 10
-//        }
-//    }
     
     let db = Firestore.firestore()
     let user = Auth.auth().currentUser
@@ -26,21 +21,22 @@ class ReviewViewController: UIViewController {
     var deadlineData: [DetailGoal] = []
     var targetData: DetailGoal?
     
-    //    let pickerData = []
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        self.navigationController?.popViewController(animated: true)
         targetPickerView.delegate = self
         targetPickerView.dataSource = self
-        //        design()
+        design()
     }
     
     @IBAction func tappedSave() {
         measuringStatus()
     }
-    // ハーフモーダルを出す
-    private func showModal(value: Int, originalText: String, targetDocumentId: String, calendarDate: Date) {
+    
+    @IBAction func backView() {
+        self.dismiss(animated: true)
+    }
+    
+    private func showModal(value: Int, originalText: String, targetDocumentId: String, calendarDate: Date) {    // ハーフモーダルを出す
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyBoard.instantiateViewController(withIdentifier: "ReframingViewController") as! ReframingViewController
         if let sheet = viewController.sheetPresentationController {
@@ -52,10 +48,9 @@ class ReviewViewController: UIViewController {
         viewController.targetDocumentID = targetDocumentId
         present(viewController, animated: true)
     }
-    // ポジティブ度を測定
-    private func measuringStatus() {
+    private func measuringStatus() {    // ポジティブ度を測定
         let apiClient = APIClient.shared
-        apiClient.getDegreeofSentiment(encodedWord: reviewTextField.text ?? "") { [self] response in
+        apiClient.getDegreeofSentiment(encodedWord: reviewTextView.text ?? "") { [self] response in
             switch response {
             case .success(let data):
                 let positiveness = (data.negaposi+3)/6*100
@@ -69,7 +64,7 @@ class ReviewViewController: UIViewController {
                         return
                     }
                     AlertDialog.shared.showAlert(title: "ポジティブ度が低いです…", message: "ポジティブ\(positiveness)%…", viewController: self) {
-                        self.showModal(value: data.negaposi+3, originalText: self.reviewTextField.text!, targetDocumentId: targetData.documentID, calendarDate: self.calendarSelectedDate!)
+                        self.showModal(value: data.negaposi+3, originalText: self.reviewTextView.text!, targetDocumentId: targetData.documentID, calendarDate: self.calendarSelectedDate!)
                     }
                 }
                 break
@@ -88,7 +83,7 @@ class ReviewViewController: UIViewController {
             return
         }
         let addData: [String:Any] = [
-            "original":reviewTextField.text!,
+            "original":reviewTextView.text!,
             "date":Timestamp(date: calendarSelectedDate!),
             "target": targetData.documentID
         ]
@@ -98,8 +93,8 @@ class ReviewViewController: UIViewController {
             .addDocument(data: addData)
     }
     
-    @IBAction func backView() {
-        self.dismiss(animated: true)
+    func design() {
+        reviewTextView.layer.cornerRadius = 15
     }
 }
 
@@ -111,12 +106,6 @@ extension ReviewViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return deadlineData.count
     }
-    //
-    //    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> String? {
-    //        targetData = deadlineData[row]
-    //        documentID = deadlineData[row].documentID
-    //        return deadlineData[row].goal
-    //    }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         targetData = deadlineData[row]
@@ -126,11 +115,5 @@ extension ReviewViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         documentID = deadlineData[row].documentID
-    }
-    
-    func design() {
-        reviewTextField.layer.cornerRadius = 15
-        reviewTextField.placeholder = "Review..."
-        
     }
 }

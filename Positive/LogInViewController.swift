@@ -19,12 +19,13 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var logIn: UIButton!
     
-    let storeRef = Storage.storage().reference(forURL: "gs://positive-898d1.appspot.com")
+    let storeRef = Storage.storage().reference(forURL: "gs://positive-898d1.appspot.com/")
     let auth = Auth.auth()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         fieldImage()
+        design()
     }
     
     @IBAction func tappedLogIn(_ sender: Any) {
@@ -35,8 +36,9 @@ class LogInViewController: UIViewController {
         auth.signIn(withEmail: emailText, password: passwordText) { AuthDataResult, Error in
             if let err = Error {
                 print("error:\(err)")
+            } else {
+                self.transition()
             }
-            self.transition()
         }
     }
     
@@ -46,6 +48,14 @@ class LogInViewController: UIViewController {
         tabView.modalPresentationStyle = .fullScreen
         tabView.selectedIndex = 0
         self.present(tabView, animated: true, completion: nil)
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     func fieldImage() {

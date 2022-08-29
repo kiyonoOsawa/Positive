@@ -25,8 +25,8 @@ class InnerCollectionViewCell: UICollectionViewCell {
     func design() {
         let mainColor = UIColor(named: "MainColor")
         guard let mainColor = mainColor else { return }
-//        buttonBack.layer.cornerRadius = 25
-//        buttonBack.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        goalLabel.font = UIFont(name: "筑紫A丸ゴシック Std R", size: 40)
+        miniGoal1.isEditable = false
         doneButton.layer.cornerRadius = 15
         reviewButton.layer.cornerRadius = 15
         reviewButton.layer.borderWidth = 3

@@ -21,22 +21,24 @@ class SignUpViewController: UIViewController {
     @IBOutlet var textFieldCollection: [UITextField]!
     @IBOutlet weak var signUp: UIButton!
     @IBOutlet weak var backView: UIView!
+    @IBOutlet weak var error1: UILabel!
+    @IBOutlet weak var error2: UILabel!
+    @IBOutlet weak var error3: UILabel!
     
     let storageRef = Storage.storage().reference(forURL: "gs://positive-898d1.appspot.com")
     let user = Auth.auth().currentUser
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         fieldImage()
         design()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if user != nil {
-            transition()
-        }
+        self.error1.isHidden = true
+        self.error2.isHidden = true
+        self.error3.isHidden = true
     }
     
     @IBAction func tappedImageButton(_ sender: Any) {
@@ -47,9 +49,15 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func tappedSignUp(_ sender: Any) {
-        if emailField.text != nil && passwordField.text != nil {
+        if (userNameField.text?.isEmpty == true) || (emailField.text?.isEmpty ==  true) || (passwordField.text?.isEmpty == true ) || (userImageButton.imageView?.image == nil) {
+            AlertDialog.shared.showAlert(title: "!", message: "プロフィール画像,名前,e-mail,パスワードを全て入力してください", viewController: self) {
+            }
+            
+        }
+        if emailField.text != nil && passwordField.text != nil{
             createUser(emailText: emailField.text!, passwordText: passwordField.text!)
         }
+        transition()
     }
     
     @IBAction func tappedToLogIn(_ sender: Any) {
@@ -58,6 +66,20 @@ class SignUpViewController: UIViewController {
     
     func createUser(emailText: String, passwordText: String) {
         Auth.auth().createUser(withEmail: emailText, password: passwordText) { FIRAuthDataResult, Error in
+            if Error == nil {
+            } else {
+//                if let errCode = AuthErrorCode(rawValue: Error!._code) {
+//                    switch errCode {
+//                    case .invalidEmail: self.error1.isHidden = false
+//                        // メールアドレスの形式が違います。
+//                    case .emailAlreadyInUse: self.error2.isHidden = false
+//                        // このメールアドレスはすでに使われています。
+//                    case .weakPassword: self.error3.isHidden = false
+//                        // パスワードは6文字以上で入力してください。
+//                    default: break
+//                    }
+//                }
+            }
             guard let authResult = FIRAuthDataResult else {
                 print("error: \(Error)")
                 return
@@ -75,7 +97,6 @@ class SignUpViewController: UIViewController {
                 }
             }
             let addData = [
-                //                "image": self.userImageButton.imageView!,
                 "name": self.userNameField.text!
             ] as [String : Any]
             let db = Firestore.firestore()
@@ -92,6 +113,14 @@ class SignUpViewController: UIViewController {
         tabView.modalPresentationStyle = .fullScreen
         tabView.selectedIndex = 0
         self.present(tabView, animated: true, completion: nil)
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     func fieldImage() {

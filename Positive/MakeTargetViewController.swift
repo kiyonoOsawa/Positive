@@ -16,6 +16,7 @@ class MakeTargetViewController: UIViewController {
     
     let db = Firestore.firestore()
     let user = Auth.auth().currentUser
+    var userName = String()
     var data: Bool = false
     var addData: [String: Any] = [:]
     var targetCell = MakeTargetTableViewCell()
@@ -37,18 +38,35 @@ class MakeTargetViewController: UIViewController {
         sectionTableView.dataSource = self
         sectionTableView.delegate = self
         navigationItem.title = "New Goal"
+        self.navigationController?.navigationBar.barTintColor = .white
+        fetchFiendName()
     }
     
     @IBAction func tappedSaveButton() {
         print("保存したよん")
-            addQuestion()
-            self.dismiss(animated: true)
-        //        addQuestion()
-        //        self.dismiss(animated: true)
+        addQuestion()
+        self.dismiss(animated: true)
     }
     
     @IBAction func backView() {
         self.dismiss(animated: true)
+    }
+    
+    private func fetchFiendName() {
+        guard let user = user else {
+            return
+        }
+        db.collection("users")
+            .document(user.uid)
+            .addSnapshotListener { DocumentSnapshot, Error in
+                guard let documentSnapshot = DocumentSnapshot else {
+                    return
+                }
+                guard let data = documentSnapshot.data() else { return }
+                let user = User(userData: data)
+                self.userName = user.userName ?? ""
+                print("userName: \(self.userName)")
+            }
     }
     
     private func addQuestion() {
@@ -58,23 +76,31 @@ class MakeTargetViewController: UIViewController {
         if data == true {
             date = dateCell.datePicker.date
         }
-        //        let convertedDate = Timestamp(date: DateTargetTableViewCell.datePicker.date)
         let convertedDate = Timestamp(date: date)
         let addData: [String:Any] = [
             "goal": targetCell.targetTextField.text ?? "",
-            "importance": shareCell.shareSwitch.style,
+            //            "importance": shareCell.shareSwitch.style,
             "nowTodo": self.nowTodo,
-            //            "fightTodo": self.fightTodo,
             "essentialThing": self.essentialThing,
             "trigger": self.trigger,
             "person": self.person,
             "review": "review",
-            "date": convertedDate
+            "date": convertedDate,
+            "userId": user.uid,
+            "userName": userName
         ]
         db.collection("users")
             .document(user.uid)
             .collection("goals")
             .addDocument(data: addData)
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     func dateFormat(date: Date) -> String {
@@ -140,19 +166,15 @@ extension MakeTargetViewController: DateTargetTableViewCellDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0 {
-            return 50
-        } else if indexPath.section == 1 {
-            return 50
-        } else if indexPath.section == 2 {
-            return 50
-        } else {
+        if indexPath.section == 3 {
             if data {
                 return 380
             } else {
                 return 50
             }
-            return tableView.estimatedRowHeight
+        } else {
+            return 50
         }
+        return tableView.estimatedRowHeight
     }
 }

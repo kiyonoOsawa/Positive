@@ -49,13 +49,13 @@ class TargetDetailViewController: UIViewController {
                     let detailGoal = DetailGoal(dictionary: doc.data(), documentID: doc.documentID)
                     self.addresses.append(detailGoal)
                 }
-                self.targetLabel.reloadInputViews()
-                self.miniTargetTextView.reloadInputViews()
+//                self.targetLabel.text = addresses["goal"] as! String
+//                self.miniTargetTextView.reloadInputViews()
             }
     }
     
     func design() {
-        
+//        targetLabel.text = addresses[]
     }
 }
 

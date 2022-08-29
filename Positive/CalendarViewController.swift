@@ -38,7 +38,7 @@ class CalendarViewController: UIViewController {
     var applicableDataReview: [Review] = []              //日付フィルターをかけた振り返りデータ
     var startingFrame : CGRect!
     var endingFrame : CGRect!
-    
+    var datesWithEvents: Set<String> = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -112,10 +112,6 @@ class CalendarViewController: UIViewController {
             }
     }
     
-    //    @IBAction func toReviewView() {
-    //        self.performSegue(withIdentifier: "toAddReview", sender: nil)
-    //    }
-    
     @IBAction func toReviewViewButton() {
         let storyboard: UIStoryboard = self.storyboard!
         let nc: UINavigationController = storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
@@ -174,8 +170,6 @@ class CalendarViewController: UIViewController {
     }
     
     func design() {
-//        backView.layer.cornerRadius = 20
-//        backView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         reviewButton.layer.cornerRadius = 32
         reviewButton.layer.shadowColor = UIColor.black.cgColor
         reviewButton.layer.shadowOpacity = 0.15
@@ -190,7 +184,6 @@ class CalendarViewController: UIViewController {
 extension CalendarViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //        return 1
         switch segmentState{
         case .affirmation:
             return applicableData.count
@@ -268,5 +261,9 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource {
             return calendarDate == convertedDate
         })
         reportCollectionView.reloadData()
+    }
+    
+    func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
+        return applicableData.count
     }
 }

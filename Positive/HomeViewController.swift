@@ -9,6 +9,7 @@ import UIKit
 import Firebase
 import FirebaseFirestore
 import FirebaseAuth
+import FirebaseStorage
 
 class HomeViewController: UIViewController {
     
@@ -22,6 +23,9 @@ class HomeViewController: UIViewController {
     let user = Auth.auth().currentUser
     var viewWidth: CGFloat = 366
     var addresses: [DetailGoal] = []
+    var friends: User? = nil
+    var addressesFriends: [DetailGoal] = []
+    let storageRef = Storage.storage().reference(forURL: "gs://positive-898d1.appspot.com/")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,15 +42,13 @@ class HomeViewController: UIViewController {
         targetCollection.collectionViewLayout = layout
         design()
         fetchData()
-//        targetCollection.reloadData()
+        fetchFriendsData()
     }
-    
     
     private func fetchData() {
         guard let user = user else {
             return
         }
-        self.addresses.removeAll()
         db.collection("users")
             .document(user.uid)
             .collection("goals")
@@ -55,6 +57,7 @@ class HomeViewController: UIViewController {
                     print("error: \(Error.debugDescription)")
                     return
                 }
+                self.addresses.removeAll()
                 print("ここでとる: \(querySnapShot.documents)")
                 for doc in querySnapShot.documents {
                     let detailGoal = DetailGoal(dictionary: doc.data(), documentID: doc.documentID)
@@ -66,11 +69,40 @@ class HomeViewController: UIViewController {
             }
     }
     
+    private func fetchFriendsData() {
+        guard let user = user else {
+            return
+        }
+        db.collection("users")
+            .document(user.uid)
+            .addSnapshotListener { documentSnapshot, error in
+                guard let document = documentSnapshot else { return }
+                guard let data = document.data() else { return }
+                self.friends = User(userData: data)
+                guard let user = self.friends else { return }
+                guard let friendList = user.friendList else { return }
+                self.db.collectionGroup("goals")
+                    .whereField("userId", in: friendList)
+                    .addSnapshotListener { QuerySnapshot, Error in
+                        guard let querySnapshot = QuerySnapshot else {
+                            print("error: \(Error.debugDescription)")
+                            return
+                        }
+                        self.addressesFriends.removeAll()
+                        for doc in querySnapshot.documents {
+                            let detailGoal = DetailGoal(dictionary: doc.data(), documentID: doc.documentID)
+                            self.addressesFriends.append(detailGoal)
+                            print("addressesFriends:\(self.addressesFriends)")
+                        }
+                        self.friendTargetCollection.reloadData()
+                        
+                    }
+            }
+    }
+    
     func design() {
         self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController!.navigationBar.shadowImage = UIImage()
-        //        backView.layer.cornerRadius = 20
-        //        backView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         targetCollection.layer.cornerRadius = 25
         targetCollection.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         friendsBack.layer.cornerRadius = 25
@@ -84,7 +116,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         if collectionView.tag == 0 {
             return addresses.count
         } else {
-            return 3
+            return addressesFriends.count
         }
     }
     
@@ -103,11 +135,24 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             cell.deleteButton.addTarget(self, action: #selector(deleteTapped), for: .touchUpInside)
             cell.doneButton.addTarget(self, action: #selector(doneTapped), for: .touchUpInside)
             cell.reviewButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-            cell.miniGoal1.isEditable = false
+//            cell.miniGoal1.isEditable = false
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "friendsTarget", for: indexPath) as! FriendsInnerCollectionViewCell
-            //            cell.layer.cornerRadius = 20
+            let friendId = addressesFriends[indexPath.row].userId
+            cell.iconImage.layer.cornerRadius = 21
+            cell.friendsGoal.text = addressesFriends[indexPath.row].goal
+            cell.accNameLabel.text = addressesFriends[indexPath.row].userName
+            let imagesRef = self.storageRef.child("userProfile").child("\(friendId).jpg")
+            // 画像の取り出し
+            imagesRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+                if let error = error {
+                    print("画像の取り出しに失敗: \(error)")
+                } else {
+                    let image = UIImage(data: data!)
+                    cell.iconImage.image = image
+                }
+            }
             return cell
         }
     }

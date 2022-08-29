@@ -9,7 +9,7 @@ import UIKit
 
 class FriendAccCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var friendIcon: UILabel!
+    @IBOutlet weak var friendIcon: UIImageView!
     @IBOutlet weak var friendName: UILabel!
 
     override func awakeFromNib() {

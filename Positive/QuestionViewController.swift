@@ -48,20 +48,9 @@ class QuestionViewController: UIViewController {
         let preNC = self.navigationController!
         let preVC = preNC.viewControllers[preNC.viewControllers.count - 2] as! MakeTargetViewController
         preVC.nowTodo = eachAnswer[0]
-//        preVC.fightTodo = eachAnswer[1]
         preVC.essentialThing = eachAnswer[1]
         preVC.trigger = eachAnswer[2]
         preVC.person = eachAnswer[3]
-//        let firstCell: QuestionTableViewCell = questionTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! QuestionTableViewCell
-//        preVC.nowTodo = firstCell.answerField.text ?? ""
-//        let secondCell: QuestionTableViewCell = questionTableView.cellForRow(at: IndexPath(row: 1, section: 0)) as! QuestionTableViewCell
-//        preVC.fightTodo = secondCell.answerField.text ?? ""
-//        let thirdCell: QuestionTableViewCell = questionTableView.cellForRow(at: IndexPath(row: 2, section: 0)) as! QuestionTableViewCell
-//        preVC.essentialThing = thirdCell.answerField.text ?? ""
-//        let fourthCell: QuestionTableViewCell = questionTableView.cellForRow(at: IndexPath(row: 3, section: 0)) as! QuestionTableViewCell
-//        preVC.trigger = fourthCell.answerField.text ?? ""
-//        let fifthCell: QuestionTableViewCell = questionTableView.cellForRow(at: IndexPath(row: 4, section: 0)) as! QuestionTableViewCell
-//        preVC.person = fifthCell.answerField.text ?? ""
     }
     
     private func fetchData() {
@@ -112,16 +101,17 @@ extension QuestionViewController: QuestionTableViewCellDelegate, UITableViewDele
         let cell = tableView.dequeueReusableCell(withIdentifier: "questionCell") as! QuestionTableViewCell
         cell.delegate = self
         cell.selectionStyle = UITableViewCell.SelectionStyle.none
+        cell.answerTextView.layer.cornerRadius = 15
         cell.questionLabel.text = questions[indexPath.row]
         cell.answerTextView.text = eachAnswer[indexPath.row]
         if indexPath.row == 0 {
             cell.popButton.isHidden = true
         }
-//        if indexPath.row == 2 {
-////            cell.answerTextView.placeholder = "お金、能力..."
-//        } else {
-////            cell.answerTextView.placeholder = "Input..."
-//        }
+        if indexPath.row == 0 {
+            cell.popButton.isHidden = true
+        } else {
+            cell.popButton.isHidden = false
+        }
         return cell
     }
     
