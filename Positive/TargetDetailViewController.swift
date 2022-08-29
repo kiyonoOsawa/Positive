@@ -27,7 +27,7 @@ class TargetDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setTabelView.delegate = self
-        setTabelView.delegate = self
+        setTabelView.dataSource = self
         setTabelView.register(UINib(nibName: "DateTargetTableViewCell", bundle: nil), forCellReuseIdentifier: "dateTargetCell")
         setTabelView.register(UINib(nibName: "ImportanceTableViewCell", bundle: nil), forCellReuseIdentifier: "importanceCell")
         fetchData()
@@ -69,6 +69,7 @@ extension TargetDetailViewController: DateTargetTableViewCellDelegate, UITableVi
         if indexPath.section == 0 {
             shareCell = tableView.dequeueReusableCell(withIdentifier: "importanceCell") as! ImportanceTableViewCell
             shareCell.selectionStyle = UITableViewCell.SelectionStyle.none
+            shareCell.accessoryType = .none
             return shareCell
         } else {
             dateCell = tableView.dequeueReusableCell(withIdentifier: "dateTargetCell") as! DateTargetTableViewCell

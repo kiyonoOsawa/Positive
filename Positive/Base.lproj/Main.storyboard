@@ -267,7 +267,7 @@
         <!--View Controller-->
         <scene sceneID="swt-6e-f3Z">
             <objects>
-                <viewController id="lcY-sb-5xV" sceneMemberID="viewController">
+                <viewController id="lcY-sb-5xV" customClass="QRViewController" customModule="Positive" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Pc5-vv-dH8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -301,6 +301,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="qrImageView" destination="goF-60-Pxn" id="z0b-CP-m4y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ILV-oZ-qxl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -20,7 +20,7 @@ class MakeTargetViewController: UIViewController {
     var addData: [String: Any] = [:]
     var targetCell = MakeTargetTableViewCell()
     var detailCell = ImportanceTableViewCell()
-    var importanceCell = ImportanceTableViewCell()
+    var shareCell = ImportanceTableViewCell()
     var nowTodo = String()
     //    var fightTodo = String()
     var essentialThing = String()
@@ -62,7 +62,7 @@ class MakeTargetViewController: UIViewController {
         let convertedDate = Timestamp(date: date)
         let addData: [String:Any] = [
             "goal": targetCell.targetTextField.text ?? "",
-            "importance": importanceCell.shareSwitch.style,
+            "importance": shareCell.shareSwitch.style,
             "nowTodo": self.nowTodo,
             //            "fightTodo": self.fightTodo,
             "essentialThing": self.essentialThing,
@@ -108,10 +108,10 @@ extension MakeTargetViewController: DateTargetTableViewCellDelegate, UITableView
             targetCell.selectionStyle = UITableViewCell.SelectionStyle.none
             return targetCell
         } else if indexPath.section == 1 {
-            importanceCell = tableView.dequeueReusableCell(withIdentifier: "importanceCell") as! ImportanceTableViewCell
-            importanceCell.selectionStyle = UITableViewCell.SelectionStyle.none
-            importanceCell.accessoryType = .none
-            return importanceCell
+            shareCell = tableView.dequeueReusableCell(withIdentifier: "importanceCell") as! ImportanceTableViewCell
+            shareCell.selectionStyle = UITableViewCell.SelectionStyle.none
+            shareCell.accessoryType = .none
+            return shareCell
         } else if indexPath.section == 2 {
             detailCell = tableView.dequeueReusableCell(withIdentifier: "importanceCell") as! ImportanceTableViewCell
             detailCell.selectionStyle = UITableViewCell.SelectionStyle.none

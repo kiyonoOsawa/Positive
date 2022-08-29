@@ -45,6 +45,10 @@
 		CEC6855A28AFDA11007C0967 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6855928AFDA11007C0967 /* Review.swift */; };
 		CEC6855C28B0B3C6007C0967 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6855B28B0B3C5007C0967 /* Alert.swift */; };
 		CEC6855E28B12617007C0967 /* ReframingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6855D28B12617007C0967 /* ReframingViewController.swift */; };
+		CED649BE28BC5DB600E12D61 /* MyQRCodeReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED649BD28BC5DB600E12D61 /* MyQRCodeReader.swift */; };
+		CED649C228BC5E6E00E12D61 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED649C128BC5E6E00E12D61 /* User.swift */; };
+		CED649C428BC5EA400E12D61 /* QRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED649C328BC5EA400E12D61 /* QRViewController.swift */; };
+		CED649C628BC5F3300E12D61 /* CapturingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED649C528BC5F3300E12D61 /* CapturingViewController.swift */; };
 		CEDA1BDB28BA5DC400D07A53 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = CEDA1BDA28BA5DC400D07A53 /* FirebaseAnalytics */; };
 		CEDA1BDD28BA5DC400D07A53 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = CEDA1BDC28BA5DC400D07A53 /* FirebaseAuth */; };
 		CEDA1BDF28BA5DC400D07A53 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = CEDA1BDE28BA5DC400D07A53 /* FirebaseFirestore */; };
@@ -99,6 +103,10 @@
 		CEC6855928AFDA11007C0967 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		CEC6855B28B0B3C5007C0967 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		CEC6855D28B12617007C0967 /* ReframingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReframingViewController.swift; sourceTree = "<group>"; };
+		CED649BD28BC5DB600E12D61 /* MyQRCodeReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyQRCodeReader.swift; sourceTree = "<group>"; };
+		CED649C128BC5E6E00E12D61 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CED649C328BC5EA400E12D61 /* QRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRViewController.swift; sourceTree = "<group>"; };
+		CED649C528BC5F3300E12D61 /* CapturingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapturingViewController.swift; sourceTree = "<group>"; };
 		CEEE82B32847A99A00732497 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		CEEE82B7284B6A4400732497 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		CEEE82B9284B911500732497 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -184,6 +192,10 @@
 				CEC6855D28B12617007C0967 /* ReframingViewController.swift */,
 				CEB4754A2859F894002654E6 /* AccountViewController.swift */,
 				CE8D8BEA28B9194C0024B322 /* CircleChart.swift */,
+				CED649C328BC5EA400E12D61 /* QRViewController.swift */,
+				CED649C528BC5F3300E12D61 /* CapturingViewController.swift */,
+				CED649BD28BC5DB600E12D61 /* MyQRCodeReader.swift */,
+				CED649C128BC5E6E00E12D61 /* User.swift */,
 				CE73D15F2839DF4C00B20D0D /* Main.storyboard */,
 				CE73D1622839DF4E00B20D0D /* Assets.xcassets */,
 				CE6488E0287169DD0054408F /* MakeTargetViewItems */,
@@ -312,6 +324,7 @@
 				CEB4757628713986002654E6 /* ImportanceTableViewCell.swift in Sources */,
 				CEB4757228713863002654E6 /* MakeTargetTableViewCell.swift in Sources */,
 				CEEE82B8284B6A4400732497 /* TabBarViewController.swift in Sources */,
+				CED649C228BC5E6E00E12D61 /* User.swift in Sources */,
 				CEB47562285F6981002654E6 /* QuestionTableViewCell.swift in Sources */,
 				CEAE56BF28974864002DBEA2 /* InnerCollectionViewCell.swift in Sources */,
 				CE73D1702839F8AE00B20D0D /* CalendarViewController.swift in Sources */,
@@ -320,11 +333,14 @@
 				CEB4755B285F65CD002654E6 /* QuestionViewController.swift in Sources */,
 				CEAE56C4289766FB002DBEA2 /* FriendsInnerCollectionViewCell.swift in Sources */,
 				CE73D15E2839DF4C00B20D0D /* ViewController.swift in Sources */,
+				CED649C628BC5F3300E12D61 /* CapturingViewController.swift in Sources */,
 				CEEE82B42847A99A00732497 /* SignUpViewController.swift in Sources */,
 				CE73D15A2839DF4C00B20D0D /* AppDelegate.swift in Sources */,
+				CED649BE28BC5DB600E12D61 /* MyQRCodeReader.swift in Sources */,
 				CEC6855C28B0B3C6007C0967 /* Alert.swift in Sources */,
 				CE73D15C2839DF4C00B20D0D /* SceneDelegate.swift in Sources */,
 				CE8D8BE928B911840024B322 /* TargetDetailViewController.swift in Sources */,
+				CED649C428BC5EA400E12D61 /* QRViewController.swift in Sources */,
 				CEB475492859220A002654E6 /* LogInViewController.swift in Sources */,
 				CE80C15728716EF9000646B2 /* Goal.swift in Sources */,
 				CEC6855E28B12617007C0967 /* ReframingViewController.swift in Sources */,
