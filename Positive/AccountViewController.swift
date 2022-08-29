@@ -14,14 +14,16 @@ import Charts
 
 class AccountViewController: UIViewController, ChartViewDelegate {
     
+    @IBOutlet weak var backView: UIView!
     @IBOutlet weak var imageButton: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var backView: UIView!
+    @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var chartBack1: UIView!
+    @IBOutlet weak var lineChartView: LineChartView!
+    @IBOutlet weak var aveLabel: UILabel!
     @IBOutlet weak var chartBack2: UIView!
     @IBOutlet weak var friendsBack: UIView!
     @IBOutlet weak var friendsCollection: UICollectionView!
-    @IBOutlet weak var lineChartView: LineChartView!
     
     let storageRef = Storage.storage().reference(forURL: "gs://positive-898d1.appspot.com")
     let user = Auth.auth().currentUser
@@ -60,6 +62,7 @@ class AccountViewController: UIViewController, ChartViewDelegate {
     }
     
     func design() {
+        editButton.layer.cornerRadius = 10
         chartBack1.layer.cornerRadius = 20
         chartBack1.layer.shadowColor = UIColor.black.cgColor
         chartBack1.layer.shadowOpacity = 0.25

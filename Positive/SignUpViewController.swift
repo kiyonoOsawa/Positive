@@ -13,6 +13,7 @@ import FirebaseFirestore
 
 class SignUpViewController: UIViewController {
     
+    @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var userImageButton: UIButton!
     @IBOutlet weak var userNameField: UITextField!
     @IBOutlet weak var emailField: UITextField!
@@ -33,11 +34,6 @@ class SignUpViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        //            let userDefaults = UserDefaults.standard
-        //            let firstLunchKey = "firstLunchKey"
-        //            if userDefaults.bool(forKey: firstLunchKey) {
-        //            performSegue(withIdentifier: "tab.identifier", sender: self)
-        //        }
         if user != nil {
             transition()
         }
@@ -113,6 +109,7 @@ class SignUpViewController: UIViewController {
     }
     
     func design() {
+        welcomeLabel.font = UIFont(name: "筑紫A丸ゴシック Std R", size: 30)
         userImageButton.layer.cornerRadius = 40
         userImageButton.layer.borderWidth = 1
         userImageButton.layer.borderColor = UIColor.darkGray.cgColor

@@ -10,11 +10,12 @@ import UIKit
 class ImportanceTableViewCell: UITableViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var levelStepper: UIStepper!
+//    @IBOutlet weak var levelStepper: UIStepper!
+    @IBOutlet weak var shareSwitch: UISwitch!
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        titleLabel.text = "重要度"
+        titleLabel.text = "共有"
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

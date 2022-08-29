@@ -34,7 +34,6 @@ class MakeTargetViewController: UIViewController {
         sectionTableView.register(UINib(nibName: "MakeTargetTableViewCell", bundle: nil), forCellReuseIdentifier: "makeTargetCell")
         sectionTableView.register(UINib(nibName: "ImportanceTableViewCell", bundle: nil), forCellReuseIdentifier: "importanceCell")
         sectionTableView.register(UINib(nibName: "DateTargetTableViewCell", bundle: nil), forCellReuseIdentifier: "dateTargetCell")
-        //        dateCell.delegate = self
         sectionTableView.dataSource = self
         sectionTableView.delegate = self
         navigationItem.title = "New Goal"
@@ -63,7 +62,7 @@ class MakeTargetViewController: UIViewController {
         let convertedDate = Timestamp(date: date)
         let addData: [String:Any] = [
             "goal": targetCell.targetTextField.text ?? "",
-            "importance": importanceCell.levelStepper.value,
+            "importance": importanceCell.shareSwitch.style,
             "nowTodo": self.nowTodo,
             //            "fightTodo": self.fightTodo,
             "essentialThing": self.essentialThing,
@@ -117,7 +116,7 @@ extension MakeTargetViewController: DateTargetTableViewCellDelegate, UITableView
             detailCell = tableView.dequeueReusableCell(withIdentifier: "importanceCell") as! ImportanceTableViewCell
             detailCell.selectionStyle = UITableViewCell.SelectionStyle.none
             detailCell.titleLabel.text = "詳細"
-            detailCell.levelStepper.isHidden = true
+            detailCell.shareSwitch.isHidden = true
             return detailCell
         } else {
             dateCell = tableView.dequeueReusableCell(withIdentifier: "dateTargetCell") as! DateTargetTableViewCell

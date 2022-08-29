@@ -22,20 +22,20 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="wB6-Go-ve5">
-                        <rect key="frame" x="185.5" y="16" width="94" height="32"/>
-                    </stepper>
+                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gSK-4G-xb1">
+                        <rect key="frame" x="230.5" y="16.5" width="51" height="31"/>
+                    </switch>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="wB6-Go-ve5" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="J8t-tV-RuX"/>
                     <constraint firstItem="pE6-kH-LXY" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="NAT-fe-qqQ"/>
+                    <constraint firstAttribute="trailing" secondItem="gSK-4G-xb1" secondAttribute="trailing" constant="16" id="Q6s-Xz-Xqe"/>
                     <constraint firstItem="pE6-kH-LXY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="vyb-Q7-mg5"/>
-                    <constraint firstAttribute="trailing" secondItem="wB6-Go-ve5" secondAttribute="trailing" constant="16" id="zV6-WC-6YJ"/>
+                    <constraint firstItem="gSK-4G-xb1" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="wA7-Ma-cWO"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="levelStepper" destination="wB6-Go-ve5" id="gJj-0D-bOr"/>
+                <outlet property="shareSwitch" destination="gSK-4G-xb1" id="uJV-BD-5oM"/>
                 <outlet property="titleLabel" destination="pE6-kH-LXY" id="yIG-C2-IEd"/>
             </connections>
             <point key="canvasLocation" x="134.78260869565219" y="78.348214285714278"/>

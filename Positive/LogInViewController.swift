@@ -16,6 +16,8 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet var textFieldCollection: [UITextField]!
+    @IBOutlet weak var backView: UIView!
+    @IBOutlet weak var logIn: UIButton!
     
     let storeRef = Storage.storage().reference(forURL: "gs://positive-898d1.appspot.com")
     let auth = Auth.auth()
@@ -58,5 +60,10 @@ class LogInViewController: UIViewController {
             textFieldImage.leftViewMode = .always
             textFieldImage.backgroundColor = UIColor.white
         }
+    }
+    
+    func design() {
+        backView.layer.cornerRadius = 15
+        logIn.layer.cornerRadius = 10
     }
 }
