@@ -135,7 +135,6 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             cell.deleteButton.addTarget(self, action: #selector(deleteTapped), for: .touchUpInside)
             cell.doneButton.addTarget(self, action: #selector(doneTapped), for: .touchUpInside)
             cell.reviewButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-//            cell.miniGoal1.isEditable = false
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "friendsTarget", for: indexPath) as! FriendsInnerCollectionViewCell
@@ -183,7 +182,12 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "detailTarget", sender: nil)
+        let nextView = storyboard?.instantiateViewController(withIdentifier: "detailTarget") as! TargetDetailViewController
+        nextView.modalTransitionStyle = .coverVertical
+        nextView.modalPresentationStyle = .pageSheet
+        nextView.Goal = addresses[indexPath.row].goal
+        nextView.MiniGoal = addresses[indexPath.row].nowTodo!
+        self.present(nextView, animated: true, completion: nil)
     }
     
     @objc func deleteTapped(){
@@ -202,6 +206,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
                     return
                 }
             }
+        self.targetCollection.reloadData()
     }
     
     @objc func doneTapped() {

@@ -20,6 +20,7 @@ class ReframingViewController: UIViewController {
     let db = Firestore.firestore()
     let user = Auth.auth().currentUser
     var value = Int()
+    var targetGoal = String()
     var originalText = String()
     var targetDocumentID: String = ""
     var calendarDate = Date()
@@ -53,6 +54,7 @@ class ReframingViewController: UIViewController {
             "original": originalText,
             "regraming": reframingTextField.text!,
             "target": self.targetDocumentID,
+            "targetGoal": targetGoal,
             "date": Timestamp(date: calendarDate)
         ]
         db.collection("users")

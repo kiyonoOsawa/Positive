@@ -28,7 +28,7 @@ class AccountViewController: UIViewController, ChartViewDelegate {
     let storageRef = Storage.storage().reference(forURL: "gs://positive-898d1.appspot.com")
     let user = Auth.auth().currentUser
     let db = Firestore.firestore()
-    var addresses: [[String : Any]] = []
+    var addresses: [DetailGoal] = []
     var friends: User? = nil
     var addressesFriends: [DetailGoal] = []
     let rawDataGraph: [Int] = [130, 240, 500, 550, 670, 800, 950, 1300, 1400, 1500, 1700, 2100, 2500, 3600, 4200, 4300, 4700, 4800, 5400, 5800, 5900, 6700]
@@ -41,7 +41,7 @@ class AccountViewController: UIViewController, ChartViewDelegate {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal // 横スクロール
         friendsCollection.collectionViewLayout = layout
-//        fetchData()
+        fetchData()
         fetchFriendsData()
         lineChart()
         design()
@@ -53,19 +53,22 @@ class AccountViewController: UIViewController, ChartViewDelegate {
         }
         db.collection("users")
             .document(user.uid)
-            .collection("goals")
+//            .collection("goals")
             .addSnapshotListener { QuerySnapshot, Error in
                 guard let querySnapShot = QuerySnapshot else {
                     print("error: \(Error.debugDescription)")
                     return
                 }
-                self.addresses.removeAll()
-                print("ここでとる: \(querySnapShot.documents)")
-                for doc in querySnapShot.documents {
-                    let user = DetailGoal(dictionary: doc.data(), documentID: doc.documentID)
-                    self.nameLabel.text = user.userName
-//                    self.
-                }
+                guard let data = querySnapShot.data() else { return }
+                let userName = data["name"] as! String
+                self.nameLabel.text = userName
+//                self.addresses.removeAll()
+//                print("ここでとる: \(querySnapShot.documents)")
+//                for doc in querySnapShot.documents {
+//                    let detailGoal = DetailGoal(dictionary: doc.data(), documentID: doc.documentID)
+//                    self.addresses.append(detailGoal)
+//                }
+//                self.nameLabel.text = data["name"] as! String
             }
     }
     

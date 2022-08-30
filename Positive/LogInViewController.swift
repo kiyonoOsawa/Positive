@@ -72,6 +72,14 @@ class LogInViewController: UIViewController {
         }
     }
     
+    @IBAction func deleteText1(_ sender: UIButton) {
+     emailField.text = ""
+    }
+    
+    @IBAction func deleteText2(_ sender: UIButton) {
+     passwordField.text = ""
+    }
+    
     func design() {
         backView.layer.cornerRadius = 15
         logIn.layer.cornerRadius = 10

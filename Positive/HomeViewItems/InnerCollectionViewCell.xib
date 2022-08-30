@@ -32,10 +32,10 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="45" id="835-aC-KFz"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="16"/>
+                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="15"/>
                         <color key="tintColor" name="MainColor"/>
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                        <state key="normal" title="Review"/>
+                        <state key="normal" title="レビュー"/>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SnQ-0Z-sOh">
                         <rect key="frame" x="318" y="16" width="18" height="18"/>
@@ -68,10 +68,10 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="45" id="Wfu-ei-sob"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="16"/>
+                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="15"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                        <state key="normal" title="Done"/>
+                        <state key="normal" title="完了"/>
                     </button>
                 </subviews>
             </view>
@@ -82,7 +82,6 @@
                 <constraint firstItem="2aR-Ri-zvE" firstAttribute="leading" secondItem="wnU-L0-QpC" secondAttribute="trailing" constant="32" id="7mf-G8-WoJ"/>
                 <constraint firstItem="R7l-O8-Qz0" firstAttribute="top" secondItem="aNp-vZ-exz" secondAttribute="bottom" constant="8" id="90j-ZI-2o5"/>
                 <constraint firstItem="dkz-71-G10" firstAttribute="top" secondItem="R7l-O8-Qz0" secondAttribute="bottom" constant="8" id="94M-3A-alw"/>
-                <constraint firstItem="wnU-L0-QpC" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="0.340909" id="Da8-mm-lPX"/>
                 <constraint firstAttribute="bottom" secondItem="wnU-L0-QpC" secondAttribute="bottom" constant="16" id="Deg-Kl-iZh"/>
                 <constraint firstItem="SnQ-0Z-sOh" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="Jto-D6-pG8"/>
                 <constraint firstItem="2aR-Ri-zvE" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="0.340909" id="TrE-eT-Zu7"/>

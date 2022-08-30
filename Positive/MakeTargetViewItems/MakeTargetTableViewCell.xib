@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,11 +25,28 @@
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b7e-vH-MYl">
+                        <rect key="frame" x="278" y="40" width="10" height="10"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="10" id="eEL-vd-t7D"/>
+                            <constraint firstAttribute="height" constant="10" id="x1g-yp-UFm"/>
+                        </constraints>
+                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain">
+                            <imageReference key="image" image="x.circle.fill" catalog="system" symbolScale="small"/>
+                        </buttonConfiguration>
+                        <connections>
+                            <action selector="deleteText:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="hWX-GG-X1B"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="b7e-vH-MYl" secondAttribute="trailing" constant="32" id="4JJ-Ow-CBQ"/>
                     <constraint firstItem="JdZ-MR-RhH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Gjo-qT-9ju"/>
                     <constraint firstItem="JdZ-MR-RhH" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="IZR-Pn-PZn"/>
                     <constraint firstItem="JdZ-MR-RhH" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="nUO-Z4-zKw"/>
+                    <constraint firstItem="b7e-vH-MYl" firstAttribute="centerY" secondItem="JdZ-MR-RhH" secondAttribute="centerY" id="p8A-tb-vZL"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -38,4 +56,7 @@
             <point key="canvasLocation" x="137.68115942028987" y="101.78571428571428"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="x.circle.fill" catalog="system" width="32" height="32"/>
+    </resources>
 </document>

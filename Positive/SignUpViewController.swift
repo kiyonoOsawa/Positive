@@ -39,6 +39,11 @@ class SignUpViewController: UIViewController {
         self.error1.isHidden = true
         self.error2.isHidden = true
         self.error3.isHidden = true
+        if user != nil {
+            print(user)
+            transition()
+        } else {
+        }
     }
     
     @IBAction func tappedImageButton(_ sender: Any) {
@@ -50,14 +55,18 @@ class SignUpViewController: UIViewController {
     
     @IBAction func tappedSignUp(_ sender: Any) {
         if (userNameField.text?.isEmpty == true) || (emailField.text?.isEmpty ==  true) || (passwordField.text?.isEmpty == true ) || (userImageButton.imageView?.image == nil) {
-            AlertDialog.shared.showAlert(title: "!", message: "プロフィール画像,名前,e-mail,パスワードを全て入力してください", viewController: self) {
+            let alert = UIAlertController(title: "", message: "プロフィール画像,e-mail,名前,パスワードを全て入力してください", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "OK", style: .default) { (action) in
             }
-            
+            alert.addAction(ok)
+            present(alert, animated: true, completion: nil)
         }
+        
         if emailField.text != nil && passwordField.text != nil{
             createUser(emailText: emailField.text!, passwordText: passwordField.text!)
         }
-        transition()
+        
+//        transition()
     }
     
     @IBAction func tappedToLogIn(_ sender: Any) {
@@ -96,9 +105,10 @@ class SignUpViewController: UIViewController {
                     print("error: \(error)")
                 }
             }
-            let addData = [
+            let addData: [String:Any] = [
                 "name": self.userNameField.text!
-            ] as [String : Any]
+            ]
+            
             let db = Firestore.firestore()
             db.collection("users")
                 .document(authResult.user.uid)
@@ -137,6 +147,18 @@ class SignUpViewController: UIViewController {
         }
     }
     
+    @IBAction func deleteText1(_ sender: UIButton) {
+     userNameField.text = ""
+    }
+    
+    @IBAction func deleteText2(_ sender: UIButton) {
+     emailField.text = ""
+    }
+    
+    @IBAction func deleteText3(_ sender: UIButton) {
+     passwordField.text = ""
+    }
+    
     func design() {
         welcomeLabel.font = UIFont(name: "筑紫A丸ゴシック Std R", size: 30)
         userImageButton.layer.cornerRadius = 40
@@ -144,7 +166,6 @@ class SignUpViewController: UIViewController {
         userImageButton.layer.borderColor = UIColor.darkGray.cgColor
         backView.layer.cornerRadius = 15
         signUp.layer.cornerRadius = 10
-        
     }
 }
 

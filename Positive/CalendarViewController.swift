@@ -52,6 +52,7 @@ class CalendarViewController: UIViewController {
         viewWidth = view.frame.width
         print(data)
         fetchDataTarget()
+        fetchDataReview()
         reportCollectionView.reloadData()
         design()
     }
@@ -66,51 +67,51 @@ class CalendarViewController: UIViewController {
     }
     
     private func fetchDataTarget(){
-        guard let user = user else {
-            return
-        }
-        self.addresses.removeAll()
-        db.collection("users")
-            .document(user.uid)
-            .collection("goals")
-            .addSnapshotListener { QuerySnapshot, Error in
-                guard let querySnapshot = QuerySnapshot else {
-                    print("error: \(Error.debugDescription)")
-                    return
-                }
-                for doc in querySnapshot.documents{
-                    let detailGoal = DetailGoal(dictionary: doc.data(), documentID: doc.documentID)
-                    self.addresses.append(detailGoal)
-                }
-                self.reportCollectionView.reloadData()
-            }
-    }
-    
-    private func fetchDataReview(){
-        guard let user = user else {
-            return
-        }
-        guard let calendarDate = calendarView.selectedDate else {
-            return
-        }
-        print("date: \(Timestamp(date: calendarDate))")
-        self.addressesReview.removeAll()
-        db.collection("users")
-            .document(user.uid)
-            .collection("reviews")
-            .addSnapshotListener { QuerySnapshot, Error in
-                guard let querySnapshot = QuerySnapshot else {
-                    print("error: \(Error.debugDescription)")
-                    return
-                }
-                for doc in querySnapshot.documents{
-                    let review = Review(dictionary: doc.data())
-                    self.addressesReview.append(review)
-                    print("addressesReview: \(self.addressesReview)")
-                }
-                self.reportCollectionView.reloadData()
-            }
-    }
+           guard let user = user else {
+               return
+           }
+           db.collection("users")
+               .document(user.uid)
+               .collection("goals")
+               .addSnapshotListener { QuerySnapshot, Error in
+                   guard let querySnapshot = QuerySnapshot else {
+                       print("error: \(Error.debugDescription)")
+                       return
+                   }
+                   self.addresses.removeAll()
+                   for doc in querySnapshot.documents{
+                       let detailGoal = DetailGoal(dictionary: doc.data(), documentID: doc.documentID)
+                       self.addresses.append(detailGoal)
+                   }
+                   self.reportCollectionView.reloadData()
+               }
+       }
+       
+       private func fetchDataReview(){
+           guard let user = user else {
+               return
+           }
+           guard let calendarDate = calendarView.selectedDate else {
+               return
+           }
+           print("date: \(Timestamp(date: calendarDate))")
+           db.collection("users")
+               .document(user.uid)
+               .collection("reviews")
+               .addSnapshotListener { QuerySnapshot, Error in
+                   guard let querySnapshot = QuerySnapshot else {
+                       print("error: \(Error.debugDescription)")
+                       return
+                   }
+                   self.addressesReview.removeAll()
+                   for doc in querySnapshot.documents{
+                       let review = Review(dictionary: doc.data())
+                       self.addressesReview.append(review)
+                       print("addressesReview: \(self.addressesReview)")
+                   }
+                   self.reportCollectionView.reloadData()
+               }
+       }
     
     @IBAction func toReviewViewButton() {
         let storyboard: UIStoryboard = self.storyboard!
@@ -202,12 +203,15 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
         cell.layer.shadowOffset = CGSize(width: 0, height: 0)
         cell.layer.masksToBounds = false
         cell.bigTargetLabel.text = applicableData[indexPath.row].goal
+        
         switch segmentState {
         case .affirmation:
+            cell.bigTargetLabel.text = applicableData[indexPath.row].goal
             cell.miniTargetLabel.text = applicableData[indexPath.row].nowTodo
             break
         case .record:
-            cell.miniTargetLabel.text = applicableData[indexPath.row].review
+            cell.bigTargetLabel.text = applicableDataReview[indexPath.row].targetGoal
+            cell.miniTargetLabel.text = applicableDataReview[indexPath.row].original
             if cell.miniTargetLabel.text == nil {
                 cell.textLabel.text = ""
             } else {
@@ -253,7 +257,9 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource {
         applicableData.removeAll()
         applicableData = addresses.filter({data in
             let convertedDate = dateFormat(date: data.date.dateValue())
-            return calendarDate == convertedDate
+            let calendarDate = dateFormat(date: calendarView.selectedDate!)
+            let startDate = dateFormat(date: data.createdAt.dateValue())
+            return (convertedDate.compare(calendarDate) == .orderedDescending || convertedDate.compare(calendarDate) == .orderedSame) && (startDate.compare(calendarDate) == .orderedAscending || startDate.compare(calendarDate) == .orderedSame)
         })
         applicableDataReview.removeAll()
         applicableDataReview = addressesReview.filter({ data in

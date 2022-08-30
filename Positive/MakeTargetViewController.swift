@@ -23,12 +23,12 @@ class MakeTargetViewController: UIViewController {
     var detailCell = ImportanceTableViewCell()
     var shareCell = ImportanceTableViewCell()
     var nowTodo = String()
-    //    var fightTodo = String()
     var essentialThing = String()
     var trigger = String()
     var person = String()
     var dateCell: DateTargetTableViewCell!
     var date = Date()
+    var isShared: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,7 +79,6 @@ class MakeTargetViewController: UIViewController {
         let convertedDate = Timestamp(date: date)
         let addData: [String:Any] = [
             "goal": targetCell.targetTextField.text ?? "",
-            //            "importance": shareCell.shareSwitch.style,
             "nowTodo": self.nowTodo,
             "essentialThing": self.essentialThing,
             "trigger": self.trigger,
@@ -87,7 +86,9 @@ class MakeTargetViewController: UIViewController {
             "review": "review",
             "date": convertedDate,
             "userId": user.uid,
-            "userName": userName
+            "userName": userName,
+            "createdAt": Timestamp(date: Date()),
+            "isShared": isShared
         ]
         db.collection("users")
             .document(user.uid)

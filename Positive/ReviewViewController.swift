@@ -36,35 +36,40 @@ class ReviewViewController: UIViewController {
         self.dismiss(animated: true)
     }
     
-    private func showModal(value: Int, originalText: String, targetDocumentId: String, calendarDate: Date) {    // ハーフモーダルを出す
+    private func showModal(value: Double, originalText: String, targetDocumentId: String, targetGoal: String, calendarDate: Date) {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyBoard.instantiateViewController(withIdentifier: "ReframingViewController") as! ReframingViewController
         if let sheet = viewController.sheetPresentationController {
             sheet.detents = [.medium()]
         }
-        viewController.value = value
+        viewController.value = Int(value)
         viewController.originalText = originalText
         viewController.calendarDate = calendarDate
         viewController.targetDocumentID = targetDocumentId
+        viewController.targetGoal = targetGoal
         present(viewController, animated: true)
     }
-    private func measuringStatus() {    // ポジティブ度を測定
+    // ポジティブ度を測定
+    private func measuringStatus() {
         let apiClient = APIClient.shared
         apiClient.getDegreeofSentiment(encodedWord: reviewTextView.text ?? "") { [self] response in
             switch response {
             case .success(let data):
-                let positiveness = (data.negaposi+3)/6*100
+                let positiveness: Double = Double(data.negaposi+3)
+                let percentage: Double = positiveness/6*100
+                print("negaposi: \(positiveness)")
+                print("percentage: \(percentage)")
                 if data.negaposi>0 {
-                    AlertDialog.shared.showAlert(title: "ポジティブ!", message: "ポジティブ\(positiveness)%！", viewController: self) {
-                        self.addReview()
+                    AlertDialog.shared.showAlert(title: "ポジティブ!", message: "ポジティブ\(percentage)%！", viewController: self) {
+                        self.addReview(score: percentage)
                         self.dismiss(animated: true, completion: nil)
                     }
                 } else {
                     guard let targetData = self.targetData else {
                         return
                     }
-                    AlertDialog.shared.showAlert(title: "ポジティブ度が低いです…", message: "ポジティブ\(positiveness)%…", viewController: self) {
-                        self.showModal(value: data.negaposi+3, originalText: self.reviewTextView.text!, targetDocumentId: targetData.documentID, calendarDate: self.calendarSelectedDate!)
+                    AlertDialog.shared.showAlert(title: "ポジティブ度が低いです…", message: "ポジティブ\(percentage)%…", viewController: self) {
+                        self.showModal(value: percentage, originalText: self.reviewTextView.text!, targetDocumentId: targetData.documentID, targetGoal: targetData.goal, calendarDate: self.calendarSelectedDate!)
                     }
                 }
                 break
@@ -75,7 +80,7 @@ class ReviewViewController: UIViewController {
         }
     }
     
-    private func addReview() {
+    private func addReview(score: Double) {
         guard let user = user else {
             return
         }
@@ -85,7 +90,9 @@ class ReviewViewController: UIViewController {
         let addData: [String:Any] = [
             "original":reviewTextView.text!,
             "date":Timestamp(date: calendarSelectedDate!),
-            "target": targetData.documentID
+            "target": targetData.documentID,
+            "targetGoal": targetData.goal,
+            "score": score
         ]
         db.collection("users")
             .document(user.uid)

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE08B05628BD19870054D0D6 /* EditAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE08B05528BD19860054D0D6 /* EditAccountViewController.swift */; };
 		CE3E7834288C40A000548FFD /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3E7833288C40A000548FFD /* TabBar.swift */; };
 		CE644D8F28B7C580008443BE /* FriendAccCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE644D8D28B7C580008443BE /* FriendAccCollectionViewCell.swift */; };
 		CE644D9028B7C580008443BE /* FriendAccCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE644D8E28B7C580008443BE /* FriendAccCollectionViewCell.xib */; };
@@ -63,6 +64,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE08B05528BD19860054D0D6 /* EditAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountViewController.swift; sourceTree = "<group>"; };
 		CE3E7833288C40A000548FFD /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		CE644D8D28B7C580008443BE /* FriendAccCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendAccCollectionViewCell.swift; sourceTree = "<group>"; };
 		CE644D8E28B7C580008443BE /* FriendAccCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendAccCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				CEC6855B28B0B3C5007C0967 /* Alert.swift */,
 				CEC6855D28B12617007C0967 /* ReframingViewController.swift */,
 				CEB4754A2859F894002654E6 /* AccountViewController.swift */,
+				CE08B05528BD19860054D0D6 /* EditAccountViewController.swift */,
 				CE8D8BEA28B9194C0024B322 /* CircleChart.swift */,
 				CE08B05428BC83240054D0D6 /* QR */,
 				CE73D15F2839DF4C00B20D0D /* Main.storyboard */,
@@ -360,6 +363,7 @@
 				CEB4754B2859F894002654E6 /* AccountViewController.swift in Sources */,
 				CE3E7834288C40A000548FFD /* TabBar.swift in Sources */,
 				CE7A58BB289AC3B200AD3946 /* APIClient.swift in Sources */,
+				CE08B05628BD19870054D0D6 /* EditAccountViewController.swift in Sources */,
 				CE644D8F28B7C580008443BE /* FriendAccCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

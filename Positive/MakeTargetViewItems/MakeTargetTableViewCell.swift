@@ -20,12 +20,7 @@ class MakeTargetTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-//    override func didReceiveMemoryWarning() {
-//        super.didReceiveMemoryWarning()
-//    }
-//
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        self.view.endEditing(true)
-//    }
-    
+    @IBAction func deleteText(_ sender: UIButton) {
+     targetTextField.text = ""
+    }
 }

@@ -23,6 +23,8 @@ class TargetDetailViewController: UIViewController {
     var date = Date()
     var shareCell = ImportanceTableViewCell()
     var dateCell = DateTargetTableViewCell()
+    var Goal = String()
+    var MiniGoal = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +33,7 @@ class TargetDetailViewController: UIViewController {
         setTabelView.register(UINib(nibName: "DateTargetTableViewCell", bundle: nil), forCellReuseIdentifier: "dateTargetCell")
         setTabelView.register(UINib(nibName: "ImportanceTableViewCell", bundle: nil), forCellReuseIdentifier: "importanceCell")
         fetchData()
+        design()
     }
     
     func fetchData() {
@@ -49,13 +52,12 @@ class TargetDetailViewController: UIViewController {
                     let detailGoal = DetailGoal(dictionary: doc.data(), documentID: doc.documentID)
                     self.addresses.append(detailGoal)
                 }
-//                self.targetLabel.text = addresses["goal"] as! String
-//                self.miniTargetTextView.reloadInputViews()
             }
     }
     
     func design() {
-//        targetLabel.text = addresses[]
+        targetLabel.text = Goal
+        miniTargetTextView.text = MiniGoal
     }
 }
 

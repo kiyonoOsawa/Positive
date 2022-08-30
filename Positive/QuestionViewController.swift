@@ -46,7 +46,7 @@ class QuestionViewController: UIViewController {
     
     private func transferValue() {
         let preNC = self.navigationController!
-        let preVC = preNC.viewControllers[preNC.viewControllers.count - 2] as! MakeTargetViewController
+        let preVC = preNC.viewControllers[preNC.viewControllers.count - 1] as! MakeTargetViewController
         preVC.nowTodo = eachAnswer[0]
         preVC.essentialThing = eachAnswer[1]
         preVC.trigger = eachAnswer[2]
@@ -104,9 +104,9 @@ extension QuestionViewController: QuestionTableViewCellDelegate, UITableViewDele
         cell.answerTextView.layer.cornerRadius = 15
         cell.questionLabel.text = questions[indexPath.row]
         cell.answerTextView.text = eachAnswer[indexPath.row]
-        if indexPath.row == 0 {
-            cell.popButton.isHidden = true
-        }
+//        if indexPath.row == 0 {
+//            cell.popButton.isHidden = true
+//        }
         if indexPath.row == 0 {
             cell.popButton.isHidden = true
         } else {
