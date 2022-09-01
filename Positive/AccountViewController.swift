@@ -15,13 +15,12 @@ import Charts
 class AccountViewController: UIViewController, ChartViewDelegate {
     
     @IBOutlet weak var backView: UIView!
-    @IBOutlet weak var imageButton: UIButton!
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var editButton: UIButton!
-    @IBOutlet weak var chartBack1: UIView!
+    @IBOutlet weak var chartBack: UIView!
     @IBOutlet weak var lineChartView: LineChartView!
     @IBOutlet weak var aveLabel: UILabel!
-    @IBOutlet weak var chartBack2: UIView!
     @IBOutlet weak var friendsBack: UIView!
     @IBOutlet weak var friendsCollection: UICollectionView!
     
@@ -31,7 +30,8 @@ class AccountViewController: UIViewController, ChartViewDelegate {
     var addresses: [DetailGoal] = []
     var friends: User? = nil
     var addressesFriends: [DetailGoal] = []
-    let rawDataGraph: [Int] = [130, 240, 500, 550, 670, 800, 950, 1300, 1400, 1500, 1700, 2100, 2500, 3600, 4200, 4300, 4700, 4800, 5400, 5800, 5900, 6700]
+    var accountList: [User] = []
+    var rawDataGraph: [Int] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,65 +41,82 @@ class AccountViewController: UIViewController, ChartViewDelegate {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal // 横スクロール
         friendsCollection.collectionViewLayout = layout
-        fetchData()
-        fetchFriendsData()
+        fetchMyData()
+        fetchReviewData()
         lineChart()
         design()
     }
     
-    private func fetchData() {
+    private func fetchMyData() {
         guard let user = user else {
             return
         }
         db.collection("users")
             .document(user.uid)
-//            .collection("goals")
+            .addSnapshotListener { DocumentSnapshot, Error in
+                guard let documentSnapshot = DocumentSnapshot else { return }
+                guard let data = documentSnapshot.data() else { return }
+                let myAccount = User(userData: data)
+                self.nameLabel.text = myAccount.userName
+                self.fetchFriendList(friendList: myAccount.friendList ?? [""])
+            }
+        let imagesRef = self.storageRef.child("userProfile").child("\(user.uid).jpg")
+        imagesRef.getData(maxSize: 1 * 1024 * 1024) { data, Error in
+            if let Error = Error {
+                print("画像の取り出しに失敗: \(Error)")
+            } else {
+                let image = UIImage(data: data!)
+                self.imageView.contentMode = .scaleAspectFill
+                self.imageView.clipsToBounds = true
+                self.imageView.image = image
+            }
+        }
+    }
+    
+    private func fetchFriendList(friendList: [String]) {
+        db.collection("users")
+            .whereField("userId", in: friendList)
             .addSnapshotListener { QuerySnapshot, Error in
-                guard let querySnapShot = QuerySnapshot else {
-                    print("error: \(Error.debugDescription)")
+                guard let querySnapshot = QuerySnapshot else {
+                    print("Error: \(Error.debugDescription)")
                     return
                 }
-                guard let data = querySnapShot.data() else { return }
-                let userName = data["name"] as! String
-                self.nameLabel.text = userName
-//                self.addresses.removeAll()
-//                print("ここでとる: \(querySnapShot.documents)")
-//                for doc in querySnapShot.documents {
-//                    let detailGoal = DetailGoal(dictionary: doc.data(), documentID: doc.documentID)
-//                    self.addresses.append(detailGoal)
-//                }
-//                self.nameLabel.text = data["name"] as! String
+                for doc in querySnapshot.documents {
+                    let account = User(userData: doc.data())
+                    self.accountList.append(account)
+                }
+                self.friendsCollection.reloadData()
             }
     }
     
-    private func fetchFriendsData() {
+    private func fetchReviewData() {
         guard let user = user else {
             return
         }
         db.collection("users")
             .document(user.uid)
-            .addSnapshotListener { documentSnapshot, Error in
-                guard let document = documentSnapshot else { return }
-                guard let data = document.data() else { return }
-                self.friends = User(userData: data)
-                guard let user = self.friends else { return }
-                guard let friendList = user.friendList else { return }
-                self.db.collectionGroup("goals")
-                    .whereField("userId", in: friendList)
-                    .addSnapshotListener { QuerySnapshot, Error in
-                        guard let querySnapShot = QuerySnapshot else {
-                            print("error: \(Error.debugDescription)")
-                            return
-                        }
-                        self.addressesFriends.removeAll()
-                        for doc in querySnapShot.documents {
-                            let detailGoal = DetailGoal(dictionary: doc.data(), documentID: doc.documentID)
-                            self.addressesFriends.append(detailGoal)
-                            print("addressesFriends:\(self.addressesFriends)")
-                        }
-                        self.friendsCollection.reloadData()
-                    }
+            .collection("reviews")
+            .addSnapshotListener { QuerySnapshot, Error in
+                guard let querySnapshot = QuerySnapshot else { return }
+                self.rawDataGraph.removeAll()
+                for doc in querySnapshot.documents {
+                    let review = Review(dictionary: doc.data())
+                    self.rawDataGraph.append(Int(review.score ?? 0))
+                    let entries = self.rawDataGraph.enumerated().map { ChartDataEntry(x: Double($0.offset),y: Double($0.element))}
+                    self.setChartData(entries: entries)
+                    self.setAverageData(scores: self.rawDataGraph)
+                }
             }
+    }
+    
+    private func setChartData(entries: [ChartDataEntry]) {
+        let dataSet = LineChartDataSet(entries: entries)
+        self.lineChartView.data = LineChartData(dataSet: dataSet)
+    }
+    
+    private func setAverageData(scores: [Int]) {
+        let average = scores.reduce(0, +) / scores.count
+        aveLabel.text = String(average)
     }
     
     func lineChart() {
@@ -118,10 +135,10 @@ class AccountViewController: UIViewController, ChartViewDelegate {
         lineChartView.xAxis.drawAxisLineEnabled = false
         lineChartView.rightAxis.enabled = false        // 右側のY座標軸は非表示にする
         lineChartView.leftAxis.axisMinimum = 0.0         // Y座標の値が0始まりになるように設定
-        lineChartView.leftAxis.axisMaximum = 10000.0
+        lineChartView.leftAxis.axisMaximum = 100.0
         lineChartView.leftAxis.drawZeroLineEnabled = true
         lineChartView.leftAxis.zeroLineColor = .systemGray
-        let limitLine = ChartLimitLine(limit: 7200, label: "ポジティブライン")        // グラフに境界線(横)を追加
+        let limitLine = ChartLimitLine(limit: 72, label: "ポジティブライン")        // グラフに境界線(横)を追加
         limitLine.lineColor = .darkGray
         limitLine.valueTextColor = .darkGray
         lineChartView.leftAxis.addLimitLine(limitLine)
@@ -133,46 +150,42 @@ class AccountViewController: UIViewController, ChartViewDelegate {
         lineChartView.highlightPerTapEnabled = false        // タップでプロットを選択できないようにする
         lineChartView.pinchZoomEnabled = false         // ピンチズームオフ
         lineChartView.doubleTapToZoomEnabled = false         // ダブルタップズームオフ
-        lineChartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.3, easingOption: .easeInCubic)         // アニメーションをつける
+        lineChartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0, easingOption: .easeInCubic)         // アニメーションをつける
     }
     
     func design() {
+        imageView.layer.cornerRadius = 36
         editButton.layer.cornerRadius = 10
-        chartBack1.layer.cornerRadius = 20
-        chartBack1.layer.shadowColor = UIColor.black.cgColor
-        chartBack1.layer.shadowOpacity = 0.25
-        chartBack1.layer.shadowOffset = CGSize(width: 0, height: 0)
-        chartBack1.layer.masksToBounds = false
-        chartBack2.layer.cornerRadius = 20
-        chartBack2.layer.shadowColor = UIColor.black.cgColor
-        chartBack2.layer.shadowOpacity = 0.25
-        chartBack2.layer.shadowOffset = CGSize(width: 0, height: 0)
-        chartBack2.layer.masksToBounds = false
+        chartBack.layer.cornerRadius = 20
+        chartBack.layer.shadowColor = UIColor.black.cgColor
+        chartBack.layer.shadowOpacity = 0.25
+        chartBack.layer.shadowOffset = CGSize(width: 0, height: 0)
+        chartBack.layer.masksToBounds = false
         friendsBack.layer.cornerRadius = 20
         friendsBack.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         friendsCollection.register(UINib(nibName: "FriendAccCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "accCell")
-//        nameLabel.text = addresses[indexPath.row].
-//        nameLabel.text = addresses.
     }
 }
 
 extension AccountViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return addressesFriends.count
+        return accountList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "accCell", for: indexPath) as! FriendAccCollectionViewCell
         cell.friendIcon.layer.cornerRadius = 36
-        let friendId = addressesFriends[indexPath.row].userId
-        cell.friendName.text = addressesFriends[indexPath.row].userName
+        let friendId: String = accountList[indexPath.row].userId ?? ""
+        cell.friendName.text = accountList[indexPath.row].userName
         let imagesRef = self.storageRef.child("userProfile").child("\(friendId).jpg")
         imagesRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
             if let error = error {
                 print("画像の取り出しに失敗: \(error)")
             }else{
                 let image = UIImage(data: data!)
+                cell.friendIcon.contentMode = .scaleAspectFill
+                cell.friendIcon.clipsToBounds = true
                 cell.friendIcon.image = image
             }
         }

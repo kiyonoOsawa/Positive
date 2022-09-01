@@ -140,17 +140,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		CE08B05428BC83240054D0D6 /* QR */ = {
-			isa = PBXGroup;
-			children = (
-				CED649C328BC5EA400E12D61 /* QRViewController.swift */,
-				CED649C528BC5F3300E12D61 /* CapturingViewController.swift */,
-				CED649BD28BC5DB600E12D61 /* MyQRCodeReader.swift */,
-				CED649C128BC5E6E00E12D61 /* User.swift */,
-			);
-			path = QR;
-			sourceTree = "<group>";
-		};
 		CE6488E0287169DD0054408F /* MakeTargetViewItems */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,7 +197,10 @@
 				CEB4754A2859F894002654E6 /* AccountViewController.swift */,
 				CE08B05528BD19860054D0D6 /* EditAccountViewController.swift */,
 				CE8D8BEA28B9194C0024B322 /* CircleChart.swift */,
-				CE08B05428BC83240054D0D6 /* QR */,
+				CED649C128BC5E6E00E12D61 /* User.swift */,
+				CED649C328BC5EA400E12D61 /* QRViewController.swift */,
+				CED649C528BC5F3300E12D61 /* CapturingViewController.swift */,
+				CED649BD28BC5DB600E12D61 /* MyQRCodeReader.swift */,
 				CE73D15F2839DF4C00B20D0D /* Main.storyboard */,
 				CE73D1622839DF4E00B20D0D /* Assets.xcassets */,
 				CE6488E0287169DD0054408F /* MakeTargetViewItems */,

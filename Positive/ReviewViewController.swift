@@ -20,6 +20,8 @@ class ReviewViewController: UIViewController {
     var calendarSelectedDate: Date? = nil
     var deadlineData: [DetailGoal] = []
     var targetData: DetailGoal?
+    var homeSelectTarget = String()
+//    var saveData: UserDefaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -115,6 +117,7 @@ extension ReviewViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+//        deadlineData[row] = self.homeSelectTarget
         targetData = deadlineData[row]
         documentID = deadlineData[row].documentID
         return deadlineData[row].goal

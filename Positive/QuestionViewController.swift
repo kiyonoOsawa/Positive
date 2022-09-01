@@ -14,18 +14,18 @@ class QuestionViewController: UIViewController {
     
     @IBOutlet weak var goalLabel: UILabel!
     @IBOutlet weak var questionTableView: UITableView!
-
+    
     var data: [Bool] = []
     var targets: [[String: Any]] = []
     var answers: [DetailGoal] = []
     let user = Auth.auth().currentUser
     let db = Firestore.firestore()
     let questions: [String] = ["このためにできることは？", "このために必要なモノ・コトは？", "きっかけは？", "具体的にどんな人？"]
-    var eachAnswer: [String] = ["","","","",""]
+    var eachAnswer: [String] = ["","","",""]
     
     fileprivate let cellHeight: CGFloat = 30
     fileprivate let numberOfQuestion: Int = 4
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         questionTableView.delegate = self
@@ -46,7 +46,7 @@ class QuestionViewController: UIViewController {
     
     private func transferValue() {
         let preNC = self.navigationController!
-        let preVC = preNC.viewControllers[preNC.viewControllers.count - 1] as! MakeTargetViewController
+        let preVC = preNC.viewControllers[preNC.viewControllers.count - 2] as! MakeTargetViewController
         preVC.nowTodo = eachAnswer[0]
         preVC.essentialThing = eachAnswer[1]
         preVC.trigger = eachAnswer[2]
@@ -80,6 +80,12 @@ class QuestionViewController: UIViewController {
 }
 
 extension QuestionViewController: QuestionTableViewCellDelegate, UITableViewDelegate, UITableViewDataSource {
+    func didChangeText(cell: QuestionTableViewCell, text: String) {
+        if let indexPath = questionTableView.indexPath(for: cell) {
+            eachAnswer[indexPath.row] = text
+        }
+    }
+    
     
     func didExtendButton(cell: QuestionTableViewCell) {
         if let indexPath = questionTableView.indexPath(for: cell) {
@@ -104,9 +110,9 @@ extension QuestionViewController: QuestionTableViewCellDelegate, UITableViewDele
         cell.answerTextView.layer.cornerRadius = 15
         cell.questionLabel.text = questions[indexPath.row]
         cell.answerTextView.text = eachAnswer[indexPath.row]
-//        if indexPath.row == 0 {
-//            cell.popButton.isHidden = true
-//        }
+        //        if indexPath.row == 0 {
+        //            cell.popButton.isHidden = true
+        //        }
         if indexPath.row == 0 {
             cell.popButton.isHidden = true
         } else {
@@ -120,10 +126,10 @@ extension QuestionViewController: QuestionTableViewCellDelegate, UITableViewDele
             return 200
         } else {
             if data[indexPath.row] {
-                    return 200
-                } else {
-                    return 56
-                }
+                return 200
+            } else {
+                return 56
+            }
         }
         return tableView.estimatedRowHeight
     }

@@ -55,6 +55,7 @@ class ReframingViewController: UIViewController {
             "regraming": reframingTextField.text!,
             "target": self.targetDocumentID,
             "targetGoal": targetGoal,
+            "score": value,
             "date": Timestamp(date: calendarDate)
         ]
         db.collection("users")

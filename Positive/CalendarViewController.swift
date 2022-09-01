@@ -51,6 +51,7 @@ class CalendarViewController: UIViewController {
         reportCollectionView.register(UINib(nibName: "CalendarTargetCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "reportCell")
         viewWidth = view.frame.width
         print(data)
+        configureSizes()
         fetchDataTarget()
         fetchDataReview()
         reportCollectionView.reloadData()
@@ -67,51 +68,63 @@ class CalendarViewController: UIViewController {
     }
     
     private func fetchDataTarget(){
-           guard let user = user else {
-               return
-           }
-           db.collection("users")
-               .document(user.uid)
-               .collection("goals")
-               .addSnapshotListener { QuerySnapshot, Error in
-                   guard let querySnapshot = QuerySnapshot else {
-                       print("error: \(Error.debugDescription)")
-                       return
-                   }
-                   self.addresses.removeAll()
-                   for doc in querySnapshot.documents{
-                       let detailGoal = DetailGoal(dictionary: doc.data(), documentID: doc.documentID)
-                       self.addresses.append(detailGoal)
-                   }
-                   self.reportCollectionView.reloadData()
-               }
-       }
-       
-       private func fetchDataReview(){
-           guard let user = user else {
-               return
-           }
-           guard let calendarDate = calendarView.selectedDate else {
-               return
-           }
-           print("date: \(Timestamp(date: calendarDate))")
-           db.collection("users")
-               .document(user.uid)
-               .collection("reviews")
-               .addSnapshotListener { QuerySnapshot, Error in
-                   guard let querySnapshot = QuerySnapshot else {
-                       print("error: \(Error.debugDescription)")
-                       return
-                   }
-                   self.addressesReview.removeAll()
-                   for doc in querySnapshot.documents{
-                       let review = Review(dictionary: doc.data())
-                       self.addressesReview.append(review)
-                       print("addressesReview: \(self.addressesReview)")
-                   }
-                   self.reportCollectionView.reloadData()
-               }
-       }
+        guard let user = user else {
+            return
+        }
+        guard let selectedDate = calendarView.selectedDate else {
+            return
+        }
+        db.collection("users")
+            .document(user.uid)
+            .collection("goals")
+            .addSnapshotListener { QuerySnapshot, Error in
+                guard let querySnapshot = QuerySnapshot else {
+                    print("error: \(Error.debugDescription)")
+                    return
+                }
+                self.addresses.removeAll()
+                for doc in querySnapshot.documents{
+                    let detailGoal = DetailGoal(dictionary: doc.data(), documentID: doc.documentID)
+                    self.addresses.append(detailGoal)
+                }
+                if self.dateFormat(date: selectedDate) == self.dateFormat(date: Date()){
+                    self.filteringData(date: selectedDate)
+                }
+                self.reportCollectionView.reloadData()
+            }
+    }
+    
+    private func fetchDataReview(){
+        guard let user = user else {
+            return
+        }
+        guard let calendarDate = calendarView.selectedDate else {
+            return
+        }
+        guard let selectedDate = calendarView.selectedDate else {
+            return
+        }
+        print("date: \(Timestamp(date: calendarDate))")
+        db.collection("users")
+            .document(user.uid)
+            .collection("reviews")
+            .addSnapshotListener { QuerySnapshot, Error in
+                guard let querySnapshot = QuerySnapshot else {
+                    print("error: \(Error.debugDescription)")
+                    return
+                }
+                self.addressesReview.removeAll()
+                for doc in querySnapshot.documents{
+                    let review = Review(dictionary: doc.data())
+                    self.addressesReview.append(review)
+                    print("addressesReview: \(self.addressesReview)")
+                }
+                if self.dateFormat(date: selectedDate) == self.dateFormat(date: Date()){
+                    self.filteringData(date: selectedDate)
+                }
+                self.reportCollectionView.reloadData()
+            }
+    }
     
     @IBAction func toReviewViewButton() {
         let storyboard: UIStoryboard = self.storyboard!
@@ -168,6 +181,25 @@ class CalendarViewController: UIViewController {
         
         startingFrame = CGRect(x: 0, y: screenHeight+100, width: screenWidth, height: 100)
         endingFrame = CGRect(x: 0, y: screenHeight-100, width: screenWidth, height: 100)
+    }
+    
+    private func filteringData(date: Date){
+        let calendarDate = dateFormat(date: date)
+        applicableData.removeAll()
+        applicableData = addresses.filter({data in
+            let converteDate = dateFormat(date: data.date.dateValue())
+            let calendarDate = dateFormat(date: calendarView.selectedDate!)
+            let startDate = dateFormat(date: data.createdAt.dateValue())
+            return (converteDate.compare(calendarDate) == .orderedDescending || converteDate.compare(calendarDate) == .orderedSame) && (startDate.compare( calendarDate) == .orderedAscending || startDate.compare(calendarDate) == .orderedSame)
+        })
+        applicableDataReview.removeAll()
+        applicableDataReview = addressesReview.filter({ data in
+            let convertedDate = dateFormat(date: data.date.dateValue())
+            return calendarDate == convertedDate
+        })
+        print("addressesCount: \(addresses.count)")
+        print("applicableDataCount: \(applicableData.count)")
+        reportCollectionView.reloadData()
     }
     
     func design() {

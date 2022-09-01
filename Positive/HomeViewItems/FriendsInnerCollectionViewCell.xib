@@ -25,15 +25,9 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NpT-lh-5nQ">
-                        <rect key="frame" x="66" y="23.5" width="36" height="19.5"/>
-                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="16"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="goal goal goal goal" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dmf-ip-We7">
-                        <rect key="frame" x="66" y="59" width="151.5" height="20.5"/>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                        <nil key="textColor"/>
+                        <rect key="frame" x="66" y="23.5" width="37" height="19.5"/>
+                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="16"/>
+                        <color key="textColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cgY-PT-Tcb">
@@ -43,24 +37,30 @@
                             <constraint firstAttribute="height" constant="1" id="gL3-G1-z29"/>
                         </constraints>
                     </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6nP-xX-bDA">
+                        <rect key="frame" x="66" y="59" width="48" height="24"/>
+                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="20"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstItem="Wk8-92-Y7I" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="6mM-SU-Gm9"/>
                 <constraint firstItem="NpT-lh-5nQ" firstAttribute="centerY" secondItem="Wk8-92-Y7I" secondAttribute="centerY" id="6yH-hN-gk9"/>
-                <constraint firstItem="Dmf-ip-We7" firstAttribute="leading" secondItem="NpT-lh-5nQ" secondAttribute="leading" id="Ehc-GX-dFN"/>
+                <constraint firstItem="6nP-xX-bDA" firstAttribute="leading" secondItem="NpT-lh-5nQ" secondAttribute="leading" id="JDT-8O-3Yo"/>
+                <constraint firstItem="6nP-xX-bDA" firstAttribute="top" secondItem="NpT-lh-5nQ" secondAttribute="bottom" constant="16" id="N2w-61-CnL"/>
                 <constraint firstItem="Wk8-92-Y7I" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="12" id="Rac-Gn-BJT"/>
                 <constraint firstAttribute="bottom" secondItem="cgY-PT-Tcb" secondAttribute="bottom" id="Y4X-iG-SUp"/>
                 <constraint firstItem="cgY-PT-Tcb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="pOi-RQ-FIf"/>
-                <constraint firstItem="Dmf-ip-We7" firstAttribute="top" secondItem="NpT-lh-5nQ" secondAttribute="bottom" constant="16" id="qYB-yA-d47"/>
                 <constraint firstAttribute="trailing" secondItem="cgY-PT-Tcb" secondAttribute="trailing" id="vNg-9U-eWw"/>
                 <constraint firstItem="NpT-lh-5nQ" firstAttribute="leading" secondItem="Wk8-92-Y7I" secondAttribute="trailing" constant="8" id="xMD-hX-kjP"/>
             </constraints>
             <size key="customSize" width="206" height="143"/>
             <connections>
                 <outlet property="accNameLabel" destination="NpT-lh-5nQ" id="WHC-IS-4Ny"/>
-                <outlet property="friendsGoal" destination="Dmf-ip-We7" id="Xtb-up-BUr"/>
+                <outlet property="friendsGoal" destination="6nP-xX-bDA" id="Jz4-Ux-aBi"/>
                 <outlet property="iconImage" destination="Wk8-92-Y7I" id="vNG-yx-51v"/>
             </connections>
             <point key="canvasLocation" x="250.72463768115944" y="100.44642857142857"/>

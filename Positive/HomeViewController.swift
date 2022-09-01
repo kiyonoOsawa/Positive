@@ -25,7 +25,7 @@ class HomeViewController: UIViewController {
     var addresses: [DetailGoal] = []
     var friends: User? = nil
     var addressesFriends: [DetailGoal] = []
-    let storageRef = Storage.storage().reference(forURL: "gs://positive-898d1.appspot.com/")
+    let storageRef = Storage.storage().reference(forURL: "gs://positive-898d1.appspot.com")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -134,7 +134,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             cell.stepView.image = UIImage(named: "step_fire")
             cell.deleteButton.addTarget(self, action: #selector(deleteTapped), for: .touchUpInside)
             cell.doneButton.addTarget(self, action: #selector(doneTapped), for: .touchUpInside)
-            cell.reviewButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+            cell.reviewButton.addTarget(self, action: #selector(reviewTapped(indexPath:)), for: .touchUpInside)
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "friendsTarget", for: indexPath) as! FriendsInnerCollectionViewCell
@@ -148,7 +148,11 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
                 if let error = error {
                     print("画像の取り出しに失敗: \(error)")
                 } else {
+                    //                    let image = UIImage(data: data!)
+                    //                    cell.iconImage.image = image
                     let image = UIImage(data: data!)
+                    cell.iconImage.contentMode = .scaleAspectFill
+                    cell.iconImage.clipsToBounds = true
                     cell.iconImage.image = image
                 }
             }
@@ -158,8 +162,8 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView.tag == 0 {
-            let cellWidth: CGFloat = 304
-            let cellHeight: CGFloat = 304
+            let cellWidth: CGFloat = self.view.frame.width - 76
+            let cellHeight: CGFloat = targetCollection.frame.height - 60
             return CGSize(width: cellWidth, height: cellHeight)
         } else {
             let space: CGFloat = 10
@@ -182,12 +186,19 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let nextView = storyboard?.instantiateViewController(withIdentifier: "detailTarget") as! TargetDetailViewController
-        nextView.modalTransitionStyle = .coverVertical
-        nextView.modalPresentationStyle = .pageSheet
-        nextView.Goal = addresses[indexPath.row].goal
-        nextView.MiniGoal = addresses[indexPath.row].nowTodo!
-        self.present(nextView, animated: true, completion: nil)
+        if collectionView.tag == 0 {
+            let nextView = storyboard?.instantiateViewController(withIdentifier: "detailTarget") as! TargetDetailViewController
+            nextView.modalTransitionStyle = .coverVertical
+            nextView.modalPresentationStyle = .pageSheet
+            nextView.Goal = addresses[indexPath.row].goal
+            nextView.MiniGoal = addresses[indexPath.row].nowTodo!
+            self.present(nextView, animated: true, completion: nil)
+            //            let saveData: UserDefaults = UserDefaults.standard
+            
+            //            reviewView.homeSelectTarget = addresses[indexPath.row].goal
+        } else {
+            return
+        }
     }
     
     @objc func deleteTapped(){
@@ -213,9 +224,10 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         
     }
     
-    @objc func buttonTapped(){
-        let vc = storyboard?.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
+    @objc func reviewTapped(indexPath: IndexPath){
+        let vc = storyboard?.instantiateViewController(withIdentifier: "toReview") as! ReviewViewController
         vc.modalPresentationStyle = .fullScreen
+        vc.deadlineData = [addresses[indexPath.row]]
         self.present(vc, animated: true, completion: nil)
     }
 }

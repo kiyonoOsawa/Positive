@@ -18,15 +18,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="352" height="352"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aNp-vZ-exz">
-                        <rect key="frame" x="24" y="32" width="304" height="40"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="40" id="fir-SC-hqp"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2aR-Ri-zvE">
                         <rect key="frame" x="192" y="291" width="120" height="45"/>
                         <constraints>
@@ -52,7 +43,7 @@
                         <rect key="frame" x="32" y="80" width="288" height="122"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <color key="textColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
+                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="16"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dkz-71-G10">
@@ -73,21 +64,28 @@
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                         <state key="normal" title="完了"/>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hpB-qQ-fXj">
+                        <rect key="frame" x="24" y="32" width="304" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="D6N-V3-EXi"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="25"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="aNp-vZ-exz" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="1Dc-s3-rtH"/>
-                <constraint firstItem="2aR-Ri-zvE" firstAttribute="leading" secondItem="wnU-L0-QpC" secondAttribute="trailing" constant="32" id="7mf-G8-WoJ"/>
-                <constraint firstItem="R7l-O8-Qz0" firstAttribute="top" secondItem="aNp-vZ-exz" secondAttribute="bottom" constant="8" id="90j-ZI-2o5"/>
                 <constraint firstItem="dkz-71-G10" firstAttribute="top" secondItem="R7l-O8-Qz0" secondAttribute="bottom" constant="8" id="94M-3A-alw"/>
                 <constraint firstAttribute="bottom" secondItem="wnU-L0-QpC" secondAttribute="bottom" constant="16" id="Deg-Kl-iZh"/>
+                <constraint firstItem="hpB-qQ-fXj" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="24" id="IDu-PG-wpv"/>
                 <constraint firstItem="SnQ-0Z-sOh" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="Jto-D6-pG8"/>
                 <constraint firstItem="2aR-Ri-zvE" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="0.340909" id="TrE-eT-Zu7"/>
-                <constraint firstItem="aNp-vZ-exz" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="24" id="V9z-Eu-soD"/>
-                <constraint firstItem="aNp-vZ-exz" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="32" id="WGT-d6-m4J"/>
+                <constraint firstItem="R7l-O8-Qz0" firstAttribute="top" secondItem="hpB-qQ-fXj" secondAttribute="bottom" constant="8" symbolic="YES" id="Xh7-rA-GjC"/>
                 <constraint firstItem="2aR-Ri-zvE" firstAttribute="top" secondItem="dkz-71-G10" secondAttribute="bottom" constant="16" id="YYi-vz-4ov"/>
+                <constraint firstItem="wnU-L0-QpC" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="0.340909" id="Ym6-fc-W7h"/>
                 <constraint firstAttribute="bottom" secondItem="2aR-Ri-zvE" secondAttribute="bottom" constant="16" id="ZJP-3a-KWn"/>
                 <constraint firstItem="wnU-L0-QpC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="40" id="bBN-3S-CbH"/>
                 <constraint firstItem="dkz-71-G10" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="bqs-GG-RqG"/>
@@ -95,12 +93,14 @@
                 <constraint firstAttribute="trailing" secondItem="2aR-Ri-zvE" secondAttribute="trailing" constant="40" id="ehy-uE-MKp"/>
                 <constraint firstAttribute="trailing" secondItem="R7l-O8-Qz0" secondAttribute="trailing" constant="32" id="mol-aT-heG"/>
                 <constraint firstAttribute="trailing" secondItem="SnQ-0Z-sOh" secondAttribute="trailing" constant="16" id="nL9-bN-KZK"/>
+                <constraint firstItem="hpB-qQ-fXj" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="tcD-qZ-294"/>
+                <constraint firstItem="hpB-qQ-fXj" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="32" id="z4p-fG-tdv"/>
             </constraints>
             <size key="customSize" width="324" height="147"/>
             <connections>
                 <outlet property="deleteButton" destination="SnQ-0Z-sOh" id="zxP-81-hHK"/>
                 <outlet property="doneButton" destination="wnU-L0-QpC" id="Bet-MS-gzz"/>
-                <outlet property="goalLabel" destination="aNp-vZ-exz" id="twp-ed-Awo"/>
+                <outlet property="goalLabel" destination="hpB-qQ-fXj" id="jDT-mw-KOK"/>
                 <outlet property="miniGoal1" destination="R7l-O8-Qz0" id="NuD-6a-Gcm"/>
                 <outlet property="reviewButton" destination="2aR-Ri-zvE" id="7DU-Uf-nmT"/>
                 <outlet property="stepView" destination="dkz-71-G10" id="l75-M2-jM6"/>

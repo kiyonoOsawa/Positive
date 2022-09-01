@@ -18,6 +18,7 @@ class QuestionTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        answerTextView.delegate = self
         design()
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -35,6 +36,13 @@ class QuestionTableViewCell: UITableViewCell {
     }
 }
 
+extension QuestionTableViewCell: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        delegate?.didChangeText(cell: self, text: textView.text)
+    }
+}
+
 protocol QuestionTableViewCellDelegate: AnyObject {
     func didExtendButton(cell: QuestionTableViewCell)
+    func didChangeText(cell: QuestionTableViewCell, text: String)
 }

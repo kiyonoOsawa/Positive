@@ -65,8 +65,6 @@ class SignUpViewController: UIViewController {
         if emailField.text != nil && passwordField.text != nil{
             createUser(emailText: emailField.text!, passwordText: passwordField.text!)
         }
-        
-//        transition()
     }
     
     @IBAction func tappedToLogIn(_ sender: Any) {
@@ -106,9 +104,9 @@ class SignUpViewController: UIViewController {
                 }
             }
             let addData: [String:Any] = [
-                "name": self.userNameField.text!
-            ]
-            
+                "name": self.userNameField.text!,
+                "userId": authResult.user.uid
+            ] as [String : Any]
             let db = Firestore.firestore()
             db.collection("users")
                 .document(authResult.user.uid)
@@ -160,7 +158,7 @@ class SignUpViewController: UIViewController {
     }
     
     func design() {
-        welcomeLabel.font = UIFont(name: "筑紫A丸ゴシック Std R", size: 30)
+        welcomeLabel.font = UIFont(name: "筑紫A丸ゴシック Std B", size: 30)
         userImageButton.layer.cornerRadius = 40
         userImageButton.layer.borderWidth = 1
         userImageButton.layer.borderColor = UIColor.darkGray.cgColor

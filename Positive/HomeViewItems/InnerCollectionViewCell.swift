@@ -15,7 +15,6 @@ class InnerCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var reviewButton: UIButton!
     @IBOutlet weak var stepView: UIImageView!
-//    @IBOutlet weak var buttonBack: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,7 +24,6 @@ class InnerCollectionViewCell: UICollectionViewCell {
     func design() {
         let mainColor = UIColor(named: "MainColor")
         guard let mainColor = mainColor else { return }
-        goalLabel.font = UIFont(name: "筑紫A丸ゴシック Std R", size: 40)
         miniGoal1.isEditable = false
         doneButton.layer.cornerRadius = 15
         reviewButton.layer.cornerRadius = 15
