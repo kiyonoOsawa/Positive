@@ -134,7 +134,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             cell.stepView.image = UIImage(named: "step_fire")
             cell.deleteButton.addTarget(self, action: #selector(deleteTapped), for: .touchUpInside)
             cell.doneButton.addTarget(self, action: #selector(doneTapped), for: .touchUpInside)
-            cell.reviewButton.addTarget(self, action: #selector(reviewTapped(indexPath:)), for: .touchUpInside)
+//            cell.reviewButton.addTarget(self, action: #selector(reviewTapped(indexPath:)), for: .touchUpInside)
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "friendsTarget", for: indexPath) as! FriendsInnerCollectionViewCell
@@ -193,9 +193,6 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             nextView.Goal = addresses[indexPath.row].goal
             nextView.MiniGoal = addresses[indexPath.row].nowTodo!
             self.present(nextView, animated: true, completion: nil)
-            //            let saveData: UserDefaults = UserDefaults.standard
-            
-            //            reviewView.homeSelectTarget = addresses[indexPath.row].goal
         } else {
             return
         }
@@ -224,10 +221,10 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         
     }
     
-    @objc func reviewTapped(indexPath: IndexPath){
-        let vc = storyboard?.instantiateViewController(withIdentifier: "toReview") as! ReviewViewController
-        vc.modalPresentationStyle = .fullScreen
-        vc.deadlineData = [addresses[indexPath.row]]
-        self.present(vc, animated: true, completion: nil)
-    }
+//    @objc func reviewTapped(indexPath: IndexPath){
+//        let vc = storyboard?.instantiateViewController(withIdentifier: "toReview") as! ReviewViewController
+//        vc.modalPresentationStyle = .fullScreen
+//        vc.deadlineData = [addresses[indexPath.row]]
+//        self.present(vc, animated: true, completion: nil)
+//    }
 }

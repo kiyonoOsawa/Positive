@@ -14,7 +14,6 @@ import Charts
 
 class AccountViewController: UIViewController, ChartViewDelegate {
     
-    @IBOutlet weak var backView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var editButton: UIButton!
@@ -81,6 +80,7 @@ class AccountViewController: UIViewController, ChartViewDelegate {
                     print("Error: \(Error.debugDescription)")
                     return
                 }
+                self.accountList.removeAll()
                 for doc in querySnapshot.documents {
                     let account = User(userData: doc.data())
                     self.accountList.append(account)
@@ -163,7 +163,7 @@ class AccountViewController: UIViewController, ChartViewDelegate {
         chartBack.layer.masksToBounds = false
         friendsBack.layer.cornerRadius = 20
         friendsBack.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        friendsCollection.register(UINib(nibName: "FriendAccCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "accCell")
+//        friendsCollection.register(UINib(nibName: "FriendAccCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "accCell")
     }
 }
 

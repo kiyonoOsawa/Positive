@@ -40,6 +40,7 @@ extension CapturingViewController: AVCaptureMetadataOutputObjectsDelegate{
                     self.db.collection("users")
                         .document(user.uid)
                         .updateData(["friendList": FieldValue.arrayUnion([str])])
+                    self.presentingViewController?.presentingViewController?.dismiss(animated: true)
                 }
             }
         }

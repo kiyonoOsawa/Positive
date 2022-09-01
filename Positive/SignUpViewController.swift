@@ -39,11 +39,11 @@ class SignUpViewController: UIViewController {
         self.error1.isHidden = true
         self.error2.isHidden = true
         self.error3.isHidden = true
-        if user != nil {
-            print(user)
-            transition()
-        } else {
-        }
+//        if user != nil {
+//            print(user)
+//            transition()
+//        } else {
+//        }
     }
     
     @IBAction func tappedImageButton(_ sender: Any) {
@@ -60,10 +60,12 @@ class SignUpViewController: UIViewController {
             }
             alert.addAction(ok)
             present(alert, animated: true, completion: nil)
+        } else {
+            return
         }
         
         if emailField.text != nil && passwordField.text != nil{
-            createUser(emailText: emailField.text!, passwordText: passwordField.text!)
+        createUser(emailText: emailField.text!, passwordText: passwordField.text!)
         }
     }
     
@@ -177,8 +179,6 @@ extension SignUpViewController: UIImagePickerControllerDelegate, UINavigationCon
         }
         userImageButton.setTitle("", for: .normal)
         userImageButton.imageView?.contentMode = .scaleAspectFill
-        userImageButton.contentHorizontalAlignment = .fill
-        userImageButton.contentVerticalAlignment = .fill
         userImageButton.clipsToBounds = true
         dismiss(animated: true, completion: nil)
     }

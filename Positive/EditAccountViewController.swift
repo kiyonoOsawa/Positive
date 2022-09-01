@@ -11,9 +11,8 @@ import FirebaseFirestore
 import FirebaseStorage
 import FirebaseAuth
 
-class EditAccountViewController: UIViewController {
+class EditAccountViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
-    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var imageButton: UIButton!
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var emailField: UITextField!
@@ -23,10 +22,13 @@ class EditAccountViewController: UIViewController {
     @IBOutlet weak var backView: UIView!
     @IBOutlet var textFieldImage: [UITextField]!
     
-    let auth = Auth.auth()
+    let storageRef = Storage.storage().reference(forURL: "gs://positive-898d1.appspot.com")
+    let user = Auth.auth().currentUser
+    let db = Firestore.firestore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetchMyData()
         design()
     }
     
@@ -42,6 +44,83 @@ class EditAccountViewController: UIViewController {
         }
     }
     
+    @IBAction func tappedImageButton(_ sender: Any) {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.allowsEditing = true
+        self.present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    @IBAction func tappedSave() {
+        if emailField.text != nil && passField.text != nil{
+            createUser(emailText: emailField.text!, passwordText: passField.text!)
+            self.transition()
+        }
+    }
+    
+    private func fetchMyData() {
+        guard let user = user else {
+            return
+        }
+        db.collection("users")
+            .document(user.uid)
+            .addSnapshotListener { DocumentSnapshot, Error in
+                guard let documentSnapshot = DocumentSnapshot else { return }
+                guard let data = documentSnapshot.data() else { return }
+                let myAccount = User(userData: data)
+                self.nameField.text = myAccount.userName
+                self.emailField.text = myAccount.userEmail
+            }
+        let imagesRef = self.storageRef.child("userProfile").child("\(user.uid).jpg")
+        imagesRef.getData(maxSize: 1 * 1024 * 1024) { data, Error in
+            if let Error = Error {
+                print("画像の取り出しに失敗: \(Error)")
+            } else {
+                let image = UIImage(data: data!)
+                self.imageButton.imageView?.contentMode = .scaleAspectFill
+                self.imageButton.clipsToBounds = true
+                self.imageButton.imageView?.image = image
+//                self.imageButton.image = image
+            }
+        }
+    }
+    func createUser(emailText: String, passwordText: String) {
+        Auth.auth().createUser(withEmail: emailText, password: passwordText) { FIRAuthDataResult, Error in
+            if Error == nil {
+            } else {
+            }
+            guard let authResult = FIRAuthDataResult else {
+                print("error: \(Error)")
+                return
+            }
+            let reference = self.storageRef.child("userProfile").child("\(authResult.user.uid).jpg")
+            guard let image = self.imageButton.imageView?.image else {
+                return
+            }
+            guard let uploadImage = image.jpegData(compressionQuality: 0.2) else {
+                return
+            }
+            reference.putData(uploadImage, metadata: nil) { (metadata, err) in
+                if let error = err {
+                    print("error: \(error)")
+                }
+            }
+            let addData: [String:Any] = [
+                "name": self.nameField.text!,
+                "userId": authResult.user.uid
+            ] as [String : Any]
+            let db = Firestore.firestore()
+            db.collection("users")
+                .document(authResult.user.uid)
+                .setData(addData)
+        }
+    }
+    
+    func transition() {
+        self.presentingViewController?.presentingViewController?.dismiss(animated: true)
+    }
+
+    
     @IBAction func deleteText1(_ sender: UIButton) {
         nameField.text = ""
     }
@@ -54,10 +133,18 @@ class EditAccountViewController: UIViewController {
         passField.text = ""
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     func design() {
-        imageView.layer.cornerRadius = 40
-        imageView.layer.borderWidth = 2
-        imageView.layer.borderColor = UIColor.gray.cgColor
+        imageButton.layer.cornerRadius = 40
+        imageButton.layer.borderWidth = 2
+        imageButton.layer.borderColor = UIColor.gray.cgColor
         backView.layer.cornerRadius = 15
         doneButton.layer.cornerRadius = 10
         for textFieldImage in textFieldImage {
@@ -69,6 +156,23 @@ class EditAccountViewController: UIViewController {
             let leftPadding = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 0))
             textFieldImage.leftView = leftPadding
             textFieldImage.leftViewMode = .always
-            textFieldImage.backgroundColor = UIColor.white        }
+            textFieldImage.backgroundColor = UIColor.white
+        }
     }
 }
+
+//extension EditAccountViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension EditAccountViewController: UIImagePickerControllerDelegate, UINavigationBarDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[.editedImage] as? UIImage {
+            imageButton.setImage(image.withRenderingMode(.alwaysOriginal), for: .normal)
+        } else if let originalImage = info[.originalImage] as? UIImage {
+            imageButton.setImage(originalImage.withRenderingMode(.alwaysOriginal), for: .normal)
+        }
+        imageButton.setTitle("", for: .normal)
+        imageButton.imageView?.contentMode = .scaleAspectFill
+        imageButton.clipsToBounds = true
+        dismiss(animated: true, completion: nil)
+    }
+}
+
