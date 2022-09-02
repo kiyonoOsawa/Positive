@@ -28,7 +28,7 @@ class ReframingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
-        addReframingData()
+//        addReframingData()
     }
     
     @IBAction func tappedClear() {
@@ -52,7 +52,7 @@ class ReframingViewController: UIViewController {
         }
         let addReframing: [String:Any] = [
             "original": originalText,
-            "regraming": reframingTextField.text!,
+            "reframing": reframingTextField.text!,
             "target": self.targetDocumentID,
             "targetGoal": targetGoal,
             "score": value,

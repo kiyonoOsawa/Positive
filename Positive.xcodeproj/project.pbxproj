@@ -510,6 +510,7 @@
 				"EXCLUDED_ARCHS[sdk=*]" = x86_64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Positive/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = taffi;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -543,6 +544,7 @@
 				"EXCLUDED_ARCHS[sdk=*]" = x86_64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Positive/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = taffi;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

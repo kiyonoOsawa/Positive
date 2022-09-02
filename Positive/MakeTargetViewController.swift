@@ -40,6 +40,7 @@ class MakeTargetViewController: UIViewController {
         navigationItem.title = "New Goal"
         self.navigationController?.navigationBar.barTintColor = .white
         fetchFiendName()
+        setDismissKeyboard()
     }
     
     @IBAction func tappedSaveButton() {
@@ -177,5 +178,15 @@ extension MakeTargetViewController: DateTargetTableViewCellDelegate, UITableView
             return 50
         }
         return tableView.estimatedRowHeight
+    }
+    
+    func setDismissKeyboard() {
+        let tapGR: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGR.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tapGR)
+    }
+    
+    @objc func dismissKeyboard() {
+        self.view.endEditing(true)
     }
 }

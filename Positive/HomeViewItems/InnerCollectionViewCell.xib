@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2aR-Ri-zvE">
-                        <rect key="frame" x="192" y="291" width="120" height="45"/>
+                        <rect key="frame" x="116" y="291" width="120" height="45"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="45" id="835-aC-KFz"/>
                         </constraints>
@@ -27,17 +27,25 @@
                         <color key="tintColor" name="MainColor"/>
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                         <state key="normal" title="レビュー"/>
+                        <connections>
+                            <action selector="reviewButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="S9N-bl-6yz"/>
+                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SnQ-0Z-sOh">
-                        <rect key="frame" x="318" y="16" width="18" height="18"/>
+                        <rect key="frame" x="304" y="16" width="32" height="32"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="18" id="1Y8-x6-8qN"/>
-                            <constraint firstAttribute="width" constant="18" id="kxN-AM-KMe"/>
+                            <constraint firstAttribute="height" constant="32" id="1Y8-x6-8qN"/>
+                            <constraint firstAttribute="width" constant="32" id="kxN-AM-KMe"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="27"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                        <state key="normal" title="Button" image="x1"/>
+                        <state key="normal" image="x1">
+                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                        </state>
+                        <connections>
+                            <action selector="deleteButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="5SU-aY-29P"/>
+                        </connections>
                     </button>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="R7l-O8-Qz0">
                         <rect key="frame" x="32" y="80" width="288" height="122"/>
@@ -53,17 +61,6 @@
                             <constraint firstAttribute="height" constant="65" id="ULy-Hh-bTP"/>
                         </constraints>
                     </imageView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wnU-L0-QpC">
-                        <rect key="frame" x="40" y="291" width="120" height="45"/>
-                        <color key="backgroundColor" name="MainColor"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="45" id="Wfu-ei-sob"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="15"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                        <state key="normal" title="完了"/>
-                    </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hpB-qQ-fXj">
                         <rect key="frame" x="24" y="32" width="304" height="40"/>
                         <constraints>
@@ -79,18 +76,15 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="dkz-71-G10" firstAttribute="top" secondItem="R7l-O8-Qz0" secondAttribute="bottom" constant="8" id="94M-3A-alw"/>
-                <constraint firstAttribute="bottom" secondItem="wnU-L0-QpC" secondAttribute="bottom" constant="16" id="Deg-Kl-iZh"/>
+                <constraint firstItem="2aR-Ri-zvE" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="G7t-ac-rqG"/>
                 <constraint firstItem="hpB-qQ-fXj" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="24" id="IDu-PG-wpv"/>
                 <constraint firstItem="SnQ-0Z-sOh" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="Jto-D6-pG8"/>
                 <constraint firstItem="2aR-Ri-zvE" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="0.340909" id="TrE-eT-Zu7"/>
                 <constraint firstItem="R7l-O8-Qz0" firstAttribute="top" secondItem="hpB-qQ-fXj" secondAttribute="bottom" constant="8" symbolic="YES" id="Xh7-rA-GjC"/>
                 <constraint firstItem="2aR-Ri-zvE" firstAttribute="top" secondItem="dkz-71-G10" secondAttribute="bottom" constant="16" id="YYi-vz-4ov"/>
-                <constraint firstItem="wnU-L0-QpC" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="0.340909" id="Ym6-fc-W7h"/>
                 <constraint firstAttribute="bottom" secondItem="2aR-Ri-zvE" secondAttribute="bottom" constant="16" id="ZJP-3a-KWn"/>
-                <constraint firstItem="wnU-L0-QpC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="40" id="bBN-3S-CbH"/>
                 <constraint firstItem="dkz-71-G10" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="bqs-GG-RqG"/>
                 <constraint firstItem="R7l-O8-Qz0" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="32" id="cD8-Ni-eRL"/>
-                <constraint firstAttribute="trailing" secondItem="2aR-Ri-zvE" secondAttribute="trailing" constant="40" id="ehy-uE-MKp"/>
                 <constraint firstAttribute="trailing" secondItem="R7l-O8-Qz0" secondAttribute="trailing" constant="32" id="mol-aT-heG"/>
                 <constraint firstAttribute="trailing" secondItem="SnQ-0Z-sOh" secondAttribute="trailing" constant="16" id="nL9-bN-KZK"/>
                 <constraint firstItem="hpB-qQ-fXj" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="tcD-qZ-294"/>
@@ -99,7 +93,6 @@
             <size key="customSize" width="324" height="147"/>
             <connections>
                 <outlet property="deleteButton" destination="SnQ-0Z-sOh" id="zxP-81-hHK"/>
-                <outlet property="doneButton" destination="wnU-L0-QpC" id="Bet-MS-gzz"/>
                 <outlet property="goalLabel" destination="hpB-qQ-fXj" id="jDT-mw-KOK"/>
                 <outlet property="miniGoal1" destination="R7l-O8-Qz0" id="NuD-6a-Gcm"/>
                 <outlet property="reviewButton" destination="2aR-Ri-zvE" id="7DU-Uf-nmT"/>

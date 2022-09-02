@@ -55,6 +55,23 @@ class TargetDetailViewController: UIViewController {
             }
     }
     
+    @IBAction func tappedSave() {
+//        if emailField.text != nil && passField.text != nil{
+//            updateUser(emailText: emailField.text!, passwordText: passField.text!)
+//            self.transition()
+//        }
+    }
+    
+    private func updateGoal() {
+        guard let user = user else {
+            return
+        }
+        if data == true {
+            date = dateCell.datePicker.date
+        }
+//        addresses.updateGoal(to:)
+    }
+    
     func design() {
         targetLabel.text = Goal
         miniTargetTextView.text = MiniGoal

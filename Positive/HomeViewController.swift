@@ -45,6 +45,15 @@ class HomeViewController: UIViewController {
         fetchFriendsData()
     }
     
+    func dateFormat(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.calendar = Calendar(identifier: .gregorian)
+        dateFormatter.locale = Locale(identifier: "ja_JP")
+        dateFormatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
+        dateFormatter.dateFormat = "yyyy/MM/dd"
+        return dateFormatter.string(from: date)
+    }
+    
     private func fetchData() {
         guard let user = user else {
             return
@@ -61,7 +70,11 @@ class HomeViewController: UIViewController {
                 print("ここでとる: \(querySnapShot.documents)")
                 for doc in querySnapShot.documents {
                     let detailGoal = DetailGoal(dictionary: doc.data(), documentID: doc.documentID)
-                    self.addresses.append(detailGoal)
+                    let deadlineDate = self.dateFormat(date: detailGoal.date.dateValue())
+                    let today = self.dateFormat(date: Date())
+                    if deadlineDate.compare(today) == .orderedSame || deadlineDate.compare(today) == .orderedDescending{
+                        self.addresses.append(detailGoal)
+                    }
                 }
                 self.targetCollection.reloadData()
                 print("目標が表示される")
@@ -105,8 +118,10 @@ class HomeViewController: UIViewController {
         self.navigationController!.navigationBar.shadowImage = UIImage()
         targetCollection.layer.cornerRadius = 25
         targetCollection.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        targetCollection.backgroundColor = .clear
         friendsBack.layer.cornerRadius = 25
         friendsBack.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        friendTargetCollection.backgroundColor = .clear
     }
 }
 
@@ -132,9 +147,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             cell.goalLabel.text = addresses[indexPath.row].goal
             cell.miniGoal1.text = addresses[indexPath.row].nowTodo
             cell.stepView.image = UIImage(named: "step_fire")
-            cell.deleteButton.addTarget(self, action: #selector(deleteTapped), for: .touchUpInside)
-            cell.doneButton.addTarget(self, action: #selector(doneTapped), for: .touchUpInside)
-//            cell.reviewButton.addTarget(self, action: #selector(reviewTapped(indexPath:)), for: .touchUpInside)
+            cell.delegate = self
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "friendsTarget", for: indexPath) as! FriendsInnerCollectionViewCell
@@ -148,8 +161,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
                 if let error = error {
                     print("画像の取り出しに失敗: \(error)")
                 } else {
-                    //                    let image = UIImage(data: data!)
-                    //                    cell.iconImage.image = image
+                    
                     let image = UIImage(data: data!)
                     cell.iconImage.contentMode = .scaleAspectFill
                     cell.iconImage.clipsToBounds = true
@@ -197,34 +209,37 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             return
         }
     }
+}
+
+extension HomeViewController: HomeViewCellDelegate{
+    func tappedReview(cell: InnerCollectionViewCell) {
+        if let indexPath = targetCollection.indexPath(for: cell){
+            let storyboard: UIStoryboard = self.storyboard!
+            let nc: UINavigationController = storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
+            nc.modalPresentationStyle = .fullScreen
+            let nextNC = nc.viewControllers[0] as! ReviewViewController
+            nextNC.deadlineData = [addresses[indexPath.row]]
+            self.present(nc, animated: true, completion: nil)
+        }
+    }
     
-    @objc func deleteTapped(){
-        guard let user = user else { return }
-        db.collection("users")
-            .document(user.uid)
-            .collection("goals")
-            .document()
-            .delete() { err in
-                if let err = err {
-                    print("Error removing document: \(err)")
-                    return
-                } else {
-                    print("Document successfully removed!")
-                    self.targetCollection.reloadData()
-                    return
+    func tappedDelete(cell: InnerCollectionViewCell) {
+        guard let user = user else {return}
+        if let indexPath = targetCollection.indexPath(for: cell){
+            let documentId = addresses[indexPath.row].documentID
+            db.collection("users")
+                .document(user.uid)
+                .collection("goals")
+                .document(documentId)
+                .delete() { err in
+                    if let err = err {
+                        print("Error removing document: \(err)")
+                    } else {
+                        print("Document successfully removed!")
+                    }
                 }
-            }
-        self.targetCollection.reloadData()
+            self.addresses.remove(at: indexPath.row)
+            targetCollection.reloadData()
+        }
     }
-    
-    @objc func doneTapped() {
-        
-    }
-    
-//    @objc func reviewTapped(indexPath: IndexPath){
-//        let vc = storyboard?.instantiateViewController(withIdentifier: "toReview") as! ReviewViewController
-//        vc.modalPresentationStyle = .fullScreen
-//        vc.deadlineData = [addresses[indexPath.row]]
-//        self.present(vc, animated: true, completion: nil)
-//    }
 }

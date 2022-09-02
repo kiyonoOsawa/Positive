@@ -11,7 +11,7 @@ import FirebaseFirestore
 import FirebaseStorage
 import FirebaseAuth
 
-class EditAccountViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+class EditAccountViewController: UIViewController, UINavigationControllerDelegate {
     
     @IBOutlet weak var imageButton: UIButton!
     @IBOutlet weak var nameField: UITextField!
@@ -53,7 +53,7 @@ class EditAccountViewController: UIViewController, UIImagePickerControllerDelega
     
     @IBAction func tappedSave() {
         if emailField.text != nil && passField.text != nil{
-            createUser(emailText: emailField.text!, passwordText: passField.text!)
+            updateUser(emailText: emailField.text!, passwordText: passField.text!)
             self.transition()
         }
     }
@@ -69,7 +69,7 @@ class EditAccountViewController: UIViewController, UIImagePickerControllerDelega
                 guard let data = documentSnapshot.data() else { return }
                 let myAccount = User(userData: data)
                 self.nameField.text = myAccount.userName
-                self.emailField.text = myAccount.userEmail
+                //                self.emailField.text = myAccount.userEmail
             }
         let imagesRef = self.storageRef.child("userProfile").child("\(user.uid).jpg")
         imagesRef.getData(maxSize: 1 * 1024 * 1024) { data, Error in
@@ -80,20 +80,27 @@ class EditAccountViewController: UIViewController, UIImagePickerControllerDelega
                 self.imageButton.imageView?.contentMode = .scaleAspectFill
                 self.imageButton.clipsToBounds = true
                 self.imageButton.imageView?.image = image
-//                self.imageButton.image = image
+                //                self.imageButton.image = image
             }
         }
     }
-    func createUser(emailText: String, passwordText: String) {
-        Auth.auth().createUser(withEmail: emailText, password: passwordText) { FIRAuthDataResult, Error in
-            if Error == nil {
-            } else {
-            }
-            guard let authResult = FIRAuthDataResult else {
-                print("error: \(Error)")
+    func updateUser(emailText: String, passwordText: String) {
+            guard let user = user else {
                 return
             }
-            let reference = self.storageRef.child("userProfile").child("\(authResult.user.uid).jpg")
+            
+            user.updateEmail(to: emailText)
+            user.updatePassword(to: passwordText)
+            
+            let updateData: [String:Any] = [
+                "name": self.nameField.text!
+            ]
+            
+            db.collection("users")
+                .document(user.uid)
+                .updateData(updateData)
+            
+            let reference = self.storageRef.child("userProfile").child("\(user.uid).jpg")
             guard let image = self.imageButton.imageView?.image else {
                 return
             }
@@ -105,21 +112,46 @@ class EditAccountViewController: UIViewController, UIImagePickerControllerDelega
                     print("error: \(error)")
                 }
             }
-            let addData: [String:Any] = [
-                "name": self.nameField.text!,
-                "userId": authResult.user.uid
-            ] as [String : Any]
-            let db = Firestore.firestore()
-            db.collection("users")
-                .document(authResult.user.uid)
-                .setData(addData)
         }
-    }
+    
+//        func createUser(emailText: String, passwordText: String) {
+//            Auth.auth().createUser(withEmail: emailText, password: passwordText) { FIRAuthDataResult, Error in
+//                if Error == nil {
+//                } else {
+//                }
+//                guard let authResult = FIRAuthDataResult else {
+//                    print("error: \(Error)")
+//                    return
+//                }
+//                let reference = self.storageRef.child("userProfile").child("\(authResult.user.uid).jpg")
+//                guard let image = self.imageButton.imageView?.image else {
+//                    return
+//                }
+//                guard let uploadImage = image.jpegData(compressionQuality: 0.2) else {
+//                    return
+//                }
+//                reference.putData(uploadImage, metadata: nil) { (metadata, err) in
+//                    if let error = err {
+//                        print("error: \(error)")
+//                    }
+//                }
+//                let upData: [String:Any] = [
+//    //                "userImage": self.storageRef,
+//                    "userName": self.nameField.text!,
+//                ] as [String : Any]
+//                let db = Firestore.firestore()
+//                db.collection("users")
+//                    .document(authResult.user.uid)
+//                    .updateData(upData)
+//                self.transition()
+//            }
+//        }
     
     func transition() {
-        self.presentingViewController?.presentingViewController?.dismiss(animated: true)
+        dismiss(animated: true, completion: nil)
+//        self.presentingViewController?.presentingViewController?.dismiss(animated: true)
     }
-
+    
     
     @IBAction func deleteText1(_ sender: UIButton) {
         nameField.text = ""
@@ -161,7 +193,6 @@ class EditAccountViewController: UIViewController, UIImagePickerControllerDelega
     }
 }
 
-//extension EditAccountViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 extension EditAccountViewController: UIImagePickerControllerDelegate, UINavigationBarDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[.editedImage] as? UIImage {

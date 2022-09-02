@@ -12,6 +12,7 @@ class FriendsInnerCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var iconImage: UIImageView!
     @IBOutlet weak var accNameLabel: UILabel!
     @IBOutlet weak var friendsGoal: UILabel!
+//    @IBOutlet weak var nilImage: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()

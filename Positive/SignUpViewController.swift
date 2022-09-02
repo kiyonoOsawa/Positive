@@ -60,10 +60,9 @@ class SignUpViewController: UIViewController {
             }
             alert.addAction(ok)
             present(alert, animated: true, completion: nil)
-        } else {
-            return
+//        } else {
+//            return
         }
-        
         if emailField.text != nil && passwordField.text != nil{
         createUser(emailText: emailField.text!, passwordText: passwordField.text!)
         }
@@ -75,8 +74,8 @@ class SignUpViewController: UIViewController {
     
     func createUser(emailText: String, passwordText: String) {
         Auth.auth().createUser(withEmail: emailText, password: passwordText) { FIRAuthDataResult, Error in
-            if Error == nil {
-            } else {
+//            if Error == nil {
+//            } else {
 //                if let errCode = AuthErrorCode(rawValue: Error!._code) {
 //                    switch errCode {
 //                    case .invalidEmail: self.error1.isHidden = false
@@ -88,7 +87,7 @@ class SignUpViewController: UIViewController {
 //                    default: break
 //                    }
 //                }
-            }
+//            }
             guard let authResult = FIRAuthDataResult else {
                 print("error: \(Error)")
                 return
@@ -106,7 +105,7 @@ class SignUpViewController: UIViewController {
                 }
             }
             let addData: [String:Any] = [
-                "name": self.userNameField.text!,
+                "userName": self.userNameField.text!,
                 "userId": authResult.user.uid
             ] as [String : Any]
             let db = Firestore.firestore()
@@ -160,7 +159,7 @@ class SignUpViewController: UIViewController {
     }
     
     func design() {
-        welcomeLabel.font = UIFont(name: "筑紫A丸ゴシック Std B", size: 30)
+//        welcomeLabel.font = UIFont(name: "コーポレート・ロゴ（ラウンド） ver2 Bold", size: 30)
         userImageButton.layer.cornerRadius = 40
         userImageButton.layer.borderWidth = 1
         userImageButton.layer.borderColor = UIColor.darkGray.cgColor

@@ -71,7 +71,7 @@ class ReviewViewController: UIViewController {
                         return
                     }
                     AlertDialog.shared.showAlert(title: "ポジティブ度が低いです…", message: "ポジティブ\(percentage)%…", viewController: self) {
-                        self.showModal(value: percentage, originalText: self.reviewTextView.text!, targetDocumentId: targetData.documentID, targetGoal: targetData.goal, calendarDate: self.calendarSelectedDate!)
+                        self.showModal(value: percentage, originalText: self.reviewTextView.text!, targetDocumentId: targetData.documentID, targetGoal: targetData.goal, calendarDate: self.calendarSelectedDate ?? Date())
                     }
                 }
                 break
@@ -91,7 +91,7 @@ class ReviewViewController: UIViewController {
         }
         let addData: [String:Any] = [
             "original":reviewTextView.text!,
-            "date":Timestamp(date: calendarSelectedDate!),
+            "date":Timestamp(date: calendarSelectedDate ?? Date()),
             "target": targetData.documentID,
             "targetGoal": targetData.goal,
             "score": score
