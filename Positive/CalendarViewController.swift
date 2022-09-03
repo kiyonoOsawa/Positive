@@ -234,7 +234,7 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
         cell.layer.shadowOpacity = 0.2
         cell.layer.shadowOffset = CGSize(width: 0, height: 0)
         cell.layer.masksToBounds = false
-//        cell.bigTargetLabel.text = applicableData[indexPath.row].goal
+        //        cell.bigTargetLabel.text = applicableData[indexPath.row].goal
         
         switch segmentState {
         case .affirmation:
@@ -244,8 +244,11 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
             break
         case .record:
             cell.bigTargetLabel.text = applicableDataReview[indexPath.row].targetGoal
-            cell.miniTargetLabel.text = applicableDataReview[indexPath.row].original
-//            cell.miniTargetLabel.text = applicableDataReview[indexPath.row].reframing
+            if applicableDataReview[indexPath.row].reframing == nil {
+                cell.miniTargetLabel.text = applicableDataReview[indexPath.row].original
+            } else {
+                cell.reframingLabel.text = applicableDataReview[indexPath.row].reframing
+            }
             if cell.miniTargetLabel.text == nil {
                 cell.textLabel.text = ""
             } else {

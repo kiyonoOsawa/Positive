@@ -87,17 +87,17 @@ class EditAccountViewController: UIViewController, UINavigationControllerDelegat
     }
     
     func updateUser(emailText: String, passwordText: String) {
-        Auth.auth().createUser(withEmail: emailText, password: passwordText) { FIRAuthDataResult, Error in
-            guard let authResult = FIRAuthDataResult else { return }
-            let reference = self.storageRef.child("userProfile").child("\(authResult.user.uid).jpg")
-            guard let image = self.imageButton.imageView?.image else { return }
-            guard let uploadImage = image.jpegData(compressionQuality: 0.2) else { return }
-            reference.putData(uploadImage, metadata: nil) { (metadata, err) in
-                if let error = err {
-                    print("error: \(error)")
-                }
-            }
-        }
+//        Auth.auth().createUser(withEmail: emailText, password: passwordText) { FIRAuthDataResult, Error in
+//            guard let authResult = FIRAuthDataResult else { return }
+//            let reference = self.storageRef.child("userProfile").child("\(authResult.user.uid).jpg")
+//            guard let image = self.imageButton.imageView?.image else { return }
+//            guard let uploadImage = image.jpegData(compressionQuality: 0.2) else { return }
+//            reference.putData(uploadImage, metadata: nil) { (metadata, err) in
+//                if let error = err {
+//                    print("error: \(error)")
+//                }
+//            }
+//        }
 
         guard let user = user else {
             return

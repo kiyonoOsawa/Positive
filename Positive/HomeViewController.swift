@@ -232,6 +232,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             nextView.Person = addresses[indexPath.row].person!
             nextView.Trigger = addresses[indexPath.row].trigger!
             nextView.EssentialThing = addresses[indexPath.row].essentialThing!
+            nextView.DocumentId = addresses[indexPath.row].documentID
             self.present(nextView, animated: true, completion: nil)
         } else {
             return

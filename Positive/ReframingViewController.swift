@@ -28,6 +28,7 @@ class ReframingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
+        design()
 //        addReframingData()
     }
     
@@ -39,10 +40,6 @@ class ReframingViewController: UIViewController {
 //        graphViewWidth.constant = CGFloat(value*50)
         clearButton.layer.cornerRadius = 15
         clearButton.clipsToBounds = true
-//        clearButton.layer.shadowColor = UIColor.black.cgColor
-//        clearButton.layer.shadowOpacity = 0.2
-//        clearButton.layer.shadowOffset = CGSize(width: 0, height: 0)
-//        clearButton.layer.masksToBounds = false
         badTextView.text = originalText
     }
     
@@ -58,6 +55,7 @@ class ReframingViewController: UIViewController {
             "score": value,
             "date": Timestamp(date: calendarDate)
         ]
+        
         db.collection("users")
             .document(user.uid)
             .collection("reviews")
@@ -85,5 +83,20 @@ class ReframingViewController: UIViewController {
                 break
             }
         }
+    }
+    
+    func design() {
+//        reframingTextField.layer.shadowOpacity = 0.5
+//        reframingTextField.layer.shadowColor = UIColor.gray.cgColor
+//        reframingTextField.layer.shadowOffset = CGSize(width: 1, height: 1)
+        reframingTextField.layer.borderWidth = 0.5
+        reframingTextField.layer.borderColor = UIColor(named: "grayTextColor")?.cgColor
+//        reframingTextField.layer.masksToBounds = false
+        reframingTextField.layer.cornerRadius = 15
+        reframingTextField.backgroundColor = UIColor.white
+        let leftPadding = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 0))
+        reframingTextField.leftView = leftPadding
+        reframingTextField.leftViewMode = .always
+        reframingTextField.placeholder = "ポジティブな言葉にしよう"
     }
 }

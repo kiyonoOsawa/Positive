@@ -104,6 +104,8 @@ class ReviewViewController: UIViewController {
     
     func design() {
         reviewTextView.layer.cornerRadius = 15
+//        let radius = reviewTextView.layer.cornerRadius/4
+        reviewTextView.textContainerInset = UIEdgeInsets(top: 15, left: 5, bottom: 5, right: 5)
     }
 }
 

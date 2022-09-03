@@ -14,6 +14,7 @@ class TargetDetailViewController: UIViewController {
     
     @IBOutlet weak var targetLabel: UILabel!
     @IBOutlet weak var miniTargetTextView: UITextView!
+//    @IBOutlet weak var t
     @IBOutlet weak var setTabelView: UITableView!
     
     let user = Auth.auth().currentUser
@@ -28,6 +29,7 @@ class TargetDetailViewController: UIViewController {
     var Trigger = String()
     var Person = String()
     var EssentialThing = String()
+    var DocumentId = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,7 +84,7 @@ class TargetDetailViewController: UIViewController {
         db.collection("users")
             .document(user.uid)
             .collection("goals")
-            .document()
+            .document(DocumentId)
             .updateData(updateGoal)
         self.transition()
     }
@@ -102,8 +104,6 @@ class TargetDetailViewController: UIViewController {
     func design() {
         targetLabel.text = Goal
         miniTargetTextView.text = MiniGoal
-        miniTargetTextView.isEditable = false
-        miniTargetTextView.isSelectable = false
     }
 }
 

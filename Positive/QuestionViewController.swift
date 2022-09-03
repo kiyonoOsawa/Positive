@@ -107,12 +107,8 @@ extension QuestionViewController: QuestionTableViewCellDelegate, UITableViewDele
         let cell = tableView.dequeueReusableCell(withIdentifier: "questionCell") as! QuestionTableViewCell
         cell.delegate = self
         cell.selectionStyle = UITableViewCell.SelectionStyle.none
-        cell.answerTextView.layer.cornerRadius = 15
         cell.questionLabel.text = questions[indexPath.row]
         cell.answerTextView.text = eachAnswer[indexPath.row]
-        //        if indexPath.row == 0 {
-        //            cell.popButton.isHidden = true
-        //        }
         if indexPath.row == 0 {
             cell.popButton.isHidden = true
         } else {
