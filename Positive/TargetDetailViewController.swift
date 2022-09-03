@@ -25,6 +25,9 @@ class TargetDetailViewController: UIViewController {
     var dateCell = DateTargetTableViewCell()
     var Goal = String()
     var MiniGoal = String()
+    var Trigger = String()
+    var Person = String()
+    var EssentialThing = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,34 +35,36 @@ class TargetDetailViewController: UIViewController {
         setTabelView.dataSource = self
         setTabelView.register(UINib(nibName: "DateTargetTableViewCell", bundle: nil), forCellReuseIdentifier: "dateTargetCell")
         setTabelView.register(UINib(nibName: "ImportanceTableViewCell", bundle: nil), forCellReuseIdentifier: "importanceCell")
-        fetchData()
+//        fetchData()
         design()
     }
     
-    func fetchData() {
-        guard let user = user else {
-            return
-        }
-        self.addresses.removeAll()
-        db.collection("users")
-            .document(user.uid)
-            .collection("goals")
-            .addSnapshotListener{ QuerySnapshot, Error in
-                guard let querySnapshot = QuerySnapshot else {
-                    return
-                }
-                for doc in querySnapshot.documents {
-                    let detailGoal = DetailGoal(dictionary: doc.data(), documentID: doc.documentID)
-                    self.addresses.append(detailGoal)
-                }
-            }
-    }
+//    func fetchData() {
+//        guard let user = user else {
+//            return
+//        }
+//        self.addresses.removeAll()
+//        db.collection("users")
+//            .document(user.uid)
+//            .collection("goals")
+//            .addSnapshotListener{ QuerySnapshot, Error in
+//                guard let querySnapshot = QuerySnapshot else {
+//                    return
+//                }
+////                guard let data = documentSnapshot.data() else { return }
+////                let myAccount = User(userData: data)
+////                self.nameField.text = myAccount.userName
+////                self.emailField.text = user.email
+//
+//                for doc in querySnapshot.documents {
+//                    let detailGoal = DetailGoal(dictionary: doc.data(), documentID: doc.documentID)
+//                    self.addresses.append(detailGoal)
+//                }
+//            }
+//    }
     
     @IBAction func tappedSave() {
-//        if emailField.text != nil && passField.text != nil{
-//            updateUser(emailText: emailField.text!, passwordText: passField.text!)
-//            self.transition()
-//        }
+        updateGoal()
     }
     
     private func updateGoal() {
@@ -69,12 +74,36 @@ class TargetDetailViewController: UIViewController {
         if data == true {
             date = dateCell.datePicker.date
         }
-//        addresses.updateGoal(to:)
+        let convertedDate = Timestamp(date: date)
+        let updateGoal: [String:Any] = [
+            "nowTodo": self.miniTargetTextView.text!,
+            "date": convertedDate
+        ]
+        db.collection("users")
+            .document(user.uid)
+            .collection("goals")
+            .document()
+            .updateData(updateGoal)
+        self.transition()
     }
     
+    func dateFormat(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.calendar = Calendar(identifier: .gregorian)
+        dateFormatter.locale = Locale(identifier: "ja_JP")
+        dateFormatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
+        dateFormatter.dateFormat = "yyyy/MM/dd"
+        return dateFormatter.string(from: date)
+    }
+    
+    func transition() {
+        self.dismiss(animated: true)
+    }
     func design() {
         targetLabel.text = Goal
         miniTargetTextView.text = MiniGoal
+        miniTargetTextView.isEditable = false
+        miniTargetTextView.isSelectable = false
     }
 }
 

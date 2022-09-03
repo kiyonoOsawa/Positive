@@ -17,6 +17,12 @@ class FriendsInnerCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         friendsGoal.lineBreakMode = .byCharWrapping
+        design()
     }
 
+    func design() {
+        iconImage.layer.cornerRadius = 21
+        iconImage.layer.borderColor = UIColor(named: "grayTextColor")?.cgColor
+        iconImage.layer.borderWidth = 2
+    }
 }

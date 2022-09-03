@@ -50,6 +50,7 @@
 		CED649C228BC5E6E00E12D61 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED649C128BC5E6E00E12D61 /* User.swift */; };
 		CED649C428BC5EA400E12D61 /* QRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED649C328BC5EA400E12D61 /* QRViewController.swift */; };
 		CED649C628BC5F3300E12D61 /* CapturingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED649C528BC5F3300E12D61 /* CapturingViewController.swift */; };
+		CED6A12F28C3487F0082D498 /* FlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6A12E28C3487F0082D498 /* FlowLayout.swift */; };
 		CEDA1BDB28BA5DC400D07A53 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = CEDA1BDA28BA5DC400D07A53 /* FirebaseAnalytics */; };
 		CEDA1BDD28BA5DC400D07A53 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = CEDA1BDC28BA5DC400D07A53 /* FirebaseAuth */; };
 		CEDA1BDF28BA5DC400D07A53 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = CEDA1BDE28BA5DC400D07A53 /* FirebaseFirestore */; };
@@ -109,6 +110,7 @@
 		CED649C128BC5E6E00E12D61 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CED649C328BC5EA400E12D61 /* QRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRViewController.swift; sourceTree = "<group>"; };
 		CED649C528BC5F3300E12D61 /* CapturingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapturingViewController.swift; sourceTree = "<group>"; };
+		CED6A12E28C3487F0082D498 /* FlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowLayout.swift; sourceTree = "<group>"; };
 		CEEE82B32847A99A00732497 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		CEEE82B7284B6A4400732497 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		CEEE82B9284B911500732497 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				CEACDF4F289571AF0005F4A6 /* ReviewViewController.swift */,
 				CEC6855928AFDA11007C0967 /* Review.swift */,
 				CEC6855B28B0B3C5007C0967 /* Alert.swift */,
+				CED6A12E28C3487F0082D498 /* FlowLayout.swift */,
 				CEC6855D28B12617007C0967 /* ReframingViewController.swift */,
 				CEB4754A2859F894002654E6 /* AccountViewController.swift */,
 				CE08B05528BD19860054D0D6 /* EditAccountViewController.swift */,
@@ -335,6 +338,7 @@
 				CEB47566286B499C002654E6 /* CalendarTargetCollectionViewCell.swift in Sources */,
 				CEB4755B285F65CD002654E6 /* QuestionViewController.swift in Sources */,
 				CEAE56C4289766FB002DBEA2 /* FriendsInnerCollectionViewCell.swift in Sources */,
+				CED6A12F28C3487F0082D498 /* FlowLayout.swift in Sources */,
 				CE73D15E2839DF4C00B20D0D /* ViewController.swift in Sources */,
 				CED649C628BC5F3300E12D61 /* CapturingViewController.swift in Sources */,
 				CEEE82B42847A99A00732497 /* SignUpViewController.swift in Sources */,

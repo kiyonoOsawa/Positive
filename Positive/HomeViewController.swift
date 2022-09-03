@@ -18,6 +18,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var friendTargetCollection: UICollectionView!
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var friendsBack: UIView!
+    @IBOutlet weak var nilTargetImage: UIImageView!
+    @IBOutlet weak var nilFriendSTarget: UIImageView!
     
     let db = Firestore.firestore()
     let user = Auth.auth().currentUser
@@ -37,9 +39,11 @@ class HomeViewController: UIViewController {
         friendTargetCollection.dataSource = self
         targetCollection.register(UINib(nibName: "InnerCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "targetHome")
         friendTargetCollection.register(UINib(nibName: "FriendsInnerCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "friendsTarget")
-        let layout = UICollectionViewFlowLayout()
+        targetCollection.decelerationRate = .fast
+        let layout = FlowLayout()
         layout.scrollDirection = .horizontal // 横スクロール
         targetCollection.collectionViewLayout = layout
+        targetCollection.showsHorizontalScrollIndicator = false
         design()
         fetchData()
         fetchFriendsData()
@@ -122,6 +126,18 @@ class HomeViewController: UIViewController {
         friendsBack.layer.cornerRadius = 25
         friendsBack.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         friendTargetCollection.backgroundColor = .clear
+        //        nilTargetImage.backgroundColor = UIColor(patternImage: UIImage(named: "myTarget")!)
+        //        nilFriendSTarget.backgroundColor = UIColor(patternImage: UIImage(named: "friendsTarget")!)
+        //        if addresses.count == 0 {
+        //            nilTargetImage.image = UIImage(named: "myTarget")
+        //        } else {
+        //            nilTargetImage.image = nil
+        //        }
+        //        if addressesFriends.count == 0 {
+        //            nilFriendSTarget.image = UIImage(named: "friendsTarget")
+        //        } else {
+        //            nilFriendSTarget.image = nil
+        //        }
     }
 }
 
@@ -129,9 +145,20 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView.tag == 0 {
+            if addresses.count == 0 {
+                nilTargetImage.image = UIImage(named: "myTarget")
+            } else {
+                nilTargetImage.image = nil
+            }
             return addresses.count
         } else {
+            if addressesFriends.count == 0 {
+                nilFriendSTarget.image = UIImage(named: "friendsTarget")
+            } else {
+                nilFriendSTarget.image = nil
+            }
             return addressesFriends.count
+            
         }
     }
     
@@ -145,14 +172,12 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             cell.layer.shadowRadius = 5
             cell.layer.masksToBounds = false
             cell.goalLabel.text = addresses[indexPath.row].goal
-            cell.miniGoal1.text = addresses[indexPath.row].nowTodo
-            cell.stepView.image = UIImage(named: "step_fire")
+            cell.miniGoal.text = addresses[indexPath.row].nowTodo
             cell.delegate = self
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "friendsTarget", for: indexPath) as! FriendsInnerCollectionViewCell
             let friendId = addressesFriends[indexPath.row].userId
-            cell.iconImage.layer.cornerRadius = 21
             cell.friendsGoal.text = addressesFriends[indexPath.row].goal
             cell.accNameLabel.text = addressesFriends[indexPath.row].userName
             let imagesRef = self.storageRef.child("userProfile").child("\(friendId).jpg")
@@ -204,10 +229,17 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             nextView.modalPresentationStyle = .pageSheet
             nextView.Goal = addresses[indexPath.row].goal
             nextView.MiniGoal = addresses[indexPath.row].nowTodo!
+            nextView.Person = addresses[indexPath.row].person!
+            nextView.Trigger = addresses[indexPath.row].trigger!
+            nextView.EssentialThing = addresses[indexPath.row].essentialThing!
             self.present(nextView, animated: true, completion: nil)
         } else {
             return
         }
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        (targetCollection.collectionViewLayout as! FlowLayout).prepareForPaging()
     }
 }
 

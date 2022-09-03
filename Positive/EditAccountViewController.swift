@@ -69,7 +69,8 @@ class EditAccountViewController: UIViewController, UINavigationControllerDelegat
                 guard let data = documentSnapshot.data() else { return }
                 let myAccount = User(userData: data)
                 self.nameField.text = myAccount.userName
-                //                self.emailField.text = myAccount.userEmail
+                self.emailField.text = user.email
+                self.passField.placeholder = "新しいパスワードを入力"
             }
         let imagesRef = self.storageRef.child("userProfile").child("\(user.uid).jpg")
         imagesRef.getData(maxSize: 1 * 1024 * 1024) { data, Error in
@@ -84,72 +85,39 @@ class EditAccountViewController: UIViewController, UINavigationControllerDelegat
             }
         }
     }
+    
     func updateUser(emailText: String, passwordText: String) {
-            guard let user = user else {
-                return
-            }
-            
-            user.updateEmail(to: emailText)
-            user.updatePassword(to: passwordText)
-            
-            let updateData: [String:Any] = [
-                "name": self.nameField.text!
-            ]
-            
-            db.collection("users")
-                .document(user.uid)
-                .updateData(updateData)
-            
-            let reference = self.storageRef.child("userProfile").child("\(user.uid).jpg")
-            guard let image = self.imageButton.imageView?.image else {
-                return
-            }
-            guard let uploadImage = image.jpegData(compressionQuality: 0.2) else {
-                return
-            }
+        Auth.auth().createUser(withEmail: emailText, password: passwordText) { FIRAuthDataResult, Error in
+            guard let authResult = FIRAuthDataResult else { return }
+            let reference = self.storageRef.child("userProfile").child("\(authResult.user.uid).jpg")
+            guard let image = self.imageButton.imageView?.image else { return }
+            guard let uploadImage = image.jpegData(compressionQuality: 0.2) else { return }
             reference.putData(uploadImage, metadata: nil) { (metadata, err) in
                 if let error = err {
                     print("error: \(error)")
                 }
             }
         }
-    
-//        func createUser(emailText: String, passwordText: String) {
-//            Auth.auth().createUser(withEmail: emailText, password: passwordText) { FIRAuthDataResult, Error in
-//                if Error == nil {
-//                } else {
-//                }
-//                guard let authResult = FIRAuthDataResult else {
-//                    print("error: \(Error)")
-//                    return
-//                }
-//                let reference = self.storageRef.child("userProfile").child("\(authResult.user.uid).jpg")
-//                guard let image = self.imageButton.imageView?.image else {
-//                    return
-//                }
-//                guard let uploadImage = image.jpegData(compressionQuality: 0.2) else {
-//                    return
-//                }
-//                reference.putData(uploadImage, metadata: nil) { (metadata, err) in
-//                    if let error = err {
-//                        print("error: \(error)")
-//                    }
-//                }
-//                let upData: [String:Any] = [
-//    //                "userImage": self.storageRef,
-//                    "userName": self.nameField.text!,
-//                ] as [String : Any]
-//                let db = Firestore.firestore()
-//                db.collection("users")
-//                    .document(authResult.user.uid)
-//                    .updateData(upData)
-//                self.transition()
-//            }
-//        }
+
+        guard let user = user else {
+            return
+        }
+        
+        user.updateEmail(to: emailText)
+        user.updatePassword(to: passwordText)
+        
+        let updateData: [String:Any] = [
+            "userName": self.nameField.text!
+        ]
+        
+        db.collection("users")
+            .document(user.uid)
+            .updateData(updateData)
+    }
     
     func transition() {
         dismiss(animated: true, completion: nil)
-//        self.presentingViewController?.presentingViewController?.dismiss(animated: true)
+        //        self.presentingViewController?.presentingViewController?.dismiss(animated: true)
     }
     
     

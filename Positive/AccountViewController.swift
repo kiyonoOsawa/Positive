@@ -134,7 +134,7 @@ class AccountViewController: UIViewController, ChartViewDelegate {
         lineChartView.xAxis.drawGridLinesEnabled = false        // X軸の線、グリッドを非表示にする
         lineChartView.xAxis.drawAxisLineEnabled = false
         lineChartView.rightAxis.enabled = false        // 右側のY座標軸は非表示にする
-        lineChartView.leftAxis.axisMinimum = 0.0         // Y座標の値が0始まりになるように設定
+        lineChartView.leftAxis.axisMinimum = 0        // Y座標の値が0始まりになるように設定
         lineChartView.leftAxis.axisMaximum = 100.0
         lineChartView.leftAxis.drawZeroLineEnabled = true
         lineChartView.leftAxis.zeroLineColor = .systemGray

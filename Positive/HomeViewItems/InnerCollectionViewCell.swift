@@ -10,7 +10,7 @@ import UIKit
 class InnerCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var goalLabel: UILabel!
-    @IBOutlet weak var miniGoal1: UITextView!
+    @IBOutlet weak var miniGoal: UITextView!
     @IBOutlet weak var deleteButton: UIButton!
 //    @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var reviewButton: UIButton!
@@ -34,8 +34,9 @@ class InnerCollectionViewCell: UICollectionViewCell {
     func design() {
         let mainColor = UIColor(named: "MainColor")
         guard let mainColor = mainColor else { return }
-        miniGoal1.isEditable = false
-//        doneButton.layer.cornerRadius = 15
+        miniGoal.isEditable = false
+        miniGoal.isSelectable = false
+        stepView.image = UIImage(named: "step_fire")
         reviewButton.layer.cornerRadius = 15
         reviewButton.layer.borderWidth = 3
         reviewButton.layer.borderColor = mainColor.cgColor

@@ -244,7 +244,8 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
             break
         case .record:
             cell.bigTargetLabel.text = applicableDataReview[indexPath.row].targetGoal
-            cell.miniTargetLabel.text = applicableDataReview[indexPath.row].reframing
+            cell.miniTargetLabel.text = applicableDataReview[indexPath.row].original
+//            cell.miniTargetLabel.text = applicableDataReview[indexPath.row].reframing
             if cell.miniTargetLabel.text == nil {
                 cell.textLabel.text = ""
             } else {
