@@ -51,10 +51,10 @@ class CalendarViewController: UIViewController {
         reportCollectionView.register(UINib(nibName: "CalendarTargetCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "reportCell")
         viewWidth = view.frame.width
         print(data)
-        configureSizes()
-        fetchDataTarget()
-        fetchDataReview()
         reportCollectionView.reloadData()
+        configureSizes()
+        fetchDataReview()
+        fetchDataTarget()
         design()
     }
     
@@ -234,26 +234,27 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
         cell.layer.shadowOpacity = 0.2
         cell.layer.shadowOffset = CGSize(width: 0, height: 0)
         cell.layer.masksToBounds = false
-        //        cell.bigTargetLabel.text = applicableData[indexPath.row].goal
         
         switch segmentState {
+        case .record:
+            cell.bigTargetLabel.text = applicableDataReview[indexPath.row].targetGoal
+            cell.textLabel.text = "振り返り"
+            if applicableDataReview[indexPath.row].reframing == nil {
+                cell.miniTargetLabel.text = applicableDataReview[indexPath.row].original
+                cell.reframingLabel.text = ""
+//                reportCollectionView.reloadData()
+            } else {
+                cell.reframingLabel.text = applicableDataReview[indexPath.row].reframing
+                cell.miniTargetLabel.text = ""
+//                reportCollectionView.reloadData()
+            }
+            break
         case .affirmation:
             cell.bigTargetLabel.text = applicableData[indexPath.row].goal
             cell.miniTargetLabel.text = applicableData[indexPath.row].nowTodo
             cell.textLabel.text = "ミニ目標"
-            break
-        case .record:
-            cell.bigTargetLabel.text = applicableDataReview[indexPath.row].targetGoal
-            if applicableDataReview[indexPath.row].reframing == nil {
-                cell.miniTargetLabel.text = applicableDataReview[indexPath.row].original
-            } else {
-                cell.reframingLabel.text = applicableDataReview[indexPath.row].reframing
-            }
-            if cell.miniTargetLabel.text == nil {
-                cell.textLabel.text = ""
-            } else {
-                cell.textLabel.text = "振り返り"
-            }
+            cell.reframingLabel.isHidden = true
+//            reportCollectionView.reloadData()
             break
         default:
             break

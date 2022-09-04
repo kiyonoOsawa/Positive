@@ -31,24 +31,8 @@
                             <action selector="reviewButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="S9N-bl-6yz"/>
                         </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SnQ-0Z-sOh">
-                        <rect key="frame" x="304" y="16" width="32" height="32"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="32" id="1Y8-x6-8qN"/>
-                            <constraint firstAttribute="width" constant="32" id="kxN-AM-KMe"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                        <state key="normal" image="x1">
-                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
-                        </state>
-                        <connections>
-                            <action selector="deleteButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="5SU-aY-29P"/>
-                        </connections>
-                    </button>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="R7l-O8-Qz0">
-                        <rect key="frame" x="32" y="80" width="288" height="122"/>
+                        <rect key="frame" x="32" y="101" width="288" height="101"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <color key="textColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -70,17 +54,40 @@
                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w9O-x8-NDT">
+                        <rect key="frame" x="158" y="76" width="36" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" name="grayTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SnQ-0Z-sOh">
+                        <rect key="frame" x="296" y="16" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="1Y8-x6-8qN"/>
+                            <constraint firstAttribute="width" constant="40" id="kxN-AM-KMe"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" title="×">
+                            <color key="titleColor" systemColor="labelColor"/>
+                        </state>
+                        <connections>
+                            <action selector="deleteButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="5SU-aY-29P"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="R7l-O8-Qz0" firstAttribute="top" secondItem="w9O-x8-NDT" secondAttribute="bottom" constant="8" id="2v6-Gh-bSW"/>
                 <constraint firstItem="dkz-71-G10" firstAttribute="top" secondItem="R7l-O8-Qz0" secondAttribute="bottom" constant="8" id="94M-3A-alw"/>
                 <constraint firstItem="2aR-Ri-zvE" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="G7t-ac-rqG"/>
                 <constraint firstItem="hpB-qQ-fXj" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="24" id="IDu-PG-wpv"/>
                 <constraint firstItem="SnQ-0Z-sOh" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="Jto-D6-pG8"/>
+                <constraint firstItem="w9O-x8-NDT" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="K0r-st-8Jt"/>
                 <constraint firstItem="2aR-Ri-zvE" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="0.340909" id="TrE-eT-Zu7"/>
-                <constraint firstItem="R7l-O8-Qz0" firstAttribute="top" secondItem="hpB-qQ-fXj" secondAttribute="bottom" constant="8" symbolic="YES" id="Xh7-rA-GjC"/>
                 <constraint firstItem="2aR-Ri-zvE" firstAttribute="top" secondItem="dkz-71-G10" secondAttribute="bottom" constant="16" id="YYi-vz-4ov"/>
                 <constraint firstAttribute="bottom" secondItem="2aR-Ri-zvE" secondAttribute="bottom" constant="16" id="ZJP-3a-KWn"/>
                 <constraint firstItem="dkz-71-G10" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="bqs-GG-RqG"/>
@@ -89,9 +96,11 @@
                 <constraint firstAttribute="trailing" secondItem="SnQ-0Z-sOh" secondAttribute="trailing" constant="16" id="nL9-bN-KZK"/>
                 <constraint firstItem="hpB-qQ-fXj" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="tcD-qZ-294"/>
                 <constraint firstItem="hpB-qQ-fXj" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="32" id="z4p-fG-tdv"/>
+                <constraint firstItem="w9O-x8-NDT" firstAttribute="top" secondItem="hpB-qQ-fXj" secondAttribute="bottom" constant="4" id="zKi-zj-VZP"/>
             </constraints>
             <size key="customSize" width="324" height="147"/>
             <connections>
+                <outlet property="dateLabel" destination="w9O-x8-NDT" id="yLA-Xh-Y0Y"/>
                 <outlet property="deleteButton" destination="SnQ-0Z-sOh" id="zxP-81-hHK"/>
                 <outlet property="goalLabel" destination="hpB-qQ-fXj" id="jDT-mw-KOK"/>
                 <outlet property="miniGoal" destination="R7l-O8-Qz0" id="NuD-6a-Gcm"/>
@@ -102,10 +111,15 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="x1" width="111" height="111"/>
         <namedColor name="MainColor">
             <color red="0.92549019607843142" green="0.32549019607843138" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="grayTextColor">
+            <color red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

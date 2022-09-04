@@ -126,18 +126,6 @@ class HomeViewController: UIViewController {
         friendsBack.layer.cornerRadius = 25
         friendsBack.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         friendTargetCollection.backgroundColor = .clear
-        //        nilTargetImage.backgroundColor = UIColor(patternImage: UIImage(named: "myTarget")!)
-        //        nilFriendSTarget.backgroundColor = UIColor(patternImage: UIImage(named: "friendsTarget")!)
-        //        if addresses.count == 0 {
-        //            nilTargetImage.image = UIImage(named: "myTarget")
-        //        } else {
-        //            nilTargetImage.image = nil
-        //        }
-        //        if addressesFriends.count == 0 {
-        //            nilFriendSTarget.image = UIImage(named: "friendsTarget")
-        //        } else {
-        //            nilFriendSTarget.image = nil
-        //        }
     }
 }
 
@@ -171,6 +159,8 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             cell.layer.shadowOffset = CGSize(width: 0, height: 0)
             cell.layer.shadowRadius = 5
             cell.layer.masksToBounds = false
+            let cellDate = addresses[indexPath.row].date.dateValue()
+            cell.dateLabel.text = dateFormat(date: cellDate)
             cell.goalLabel.text = addresses[indexPath.row].goal
             cell.miniGoal.text = addresses[indexPath.row].nowTodo
             cell.delegate = self
@@ -181,7 +171,6 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             cell.friendsGoal.text = addressesFriends[indexPath.row].goal
             cell.accNameLabel.text = addressesFriends[indexPath.row].userName
             let imagesRef = self.storageRef.child("userProfile").child("\(friendId).jpg")
-            // 画像の取り出し
             imagesRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
                 if let error = error {
                     print("画像の取り出しに失敗: \(error)")
@@ -273,6 +262,7 @@ extension HomeViewController: HomeViewCellDelegate{
                 }
             self.addresses.remove(at: indexPath.row)
             targetCollection.reloadData()
+            friendTargetCollection.reloadData()
         }
     }
 }

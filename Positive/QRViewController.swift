@@ -2,7 +2,7 @@
 //  QRViewController.swift
 //  Positive
 //
-//  Created by 大澤清乃 on 2022/08/29.
+//  Created by 大澤清乃 on 2022/09/04.
 //
 
 import UIKit
@@ -31,5 +31,4 @@ class QRViewController: UIViewController {
         let sizeTransform = CGAffineTransform(scaleX: 10, y: 10)
         uiImage.image = UIImage(ciImage: qr.outputImage!.transformed(by: sizeTransform))
     }
-    
 }

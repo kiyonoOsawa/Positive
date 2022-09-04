@@ -163,13 +163,20 @@ class EditAccountViewController: UIViewController, UINavigationControllerDelegat
 
 extension EditAccountViewController: UIImagePickerControllerDelegate, UINavigationBarDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[.editedImage] as? UIImage {
+//        if let image = info[.editedImage] as? UIImage {
+//            imageButton.setImage(image.withRenderingMode(.alwaysOriginal), for: .normal)
+//        } else if let originalImage = info[.originalImage] as? UIImage {
+//            imageButton.setImage(originalImage.withRenderingMode(.alwaysOriginal), for: .normal)
+//        }
+        if let image = info[.editedImage] as? UIImage{
             imageButton.setImage(image.withRenderingMode(.alwaysOriginal), for: .normal)
         } else if let originalImage = info[.originalImage] as? UIImage {
             imageButton.setImage(originalImage.withRenderingMode(.alwaysOriginal), for: .normal)
         }
         imageButton.setTitle("", for: .normal)
         imageButton.imageView?.contentMode = .scaleAspectFill
+        imageButton.contentHorizontalAlignment = .fill
+        imageButton.contentVerticalAlignment = .fill
         imageButton.clipsToBounds = true
         dismiss(animated: true, completion: nil)
     }

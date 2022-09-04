@@ -14,8 +14,11 @@ class TargetDetailViewController: UIViewController {
     
     @IBOutlet weak var targetLabel: UILabel!
     @IBOutlet weak var miniTargetTextView: UITextView!
-//    @IBOutlet weak var t
+    @IBOutlet weak var essentialTextView: UITextView!
+    @IBOutlet weak var triggerTextView: UITextView!
+    @IBOutlet weak var personTextView: UITextView!
     @IBOutlet weak var setTabelView: UITableView!
+    @IBOutlet weak var saveButton: UIButton!
     
     let user = Auth.auth().currentUser
     let db = Firestore.firestore()
@@ -104,6 +107,14 @@ class TargetDetailViewController: UIViewController {
     func design() {
         targetLabel.text = Goal
         miniTargetTextView.text = MiniGoal
+        essentialTextView.text = EssentialThing
+        triggerTextView.text = Trigger
+        personTextView.text = Person
+        let mainColor = UIColor(named: "MainColor")
+        guard let mainColor = mainColor else { return }
+        saveButton.layer.cornerRadius = 15
+        saveButton.layer.borderWidth = 2
+        saveButton.layer.borderColor = mainColor.cgColor
     }
 }
 
