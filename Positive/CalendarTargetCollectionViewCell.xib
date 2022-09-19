@@ -34,12 +34,6 @@
                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fiA-lW-Hg4">
-                        <rect key="frame" x="20" y="61.5" width="41.5" height="20.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
@@ -49,15 +43,12 @@
                 <constraint firstItem="JNU-4S-SOG" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="ITP-41-Y6O"/>
                 <constraint firstItem="JNU-4S-SOG" firstAttribute="top" secondItem="60i-xF-ykn" secondAttribute="bottom" constant="4" id="PqI-mQ-44G"/>
                 <constraint firstItem="nKw-BI-jCP" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="W05-qG-WYK"/>
-                <constraint firstItem="fiA-lW-Hg4" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="ZWP-MF-waU"/>
                 <constraint firstItem="60i-xF-ykn" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="dYm-Lx-xhd"/>
-                <constraint firstItem="fiA-lW-Hg4" firstAttribute="top" secondItem="JNU-4S-SOG" secondAttribute="bottom" constant="4" id="hW0-e6-GC7"/>
                 <constraint firstItem="nKw-BI-jCP" firstAttribute="top" secondItem="JNU-4S-SOG" secondAttribute="bottom" constant="4" id="jfJ-rT-czH"/>
             </constraints>
             <connections>
                 <outlet property="bigTargetLabel" destination="60i-xF-ykn" id="geY-sO-M9r"/>
                 <outlet property="miniTargetLabel" destination="nKw-BI-jCP" id="F3B-au-nMm"/>
-                <outlet property="reframingLabel" destination="fiA-lW-Hg4" id="M09-Po-MQg"/>
                 <outlet property="textLabel" destination="JNU-4S-SOG" id="wCe-1J-Gjy"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="86.383928571428569"/>

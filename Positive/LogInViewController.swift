@@ -24,6 +24,8 @@ class LogInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         fieldImage()
         design()
     }
@@ -73,15 +75,33 @@ class LogInViewController: UIViewController {
     }
     
     @IBAction func deleteText1(_ sender: UIButton) {
-     emailField.text = ""
+        emailField.text = ""
     }
     
     @IBAction func deleteText2(_ sender: UIButton) {
-     passwordField.text = ""
+        passwordField.text = ""
     }
     
     func design() {
         backView.layer.cornerRadius = 15
         logIn.layer.cornerRadius = 10
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if !passwordField.isFirstResponder {
+            return
+        }
+    
+        if self.view.frame.origin.y == 0 {
+            if let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+                self.view.frame.origin.y -= keyboardRect.height
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
     }
 }

@@ -22,10 +22,10 @@ class CalendarViewController: UIViewController {
     @IBOutlet weak var segmentBar: UISegmentedControl!
     @IBOutlet weak var reportCollectionView: UICollectionView!
     @IBOutlet weak var calendarHeight: NSLayoutConstraint!
-    @IBOutlet weak var backView: UIView!
     @IBOutlet weak var reviewButton: UIButton!
     
     var data: [Bool] = []
+    var events: [DetailGoal] = []
     let fsCalendar = FSCalendar()
     let db = Firestore.firestore()
     let user = Auth.auth().currentUser
@@ -126,6 +126,20 @@ class CalendarViewController: UIViewController {
             }
     }
     
+    private func checkEvents(date: Date) -> Int{
+        let calendarDate = DateFormat.shared.dateFormat(date: date)
+        events = addresses.filter({data in
+            let convertedDate = dateFormat(date: data.date.dateValue())
+            let startDate = dateFormat(date: data.createdAt.dateValue())
+            return (convertedDate.compare(calendarDate) == .orderedDescending || convertedDate.compare(calendarDate) == .orderedSame) && (startDate.compare(calendarDate) == .orderedAscending || startDate.compare(calendarDate) == .orderedSame)
+        })
+        if events.count == 0{
+            return 0
+        }else{
+            return 1
+        }
+    }
+    
     @IBAction func toReviewViewButton() {
         let storyboard: UIStoryboard = self.storyboard!
         let nc: UINavigationController = storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
@@ -200,6 +214,7 @@ class CalendarViewController: UIViewController {
         print("addressesCount: \(addresses.count)")
         print("applicableDataCount: \(applicableData.count)")
         reportCollectionView.reloadData()
+        calendarView.reloadData()
     }
     
     func design() {
@@ -211,6 +226,13 @@ class CalendarViewController: UIViewController {
         reviewButton.imageView?.contentMode = .scaleAspectFill
         reviewButton.contentHorizontalAlignment = .fill
         reviewButton.contentVerticalAlignment = .fill
+        calendarView.calendarWeekdayView.weekdayLabels[0].text = "日"
+        calendarView.calendarWeekdayView.weekdayLabels[1].text = "月"
+        calendarView.calendarWeekdayView.weekdayLabels[2].text = "火"
+        calendarView.calendarWeekdayView.weekdayLabels[3].text = "水"
+        calendarView.calendarWeekdayView.weekdayLabels[4].text = "木"
+        calendarView.calendarWeekdayView.weekdayLabels[5].text = "金"
+        calendarView.calendarWeekdayView.weekdayLabels[6].text = "土"
     }
 }
 
@@ -241,20 +263,14 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
             cell.textLabel.text = "振り返り"
             if applicableDataReview[indexPath.row].reframing == nil {
                 cell.miniTargetLabel.text = applicableDataReview[indexPath.row].original
-                cell.reframingLabel.text = ""
-//                reportCollectionView.reloadData()
             } else {
-                cell.reframingLabel.text = applicableDataReview[indexPath.row].reframing
-                cell.miniTargetLabel.text = ""
-//                reportCollectionView.reloadData()
+                cell.miniTargetLabel.text = applicableDataReview[indexPath.row].reframing
             }
             break
         case .affirmation:
             cell.bigTargetLabel.text = applicableData[indexPath.row].goal
             cell.miniTargetLabel.text = applicableData[indexPath.row].nowTodo
             cell.textLabel.text = "ミニ目標"
-            cell.reframingLabel.isHidden = true
-//            reportCollectionView.reloadData()
             break
         default:
             break
@@ -308,6 +324,6 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource {
     }
     
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
-        return applicableData.count
+        return checkEvents(date: date)
     }
 }

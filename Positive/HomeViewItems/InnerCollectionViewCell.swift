@@ -12,7 +12,6 @@ class InnerCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var goalLabel: UILabel!
     @IBOutlet weak var miniGoal: UITextView!
     @IBOutlet weak var deleteButton: UIButton!
-//    @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var reviewButton: UIButton!
     @IBOutlet weak var stepView: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!

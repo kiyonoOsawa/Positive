@@ -155,7 +155,11 @@ class AccountViewController: UIViewController, ChartViewDelegate {
     
     func design() {
         imageView.layer.cornerRadius = 36
+        imageView.layer.borderWidth = 1
+        imageView.layer.borderColor = UIColor.gray.cgColor
         editButton.layer.cornerRadius = 10
+        editButton.layer.borderWidth = 1
+        editButton.layer.borderColor = UIColor.lightGray.cgColor
         chartBack.layer.cornerRadius = 20
         chartBack.layer.shadowColor = UIColor.black.cgColor
         chartBack.layer.shadowOpacity = 0.25
@@ -163,7 +167,6 @@ class AccountViewController: UIViewController, ChartViewDelegate {
         chartBack.layer.masksToBounds = false
         friendsBack.layer.cornerRadius = 20
         friendsBack.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-//        friendsCollection.register(UINib(nibName: "FriendAccCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "accCell")
     }
 }
 
@@ -200,6 +203,10 @@ extension AccountViewController: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 38, bottom: 0, right: 38)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 35
     }
 }
 

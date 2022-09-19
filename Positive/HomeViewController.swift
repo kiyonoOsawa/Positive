@@ -16,7 +16,6 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var addItem: UIBarButtonItem!
     @IBOutlet weak var targetCollection: UICollectionView!
     @IBOutlet weak var friendTargetCollection: UICollectionView!
-    @IBOutlet weak var backView: UIView!
     @IBOutlet weak var friendsBack: UIView!
     @IBOutlet weak var nilTargetImage: UIImageView!
     @IBOutlet weak var nilFriendSTarget: UIImageView!
@@ -44,6 +43,7 @@ class HomeViewController: UIViewController {
         layout.scrollDirection = .horizontal // 横スクロール
         targetCollection.collectionViewLayout = layout
         targetCollection.showsHorizontalScrollIndicator = false
+        self.navigationController?.navigationBar.shadowImage = UIImage(named: "shadowImage")
         design()
         fetchData()
         fetchFriendsData()
@@ -108,7 +108,9 @@ class HomeViewController: UIViewController {
                         self.addressesFriends.removeAll()
                         for doc in querySnapshot.documents {
                             let detailGoal = DetailGoal(dictionary: doc.data(), documentID: doc.documentID)
-                            self.addressesFriends.append(detailGoal)
+                            if detailGoal.isShared ?? true{
+                                self.addressesFriends.append(detailGoal)
+                            }
                             print("addressesFriends:\(self.addressesFriends)")
                         }
                         self.friendTargetCollection.reloadData()
@@ -194,7 +196,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         } else {
             let space: CGFloat = 10
             let cellWidth: CGFloat = friendTargetCollection.frame.width - space
-            let cellHeight: CGFloat = 104
+            let cellHeight: CGFloat = 88
             return CGSize(width: cellWidth, height: cellHeight)
         }
     }
@@ -218,10 +220,11 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             nextView.modalPresentationStyle = .pageSheet
             nextView.Goal = addresses[indexPath.row].goal
             nextView.MiniGoal = addresses[indexPath.row].nowTodo!
-            nextView.Person = addresses[indexPath.row].person!
+//            nextView.Person = addresses[indexPath.row].person!
             nextView.Trigger = addresses[indexPath.row].trigger!
             nextView.EssentialThing = addresses[indexPath.row].essentialThing!
             nextView.DocumentId = addresses[indexPath.row].documentID
+            nextView.IsShared = addresses[indexPath.row].isShared ?? true
             self.present(nextView, animated: true, completion: nil)
         } else {
             return

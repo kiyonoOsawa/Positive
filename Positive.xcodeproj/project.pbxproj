@@ -19,6 +19,7 @@
 		CE73D1662839DF4E00B20D0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE73D1642839DF4E00B20D0D /* LaunchScreen.storyboard */; };
 		CE73D16E2839F62600B20D0D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE73D16D2839F62600B20D0D /* HomeViewController.swift */; };
 		CE73D1702839F8AE00B20D0D /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE73D16F2839F8AE00B20D0D /* CalendarViewController.swift */; };
+		CE798A6D28D856AC00E5C340 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE798A6C28D856AC00E5C340 /* DateFormat.swift */; };
 		CE7A58BB289AC3B200AD3946 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7A58BA289AC3B200AD3946 /* APIClient.swift */; };
 		CE7A58C2289E1D5000AD3946 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7A58C1289E1D5000AD3946 /* DataModel.swift */; };
 		CE80C15728716EF9000646B2 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80C15628716EF9000646B2 /* Goal.swift */; };
@@ -79,6 +80,7 @@
 		CE73D1672839DF4E00B20D0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE73D16D2839F62600B20D0D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CE73D16F2839F8AE00B20D0D /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		CE798A6C28D856AC00E5C340 /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
 		CE7A58BA289AC3B200AD3946 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		CE7A58C1289E1D5000AD3946 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		CE80C15628716EF9000646B2 /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				CEACDF4F289571AF0005F4A6 /* ReviewViewController.swift */,
 				CEC6855928AFDA11007C0967 /* Review.swift */,
 				CEC6855B28B0B3C5007C0967 /* Alert.swift */,
+				CE798A6C28D856AC00E5C340 /* DateFormat.swift */,
 				CED6A12E28C3487F0082D498 /* FlowLayout.swift */,
 				CEC6855D28B12617007C0967 /* ReframingViewController.swift */,
 				CEB4754A2859F894002654E6 /* AccountViewController.swift */,
@@ -352,6 +355,7 @@
 				CE80C15728716EF9000646B2 /* Goal.swift in Sources */,
 				CEC6855E28B12617007C0967 /* ReframingViewController.swift in Sources */,
 				CE7A58C2289E1D5000AD3946 /* DataModel.swift in Sources */,
+				CE798A6D28D856AC00E5C340 /* DateFormat.swift in Sources */,
 				CE8D8BEB28B9194C0024B322 /* CircleChart.swift in Sources */,
 				CEC6855A28AFDA11007C0967 /* Review.swift in Sources */,
 				CE73D16E2839F62600B20D0D /* HomeViewController.swift in Sources */,
@@ -509,7 +513,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5TMS54W5TQ;
+				DEVELOPMENT_TEAM = JNNV58CFF6;
 				EXCLUDED_ARCHS = "";
 				"EXCLUDED_ARCHS[sdk=*]" = x86_64;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -543,7 +547,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5TMS54W5TQ;
+				DEVELOPMENT_TEAM = JNNV58CFF6;
 				EXCLUDED_ARCHS = "";
 				"EXCLUDED_ARCHS[sdk=*]" = x86_64;
 				GENERATE_INFOPLIST_FILE = YES;

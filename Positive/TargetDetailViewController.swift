@@ -16,7 +16,7 @@ class TargetDetailViewController: UIViewController {
     @IBOutlet weak var miniTargetTextView: UITextView!
     @IBOutlet weak var essentialTextView: UITextView!
     @IBOutlet weak var triggerTextView: UITextView!
-    @IBOutlet weak var personTextView: UITextView!
+//    @IBOutlet weak var personTextView: UITextView!
     @IBOutlet weak var setTabelView: UITableView!
     @IBOutlet weak var saveButton: UIButton!
     
@@ -30,9 +30,10 @@ class TargetDetailViewController: UIViewController {
     var Goal = String()
     var MiniGoal = String()
     var Trigger = String()
-    var Person = String()
+//    var Person = String()
     var EssentialThing = String()
     var DocumentId = String()
+    var IsShared = Bool()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,33 +41,8 @@ class TargetDetailViewController: UIViewController {
         setTabelView.dataSource = self
         setTabelView.register(UINib(nibName: "DateTargetTableViewCell", bundle: nil), forCellReuseIdentifier: "dateTargetCell")
         setTabelView.register(UINib(nibName: "ImportanceTableViewCell", bundle: nil), forCellReuseIdentifier: "importanceCell")
-//        fetchData()
         design()
     }
-    
-//    func fetchData() {
-//        guard let user = user else {
-//            return
-//        }
-//        self.addresses.removeAll()
-//        db.collection("users")
-//            .document(user.uid)
-//            .collection("goals")
-//            .addSnapshotListener{ QuerySnapshot, Error in
-//                guard let querySnapshot = QuerySnapshot else {
-//                    return
-//                }
-////                guard let data = documentSnapshot.data() else { return }
-////                let myAccount = User(userData: data)
-////                self.nameField.text = myAccount.userName
-////                self.emailField.text = user.email
-//
-//                for doc in querySnapshot.documents {
-//                    let detailGoal = DetailGoal(dictionary: doc.data(), documentID: doc.documentID)
-//                    self.addresses.append(detailGoal)
-//                }
-//            }
-//    }
     
     @IBAction func tappedSave() {
         updateGoal()
@@ -82,7 +58,8 @@ class TargetDetailViewController: UIViewController {
         let convertedDate = Timestamp(date: date)
         let updateGoal: [String:Any] = [
             "nowTodo": self.miniTargetTextView.text!,
-            "date": convertedDate
+            "date": convertedDate,
+            "isShared": IsShared
         ]
         db.collection("users")
             .document(user.uid)
@@ -109,7 +86,7 @@ class TargetDetailViewController: UIViewController {
         miniTargetTextView.text = MiniGoal
         essentialTextView.text = EssentialThing
         triggerTextView.text = Trigger
-        personTextView.text = Person
+//        personTextView.text = Person
         let mainColor = UIColor(named: "MainColor")
         guard let mainColor = mainColor else { return }
         saveButton.layer.cornerRadius = 15
@@ -129,6 +106,8 @@ extension TargetDetailViewController: DateTargetTableViewCellDelegate, UITableVi
             shareCell = tableView.dequeueReusableCell(withIdentifier: "importanceCell") as! ImportanceTableViewCell
             shareCell.selectionStyle = UITableViewCell.SelectionStyle.none
             shareCell.accessoryType = .none
+            shareCell.shareSwitch.isOn = IsShared
+            shareCell.delegate = self
             return shareCell
         } else {
             dateCell = tableView.dequeueReusableCell(withIdentifier: "dateTargetCell") as! DateTargetTableViewCell
@@ -162,5 +141,15 @@ extension TargetDetailViewController: DateTargetTableViewCellDelegate, UITableVi
             }
             return tableView.estimatedRowHeight
         }
+    }
+}
+
+extension TargetDetailViewController: ImportanceCellDelegate{
+    func onSwitch(cell: ImportanceTableViewCell) {
+        self.IsShared = true
+    }
+    
+    func offSwitch(cell: ImportanceTableViewCell) {
+        self.IsShared = false
     }
 }

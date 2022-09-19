@@ -18,9 +18,9 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JdZ-MR-RhH">
-                        <rect key="frame" x="16" y="17.5" width="288" height="55"/>
+                        <rect key="frame" x="16" y="21" width="288" height="48"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="55" id="32X-Nz-egf"/>
+                            <constraint firstAttribute="height" constant="48" id="32X-Nz-egf"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <textInputTraits key="textInputTraits"/>
@@ -43,10 +43,10 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="b7e-vH-MYl" secondAttribute="trailing" constant="32" id="4JJ-Ow-CBQ"/>
+                    <constraint firstItem="JdZ-MR-RhH" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="AGT-jV-zIs"/>
                     <constraint firstItem="JdZ-MR-RhH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Gjo-qT-9ju"/>
-                    <constraint firstItem="JdZ-MR-RhH" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="IZR-Pn-PZn"/>
+                    <constraint firstItem="b7e-vH-MYl" firstAttribute="centerY" secondItem="JdZ-MR-RhH" secondAttribute="centerY" id="fK4-wI-lCi"/>
                     <constraint firstItem="JdZ-MR-RhH" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="nUO-Z4-zKw"/>
-                    <constraint firstItem="b7e-vH-MYl" firstAttribute="centerY" secondItem="JdZ-MR-RhH" secondAttribute="centerY" id="p8A-tb-vZL"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -57,6 +57,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="x.circle.fill" catalog="system" width="32" height="32"/>
+        <image name="x.circle.fill" catalog="system" width="128" height="121"/>
     </resources>
 </document>

@@ -11,8 +11,6 @@ import FirebaseAuth
 
 class ReframingViewController: UIViewController {
     
-//    @IBOutlet weak var graphView: UIView!
-//    @IBOutlet weak var graphViewWidth: NSLayoutConstraint!
     @IBOutlet weak var badTextView: UITextView!
     @IBOutlet weak var reframingTextField: UITextField!
     @IBOutlet weak var clearButton: UIButton!
@@ -29,7 +27,6 @@ class ReframingViewController: UIViewController {
         super.viewDidLoad()
         setUpUI()
         design()
-//        addReframingData()
     }
     
     @IBAction func tappedClear() {
@@ -37,7 +34,6 @@ class ReframingViewController: UIViewController {
     }
     
     private func setUpUI() {
-//        graphViewWidth.constant = CGFloat(value*50)
         clearButton.layer.cornerRadius = 15
         clearButton.clipsToBounds = true
         badTextView.text = originalText
@@ -86,12 +82,8 @@ class ReframingViewController: UIViewController {
     }
     
     func design() {
-//        reframingTextField.layer.shadowOpacity = 0.5
-//        reframingTextField.layer.shadowColor = UIColor.gray.cgColor
-//        reframingTextField.layer.shadowOffset = CGSize(width: 1, height: 1)
         reframingTextField.layer.borderWidth = 0.5
         reframingTextField.layer.borderColor = UIColor(named: "grayTextColor")?.cgColor
-//        reframingTextField.layer.masksToBounds = false
         reframingTextField.layer.cornerRadius = 15
         reframingTextField.backgroundColor = UIColor.white
         let leftPadding = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 0))

@@ -37,8 +37,7 @@ class MakeTargetViewController: UIViewController {
         sectionTableView.register(UINib(nibName: "DateTargetTableViewCell", bundle: nil), forCellReuseIdentifier: "dateTargetCell")
         sectionTableView.dataSource = self
         sectionTableView.delegate = self
-        navigationItem.title = "New Goal"
-        self.navigationController?.navigationBar.barTintColor = .white
+        navigationItem.title = "目標設定"
         fetchFiendName()
         setDismissKeyboard()
     }
@@ -126,12 +125,15 @@ extension MakeTargetViewController: DateTargetTableViewCellDelegate, UITableView
         }
     }
     
+//    func tab
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
+//            if indexPath.section.cell
             targetCell = tableView.dequeueReusableCell(withIdentifier: "makeTargetCell") as! MakeTargetTableViewCell
             targetCell.selectionStyle = UITableViewCell.SelectionStyle.none
             return targetCell
@@ -139,6 +141,7 @@ extension MakeTargetViewController: DateTargetTableViewCellDelegate, UITableView
             shareCell = tableView.dequeueReusableCell(withIdentifier: "importanceCell") as! ImportanceTableViewCell
             shareCell.selectionStyle = UITableViewCell.SelectionStyle.none
             shareCell.accessoryType = .none
+            shareCell.delegate = self
             return shareCell
         } else if indexPath.section == 2 {
             detailCell = tableView.dequeueReusableCell(withIdentifier: "importanceCell") as! ImportanceTableViewCell
@@ -188,5 +191,15 @@ extension MakeTargetViewController: DateTargetTableViewCellDelegate, UITableView
     
     @objc func dismissKeyboard() {
         self.view.endEditing(true)
+    }
+}
+
+extension MakeTargetViewController: ImportanceCellDelegate{
+    func onSwitch(cell: ImportanceTableViewCell) {
+        self.isShared = true
+    }
+    
+    func offSwitch(cell: ImportanceTableViewCell) {
+        self.isShared = false
     }
 }

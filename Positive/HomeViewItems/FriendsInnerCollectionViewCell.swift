@@ -12,7 +12,6 @@ class FriendsInnerCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var iconImage: UIImageView!
     @IBOutlet weak var accNameLabel: UILabel!
     @IBOutlet weak var friendsGoal: UILabel!
-//    @IBOutlet weak var nilImage: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,7 +21,7 @@ class FriendsInnerCollectionViewCell: UICollectionViewCell {
 
     func design() {
         iconImage.layer.cornerRadius = 21
-        iconImage.layer.borderColor = UIColor(named: "grayTextColor")?.cgColor
-        iconImage.layer.borderWidth = 2
+//        iconImage.layer.borderColor = UIColor(named: "grayTextColor")?.cgColor
+//        iconImage.layer.borderWidth = 2
     }
 }

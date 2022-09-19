@@ -12,7 +12,6 @@ import FirebaseAuth
 
 class QuestionViewController: UIViewController {
     
-    @IBOutlet weak var goalLabel: UILabel!
     @IBOutlet weak var questionTableView: UITableView!
     
     var data: [Bool] = []
@@ -22,7 +21,6 @@ class QuestionViewController: UIViewController {
     let db = Firestore.firestore()
     let questions: [String] = ["このためにできることは？", "このために必要なモノ・コトは？", "きっかけは？", "具体的にどんな人？"]
     var eachAnswer: [String] = ["","","",""]
-    
     fileprivate let cellHeight: CGFloat = 30
     fileprivate let numberOfQuestion: Int = 4
     
@@ -31,7 +29,7 @@ class QuestionViewController: UIViewController {
         questionTableView.delegate = self
         questionTableView.dataSource = self
         questionTableView.register(UINib(nibName: "QuestionTableViewCell", bundle: nil), forCellReuseIdentifier: "questionCell")
-        navigationItem.title = "Question"
+        navigationItem.title = "詳細"
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "戻る", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.back))
         for _ in 0...numberOfQuestion {
             data.append(false)
@@ -124,7 +122,7 @@ extension QuestionViewController: QuestionTableViewCellDelegate, UITableViewDele
             if data[indexPath.row] {
                 return 200
             } else {
-                return 56
+                return 48
             }
         }
         return tableView.estimatedRowHeight

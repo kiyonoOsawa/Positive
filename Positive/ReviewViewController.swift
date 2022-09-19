@@ -21,7 +21,6 @@ class ReviewViewController: UIViewController {
     var deadlineData: [DetailGoal] = []
     var targetData: DetailGoal?
     var homeSelectTarget = String()
-//    var saveData: UserDefaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,7 +103,6 @@ class ReviewViewController: UIViewController {
     
     func design() {
         reviewTextView.layer.cornerRadius = 15
-//        let radius = reviewTextView.layer.cornerRadius/4
         reviewTextView.textContainerInset = UIEdgeInsets(top: 15, left: 5, bottom: 5, right: 5)
     }
 }
@@ -119,7 +117,6 @@ extension ReviewViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-//        deadlineData[row] = self.homeSelectTarget
         targetData = deadlineData[row]
         documentID = deadlineData[row].documentID
         return deadlineData[row].goal

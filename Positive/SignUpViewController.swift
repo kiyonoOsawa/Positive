@@ -30,6 +30,12 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        let tapGR: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+//        tapGR.cancelsTouchesInView = false
+//        self.view.addGestureRecognizer(tapGR)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         fieldImage()
         design()
     }
@@ -39,11 +45,6 @@ class SignUpViewController: UIViewController {
         self.error1.isHidden = true
         self.error2.isHidden = true
         self.error3.isHidden = true
-//        if user != nil {
-//            print(user)
-//            transition()
-//        } else {
-//        }
     }
     
     @IBAction func tappedImageButton(_ sender: Any) {
@@ -60,8 +61,7 @@ class SignUpViewController: UIViewController {
             }
             alert.addAction(ok)
             present(alert, animated: true, completion: nil)
-//        } else {
-//            return
+
         }
         if emailField.text != nil && passwordField.text != nil{
         createUser(emailText: emailField.text!, passwordText: passwordField.text!)
@@ -74,20 +74,6 @@ class SignUpViewController: UIViewController {
     
     func createUser(emailText: String, passwordText: String) {
         Auth.auth().createUser(withEmail: emailText, password: passwordText) { FIRAuthDataResult, Error in
-//            if Error == nil {
-//            } else {
-//                if let errCode = AuthErrorCode(rawValue: Error!._code) {
-//                    switch errCode {
-//                    case .invalidEmail: self.error1.isHidden = false
-//                        // メールアドレスの形式が違います。
-//                    case .emailAlreadyInUse: self.error2.isHidden = false
-//                        // このメールアドレスはすでに使われています。
-//                    case .weakPassword: self.error3.isHidden = false
-//                        // パスワードは6文字以上で入力してください。
-//                    default: break
-//                    }
-//                }
-//            }
             guard let authResult = FIRAuthDataResult else {
                 print("error: \(Error)")
                 return
@@ -107,8 +93,6 @@ class SignUpViewController: UIViewController {
             let addData: [String:Any] = [
                 "userName": self.userNameField.text!,
                 "userId": authResult.user.uid
-//                "email": self.emailField.text!,
-//                "userPass": self.passwordField.text!
             ] as [String : Any]
             let db = Firestore.firestore()
             db.collection("users")
@@ -146,6 +130,7 @@ class SignUpViewController: UIViewController {
             textFieldImage.leftViewMode = .always
             textFieldImage.backgroundColor = UIColor.white
         }
+        passwordField.isSecureTextEntry = true
     }
     
     @IBAction func deleteText1(_ sender: UIButton) {
@@ -161,12 +146,28 @@ class SignUpViewController: UIViewController {
     }
     
     func design() {
-//        welcomeLabel.font = UIFont(name: "コーポレート・ロゴ（ラウンド） ver2 Bold", size: 30)
         userImageButton.layer.cornerRadius = 40
         userImageButton.layer.borderWidth = 1
         userImageButton.layer.borderColor = UIColor.darkGray.cgColor
         backView.layer.cornerRadius = 15
         signUp.layer.cornerRadius = 10
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if !passwordField.isFirstResponder {
+            return
+        }
+    
+        if self.view.frame.origin.y == 0 {
+            if let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+                self.view.frame.origin.y -= keyboardRect.height
+            }
+        }
+    }
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
     }
 }
 
