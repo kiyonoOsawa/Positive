@@ -9,7 +9,6 @@ import UIKit
 
 class QuestionTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var popButton: UIButton!
     @IBOutlet weak var answerTextView: UITextView!
     @IBOutlet weak var questionLabel: UILabel!
 
@@ -31,9 +30,9 @@ class QuestionTableViewCell: UITableViewCell {
         answerTextView.textContainerInset = UIEdgeInsets(top: 15, left: 5, bottom: 5, right: 5)
     }
     
-    @IBAction func tappedQuestionCell() {
-        delegate?.didExtendButton(cell: self)
-    }
+//    @IBAction func tappedQuestionCell() {
+//        delegate?.didExtendButton(cell: self)
+//    }
 }
 
 extension QuestionTableViewCell: UITextViewDelegate {

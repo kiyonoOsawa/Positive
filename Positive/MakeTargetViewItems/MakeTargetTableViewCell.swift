@@ -13,7 +13,7 @@ class MakeTargetTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-//        targetTextField.placeholder = "最終目標"
+        targetTextField.placeholder = "最終目標を入力"
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

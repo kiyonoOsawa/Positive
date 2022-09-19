@@ -19,8 +19,8 @@ class FriendAccCollectionViewCell: UICollectionViewCell {
     
     func design() {
         friendIcon.layer.cornerRadius = 36
-        friendIcon.layer.borderWidth = 2
-        friendIcon.layer.borderColor = UIColor(named: "grayTextColor")?.cgColor
+//        friendIcon.layer.borderWidth = 2
+//        friendIcon.layer.borderColor = UIColor(named: "grayTextColor")?.cgColor
     }
 
 }

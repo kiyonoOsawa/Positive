@@ -12,11 +12,10 @@ import FirebaseFirestore
 
 class TargetDetailViewController: UIViewController {
     
-    @IBOutlet weak var targetLabel: UILabel!
+    @IBOutlet weak var targetTextView: UITextView!
     @IBOutlet weak var miniTargetTextView: UITextView!
     @IBOutlet weak var essentialTextView: UITextView!
     @IBOutlet weak var triggerTextView: UITextView!
-//    @IBOutlet weak var personTextView: UITextView!
     @IBOutlet weak var setTabelView: UITableView!
     @IBOutlet weak var saveButton: UIButton!
     
@@ -30,7 +29,6 @@ class TargetDetailViewController: UIViewController {
     var Goal = String()
     var MiniGoal = String()
     var Trigger = String()
-//    var Person = String()
     var EssentialThing = String()
     var DocumentId = String()
     var IsShared = Bool()
@@ -57,6 +55,7 @@ class TargetDetailViewController: UIViewController {
         }
         let convertedDate = Timestamp(date: date)
         let updateGoal: [String:Any] = [
+            "goal": self.targetTextView.text!,
             "nowTodo": self.miniTargetTextView.text!,
             "date": convertedDate,
             "isShared": IsShared
@@ -82,11 +81,10 @@ class TargetDetailViewController: UIViewController {
         self.dismiss(animated: true)
     }
     func design() {
-        targetLabel.text = Goal
+        targetTextView.text = Goal
         miniTargetTextView.text = MiniGoal
         essentialTextView.text = EssentialThing
         triggerTextView.text = Trigger
-//        personTextView.text = Person
         let mainColor = UIColor(named: "MainColor")
         guard let mainColor = mainColor else { return }
         saveButton.layer.cornerRadius = 15

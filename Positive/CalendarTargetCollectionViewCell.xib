@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -34,12 +35,30 @@
                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mjy-v5-FUy">
+                        <rect key="frame" x="340" y="0.0" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="WDU-aT-WH0"/>
+                            <constraint firstAttribute="width" constant="40" id="wDz-rH-Lk3"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" title="×">
+                            <color key="titleColor" systemColor="labelColor"/>
+                        </state>
+                        <connections>
+                            <action selector="deleteButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="zlX-rm-byF"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="Mjy-v5-FUy" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="5V5-Ef-Dvs"/>
                 <constraint firstItem="60i-xF-ykn" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="CID-Ld-p8p"/>
+                <constraint firstAttribute="trailing" secondItem="Mjy-v5-FUy" secondAttribute="trailing" id="Em7-4B-Bf2"/>
                 <constraint firstItem="JNU-4S-SOG" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="ITP-41-Y6O"/>
                 <constraint firstItem="JNU-4S-SOG" firstAttribute="top" secondItem="60i-xF-ykn" secondAttribute="bottom" constant="4" id="PqI-mQ-44G"/>
                 <constraint firstItem="nKw-BI-jCP" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="W05-qG-WYK"/>
@@ -54,4 +73,9 @@
             <point key="canvasLocation" x="137.68115942028987" y="86.383928571428569"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

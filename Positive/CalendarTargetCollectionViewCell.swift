@@ -12,8 +12,18 @@ class CalendarTargetCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var bigTargetLabel: UILabel!
     @IBOutlet weak var miniTargetLabel: UILabel!
     @IBOutlet weak var textLabel: UILabel!
+    
+    weak var delegate: CalendarViewDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+    
+    @IBAction func deleteButton(_ sender: Any) {
+        delegate?.tappedDelete(cell: self)
+    }
+}
+
+protocol CalendarViewDelegate: AnyObject{
+    func tappedDelete(cell: CalendarTargetCollectionViewCell)
 }

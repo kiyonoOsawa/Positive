@@ -215,12 +215,13 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView.tag == 0 {
+//            let nc: UINavigationController = storyboard?.instantiateViewController(withIdentifier: "toDetailNavigation") as! UINavigationController
+//            let nextView = nc.viewControllers[0] as! TargetDetailViewController
             let nextView = storyboard?.instantiateViewController(withIdentifier: "detailTarget") as! TargetDetailViewController
             nextView.modalTransitionStyle = .coverVertical
             nextView.modalPresentationStyle = .pageSheet
             nextView.Goal = addresses[indexPath.row].goal
             nextView.MiniGoal = addresses[indexPath.row].nowTodo!
-//            nextView.Person = addresses[indexPath.row].person!
             nextView.Trigger = addresses[indexPath.row].trigger!
             nextView.EssentialThing = addresses[indexPath.row].essentialThing!
             nextView.DocumentId = addresses[indexPath.row].documentID
@@ -236,9 +237,10 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
 }
 
-extension HomeViewController: HomeViewCellDelegate{
+extension HomeViewController: HomeViewCellDelegate {
+    
     func tappedReview(cell: InnerCollectionViewCell) {
-        if let indexPath = targetCollection.indexPath(for: cell){
+        if let indexPath = targetCollection.indexPath(for: cell) {
             let storyboard: UIStoryboard = self.storyboard!
             let nc: UINavigationController = storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
             nc.modalPresentationStyle = .fullScreen
@@ -249,23 +251,29 @@ extension HomeViewController: HomeViewCellDelegate{
     }
     
     func tappedDelete(cell: InnerCollectionViewCell) {
-        guard let user = user else {return}
-        if let indexPath = targetCollection.indexPath(for: cell){
-            let documentId = addresses[indexPath.row].documentID
-            db.collection("users")
-                .document(user.uid)
-                .collection("goals")
-                .document(documentId)
-                .delete() { err in
-                    if let err = err {
-                        print("Error removing document: \(err)")
-                    } else {
-                        print("Document successfully removed!")
+        AlertDialog.shared.showAlert(title: "目標を削除しますか？", message: "", viewController: self) {
+            delete()
+        }
+        
+        func delete() {
+            guard let user = user else {return}
+            if let indexPath = targetCollection.indexPath(for: cell){
+                let documentId = addresses[indexPath.row].documentID
+                db.collection("users")
+                    .document(user.uid)
+                    .collection("goals")
+                    .document(documentId)
+                    .delete() { err in
+                        if let err = err {
+                            print("Error removing document: \(err)")
+                        } else {
+                            print("Document successfully removed!")
+                        }
                     }
-                }
-            self.addresses.remove(at: indexPath.row)
-            targetCollection.reloadData()
-            friendTargetCollection.reloadData()
+                self.addresses.remove(at: indexPath.row)
+                targetCollection.reloadData()
+                friendTargetCollection.reloadData()
+            }
         }
     }
 }

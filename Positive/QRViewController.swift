@@ -12,12 +12,14 @@ import FirebaseFirestore
 class QRViewController: UIViewController {
     
     @IBOutlet weak var qrImageView: UIImageView!
+    @IBOutlet weak var camenraButton: UIButton!
     
     let str = Auth.auth().currentUser?.uid
     let db = Firestore.firestore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        design()
         guard let str = str else {return}
         generateQR(url: str, uiImage: qrImageView)
     }
@@ -30,5 +32,14 @@ class QRViewController: UIViewController {
         let qr = CIFilter(name: "CIQRCodeGenerator", parameters: ["inputMessage": data, "inputCorrectionLevel": "M"])!
         let sizeTransform = CGAffineTransform(scaleX: 10, y: 10)
         uiImage.image = UIImage(ciImage: qr.outputImage!.transformed(by: sizeTransform))
+    }
+    
+    func design() {
+        let mainColor = UIColor(named: "MainColor")
+        guard let mainColor = mainColor else { return }
+        camenraButton.layer.cornerRadius = 20
+        camenraButton.layer.borderColor = mainColor.cgColor
+        camenraButton.layer.borderWidth = 3
+        qrImageView.backgroundColor = UIColor(named: "systemColor")
     }
 }

@@ -299,6 +299,41 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
     }
 }
 
+extension CalendarViewController: CalendarViewDelegate {
+    func tappedDelete(cell: CalendarTargetCollectionViewCell) {
+    switch segmentState {
+    case .affirmation:
+        AlertDialog.shared.showAlert(title: "振り返りを削除しますか？", message: "", viewController: self) {
+            reviewDelete()
+        }
+        break
+    case .record:
+        break
+    default:
+        break
+    }
+        func reviewDelete() {
+            guard let user = user else {return}
+            if let indexPath = reportCollectionView.indexPath(for: cell){
+                let targetDocumentId = addressesReview[indexPath.row].targetDocumentId
+                db.collection("users")
+                    .document(user.uid)
+                    .collection("reviews")
+                    .document(targetDocumentId)
+                    .delete() { err in
+                        if let err = err {
+                            print("Error removing document: \(err)")
+                        } else {
+                            print("Document successfully removed!")
+                        }
+                    }
+                self.addressesReview.remove(at: indexPath.row)
+                reportCollectionView.reloadData()
+            }
+        }
+    }
+}
+
 extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource {
     
     func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {

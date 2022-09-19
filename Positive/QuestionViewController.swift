@@ -19,7 +19,7 @@ class QuestionViewController: UIViewController {
     var answers: [DetailGoal] = []
     let user = Auth.auth().currentUser
     let db = Firestore.firestore()
-    let questions: [String] = ["このためにできることは？", "このために必要なモノ・コトは？", "きっかけは？", "具体的にどんな人？"]
+    let questions: [String] = ["このためにできることは？ 小さな目標", "このために必要なモノ・コトは？", "きっかけは？", "具体的にどんな人？"]
     var eachAnswer: [String] = ["","","",""]
     fileprivate let cellHeight: CGFloat = 30
     fileprivate let numberOfQuestion: Int = 4
@@ -38,17 +38,22 @@ class QuestionViewController: UIViewController {
     }
     
     @objc private func back() {
-        transferValue()
         self.navigationController?.popViewController(animated: true)
+        transferValue()
     }
     
     private func transferValue() {
-        let preNC = self.navigationController!
-        let preVC = preNC.viewControllers[preNC.viewControllers.count - 2] as! MakeTargetViewController
-        preVC.nowTodo = eachAnswer[0]
-        preVC.essentialThing = eachAnswer[1]
-        preVC.trigger = eachAnswer[2]
-        preVC.person = eachAnswer[3]
+        if eachAnswer[0] == "" {
+            AlertDialog.shared.showAlert(title: "一つ目の質問が入力されていません", message: "", viewController: self) { [self] in
+            }
+        } else {
+            let preNC = self.navigationController!
+            let preVC = preNC.viewControllers[preNC.viewControllers.count - 2] as! MakeTargetViewController
+            preVC.nowTodo = eachAnswer[0]
+            preVC.essentialThing = eachAnswer[1]
+            preVC.trigger = eachAnswer[2]
+            preVC.person = eachAnswer[3]
+        }
     }
     
     private func fetchData() {
@@ -84,7 +89,6 @@ extension QuestionViewController: QuestionTableViewCellDelegate, UITableViewDele
         }
     }
     
-    
     func didExtendButton(cell: QuestionTableViewCell) {
         if let indexPath = questionTableView.indexPath(for: cell) {
             if data[indexPath.row] {
@@ -107,24 +111,10 @@ extension QuestionViewController: QuestionTableViewCellDelegate, UITableViewDele
         cell.selectionStyle = UITableViewCell.SelectionStyle.none
         cell.questionLabel.text = questions[indexPath.row]
         cell.answerTextView.text = eachAnswer[indexPath.row]
-        if indexPath.row == 0 {
-            cell.popButton.isHidden = true
-        } else {
-            cell.popButton.isHidden = false
-        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if  indexPath.row == 0 {
-            return 200
-        } else {
-            if data[indexPath.row] {
-                return 200
-            } else {
-                return 48
-            }
-        }
-        return tableView.estimatedRowHeight
+        return 200
     }
 }

@@ -18,56 +18,27 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="190"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E7I-zb-Ukr">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="51"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yBc-R1-MMz">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="7xO-fg-EDy"/>
-                                </constraints>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="chevron.down" catalog="system"/>
-                                <connections>
-                                    <action selector="tappedQuestionCell" destination="KGk-i7-Jjw" eventType="touchUpInside" id="qlt-kX-BIi"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LK0-ee-bT3">
-                                <rect key="frame" x="16" y="0.0" width="37" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="STA-gE-0az"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="yBc-R1-MMz" firstAttribute="leading" secondItem="E7I-zb-Ukr" secondAttribute="leading" id="6MX-AD-5sk"/>
-                            <constraint firstItem="yBc-R1-MMz" firstAttribute="top" secondItem="E7I-zb-Ukr" secondAttribute="top" id="8o0-Kh-2R9"/>
-                            <constraint firstItem="LK0-ee-bT3" firstAttribute="top" secondItem="E7I-zb-Ukr" secondAttribute="top" id="AwC-bl-JWi"/>
-                            <constraint firstAttribute="height" constant="51" id="Qpn-tm-dCi"/>
-                            <constraint firstItem="LK0-ee-bT3" firstAttribute="leading" secondItem="E7I-zb-Ukr" secondAttribute="leading" constant="16" id="sHR-za-MQB"/>
-                            <constraint firstAttribute="trailing" secondItem="yBc-R1-MMz" secondAttribute="trailing" id="xCF-O6-KZH"/>
-                        </constraints>
-                    </view>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ezD-nT-3gt">
-                        <rect key="frame" x="16" y="59" width="288" height="123"/>
+                        <rect key="frame" x="16" y="57" width="288" height="117"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                         <color key="textColor" systemColor="labelColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LK0-ee-bT3">
+                        <rect key="frame" x="16" y="24" width="36" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="ezD-nT-3gt" firstAttribute="top" secondItem="LK0-ee-bT3" secondAttribute="bottom" constant="16" id="0bH-ig-zeM"/>
+                    <constraint firstItem="LK0-ee-bT3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="6g6-k1-4y3"/>
+                    <constraint firstItem="LK0-ee-bT3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="24" id="APB-hO-bH6"/>
                     <constraint firstItem="ezD-nT-3gt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="LSm-dE-MAh"/>
-                    <constraint firstAttribute="bottom" secondItem="ezD-nT-3gt" secondAttribute="bottom" constant="8" id="Nip-Vu-FCQ"/>
-                    <constraint firstAttribute="trailing" secondItem="E7I-zb-Ukr" secondAttribute="trailing" id="TPg-mK-IJV"/>
-                    <constraint firstItem="E7I-zb-Ukr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Uu5-0h-cQz"/>
-                    <constraint firstItem="ezD-nT-3gt" firstAttribute="top" secondItem="E7I-zb-Ukr" secondAttribute="bottom" constant="8" id="dT4-LJ-BTB"/>
-                    <constraint firstItem="E7I-zb-Ukr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="h5x-n4-L41"/>
+                    <constraint firstAttribute="bottom" secondItem="ezD-nT-3gt" secondAttribute="bottom" constant="16" id="Nip-Vu-FCQ"/>
                     <constraint firstAttribute="trailing" secondItem="ezD-nT-3gt" secondAttribute="trailing" constant="16" id="pOa-N4-Bfh"/>
                 </constraints>
             </tableViewCellContentView>
@@ -75,14 +46,12 @@
             <color key="backgroundColor" name="systemColor"/>
             <connections>
                 <outlet property="answerTextView" destination="ezD-nT-3gt" id="U6V-kS-pMQ"/>
-                <outlet property="popButton" destination="yBc-R1-MMz" id="xRZ-y3-TSc"/>
                 <outlet property="questionLabel" destination="LK0-ee-bT3" id="yJE-w5-2d3"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="53.571428571428569"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="chevron.down" catalog="system" width="32" height="32"/>
         <namedColor name="systemColor">
             <color red="0.97254901960784312" green="0.95686274509803926" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
