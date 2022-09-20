@@ -30,10 +30,6 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let tapGR: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-//        tapGR.cancelsTouchesInView = false
-//        self.view.addGestureRecognizer(tapGR)
-        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         fieldImage()
@@ -160,7 +156,7 @@ class SignUpViewController: UIViewController {
     
         if self.view.frame.origin.y == 0 {
             if let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-                self.view.frame.origin.y -= keyboardRect.height
+                self.view.frame.origin.y -= keyboardRect.height - passwordField.frame.origin.y
             }
         }
     }

@@ -36,7 +36,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mjy-v5-FUy">
-                        <rect key="frame" x="340" y="0.0" width="40" height="40"/>
+                        <rect key="frame" x="332" y="0.0" width="40" height="40"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="WDU-aT-WH0"/>
                             <constraint firstAttribute="width" constant="40" id="wDz-rH-Lk3"/>
@@ -58,7 +58,7 @@
             <constraints>
                 <constraint firstItem="Mjy-v5-FUy" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="5V5-Ef-Dvs"/>
                 <constraint firstItem="60i-xF-ykn" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="CID-Ld-p8p"/>
-                <constraint firstAttribute="trailing" secondItem="Mjy-v5-FUy" secondAttribute="trailing" id="Em7-4B-Bf2"/>
+                <constraint firstAttribute="trailing" secondItem="Mjy-v5-FUy" secondAttribute="trailing" constant="8" id="Em7-4B-Bf2"/>
                 <constraint firstItem="JNU-4S-SOG" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="ITP-41-Y6O"/>
                 <constraint firstItem="JNU-4S-SOG" firstAttribute="top" secondItem="60i-xF-ykn" secondAttribute="bottom" constant="4" id="PqI-mQ-44G"/>
                 <constraint firstItem="nKw-BI-jCP" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="W05-qG-WYK"/>
@@ -67,6 +67,7 @@
             </constraints>
             <connections>
                 <outlet property="bigTargetLabel" destination="60i-xF-ykn" id="geY-sO-M9r"/>
+                <outlet property="deleteButton" destination="Mjy-v5-FUy" id="uMm-4E-ec4"/>
                 <outlet property="miniTargetLabel" destination="nKw-BI-jCP" id="F3B-au-nMm"/>
                 <outlet property="textLabel" destination="JNU-4S-SOG" id="wCe-1J-Gjy"/>
             </connections>

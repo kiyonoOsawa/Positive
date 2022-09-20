@@ -100,7 +100,7 @@ class AccountViewController: UIViewController, ChartViewDelegate {
                 guard let querySnapshot = QuerySnapshot else { return }
                 self.rawDataGraph.removeAll()
                 for doc in querySnapshot.documents {
-                    let review = Review(dictionary: doc.data())
+                    let review = Review(dictionary: doc.data(), reviewDocumentId: doc.documentID)
                     self.rawDataGraph.append(Int(review.score ?? 0))
                     let entries = self.rawDataGraph.enumerated().map { ChartDataEntry(x: Double($0.offset),y: Double($0.element))}
                     self.setChartData(entries: entries)
@@ -155,8 +155,6 @@ class AccountViewController: UIViewController, ChartViewDelegate {
     
     func design() {
         imageView.layer.cornerRadius = 36
-        imageView.layer.borderWidth = 1
-        imageView.layer.borderColor = UIColor.gray.cgColor
         editButton.layer.cornerRadius = 10
         editButton.layer.borderWidth = 1
         editButton.layer.borderColor = UIColor.lightGray.cgColor

@@ -38,22 +38,17 @@ class QuestionViewController: UIViewController {
     }
     
     @objc private func back() {
-        self.navigationController?.popViewController(animated: true)
         transferValue()
+        self.navigationController?.popViewController(animated: true)
     }
     
     private func transferValue() {
-        if eachAnswer[0] == "" {
-            AlertDialog.shared.showAlert(title: "一つ目の質問が入力されていません", message: "", viewController: self) { [self] in
-            }
-        } else {
-            let preNC = self.navigationController!
-            let preVC = preNC.viewControllers[preNC.viewControllers.count - 2] as! MakeTargetViewController
-            preVC.nowTodo = eachAnswer[0]
-            preVC.essentialThing = eachAnswer[1]
-            preVC.trigger = eachAnswer[2]
-            preVC.person = eachAnswer[3]
-        }
+        let preNC = self.navigationController!
+        let preVC = preNC.viewControllers[preNC.viewControllers.count - 2] as! MakeTargetViewController
+        preVC.nowTodo = eachAnswer[0]
+        preVC.essentialThing = eachAnswer[1]
+        preVC.trigger = eachAnswer[2]
+        preVC.person = eachAnswer[3]
     }
     
     private func fetchData() {
@@ -115,6 +110,21 @@ extension QuestionViewController: QuestionTableViewCellDelegate, UITableViewDele
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        if data[indexPath.row] {
+            return 200
+        } else {
+            return 64
+        }
+        return tableView.estimatedRowHeight
+    }
+    
+    func setDismissKeyboard() {
+        let tapGR: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGR.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tapGR)
+    }
+    
+    @objc func dismissKeyboard() {
+        self.view.endEditing(true)
     }
 }

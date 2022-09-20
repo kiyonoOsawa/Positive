@@ -115,7 +115,7 @@ class CalendarViewController: UIViewController {
                 }
                 self.addressesReview.removeAll()
                 for doc in querySnapshot.documents{
-                    let review = Review(dictionary: doc.data())
+                    let review = Review(dictionary: doc.data(), reviewDocumentId: doc.documentID)
                     self.addressesReview.append(review)
                     print("addressesReview: \(self.addressesReview)")
                 }
@@ -251,6 +251,7 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "reportCell", for: indexPath) as! CalendarTargetCollectionViewCell
+        cell.delegate = self
         cell.layer.cornerRadius = 13
         cell.layer.shadowColor = UIColor.black.cgColor
         cell.layer.shadowOpacity = 0.2
@@ -268,6 +269,7 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
             }
             break
         case .affirmation:
+            cell.deleteButton.isHidden = true
             cell.bigTargetLabel.text = applicableData[indexPath.row].goal
             cell.miniTargetLabel.text = applicableData[indexPath.row].nowTodo
             cell.textLabel.text = "ミニ目標"
@@ -293,6 +295,21 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
         return UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if segmentState == .affirmation {
+                let nextView = storyboard?.instantiateViewController(withIdentifier: "detailTarget") as! TargetDetailViewController
+                nextView.modalTransitionStyle = .coverVertical
+                nextView.modalPresentationStyle = .pageSheet
+                nextView.Goal = applicableData[indexPath.row].goal
+                nextView.MiniGoal = applicableData[indexPath.row].nowTodo!
+                nextView.Trigger = applicableData[indexPath.row].trigger!
+                nextView.EssentialThing = applicableData[indexPath.row].essentialThing!
+                nextView.DocumentId = applicableData[indexPath.row].documentID
+                nextView.IsShared = applicableData[indexPath.row].isShared ?? true
+                self.present(nextView, animated: true, completion: nil)
+            }
+        }
+    
     enum SegmentState{
         case record
         case affirmation
@@ -301,34 +318,25 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
 
 extension CalendarViewController: CalendarViewDelegate {
     func tappedDelete(cell: CalendarTargetCollectionViewCell) {
-    switch segmentState {
-    case .affirmation:
-        AlertDialog.shared.showAlert(title: "振り返りを削除しますか？", message: "", viewController: self) {
-            reviewDelete()
-        }
-        break
-    case .record:
-        break
-    default:
-        break
-    }
-        func reviewDelete() {
-            guard let user = user else {return}
-            if let indexPath = reportCollectionView.indexPath(for: cell){
-                let targetDocumentId = addressesReview[indexPath.row].targetDocumentId
-                db.collection("users")
-                    .document(user.uid)
-                    .collection("reviews")
-                    .document(targetDocumentId)
-                    .delete() { err in
-                        if let err = err {
-                            print("Error removing document: \(err)")
-                        } else {
-                            print("Document successfully removed!")
+        if segmentState == .record {
+            AlertDialog.shared.showAlert(title: "振り返りを削除しますか？", message: "", viewController: self) {
+                guard let user = self.user else {return}
+                if let indexPath = self.reportCollectionView.indexPath(for: cell){
+                    let documentId = self.addressesReview[indexPath.row].reviewDocumentId
+                    self.db.collection("users")
+                        .document(user.uid)
+                        .collection("goals")
+                        .document(documentId)
+                        .delete() { err in
+                            if let err = err {
+                                print("Error removing document: \(err)")
+                            } else {
+                                print("Document successfully removed!")
+                            }
                         }
-                    }
-                self.addressesReview.remove(at: indexPath.row)
-                reportCollectionView.reloadData()
+                    self.applicableDataReview.remove(at: indexPath.row)
+                    self.reportCollectionView.reloadData()
+                }
             }
         }
     }

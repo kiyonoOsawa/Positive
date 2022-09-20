@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -18,27 +19,51 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="190"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LK0-ee-bT3">
+                        <rect key="frame" x="16" y="8" width="288" height="48"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="48" id="3L7-Gl-tsd"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ezD-nT-3gt">
-                        <rect key="frame" x="16" y="57" width="288" height="117"/>
+                        <rect key="frame" x="16" y="64" width="288" height="110"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                         <color key="textColor" systemColor="labelColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LK0-ee-bT3">
-                        <rect key="frame" x="16" y="24" width="36" height="17"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Sr-WB-zV6">
+                        <rect key="frame" x="16" y="8" width="288" height="48"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="48" id="KJd-Ct-DzY"/>
+                        </constraints>
+                        <color key="tintColor" systemColor="systemGrayColor"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain">
+                            <imageReference key="image" image="chevron.down" catalog="system" symbolScale="small"/>
+                        </buttonConfiguration>
+                        <connections>
+                            <action selector="tappedQuestionCell" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Jpr-tG-XOS"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="ezD-nT-3gt" firstAttribute="top" secondItem="LK0-ee-bT3" secondAttribute="bottom" constant="16" id="0bH-ig-zeM"/>
+                    <constraint firstItem="ezD-nT-3gt" firstAttribute="top" secondItem="LK0-ee-bT3" secondAttribute="bottom" constant="8" id="0bH-ig-zeM"/>
                     <constraint firstItem="LK0-ee-bT3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="6g6-k1-4y3"/>
-                    <constraint firstItem="LK0-ee-bT3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="24" id="APB-hO-bH6"/>
+                    <constraint firstItem="LK0-ee-bT3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="APB-hO-bH6"/>
+                    <constraint firstItem="3Sr-WB-zV6" firstAttribute="centerY" secondItem="LK0-ee-bT3" secondAttribute="centerY" id="DT8-ut-bro"/>
+                    <constraint firstAttribute="trailing" secondItem="LK0-ee-bT3" secondAttribute="trailing" constant="16" id="DrE-Nx-YZ1"/>
                     <constraint firstItem="ezD-nT-3gt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="LSm-dE-MAh"/>
                     <constraint firstAttribute="bottom" secondItem="ezD-nT-3gt" secondAttribute="bottom" constant="16" id="Nip-Vu-FCQ"/>
+                    <constraint firstItem="3Sr-WB-zV6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="NyG-Dr-ayt"/>
+                    <constraint firstItem="ezD-nT-3gt" firstAttribute="top" secondItem="3Sr-WB-zV6" secondAttribute="bottom" constant="8" id="baa-jZ-3Vd"/>
+                    <constraint firstAttribute="trailing" secondItem="3Sr-WB-zV6" secondAttribute="trailing" constant="16" id="eMg-rU-ZEU"/>
+                    <constraint firstItem="3Sr-WB-zV6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="edn-Xt-QgF"/>
+                    <constraint firstAttribute="trailing" secondItem="LK0-ee-bT3" secondAttribute="trailing" constant="16" id="iH6-jT-LzQ"/>
                     <constraint firstAttribute="trailing" secondItem="ezD-nT-3gt" secondAttribute="trailing" constant="16" id="pOa-N4-Bfh"/>
                 </constraints>
             </tableViewCellContentView>
@@ -52,11 +77,15 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="chevron.down" catalog="system" width="128" height="72"/>
         <namedColor name="systemColor">
             <color red="0.97254901960784312" green="0.95686274509803926" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -94,7 +94,7 @@ class LogInViewController: UIViewController {
     
         if self.view.frame.origin.y == 0 {
             if let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-                self.view.frame.origin.y -= keyboardRect.height
+                self.view.frame.origin.y -= keyboardRect.height - passwordField.frame.origin.y
             }
         }
     }

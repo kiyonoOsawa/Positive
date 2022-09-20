@@ -9,6 +9,7 @@ import Foundation
 import FirebaseFirestore
 
 struct Review {
+    let reviewDocumentId: String
     let targetDocumentId: String
     let targetGoal: String
     let original: String?
@@ -16,7 +17,8 @@ struct Review {
     let date: Timestamp
     let score: Double
     
-    init(dictionary: [String:Any]){
+    init(dictionary: [String:Any], reviewDocumentId: String) {
+        self.reviewDocumentId = reviewDocumentId
         self.targetDocumentId = dictionary["target"] as! String
         self.targetGoal = dictionary["targetGoal"] as! String
         self.original = dictionary["original"] as? String

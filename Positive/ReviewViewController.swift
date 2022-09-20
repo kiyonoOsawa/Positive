@@ -12,7 +12,8 @@ import FirebaseAuth
 class ReviewViewController: UIViewController {
     
     @IBOutlet weak var reviewTextView: UITextView!
-    @IBOutlet weak var targetPickerView: UIPickerView!
+    @IBOutlet weak var toSaveButton: UIButton!
+    @IBOutlet weak var saveGoalLabel: UILabel!
     
     let db = Firestore.firestore()
     let user = Auth.auth().currentUser
@@ -20,12 +21,12 @@ class ReviewViewController: UIViewController {
     var calendarSelectedDate: Date? = nil
     var deadlineData: [DetailGoal] = []
     var targetData: DetailGoal?
-    var homeSelectTarget = String()
+//    var homeSelectTarget = String()
+    var saveGoal = String()
+    var saveId = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        targetPickerView.delegate = self
-        targetPickerView.dataSource = self
         design()
     }
     
@@ -104,25 +105,32 @@ class ReviewViewController: UIViewController {
     func design() {
         reviewTextView.layer.cornerRadius = 15
         reviewTextView.textContainerInset = UIEdgeInsets(top: 15, left: 5, bottom: 5, right: 5)
+        toSaveButton.layer.cornerRadius = 10
+        print("中身\(saveGoal)")
+        if saveGoal.isEmpty {
+            saveGoalLabel.text = "保存先を選択"
+        } else {
+            saveGoalLabel.text = saveGoal
+        }
     }
 }
 
-extension ReviewViewController: UIPickerViewDelegate, UIPickerViewDataSource {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return deadlineData.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        targetData = deadlineData[row]
-        documentID = deadlineData[row].documentID
-        return deadlineData[row].goal
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        documentID = deadlineData[row].documentID
-    }
-}
+//extension ReviewViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+//    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+//        return 1
+//    }
+//
+//    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+//        return deadlineData.count
+//    }
+//
+//    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+//        targetData = deadlineData[row]
+//        documentID = deadlineData[row].documentID
+//        return deadlineData[row].goal
+//    }
+//
+//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+//        documentID = deadlineData[row].documentID
+//    }
+//}

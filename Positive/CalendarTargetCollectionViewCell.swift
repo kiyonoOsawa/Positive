@@ -12,6 +12,7 @@ class CalendarTargetCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var bigTargetLabel: UILabel!
     @IBOutlet weak var miniTargetLabel: UILabel!
     @IBOutlet weak var textLabel: UILabel!
+    @IBOutlet weak var deleteButton: UIButton!
     
     weak var delegate: CalendarViewDelegate?
 

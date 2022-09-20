@@ -15,10 +15,12 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var addItem: UIBarButtonItem!
     @IBOutlet weak var targetCollection: UICollectionView!
+    @IBOutlet weak var myLabel: UILabel!
     @IBOutlet weak var friendTargetCollection: UICollectionView!
     @IBOutlet weak var friendsBack: UIView!
     @IBOutlet weak var nilTargetImage: UIImageView!
     @IBOutlet weak var nilFriendSTarget: UIImageView!
+    @IBOutlet weak var friendLabel: UILabel!
     
     let db = Firestore.firestore()
     let user = Auth.auth().currentUser
@@ -137,15 +139,19 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         if collectionView.tag == 0 {
             if addresses.count == 0 {
                 nilTargetImage.image = UIImage(named: "myTarget")
+                myLabel.isHidden = true
             } else {
                 nilTargetImage.image = nil
+                myLabel.isHidden = false
             }
             return addresses.count
         } else {
             if addressesFriends.count == 0 {
                 nilFriendSTarget.image = UIImage(named: "friendsTarget")
+                friendLabel.isHidden = true
             } else {
                 nilFriendSTarget.image = nil
+                friendLabel.isHidden = false
             }
             return addressesFriends.count
             
@@ -191,7 +197,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView.tag == 0 {
             let cellWidth: CGFloat = self.view.frame.width - 76
-            let cellHeight: CGFloat = targetCollection.frame.height - 60
+            let cellHeight: CGFloat = targetCollection.frame.height - 70
             return CGSize(width: cellWidth, height: cellHeight)
         } else {
             let space: CGFloat = 10
@@ -203,7 +209,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         if collectionView.tag == 0 {
-            return UIEdgeInsets(top: 12, left:38, bottom: 0, right: 38)
+            return UIEdgeInsets(top: 23, left:38, bottom: 0, right: 38)
         } else {
             return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         }
@@ -215,18 +221,29 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView.tag == 0 {
-//            let nc: UINavigationController = storyboard?.instantiateViewController(withIdentifier: "toDetailNavigation") as! UINavigationController
-//            let nextView = nc.viewControllers[0] as! TargetDetailViewController
-            let nextView = storyboard?.instantiateViewController(withIdentifier: "detailTarget") as! TargetDetailViewController
-            nextView.modalTransitionStyle = .coverVertical
-            nextView.modalPresentationStyle = .pageSheet
-            nextView.Goal = addresses[indexPath.row].goal
-            nextView.MiniGoal = addresses[indexPath.row].nowTodo!
-            nextView.Trigger = addresses[indexPath.row].trigger!
-            nextView.EssentialThing = addresses[indexPath.row].essentialThing!
-            nextView.DocumentId = addresses[indexPath.row].documentID
-            nextView.IsShared = addresses[indexPath.row].isShared ?? true
-            self.present(nextView, animated: true, completion: nil)
+            //            let nextView = storyboard?.instantiateViewController(withIdentifier: "detailTarget") as! TargetDetailViewController
+            //            nextView.modalTransitionStyle = .coverVertical
+            //            nextView.modalPresentationStyle = .pageSheet
+            //            nextView.Goal = addresses[indexPath.row].goal
+            //            nextView.MiniGoal = addresses[indexPath.row].nowTodo!
+            //            nextView.Trigger = addresses[indexPath.row].trigger!
+            //            nextView.EssentialThing = addresses[indexPath.row].essentialThing!
+            //            nextView.DocumentId = addresses[indexPath.row].documentID
+            //            nextView.IsShared = addresses[indexPath.row].isShared ?? true
+            //            self.present(nextView, animated: true, completion: nil)
+            let storyboard: UIStoryboard = self.storyboard!
+            let nc: UINavigationController = storyboard.instantiateViewController(withIdentifier: "toNavigationController") as! UINavigationController
+//            nc.modalPresentationStyle = .fullScreen
+            let nextNC = nc.viewControllers[0] as! TargetDetailViewController
+            nextNC.modalTransitionStyle = .coverVertical
+            nextNC.modalPresentationStyle = .pageSheet
+            nextNC.Goal = addresses[indexPath.row].goal
+            nextNC.MiniGoal = addresses[indexPath.row].nowTodo!
+            nextNC.Trigger = addresses[indexPath.row].trigger!
+            nextNC.EssentialThing = addresses[indexPath.row].essentialThing!
+            nextNC.DocumentId = addresses[indexPath.row].documentID
+            nextNC.IsShared = addresses[indexPath.row].isShared ?? true
+            self.present(nc, animated: true, completion: nil)
         } else {
             return
         }
