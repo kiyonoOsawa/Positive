@@ -221,19 +221,9 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView.tag == 0 {
-            //            let nextView = storyboard?.instantiateViewController(withIdentifier: "detailTarget") as! TargetDetailViewController
-            //            nextView.modalTransitionStyle = .coverVertical
-            //            nextView.modalPresentationStyle = .pageSheet
-            //            nextView.Goal = addresses[indexPath.row].goal
-            //            nextView.MiniGoal = addresses[indexPath.row].nowTodo!
-            //            nextView.Trigger = addresses[indexPath.row].trigger!
-            //            nextView.EssentialThing = addresses[indexPath.row].essentialThing!
-            //            nextView.DocumentId = addresses[indexPath.row].documentID
-            //            nextView.IsShared = addresses[indexPath.row].isShared ?? true
-            //            self.present(nextView, animated: true, completion: nil)
             let storyboard: UIStoryboard = self.storyboard!
             let nc: UINavigationController = storyboard.instantiateViewController(withIdentifier: "toNavigationController") as! UINavigationController
-//            nc.modalPresentationStyle = .fullScreen
+            nc.modalPresentationStyle = .pageSheet
             let nextNC = nc.viewControllers[0] as! TargetDetailViewController
             nextNC.modalTransitionStyle = .coverVertical
             nextNC.modalPresentationStyle = .pageSheet

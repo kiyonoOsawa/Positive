@@ -983,12 +983,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="lPS-zV-x0h">
-                                <rect key="frame" x="0.0" y="56" width="414" height="51"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mrh-gV-dNi">
-                                <rect key="frame" x="87" y="123" width="240" height="56"/>
+                                <rect key="frame" x="87" y="80" width="240" height="56"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O8E-xX-c0o">
                                         <rect key="frame" x="16" y="8" width="96" height="40"/>
@@ -1032,7 +1028,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="d2O-lP-Fce">
-                                <rect key="frame" x="0.0" y="203" width="414" height="639"/>
+                                <rect key="frame" x="0.0" y="160" width="414" height="682"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Vow-eX-wje">
                                     <size key="itemSize" width="128" height="128"/>
@@ -1046,15 +1042,12 @@
                         <viewLayoutGuide key="safeArea" id="0nx-Gs-jXg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Mrh-gV-dNi" firstAttribute="top" secondItem="lPS-zV-x0h" secondAttribute="bottom" constant="16" id="3QU-SU-i8r"/>
                             <constraint firstItem="d2O-lP-Fce" firstAttribute="trailing" secondItem="0nx-Gs-jXg" secondAttribute="trailing" id="45w-jc-Xbb"/>
                             <constraint firstItem="d2O-lP-Fce" firstAttribute="bottom" secondItem="0nx-Gs-jXg" secondAttribute="bottom" id="GWb-Yl-2Kp"/>
                             <constraint firstItem="Mrh-gV-dNi" firstAttribute="centerX" secondItem="4yU-xw-efx" secondAttribute="centerX" id="IQh-V5-83d"/>
-                            <constraint firstItem="lPS-zV-x0h" firstAttribute="top" secondItem="0nx-Gs-jXg" secondAttribute="top" id="IVH-Lu-Dr8"/>
                             <constraint firstItem="d2O-lP-Fce" firstAttribute="leading" secondItem="0nx-Gs-jXg" secondAttribute="leading" id="T1c-Du-WbR"/>
-                            <constraint firstItem="lPS-zV-x0h" firstAttribute="leading" secondItem="0nx-Gs-jXg" secondAttribute="leading" id="hAo-p9-zIf"/>
+                            <constraint firstItem="Mrh-gV-dNi" firstAttribute="top" secondItem="0nx-Gs-jXg" secondAttribute="top" constant="24" id="gqQ-0Q-t4o"/>
                             <constraint firstItem="d2O-lP-Fce" firstAttribute="top" secondItem="Mrh-gV-dNi" secondAttribute="bottom" constant="24" id="zea-qG-dgh"/>
-                            <constraint firstItem="lPS-zV-x0h" firstAttribute="trailing" secondItem="0nx-Gs-jXg" secondAttribute="trailing" id="zgY-fg-Ctr"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Rnf-GB-EaU">
@@ -1063,7 +1056,6 @@
                     <connections>
                         <outlet property="addData" destination="ig5-RG-YB7" id="MZ5-gf-OOd"/>
                         <outlet property="saveCollectionView" destination="d2O-lP-Fce" id="TtY-xG-D2P"/>
-                        <outlet property="searchBar" destination="lPS-zV-x0h" id="uOF-Bf-iZI"/>
                         <outlet property="updateDate" destination="O8E-xX-c0o" id="Tb9-9s-tVx"/>
                     </connections>
                 </viewController>
@@ -1518,7 +1510,7 @@
             </objects>
             <point key="canvasLocation" x="1663.7681159420292" y="-629.46428571428567"/>
         </scene>
-        <!--Target Detail View Controller-->
+        <!--詳細-->
         <scene sceneID="ks9-73-515">
             <objects>
                 <viewController storyboardIdentifier="detailTarget" id="13G-gE-kZV" customClass="TargetDetailViewController" customModule="Positive" customModuleProvider="target" sceneMemberID="viewController">
@@ -1527,19 +1519,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="目標:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mGq-bE-TQ0">
-                                <rect key="frame" x="32" y="168" width="30.5" height="16"/>
+                                <rect key="frame" x="32" y="112" width="30.5" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" name="grayTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ミニ目標:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QWB-p4-Qta">
-                                <rect key="frame" x="32" y="237" width="57" height="16"/>
+                                <rect key="frame" x="32" y="181" width="57" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" name="grayTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZST-0E-JQL">
-                                <rect key="frame" x="32" y="261" width="350" height="80"/>
+                                <rect key="frame" x="32" y="205" width="350" height="80"/>
                                 <color key="backgroundColor" name="systemColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="mLY-Kr-aCg"/>
@@ -1549,17 +1541,17 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="GKS-YW-YOv">
-                                <rect key="frame" x="0.0" y="509" width="414" height="353"/>
+                                <rect key="frame" x="0.0" y="453" width="414" height="409"/>
                                 <color key="backgroundColor" name="systemColor"/>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="必要なモノ・コト:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWj-XA-z7J">
-                                <rect key="frame" x="32" y="349" width="110" height="16"/>
+                                <rect key="frame" x="32" y="293" width="110" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" name="grayTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="frv-qD-uef">
-                                <rect key="frame" x="32" y="373" width="350" height="48"/>
+                                <rect key="frame" x="32" y="317" width="350" height="48"/>
                                 <color key="backgroundColor" name="systemColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="g49-Hz-zEC"/>
@@ -1569,7 +1561,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Jul-tk-lhk">
-                                <rect key="frame" x="32" y="453" width="350" height="56"/>
+                                <rect key="frame" x="32" y="397" width="350" height="56"/>
                                 <color key="backgroundColor" name="systemColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="hDY-mr-bgh"/>
@@ -1579,13 +1571,13 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="きっかけ:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mPc-Cn-d71">
-                                <rect key="frame" x="32" y="429" width="57" height="16"/>
+                                <rect key="frame" x="32" y="373" width="57" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" name="grayTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="aaaa" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="Rjk-8s-2ry">
-                                <rect key="frame" x="32" y="192" width="350" height="32"/>
+                                <rect key="frame" x="32" y="136" width="350" height="32"/>
                                 <color key="backgroundColor" name="systemColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="OpB-Cs-7W8"/>
@@ -1618,13 +1610,13 @@
                             <constraint firstItem="EWj-XA-z7J" firstAttribute="top" secondItem="ZST-0E-JQL" secondAttribute="bottom" constant="8" id="hSN-OD-rR5"/>
                             <constraint firstItem="QWB-p4-Qta" firstAttribute="top" secondItem="Rjk-8s-2ry" secondAttribute="bottom" constant="13" id="iQg-PO-c7g"/>
                             <constraint firstItem="Jul-tk-lhk" firstAttribute="leading" secondItem="ODI-1g-6P1" secondAttribute="leading" constant="32" id="pZh-Fn-G06"/>
-                            <constraint firstItem="mGq-bE-TQ0" firstAttribute="top" secondItem="ODI-1g-6P1" secondAttribute="top" constant="80" id="q9c-WI-Fyo"/>
+                            <constraint firstItem="mGq-bE-TQ0" firstAttribute="top" secondItem="ODI-1g-6P1" secondAttribute="top" constant="24" id="q9c-WI-Fyo"/>
                             <constraint firstItem="frv-qD-uef" firstAttribute="centerX" secondItem="J8U-6c-t0k" secondAttribute="centerX" id="slz-O4-IUk"/>
                             <constraint firstItem="GKS-YW-YOv" firstAttribute="leading" secondItem="ODI-1g-6P1" secondAttribute="leading" id="tl6-oC-wXw"/>
                             <constraint firstItem="QWB-p4-Qta" firstAttribute="leading" secondItem="ODI-1g-6P1" secondAttribute="leading" constant="32" id="vLy-0y-QDD"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="hrG-QT-y7e">
+                    <navigationItem key="navigationItem" title="詳細" id="hrG-QT-y7e">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Y6X-FO-SES">
                             <color key="tintColor" name="rightTextColor"/>
                         </barButtonItem>

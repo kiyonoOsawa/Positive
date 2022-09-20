@@ -12,7 +12,7 @@ import FirebaseFirestore
 
 class SaveReviewViewController: UIViewController {
     
-    @IBOutlet weak var searchBar: UISearchBar!
+//    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var updateDate: UIButton!
     @IBOutlet weak var addData: UIButton!
     @IBOutlet weak var saveCollectionView: UICollectionView!
@@ -27,6 +27,7 @@ class SaveReviewViewController: UIViewController {
         saveCollectionView.register(UINib(nibName: "SaveCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "saveCell")
         saveCollectionView.delegate = self
         saveCollectionView.dataSource = self
+//        searchBar.delegate = self
         fetchData()
         design()
     }
@@ -58,7 +59,7 @@ class SaveReviewViewController: UIViewController {
     }
     
     @objc private func back() {
-//        self.navigationController?.popViewController(animated: true)
+        //        self.navigationController?.popViewController(animated: true)
         dismiss(animated: true)
     }
     
@@ -129,3 +130,26 @@ extension SaveReviewViewController: UICollectionViewDelegate, UICollectionViewDa
         return CGSize(width: cellWidth, height: cellHeight)
     }
 }
+
+//extension SaveReviewViewController: UISearchBarDelegate {
+//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+//        guard let searchText = searchBar.text else {
+//            return
+//        }
+//        print(searchText)  //SeachBarに入力された文字列が出力されるはず
+//    }
+//
+//    private func search(_ text: String) {
+//        var filterdArr: [String:Any] = [:]
+//        if let text = searchBar.text {
+//            if text == "" {
+//                saveCollectionView.reloadData()
+//            } else {
+//                filterdArr = addresses.filter { (str) -> Bool in
+//                    return str.contains(text)
+//                }
+//                saveCollectionView.reloadData()
+//            }
+//        }
+//    }
+//}
