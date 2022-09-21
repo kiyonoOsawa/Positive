@@ -93,7 +93,7 @@ class SaveReviewViewController: UIViewController {
                 for doc in querySnapShot.documents {
                     let detailGoal = DetailGoal(dictionary: doc.data(), documentID: doc.documentID)
                     let deadlineDate = self.dateFormat(date: detailGoal.date.dateValue())
-//                    let createDate = self.dateFormat(date: detailGoal.createdAt.dateValue())
+                    //                    let createDate = self.dateFormat(date: detailGoal.createdAt.dateValue())
                     let today = self.dateFormat(date: Date())
                     if deadlineDate.compare(today) == .orderedSame || deadlineDate.compare(today) == .orderedDescending{
                         self.addresses.append(detailGoal)
@@ -123,13 +123,12 @@ extension SaveReviewViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let preNC = self.navigationController!
-//        let preVC = preNC.viewControllers[preNC.viewControllers.count - 2] as! ReviewViewController
-        let preVC = self.presentingViewController as! ReviewViewController
+        let backView = self.presentingViewController as! UINavigationController
+        let preVC = backView.viewControllers[0] as! ReviewViewController
         preVC.saveGoal = addresses[indexPath.row].goal
         preVC.saveId = addresses[indexPath.row].documentID
-        print("値渡し\(preVC.saveGoal)")
-//        self.navigationController?.popViewController(animated: true)
+        preVC.targetData = addresses[indexPath.row]
+        preVC.saveGoalLabel.text = addresses[indexPath.row].goal
         dismiss(animated: true, completion: nil)
     }
     

@@ -21,13 +21,17 @@ class ReviewViewController: UIViewController {
     var calendarSelectedDate: Date? = nil
     var deadlineData: [DetailGoal] = []
     var targetData: DetailGoal?
-//    var homeSelectTarget = String()
     var saveGoal = String()
     var saveId = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         design()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        saveGoalLabel.text = targetData?.goal
     }
     
     @IBAction func tappedSave() {

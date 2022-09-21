@@ -245,18 +245,6 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
 }
 
 extension HomeViewController: HomeViewCellDelegate {
-    
-    func tappedReview(cell: InnerCollectionViewCell) {
-        if let indexPath = targetCollection.indexPath(for: cell) {
-            let storyboard: UIStoryboard = self.storyboard!
-            let nc: UINavigationController = storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
-            nc.modalPresentationStyle = .fullScreen
-            let nextNC = nc.viewControllers[0] as! ReviewViewController
-            nextNC.deadlineData = [addresses[indexPath.row]]
-            self.present(nc, animated: true, completion: nil)
-        }
-    }
-    
     func tappedDelete(cell: InnerCollectionViewCell) {
         AlertDialog.shared.showAlert(title: "目標を削除しますか？", message: "", viewController: self) {
             delete()
@@ -281,6 +269,17 @@ extension HomeViewController: HomeViewCellDelegate {
                 targetCollection.reloadData()
                 friendTargetCollection.reloadData()
             }
+        }
+    }
+    
+    func tappedReview(cell: InnerCollectionViewCell) {
+        if let indexPath = targetCollection.indexPath(for: cell) {
+            let storyboard: UIStoryboard = self.storyboard!
+            let nc: UINavigationController = storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
+            nc.modalPresentationStyle = .fullScreen
+            let nextNC = nc.viewControllers[0] as! ReviewViewController
+            nextNC.targetData = addresses[indexPath.row]
+            self.present(nc, animated: true, completion: nil)
         }
     }
 }
