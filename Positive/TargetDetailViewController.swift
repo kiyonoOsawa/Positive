@@ -17,6 +17,7 @@ class TargetDetailViewController: UIViewController {
     @IBOutlet weak var essentialTextView: UITextView!
     @IBOutlet weak var triggerTextView: UITextView!
     @IBOutlet weak var setTabelView: UITableView!
+    @IBOutlet weak var iineTextView: UITextView!
     
     let user = Auth.auth().currentUser
     let db = Firestore.firestore()
@@ -31,6 +32,7 @@ class TargetDetailViewController: UIViewController {
     var EssentialThing = String()
     var DocumentId = String()
     var IsShared = Bool()
+    var userName: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,6 +94,15 @@ class TargetDetailViewController: UIViewController {
         miniTargetTextView.text = MiniGoal
         essentialTextView.text = EssentialThing
         triggerTextView.text = Trigger
+        var string = ""
+        userName.forEach { user in
+            string += user
+        }
+        if !userName.isEmpty{
+            iineTextView.text = "＠\(string)が応援しています"
+        } else {
+            iineTextView.text = "まだいません"
+        }
         self.navigationController?.navigationBar.tintColor = UIColor(named: "rightTextColor")
     }
     

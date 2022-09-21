@@ -1538,6 +1538,12 @@
                                 <color key="textColor" name="grayTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="いいねした人：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Cm-ZS-8Nx">
+                                <rect key="frame" x="32" y="413" width="93" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" name="grayTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ミニ目標:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QWB-p4-Qta">
                                 <rect key="frame" x="32" y="173" width="57" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -1545,47 +1551,57 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZST-0E-JQL">
-                                <rect key="frame" x="32" y="197" width="350" height="80"/>
+                                <rect key="frame" x="32" y="197" width="350" height="64"/>
                                 <color key="backgroundColor" name="systemColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="mLY-Kr-aCg"/>
+                                    <constraint firstAttribute="height" constant="64" id="mLY-Kr-aCg"/>
                                 </constraints>
                                 <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="GKS-YW-YOv">
-                                <rect key="frame" x="0.0" y="445" width="414" height="417"/>
+                                <rect key="frame" x="0.0" y="477" width="414" height="385"/>
                                 <color key="backgroundColor" name="systemColor"/>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="必要なモノ・コト:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWj-XA-z7J">
-                                <rect key="frame" x="32" y="285" width="110" height="16"/>
+                                <rect key="frame" x="32" y="269" width="110" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" name="grayTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="frv-qD-uef">
-                                <rect key="frame" x="32" y="309" width="350" height="48"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ySH-xM-8WG">
+                                <rect key="frame" x="32" y="437" width="350" height="40"/>
                                 <color key="backgroundColor" name="systemColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="g49-Hz-zEC"/>
+                                    <constraint firstAttribute="height" constant="40" id="PmW-ax-zB7"/>
                                 </constraints>
                                 <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="frv-qD-uef">
+                                <rect key="frame" x="32" y="293" width="350" height="40"/>
+                                <color key="backgroundColor" name="systemColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="g49-Hz-zEC"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Jul-tk-lhk">
-                                <rect key="frame" x="32" y="389" width="350" height="56"/>
+                                <rect key="frame" x="32" y="365" width="350" height="40"/>
                                 <color key="backgroundColor" name="systemColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="56" id="hDY-mr-bgh"/>
+                                    <constraint firstAttribute="height" constant="40" id="hDY-mr-bgh"/>
                                 </constraints>
                                 <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="きっかけ:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mPc-Cn-d71">
-                                <rect key="frame" x="32" y="365" width="57" height="16"/>
+                                <rect key="frame" x="32" y="341" width="57" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" name="grayTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -1606,6 +1622,7 @@
                         <constraints>
                             <constraint firstItem="Rjk-8s-2ry" firstAttribute="leading" secondItem="ODI-1g-6P1" secondAttribute="leading" constant="32" id="3Hf-E1-jSe"/>
                             <constraint firstItem="mPc-Cn-d71" firstAttribute="leading" secondItem="ODI-1g-6P1" secondAttribute="leading" constant="32" id="3iq-1r-bKb"/>
+                            <constraint firstItem="ySH-xM-8WG" firstAttribute="top" secondItem="2Cm-ZS-8Nx" secondAttribute="bottom" constant="8" id="985-A3-A9L"/>
                             <constraint firstItem="ZST-0E-JQL" firstAttribute="centerX" secondItem="J8U-6c-t0k" secondAttribute="centerX" id="Aub-xW-WKX"/>
                             <constraint firstItem="mPc-Cn-d71" firstAttribute="top" secondItem="frv-qD-uef" secondAttribute="bottom" constant="8" id="D0I-vg-HQh"/>
                             <constraint firstItem="Rjk-8s-2ry" firstAttribute="centerX" secondItem="J8U-6c-t0k" secondAttribute="centerX" id="EaF-oW-7JO"/>
@@ -1615,12 +1632,12 @@
                             <constraint firstItem="ZST-0E-JQL" firstAttribute="top" secondItem="QWB-p4-Qta" secondAttribute="bottom" constant="8" id="Rjw-iP-HlB"/>
                             <constraint firstItem="mGq-bE-TQ0" firstAttribute="leading" secondItem="ODI-1g-6P1" secondAttribute="leading" constant="32" id="Rxu-rX-xrt"/>
                             <constraint firstItem="Jul-tk-lhk" firstAttribute="top" secondItem="mPc-Cn-d71" secondAttribute="bottom" constant="8" id="SgY-zJ-IbM"/>
+                            <constraint firstItem="2Cm-ZS-8Nx" firstAttribute="leading" secondItem="ODI-1g-6P1" secondAttribute="leading" constant="32" id="Sn7-Hn-zQt"/>
                             <constraint firstItem="ZST-0E-JQL" firstAttribute="leading" secondItem="ODI-1g-6P1" secondAttribute="leading" constant="32" id="TqL-sY-iiP"/>
                             <constraint firstItem="GaO-vN-Leo" firstAttribute="trailing" secondItem="ODI-1g-6P1" secondAttribute="trailing" id="Uf4-z9-AhA"/>
                             <constraint firstItem="GKS-YW-YOv" firstAttribute="trailing" secondItem="ODI-1g-6P1" secondAttribute="trailing" id="VLb-SX-31g"/>
                             <constraint firstAttribute="bottom" secondItem="GaO-vN-Leo" secondAttribute="bottom" id="VQQ-06-CfM"/>
                             <constraint firstItem="GKS-YW-YOv" firstAttribute="bottom" secondItem="ODI-1g-6P1" secondAttribute="bottom" id="WLz-5m-r3v"/>
-                            <constraint firstItem="GKS-YW-YOv" firstAttribute="top" secondItem="Jul-tk-lhk" secondAttribute="bottom" id="bzB-W5-V1d"/>
                             <constraint firstItem="GaO-vN-Leo" firstAttribute="top" secondItem="ODI-1g-6P1" secondAttribute="top" id="cT6-QM-SBk"/>
                             <constraint firstItem="frv-qD-uef" firstAttribute="top" secondItem="EWj-XA-z7J" secondAttribute="bottom" constant="8" id="cxX-yy-u3i"/>
                             <constraint firstItem="frv-qD-uef" firstAttribute="leading" secondItem="ODI-1g-6P1" secondAttribute="leading" constant="32" id="fE6-30-gyE"/>
@@ -1628,10 +1645,14 @@
                             <constraint firstItem="QWB-p4-Qta" firstAttribute="top" secondItem="Rjk-8s-2ry" secondAttribute="bottom" constant="13" id="iQg-PO-c7g"/>
                             <constraint firstItem="mGq-bE-TQ0" firstAttribute="top" secondItem="ODI-1g-6P1" secondAttribute="top" constant="16" id="k0s-yT-o3k"/>
                             <constraint firstItem="GaO-vN-Leo" firstAttribute="leading" secondItem="ODI-1g-6P1" secondAttribute="leading" id="lOo-PM-YnJ"/>
+                            <constraint firstItem="2Cm-ZS-8Nx" firstAttribute="top" secondItem="Jul-tk-lhk" secondAttribute="bottom" constant="8" id="pCM-mB-5h4"/>
                             <constraint firstItem="Jul-tk-lhk" firstAttribute="leading" secondItem="ODI-1g-6P1" secondAttribute="leading" constant="32" id="pZh-Fn-G06"/>
+                            <constraint firstItem="ySH-xM-8WG" firstAttribute="centerX" secondItem="J8U-6c-t0k" secondAttribute="centerX" id="sEs-xY-bNk"/>
                             <constraint firstItem="frv-qD-uef" firstAttribute="centerX" secondItem="J8U-6c-t0k" secondAttribute="centerX" id="slz-O4-IUk"/>
                             <constraint firstItem="GKS-YW-YOv" firstAttribute="leading" secondItem="ODI-1g-6P1" secondAttribute="leading" id="tl6-oC-wXw"/>
+                            <constraint firstItem="ySH-xM-8WG" firstAttribute="leading" secondItem="ODI-1g-6P1" secondAttribute="leading" constant="32" id="v9O-a7-wPj"/>
                             <constraint firstItem="QWB-p4-Qta" firstAttribute="leading" secondItem="ODI-1g-6P1" secondAttribute="leading" constant="32" id="vLy-0y-QDD"/>
+                            <constraint firstItem="GKS-YW-YOv" firstAttribute="top" secondItem="ySH-xM-8WG" secondAttribute="bottom" id="ysN-hV-yqI"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="詳細" id="hrG-QT-y7e">
@@ -1647,6 +1668,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="essentialTextView" destination="frv-qD-uef" id="Bmm-6x-9UN"/>
+                        <outlet property="iineTextView" destination="ySH-xM-8WG" id="idl-Ra-tpi"/>
                         <outlet property="miniTargetTextView" destination="ZST-0E-JQL" id="EzZ-zQ-q4d"/>
                         <outlet property="setTabelView" destination="GKS-YW-YOv" id="5XL-aQ-09g"/>
                         <outlet property="targetTextView" destination="Rjk-8s-2ry" id="4li-4f-NaH"/>

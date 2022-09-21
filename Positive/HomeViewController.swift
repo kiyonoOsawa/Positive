@@ -174,10 +174,6 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             cell.goalLabel.text = addresses[indexPath.row].goal
             cell.miniGoal.text = addresses[indexPath.row].nowTodo
             let iineList = addresses[indexPath.row].iineUsers
-            //            var string = ""
-            //            iineList.forEach { user in
-            //                string += user
-            //            }
             if !iineList.isEmpty{
                 cell.iineLabel.text = "\(iineList.count)"
             } else {
@@ -191,6 +187,15 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             cell.delegate = self
             cell.friendsGoal.text = addressesFriends[indexPath.row].goal
             cell.accNameLabel.text = addressesFriends[indexPath.row].userName
+            if addressesFriends[indexPath.row].iineUsers.contains(userName){
+                var image = UIImage(systemName: "heart.fill")
+                let state = UIControl.State.normal
+                cell.iineButton.setImage(image, for: state)
+              }else{
+                  var image = UIImage(systemName: "heart")
+                  let state = UIControl.State.normal
+                  cell.iineButton.setImage(image, for: state)
+              }
             let imagesRef = self.storageRef.child("userProfile").child("\(friendId).jpg")
             imagesRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
                 if let error = error {
@@ -243,6 +248,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             nextNC.EssentialThing = addresses[indexPath.row].essentialThing!
             nextNC.DocumentId = addresses[indexPath.row].documentID
             nextNC.IsShared = addresses[indexPath.row].isShared ?? true
+            nextNC.userName = addresses[indexPath.row].iineUsers
             navigationController?.pushViewController(nextNC, animated: true)
         } else {
             return
@@ -256,21 +262,18 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
 
 extension HomeViewController: FriendsCellDelegate{
     func tappedIine(cell: FriendsInnerCollectionViewCell) {
-        if let indexPath = friendTargetCollection.indexPath(for: cell){
-            let userId = addressesFriends[indexPath.row].userId
-            let documentId = addressesFriends[indexPath.row].documentID
-            
-            var iineList: [String] = []
-            iineList.append(userName)
-            self.db.collection("users")
-                .document(userId)
-                .collection("goals")
-                .document(documentId)
-                .updateData(["iineUsers": FieldValue.arrayUnion(iineList)])
-            var image = UIImage(systemName: "heart.fill")
-            let state = UIControl.State.normal
-            cell.iineButton.setImage(image, for: state)
-        }
+            if let indexPath = friendTargetCollection.indexPath(for: cell){
+                let userId = addressesFriends[indexPath.row].userId
+                let documentId = addressesFriends[indexPath.row].documentID
+                
+                var iineList: [String] = []
+                iineList.append(userName)
+                self.db.collection("users")
+                    .document(userId)
+                    .collection("goals")
+                    .document(documentId)
+                    .updateData(["iineUsers": FieldValue.arrayUnion(iineList)])
+            }
     }
 }
 
