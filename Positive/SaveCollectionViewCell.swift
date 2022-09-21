@@ -10,6 +10,7 @@ import UIKit
 class SaveCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var saveLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

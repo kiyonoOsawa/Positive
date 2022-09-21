@@ -38,7 +38,11 @@ class ReviewViewController: UIViewController {
         self.dismiss(animated: true)
     }
     
-    private func showModal(value: Double, originalText: String, targetDocumentId: String, targetGoal: String, calendarDate: Date) {
+    @IBAction func tappedToSave() {
+        saveShowModal()
+    }
+    
+    private func refShowModal(value: Double, originalText: String, targetDocumentId: String, targetGoal: String, calendarDate: Date) {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyBoard.instantiateViewController(withIdentifier: "ReframingViewController") as! ReframingViewController
         if let sheet = viewController.sheetPresentationController {
@@ -51,6 +55,16 @@ class ReviewViewController: UIViewController {
         viewController.targetGoal = targetGoal
         present(viewController, animated: true)
     }
+    
+    private func saveShowModal() {
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyBoard.instantiateViewController(withIdentifier: "SaveReviewViewController") as! SaveReviewViewController
+        if let sheet = viewController.sheetPresentationController {
+            sheet.detents = [.medium()]
+        }
+        present(viewController, animated: true)
+    }
+    
     // ポジティブ度を測定
     private func measuringStatus() {
         let apiClient = APIClient.shared
@@ -71,7 +85,7 @@ class ReviewViewController: UIViewController {
                         return
                     }
                     AlertDialog.shared.showAlert(title: "ポジティブ度が低いです…", message: "ポジティブ\(percentage)%…", viewController: self) {
-                        self.showModal(value: percentage, originalText: self.reviewTextView.text!, targetDocumentId: targetData.documentID, targetGoal: targetData.goal, calendarDate: self.calendarSelectedDate ?? Date())
+                        self.refShowModal(value: percentage, originalText: self.reviewTextView.text!, targetDocumentId: targetData.documentID, targetGoal: targetData.goal, calendarDate: self.calendarSelectedDate ?? Date())
                     }
                 }
                 break
@@ -110,7 +124,7 @@ class ReviewViewController: UIViewController {
         if saveGoal.isEmpty {
             saveGoalLabel.text = "保存先を選択"
         } else {
-            saveGoalLabel.text = saveGoal
+            saveGoalLabel.text = self.saveGoal
         }
     }
 }

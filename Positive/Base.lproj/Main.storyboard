@@ -838,7 +838,7 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="16"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="FQ3-vJ-O2d" kind="modal" id="QYl-mr-vIx"/>
+                                    <action selector="tappedToSave" destination="5A2-sW-cAp" eventType="touchUpInside" id="Pae-ei-pvw"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="保存先を選択" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="28I-mw-LBr">
@@ -978,13 +978,13 @@
         <!--Save Review View Controller-->
         <scene sceneID="KGE-Eh-f60">
             <objects>
-                <viewController id="eC8-c2-1ER" customClass="SaveReviewViewController" customModule="Positive" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SaveReviewViewController" id="eC8-c2-1ER" customClass="SaveReviewViewController" customModule="Positive" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4yU-xw-efx">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mrh-gV-dNi">
-                                <rect key="frame" x="87" y="80" width="240" height="56"/>
+                                <rect key="frame" x="87" y="44" width="240" height="56"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O8E-xX-c0o">
                                         <rect key="frame" x="16" y="8" width="96" height="40"/>
@@ -993,7 +993,7 @@
                                         </constraints>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="更新日順">
+                                        <buttonConfiguration key="configuration" style="plain" title="作成日順">
                                             <fontDescription key="titleFontDescription" type="system" pointSize="16"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -1007,7 +1007,7 @@
                                         </constraints>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="追加日順">
+                                        <buttonConfiguration key="configuration" style="plain" title="締切日順">
                                             <fontDescription key="titleFontDescription" type="system" pointSize="16"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -1028,7 +1028,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="d2O-lP-Fce">
-                                <rect key="frame" x="0.0" y="160" width="414" height="682"/>
+                                <rect key="frame" x="0.0" y="124" width="414" height="738"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Vow-eX-wje">
                                     <size key="itemSize" width="128" height="128"/>
@@ -1046,7 +1046,7 @@
                             <constraint firstItem="d2O-lP-Fce" firstAttribute="bottom" secondItem="0nx-Gs-jXg" secondAttribute="bottom" id="GWb-Yl-2Kp"/>
                             <constraint firstItem="Mrh-gV-dNi" firstAttribute="centerX" secondItem="4yU-xw-efx" secondAttribute="centerX" id="IQh-V5-83d"/>
                             <constraint firstItem="d2O-lP-Fce" firstAttribute="leading" secondItem="0nx-Gs-jXg" secondAttribute="leading" id="T1c-Du-WbR"/>
-                            <constraint firstItem="Mrh-gV-dNi" firstAttribute="top" secondItem="0nx-Gs-jXg" secondAttribute="top" constant="24" id="gqQ-0Q-t4o"/>
+                            <constraint firstItem="Mrh-gV-dNi" firstAttribute="top" secondItem="0nx-Gs-jXg" secondAttribute="top" id="gqQ-0Q-t4o"/>
                             <constraint firstItem="d2O-lP-Fce" firstAttribute="top" secondItem="Mrh-gV-dNi" secondAttribute="bottom" constant="24" id="zea-qG-dgh"/>
                         </constraints>
                     </view>
@@ -1061,7 +1061,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X5M-FJ-lQJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6066.666666666667" y="825.66964285714278"/>
+            <point key="canvasLocation" x="5157" y="826"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="bAL-7I-PS2">
@@ -1756,24 +1756,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3eE-cy-Hyp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3395.652173913044" y="-1353.3482142857142"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="QaT-y1-lQz">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FQ3-vJ-O2d" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6KV-qQ-caw">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="eC8-c2-1ER" kind="relationship" relationship="rootViewController" id="nRE-Ce-uYk"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QdM-rr-led" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5156.521739130435" y="825.66964285714278"/>
         </scene>
     </scenes>
     <resources>

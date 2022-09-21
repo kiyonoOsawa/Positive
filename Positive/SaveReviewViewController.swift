@@ -12,7 +12,6 @@ import FirebaseFirestore
 
 class SaveReviewViewController: UIViewController {
     
-//    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var updateDate: UIButton!
     @IBOutlet weak var addData: UIButton!
     @IBOutlet weak var saveCollectionView: UICollectionView!
@@ -27,22 +26,15 @@ class SaveReviewViewController: UIViewController {
         saveCollectionView.register(UINib(nibName: "SaveCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "saveCell")
         saveCollectionView.delegate = self
         saveCollectionView.dataSource = self
-//        searchBar.delegate = self
+        //        pickerView.delegate = self
+        //        pickerView.dataSource = self
         fetchData()
+        initialSet()
         design()
     }
     
     @IBAction func tappedUpDateDate() {
-        let bottomBorder = CALayer()
-        bottomBorder.frame = CGRect(x: 0, y: updateDate.frame.height, width: updateDate.frame.width, height:2.0)
-        bottomBorder.backgroundColor = UIColor.black.cgColor
-        updateDate.layer.addSublayer(bottomBorder)
-        let delete = CALayer()
-        delete.frame = CGRect(x: 0, y: addData.frame.height, width: addData.frame.width, height:2.0)
-        delete.backgroundColor = UIColor.white.cgColor
-        addData.layer.addSublayer(delete)
-        //　きっとここに何か書いてから
-        saveCollectionView.reloadData()
+        initialSet()
     }
     
     @IBAction func tappedAddDate() {
@@ -54,13 +46,25 @@ class SaveReviewViewController: UIViewController {
         delete.frame = CGRect(x: 0, y: updateDate.frame.height, width: updateDate.frame.width, height:2.0)
         delete.backgroundColor = UIColor.white.cgColor
         updateDate.layer.addSublayer(delete)
-        //　きっとここに何か書いてから
+        addresses.sort{$0.date.dateValue() > $1.date.dateValue()}
         saveCollectionView.reloadData()
     }
     
     @objc private func back() {
-        //        self.navigationController?.popViewController(animated: true)
         dismiss(animated: true)
+    }
+    
+    func initialSet() {
+        let bottomBorder = CALayer()
+        bottomBorder.frame = CGRect(x: 0, y: updateDate.frame.height, width: updateDate.frame.width, height:2.0)
+        bottomBorder.backgroundColor = UIColor.black.cgColor
+        updateDate.layer.addSublayer(bottomBorder)
+        let delete = CALayer()
+        delete.frame = CGRect(x: 0, y: addData.frame.height, width: addData.frame.width, height:2.0)
+        delete.backgroundColor = UIColor.white.cgColor
+        addData.layer.addSublayer(delete)
+        addresses.sort{$0.createdAt.dateValue() > $1.createdAt.dateValue()}
+        saveCollectionView.reloadData()
     }
     
     func dateFormat(date: Date) -> String {
@@ -89,6 +93,7 @@ class SaveReviewViewController: UIViewController {
                 for doc in querySnapShot.documents {
                     let detailGoal = DetailGoal(dictionary: doc.data(), documentID: doc.documentID)
                     let deadlineDate = self.dateFormat(date: detailGoal.date.dateValue())
+//                    let createDate = self.dateFormat(date: detailGoal.createdAt.dateValue())
                     let today = self.dateFormat(date: Date())
                     if deadlineDate.compare(today) == .orderedSame || deadlineDate.compare(today) == .orderedDescending{
                         self.addresses.append(detailGoal)
@@ -112,14 +117,19 @@ extension SaveReviewViewController: UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "saveCell", for: indexPath) as! SaveCollectionViewCell
         cell.saveLabel.text = addresses[indexPath.row].goal
+        let cellDate = addresses[indexPath.row].date.dateValue()
+        cell.dateLabel.text = dateFormat(date: cellDate)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let backView = storyboard?.instantiateViewController(withIdentifier: "toReview") as! ReviewViewController
-        backView.saveGoal = addresses[indexPath.row].goal
-        backView.saveId = addresses[indexPath.row].documentID
-        print("値渡し\(backView.saveGoal)")
+//        let preNC = self.navigationController!
+//        let preVC = preNC.viewControllers[preNC.viewControllers.count - 2] as! ReviewViewController
+        let preVC = self.presentingViewController as! ReviewViewController
+        preVC.saveGoal = addresses[indexPath.row].goal
+        preVC.saveId = addresses[indexPath.row].documentID
+        print("値渡し\(preVC.saveGoal)")
+//        self.navigationController?.popViewController(animated: true)
         dismiss(animated: true, completion: nil)
     }
     
