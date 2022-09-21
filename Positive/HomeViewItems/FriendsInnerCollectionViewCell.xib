@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -44,11 +45,27 @@
                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V7k-Cq-RhY">
+                        <rect key="frame" x="290" y="63" width="32" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="32" id="6HQ-31-Mql"/>
+                            <constraint firstAttribute="width" constant="32" id="UQm-Sf-CZ4"/>
+                        </constraints>
+                        <color key="tintColor" name="MainColor"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain">
+                            <imageReference key="image" image="heart" catalog="system" symbolScale="large"/>
+                        </buttonConfiguration>
+                        <connections>
+                            <action selector="tappedIineButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Bmp-RS-Y0J"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <color key="backgroundColor" name="rightColor"/>
             <constraints>
+                <constraint firstItem="cgY-PT-Tcb" firstAttribute="top" secondItem="V7k-Cq-RhY" secondAttribute="bottom" constant="8" id="4w1-9h-ZJF"/>
                 <constraint firstItem="Wk8-92-Y7I" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="24" id="6mM-SU-Gm9"/>
                 <constraint firstItem="NpT-lh-5nQ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="24" id="BXx-BF-gVS"/>
                 <constraint firstItem="6nP-xX-bDA" firstAttribute="leading" secondItem="NpT-lh-5nQ" secondAttribute="leading" id="JDT-8O-3Yo"/>
@@ -57,6 +74,7 @@
                 <constraint firstAttribute="bottom" secondItem="cgY-PT-Tcb" secondAttribute="bottom" id="Y4X-iG-SUp"/>
                 <constraint firstItem="cgY-PT-Tcb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="pOi-RQ-FIf"/>
                 <constraint firstAttribute="trailing" secondItem="cgY-PT-Tcb" secondAttribute="trailing" id="vNg-9U-eWw"/>
+                <constraint firstAttribute="trailing" secondItem="V7k-Cq-RhY" secondAttribute="trailing" constant="24" id="wid-pC-VIl"/>
                 <constraint firstItem="NpT-lh-5nQ" firstAttribute="leading" secondItem="Wk8-92-Y7I" secondAttribute="trailing" constant="16" id="xMD-hX-kjP"/>
             </constraints>
             <size key="customSize" width="206" height="143"/>
@@ -64,11 +82,16 @@
                 <outlet property="accNameLabel" destination="NpT-lh-5nQ" id="WHC-IS-4Ny"/>
                 <outlet property="friendsGoal" destination="6nP-xX-bDA" id="Jz4-Ux-aBi"/>
                 <outlet property="iconImage" destination="Wk8-92-Y7I" id="vNG-yx-51v"/>
+                <outlet property="iineButton" destination="V7k-Cq-RhY" id="4Hl-Ay-PEg"/>
             </connections>
             <point key="canvasLocation" x="250.72463768115944" y="100.44642857142857"/>
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="heart" catalog="system" width="128" height="109"/>
+        <namedColor name="MainColor">
+            <color red="0.92549019607843142" green="0.32549019607843138" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="rightColor">
             <color red="0.9882352941176471" green="0.94117647058823528" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -297,18 +297,19 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if segmentState == .affirmation {
-                let nextView = storyboard?.instantiateViewController(withIdentifier: "detailTarget") as! TargetDetailViewController
-                nextView.modalTransitionStyle = .coverVertical
-                nextView.modalPresentationStyle = .pageSheet
-                nextView.Goal = applicableData[indexPath.row].goal
-                nextView.MiniGoal = applicableData[indexPath.row].nowTodo!
-                nextView.Trigger = applicableData[indexPath.row].trigger!
-                nextView.EssentialThing = applicableData[indexPath.row].essentialThing!
-                nextView.DocumentId = applicableData[indexPath.row].documentID
-                nextView.IsShared = applicableData[indexPath.row].isShared ?? true
-                self.present(nextView, animated: true, completion: nil)
-            }
+            let nextView = storyboard?.instantiateViewController(withIdentifier: "detailTarget") as! TargetDetailViewController
+            nextView.modalTransitionStyle = .coverVertical
+            nextView.modalPresentationStyle = .pageSheet
+            nextView.Goal = applicableData[indexPath.row].goal
+            nextView.MiniGoal = applicableData[indexPath.row].nowTodo!
+            nextView.Trigger = applicableData[indexPath.row].trigger!
+            nextView.EssentialThing = applicableData[indexPath.row].essentialThing!
+            nextView.DocumentId = applicableData[indexPath.row].documentID
+            nextView.IsShared = applicableData[indexPath.row].isShared ?? true
+            //1行だけ追加
+            navigationController?.pushViewController(nextView, animated: true)
         }
+    }
     
     enum SegmentState{
         case record
@@ -325,7 +326,7 @@ extension CalendarViewController: CalendarViewDelegate {
                     let documentId = self.addressesReview[indexPath.row].reviewDocumentId
                     self.db.collection("users")
                         .document(user.uid)
-                        .collection("goals")
+                        .collection("reviews")
                         .document(documentId)
                         .delete() { err in
                             if let err = err {

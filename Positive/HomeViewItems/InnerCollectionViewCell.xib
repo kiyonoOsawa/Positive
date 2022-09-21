@@ -76,6 +76,16 @@
                             <action selector="deleteButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="5SU-aY-29P"/>
                         </connections>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OX5-f1-6aQ">
+                        <rect key="frame" x="317.5" y="319" width="10.5" height="21"/>
+                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                        <color key="textColor" name="grayTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="gWU-Sr-5Ek">
+                        <rect key="frame" x="295" y="321" width="20.5" height="17.5"/>
+                        <color key="tintColor" name="grayTextColor"/>
+                    </imageView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
@@ -83,10 +93,14 @@
             <constraints>
                 <constraint firstItem="R7l-O8-Qz0" firstAttribute="top" secondItem="w9O-x8-NDT" secondAttribute="bottom" constant="8" id="2v6-Gh-bSW"/>
                 <constraint firstItem="dkz-71-G10" firstAttribute="top" secondItem="R7l-O8-Qz0" secondAttribute="bottom" constant="12" id="94M-3A-alw"/>
+                <constraint firstItem="OX5-f1-6aQ" firstAttribute="centerY" secondItem="gWU-Sr-5Ek" secondAttribute="centerY" id="AeX-77-UBi"/>
+                <constraint firstAttribute="trailing" secondItem="OX5-f1-6aQ" secondAttribute="trailing" constant="24" id="CPP-wP-pWv"/>
                 <constraint firstItem="2aR-Ri-zvE" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="G7t-ac-rqG"/>
                 <constraint firstItem="hpB-qQ-fXj" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="24" id="IDu-PG-wpv"/>
                 <constraint firstItem="SnQ-0Z-sOh" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="Jto-D6-pG8"/>
                 <constraint firstItem="w9O-x8-NDT" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="K0r-st-8Jt"/>
+                <constraint firstItem="OX5-f1-6aQ" firstAttribute="leading" secondItem="gWU-Sr-5Ek" secondAttribute="trailing" constant="2" id="O9b-NR-Kxg"/>
+                <constraint firstAttribute="bottom" secondItem="OX5-f1-6aQ" secondAttribute="bottom" constant="12" id="RIW-qU-roy"/>
                 <constraint firstItem="2aR-Ri-zvE" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="0.340909" id="TrE-eT-Zu7"/>
                 <constraint firstItem="2aR-Ri-zvE" firstAttribute="top" secondItem="dkz-71-G10" secondAttribute="bottom" constant="12" id="YYi-vz-4ov"/>
                 <constraint firstAttribute="bottom" secondItem="2aR-Ri-zvE" secondAttribute="bottom" constant="12" id="ZJP-3a-KWn"/>
@@ -103,6 +117,7 @@
                 <outlet property="dateLabel" destination="w9O-x8-NDT" id="yLA-Xh-Y0Y"/>
                 <outlet property="deleteButton" destination="SnQ-0Z-sOh" id="zxP-81-hHK"/>
                 <outlet property="goalLabel" destination="hpB-qQ-fXj" id="jDT-mw-KOK"/>
+                <outlet property="iineLabel" destination="OX5-f1-6aQ" id="Ahr-TY-zux"/>
                 <outlet property="miniGoal" destination="R7l-O8-Qz0" id="NuD-6a-Gcm"/>
                 <outlet property="reviewButton" destination="2aR-Ri-zvE" id="7DU-Uf-nmT"/>
                 <outlet property="stepView" destination="dkz-71-G10" id="l75-M2-jM6"/>
@@ -111,6 +126,7 @@
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="heart" catalog="system" width="128" height="109"/>
         <namedColor name="MainColor">
             <color red="0.92549019607843142" green="0.32549019607843138" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

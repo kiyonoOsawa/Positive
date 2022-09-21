@@ -15,6 +15,7 @@ class InnerCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var reviewButton: UIButton!
     @IBOutlet weak var stepView: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var iineLabel: UILabel!
     
     weak var delegate: HomeViewCellDelegate?
     

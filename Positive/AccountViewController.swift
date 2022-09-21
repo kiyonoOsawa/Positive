@@ -127,7 +127,9 @@ class AccountViewController: UIViewController, ChartViewDelegate {
         dataSet.drawValuesEnabled = false        // 各プロットのラベル表示
         dataSet.drawCirclesEnabled = true        // 各プロットの丸表示
         dataSet.circleRadius = 2        // 各プロットの丸の大きさ
-        dataSet.circleColors = [UIColor.lightGray]        // 各プロットの丸の色
+        let MainColor = UIColor(named: "MainColor")
+        guard let MainColor = MainColor else { return }
+        dataSet.circleColors = [MainColor]     // 各プロットの丸の色
         lineChartView.data = LineChartData(dataSet: dataSet)        // 作成したデータセットをLineChartViewに追加
         lineChartView.xAxis.labelPosition = .bottom        // X軸のラベルの位置を下に設定
         lineChartView.xAxis.labelTextColor = .systemGray        // X軸のラベルの色を設定

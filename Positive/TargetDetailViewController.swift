@@ -17,7 +17,6 @@ class TargetDetailViewController: UIViewController {
     @IBOutlet weak var essentialTextView: UITextView!
     @IBOutlet weak var triggerTextView: UITextView!
     @IBOutlet weak var setTabelView: UITableView!
-//    @IBOutlet weak var saveButton: UIButton!
     
     let user = Auth.auth().currentUser
     let db = Firestore.firestore()
@@ -41,15 +40,15 @@ class TargetDetailViewController: UIViewController {
         setTabelView.register(UINib(nibName: "ImportanceTableViewCell", bundle: nil), forCellReuseIdentifier: "importanceCell")
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "戻る", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.back))
         design()
-        dismissKeyboard()
     }
     
     @objc private func back() {
-        self.dismiss(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func tappedSave() {
         updateGoal()
+        self.navigationController?.popViewController(animated: true)
     }
     
     private func updateGoal() {
@@ -64,7 +63,9 @@ class TargetDetailViewController: UIViewController {
             "goal": self.targetTextView.text!,
             "nowTodo": self.miniTargetTextView.text!,
             "date": convertedDate,
-            "isShared": IsShared
+            "isShared": IsShared,
+            "essentialThing": essentialTextView.text!,
+            "trigger": triggerTextView.text!
         ]
         db.collection("users")
             .document(user.uid)
@@ -94,15 +95,18 @@ class TargetDetailViewController: UIViewController {
         self.navigationController?.navigationBar.tintColor = UIColor(named: "rightTextColor")
     }
     
-    func setDismissKeyboard() {
-        let tapGR: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        tapGR.cancelsTouchesInView = false
-        self.view.addGestureRecognizer(tapGR)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if (self.targetTextView.isFirstResponder) {
+            self.targetTextView.resignFirstResponder()
+        } else if (self.miniTargetTextView.isFirstResponder) {
+            self.miniTargetTextView.resignFirstResponder()
+        } else if (self.essentialTextView.isFirstResponder) {
+            self.essentialTextView.resignFirstResponder()
+        } else if (self.triggerTextView.isFirstResponder) {
+            self.triggerTextView.resignFirstResponder()
+        }
     }
     
-    @objc func dismissKeyboard() {
-        self.view.endEditing(true)
-    }
 }
 
 extension TargetDetailViewController: DateTargetTableViewCellDelegate, UITableViewDelegate, UITableViewDataSource {
@@ -110,7 +114,7 @@ extension TargetDetailViewController: DateTargetTableViewCellDelegate, UITableVi
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         1
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             shareCell = tableView.dequeueReusableCell(withIdentifier: "importanceCell") as! ImportanceTableViewCell
@@ -137,7 +141,6 @@ extension TargetDetailViewController: DateTargetTableViewCellDelegate, UITableVi
             data.toggle()
             setTabelView.reloadRows(at: [indexPath], with: .automatic)
         }
-            
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

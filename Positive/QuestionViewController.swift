@@ -19,10 +19,10 @@ class QuestionViewController: UIViewController {
     var answers: [DetailGoal] = []
     let user = Auth.auth().currentUser
     let db = Firestore.firestore()
-    let questions: [String] = ["このためにできることは？ 小さな目標", "このために必要なモノ・コトは？", "きっかけは？", "具体的にどんな人？"]
-    var eachAnswer: [String] = ["","","",""]
+    let questions: [String] = ["このためにできることは？ 小さな目標", "このために必要なモノ・コトは？", "きっかけは？"]
+    var eachAnswer: [String] = ["","",""]
     fileprivate let cellHeight: CGFloat = 30
-    fileprivate let numberOfQuestion: Int = 4
+    fileprivate let numberOfQuestion: Int = 3
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +48,6 @@ class QuestionViewController: UIViewController {
         preVC.nowTodo = eachAnswer[0]
         preVC.essentialThing = eachAnswer[1]
         preVC.trigger = eachAnswer[2]
-        preVC.person = eachAnswer[3]
     }
     
     private func fetchData() {

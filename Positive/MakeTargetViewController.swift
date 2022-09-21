@@ -104,6 +104,15 @@ class MakeTargetViewController: UIViewController {
         self.view.endEditing(true)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toQuestion"{
+            let vc = segue.destination as! QuestionViewController
+            vc.eachAnswer[0] = self.nowTodo
+            vc.eachAnswer[1] = self.essentialThing
+            vc.eachAnswer[2] = self.trigger
+        }
+    }
+    
     func dateFormat(date: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.calendar = Calendar(identifier: .gregorian)
@@ -124,14 +133,14 @@ extension MakeTargetViewController: DateTargetTableViewCellDelegate, UITableView
             print(data)
         }
     }
-        
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-//            if indexPath.section.cell
+            //            if indexPath.section.cell
             targetCell = tableView.dequeueReusableCell(withIdentifier: "makeTargetCell") as! MakeTargetTableViewCell
             targetCell.selectionStyle = UITableViewCell.SelectionStyle.none
             return targetCell

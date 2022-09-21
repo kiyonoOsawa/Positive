@@ -28,6 +28,7 @@ class HomeViewController: UIViewController {
     var addresses: [DetailGoal] = []
     var friends: User? = nil
     var addressesFriends: [DetailGoal] = []
+    var userName: String = ""
     let storageRef = Storage.storage().reference(forURL: "gs://positive-898d1.appspot.com")
     
     override func viewDidLoad() {
@@ -98,6 +99,7 @@ class HomeViewController: UIViewController {
                 guard let document = documentSnapshot else { return }
                 guard let data = document.data() else { return }
                 self.friends = User(userData: data)
+                self.userName = data["userName"] as! String
                 guard let user = self.friends else { return }
                 guard let friendList = user.friendList else { return }
                 self.db.collectionGroup("goals")
@@ -171,11 +173,22 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             cell.dateLabel.text = dateFormat(date: cellDate)
             cell.goalLabel.text = addresses[indexPath.row].goal
             cell.miniGoal.text = addresses[indexPath.row].nowTodo
+            let iineList = addresses[indexPath.row].iineUsers
+            //            var string = ""
+            //            iineList.forEach { user in
+            //                string += user
+            //            }
+            if !iineList.isEmpty{
+                cell.iineLabel.text = "\(iineList.count)"
+            } else {
+                cell.iineLabel.text = "0"
+            }
             cell.delegate = self
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "friendsTarget", for: indexPath) as! FriendsInnerCollectionViewCell
             let friendId = addressesFriends[indexPath.row].userId
+            cell.delegate = self
             cell.friendsGoal.text = addressesFriends[indexPath.row].goal
             cell.accNameLabel.text = addressesFriends[indexPath.row].userName
             let imagesRef = self.storageRef.child("userProfile").child("\(friendId).jpg")
@@ -221,10 +234,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView.tag == 0 {
-            let storyboard: UIStoryboard = self.storyboard!
-            let nc: UINavigationController = storyboard.instantiateViewController(withIdentifier: "toNavigationController") as! UINavigationController
-            nc.modalPresentationStyle = .pageSheet
-            let nextNC = nc.viewControllers[0] as! TargetDetailViewController
+            let nextNC = storyboard?.instantiateViewController(withIdentifier: "detailTarget") as! TargetDetailViewController
             nextNC.modalTransitionStyle = .coverVertical
             nextNC.modalPresentationStyle = .pageSheet
             nextNC.Goal = addresses[indexPath.row].goal
@@ -233,7 +243,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             nextNC.EssentialThing = addresses[indexPath.row].essentialThing!
             nextNC.DocumentId = addresses[indexPath.row].documentID
             nextNC.IsShared = addresses[indexPath.row].isShared ?? true
-            self.present(nc, animated: true, completion: nil)
+            navigationController?.pushViewController(nextNC, animated: true)
         } else {
             return
         }
@@ -241,6 +251,26 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         (targetCollection.collectionViewLayout as! FlowLayout).prepareForPaging()
+    }
+}
+
+extension HomeViewController: FriendsCellDelegate{
+    func tappedIine(cell: FriendsInnerCollectionViewCell) {
+        if let indexPath = friendTargetCollection.indexPath(for: cell){
+            let userId = addressesFriends[indexPath.row].userId
+            let documentId = addressesFriends[indexPath.row].documentID
+            
+            var iineList: [String] = []
+            iineList.append(userName)
+            self.db.collection("users")
+                .document(userId)
+                .collection("goals")
+                .document(documentId)
+                .updateData(["iineUsers": FieldValue.arrayUnion(iineList)])
+            var image = UIImage(systemName: "heart.fill")
+            let state = UIControl.State.normal
+            cell.iineButton.setImage(image, for: state)
+        }
     }
 }
 

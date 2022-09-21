@@ -21,6 +21,7 @@ struct DetailGoal {
     let userName: String?
     let createdAt: Timestamp
     let isShared: Bool?
+    var iineUsers: [String] = []
     
     init(dictionary: [String:Any], documentID: String) {
         self.goal = dictionary["goal"] as! String
@@ -35,5 +36,6 @@ struct DetailGoal {
         self.userName = dictionary["userName"] as? String
         self.createdAt = dictionary["createdAt"] as! Timestamp
         self.isShared = dictionary["isShared"] as? Bool
+        self.iineUsers = dictionary["iineUsers"] as? [String] ?? []
     }
 }

@@ -24,7 +24,7 @@ class LogInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         fieldImage()
         design()
@@ -87,17 +87,17 @@ class LogInViewController: UIViewController {
         logIn.layer.cornerRadius = 10
     }
     
-    @objc func keyboardWillShow(notification: NSNotification) {
-        if !passwordField.isFirstResponder {
-            return
-        }
-    
-        if self.view.frame.origin.y == 0 {
-            if let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-                self.view.frame.origin.y -= keyboardRect.height - passwordField.frame.origin.y
-            }
-        }
-    }
+//    @objc func keyboardWillShow(notification: NSNotification) {
+//        if !passwordField.isFirstResponder {
+//            return
+//        }
+//
+//        if self.view.frame.origin.y == 0 {
+//            if let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+//                self.view.frame.origin.y -= keyboardRect.height - passwordField.frame.origin.y
+//            }
+//        }
+//    }
     
     @objc func keyboardWillHide(notification: NSNotification) {
         if self.view.frame.origin.y != 0 {
