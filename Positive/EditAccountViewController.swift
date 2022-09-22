@@ -24,6 +24,7 @@ class EditAccountViewController: UIViewController, UINavigationControllerDelegat
     let storageRef = Storage.storage().reference(forURL: "gs://positive-898d1.appspot.com")
     let user = Auth.auth().currentUser
     let db = Firestore.firestore()
+    var password = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,8 +48,13 @@ class EditAccountViewController: UIViewController, UINavigationControllerDelegat
     
     @IBAction func tappedSave() {
         if emailField.text != nil && passField.text != nil{
-            updateUser(emailText: emailField.text!, passwordText: passField.text!)
-            self.transition()
+            guard let userEmail = user?.email else {return}
+            guard let user = user else {return}
+            let credential = EmailAuthProvider.credential(withEmail: userEmail, password: password)
+            user.reauthenticate(with: credential) { AuthDataResult, Error in
+                self.updateUser(emailText: self.emailField.text!, passwordText: self.passField.text!)
+                self.transition()
+            }
         }
     }
     
@@ -64,6 +70,7 @@ class EditAccountViewController: UIViewController, UINavigationControllerDelegat
                 let myAccount = User(userData: data)
                 self.nameField.text = myAccount.userName
                 self.emailField.text = user.email
+                self.password = myAccount.password ?? ""
                 self.passField.placeholder = "新しいパスワードを入力"
             }
     }
@@ -77,7 +84,8 @@ class EditAccountViewController: UIViewController, UINavigationControllerDelegat
         user.updatePassword(to: passwordText)
         
         let updateData: [String:Any] = [
-            "userName": self.nameField.text!
+            "userName": self.nameField.text!,
+            "password": self.passField.text!
         ]
         
         db.collection("users")
@@ -130,7 +138,7 @@ class EditAccountViewController: UIViewController, UINavigationControllerDelegat
         if !passField.isFirstResponder {
             return
         }
-    
+        
         if self.view.frame.origin.y == 0 {
             if let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
                 self.view.frame.origin.y -= keyboardRect.height - passField.frame.origin.y

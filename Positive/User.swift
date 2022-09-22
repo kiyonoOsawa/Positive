@@ -11,11 +11,12 @@ struct User{
     let friendList: [String]?
     let userName: String?
     let userId: String?
+    let password: String?
     
     init(userData: [String:Any]){
         self.friendList = userData["friendList"] as? [String]
         self.userName = userData["userName"] as? String
         self.userId = userData["userId"] as? String
-
+        self.password = userData["password"] as? String
     }
 }

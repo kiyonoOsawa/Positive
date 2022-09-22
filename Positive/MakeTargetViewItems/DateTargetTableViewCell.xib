@@ -17,11 +17,11 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="終了日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfL-rb-bAA">
-                        <rect key="frame" x="16" y="0.0" width="49" height="50"/>
+                        <rect key="frame" x="16" y="0.0" width="45" height="50"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="aih-Ff-Ey1"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -33,6 +33,7 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="kBq-P8-STu"/>
                         </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                         <connections>
                             <action selector="tapChangeVisibleButton" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Ypv-pu-k7D"/>

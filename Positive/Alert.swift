@@ -24,4 +24,24 @@ struct AlertDialog {
         //        alert.addAction(cancel)
         viewController.present(alert, animated: true, completion: nil)
     }
+    
+    func showAlertReview(title: String, message: String, viewController: UIViewController, completionSave: @escaping() -> Void, completionReframing: @escaping() -> Void) {
+            
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            let save = UIAlertAction(title: "そのまま保存", style: .default) { (action) in
+                completionSave()
+            }
+            let judge = UIAlertAction(title: "リフレーミングする", style: .default) { (action) in
+                completionReframing()
+            }
+            
+            let cancel: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.cancel, handler:{
+                        (action: UIAlertAction!) -> Void in
+                        print("Cancel")
+                    })
+            alert.addAction(save)
+            alert.addAction(judge)
+            alert.addAction(cancel)
+            viewController.present(alert, animated: true, completion: nil)
+        }
 }

@@ -71,34 +71,42 @@ class ReviewViewController: UIViewController {
     
     // ポジティブ度を測定
     private func measuringStatus() {
-        let apiClient = APIClient.shared
-        apiClient.getDegreeofSentiment(encodedWord: reviewTextView.text ?? "") { [self] response in
-            switch response {
-            case .success(let data):
-                let positiveness: Double = Double(data.negaposi+3)
-                let percentage: Double = positiveness/6*100
-                print("negaposi: \(positiveness)")
-                print("percentage: \(percentage)")
-                if data.negaposi>0 {
-                    AlertDialog.shared.showAlert(title: "ポジティブ!", message: "ポジティブ\(percentage)%！", viewController: self) {
-                        self.addReview(score: percentage)
-                        self.dismiss(animated: true, completion: nil)
+            let apiClient = APIClient.shared
+            apiClient.getDegreeofSentiment(encodedWord: reviewTextView.text ?? "") { [self] response in
+                switch response {
+                case .success(let data):
+                    let positiveness: Double = Double(data.negaposi+3)
+                    let percentage: Double = positiveness/6*100
+                    print("negaposi: \(positiveness)")
+                    print("percentage: \(percentage)")
+                    if data.negaposi>0 {
+                        AlertDialog.shared.showAlert(title: "ポジティブ!", message: "ポジティブ\(percentage)%！", viewController: self) {
+                            self.addReview(score: percentage)
+                            self.dismiss(animated: true, completion: nil)
+                        }
+                    } else {
+                        guard let targetData = self.targetData else {
+                            return
+                           }
+                        //ここが変わってる。
+                        AlertDialog.shared.showAlertReview(title: "選択してください", message: "保存かリフレーミングか選べます", viewController: self) {
+                            //無視して保存する
+                            self.addReview(score: percentage)
+                            self.dismiss(animated: true)
+                        } completionReframing: {
+                            //リフレーミングする
+                            self.refShowModal(value: percentage, originalText: self.reviewTextView.text!, targetDocumentId: targetData.documentID, targetGoal: targetData.goal, calendarDate: self.calendarSelectedDate ?? Date())
+                        }
                     }
-                } else {
-                    guard let targetData = self.targetData else {
-                        return
+                    break
+                case .failure(let error):
+                    AlertDialog.shared.showAlert(title: "計測失敗", message: "文章を形成し直してください", viewController: self) {
+                        print(error)
                     }
-                    AlertDialog.shared.showAlert(title: "ポジティブ度が低いです…", message: "ポジティブ\(percentage)%…", viewController: self) {
-                        self.refShowModal(value: percentage, originalText: self.reviewTextView.text!, targetDocumentId: targetData.documentID, targetGoal: targetData.goal, calendarDate: self.calendarSelectedDate ?? Date())
-                    }
+                    break
                 }
-                break
-            case .failure(let error):
-                print("error: \(error)")
-                break
             }
         }
-    }
     
     private func addReview(score: Double) {
         guard let user = user else {

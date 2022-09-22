@@ -191,11 +191,11 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
                 var image = UIImage(systemName: "heart.fill")
                 let state = UIControl.State.normal
                 cell.iineButton.setImage(image, for: state)
-              }else{
-                  var image = UIImage(systemName: "heart")
-                  let state = UIControl.State.normal
-                  cell.iineButton.setImage(image, for: state)
-              }
+            }else{
+                var image = UIImage(systemName: "heart")
+                let state = UIControl.State.normal
+                cell.iineButton.setImage(image, for: state)
+            }
             let imagesRef = self.storageRef.child("userProfile").child("\(friendId).jpg")
             imagesRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
                 if let error = error {
@@ -227,7 +227,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         if collectionView.tag == 0 {
-            return UIEdgeInsets(top: 23, left:38, bottom: 0, right: 38)
+            return UIEdgeInsets(top: 20, left:38, bottom: 0, right: 38)
         } else {
             return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         }
@@ -262,57 +262,66 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
 
 extension HomeViewController: FriendsCellDelegate{
     func tappedIine(cell: FriendsInnerCollectionViewCell) {
-            if let indexPath = friendTargetCollection.indexPath(for: cell){
-                let userId = addressesFriends[indexPath.row].userId
-                let documentId = addressesFriends[indexPath.row].documentID
-                
-                var iineList: [String] = []
-                iineList.append(userName)
+        if let indexPath = friendTargetCollection.indexPath(for: cell){
+            let userId = addressesFriends[indexPath.row].userId
+            let documentId = addressesFriends[indexPath.row].documentID
+            
+            var iineList: [String] = []
+            iineList.append(userName)
+            if addressesFriends[indexPath.row].iineUsers.contains(userName){
+                addressesFriends[indexPath.row].iineUsers.removeAll(where: {$0 == userName})
+                self.db.collection("users")
+                    .document(userId)
+                    .collection("goals")
+                    .document(documentId)
+                    .updateData(["iineUsers": addressesFriends[indexPath.row].iineUsers])
+            }else{
                 self.db.collection("users")
                     .document(userId)
                     .collection("goals")
                     .document(documentId)
                     .updateData(["iineUsers": FieldValue.arrayUnion(iineList)])
             }
+        }
     }
 }
-
-extension HomeViewController: HomeViewCellDelegate {
-    func tappedDelete(cell: InnerCollectionViewCell) {
-        AlertDialog.shared.showAlert(title: "目標を削除しますか？", message: "", viewController: self) {
-            delete()
+    
+    extension HomeViewController: HomeViewCellDelegate {
+        func tappedDelete(cell: InnerCollectionViewCell) {
+            AlertDialog.shared.showAlert(title: "目標を削除しますか？", message: "", viewController: self) {
+                delete()
+            }
+            
+            func delete() {
+                guard let user = user else {return}
+                if let indexPath = targetCollection.indexPath(for: cell){
+                    let documentId = addresses[indexPath.row].documentID
+                    db.collection("users")
+                        .document(user.uid)
+                        .collection("goals")
+                        .document(documentId)
+                        .delete() { err in
+                            if let err = err {
+                                print("Error removing document: \(err)")
+                            } else {
+                                print("Document successfully removed!")
+                            }
+                        }
+                    self.addresses.remove(at: indexPath.row)
+                    targetCollection.reloadData()
+                    friendTargetCollection.reloadData()
+                }
+            }
         }
         
-        func delete() {
-            guard let user = user else {return}
-            if let indexPath = targetCollection.indexPath(for: cell){
-                let documentId = addresses[indexPath.row].documentID
-                db.collection("users")
-                    .document(user.uid)
-                    .collection("goals")
-                    .document(documentId)
-                    .delete() { err in
-                        if let err = err {
-                            print("Error removing document: \(err)")
-                        } else {
-                            print("Document successfully removed!")
-                        }
-                    }
-                self.addresses.remove(at: indexPath.row)
-                targetCollection.reloadData()
-                friendTargetCollection.reloadData()
+        func tappedReview(cell: InnerCollectionViewCell) {
+            if let indexPath = targetCollection.indexPath(for: cell) {
+                let storyboard: UIStoryboard = self.storyboard!
+                let nc: UINavigationController = storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
+                nc.modalPresentationStyle = .fullScreen
+                let nextNC = nc.viewControllers[0] as! ReviewViewController
+                nextNC.targetData = addresses[indexPath.row]
+                self.present(nc, animated: true, completion: nil)
             }
         }
     }
-    
-    func tappedReview(cell: InnerCollectionViewCell) {
-        if let indexPath = targetCollection.indexPath(for: cell) {
-            let storyboard: UIStoryboard = self.storyboard!
-            let nc: UINavigationController = storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
-            nc.modalPresentationStyle = .fullScreen
-            let nextNC = nc.viewControllers[0] as! ReviewViewController
-            nextNC.targetData = addresses[indexPath.row]
-            self.present(nc, animated: true, completion: nil)
-        }
-    }
-}

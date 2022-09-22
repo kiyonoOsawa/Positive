@@ -88,7 +88,8 @@ class SignUpViewController: UIViewController {
             }
             let addData: [String:Any] = [
                 "userName": self.userNameField.text!,
-                "userId": authResult.user.uid
+                "userId": authResult.user.uid,
+                "password": self.passwordField.text!
             ] as [String : Any]
             let db = Firestore.firestore()
             db.collection("users")
