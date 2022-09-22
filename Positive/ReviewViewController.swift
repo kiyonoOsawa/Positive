@@ -128,6 +128,12 @@ class ReviewViewController: UIViewController {
             .addDocument(data: addData)
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if (self.reviewTextView.isFirstResponder) {
+            self.reviewTextView.resignFirstResponder()
+        }
+    }
+    
     func design() {
         reviewTextView.layer.cornerRadius = 15
         reviewTextView.textContainerInset = UIEdgeInsets(top: 15, left: 5, bottom: 5, right: 5)

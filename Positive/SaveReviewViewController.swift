@@ -19,6 +19,7 @@ class SaveReviewViewController: UIViewController {
     let user = Auth.auth().currentUser
     let db = Firestore.firestore()
     var addresses: [DetailGoal] = []
+    var isTappedUpDate: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,7 +84,7 @@ class SaveReviewViewController: UIViewController {
         db.collection("users")
             .document(user.uid)
             .collection("goals")
-            .addSnapshotListener { QuerySnapshot, Error in
+            .addSnapshotListener { [self] QuerySnapshot, Error in
                 guard let querySnapShot = QuerySnapshot else {
                     print("error: \(Error.debugDescription)")
                     return
@@ -98,6 +99,20 @@ class SaveReviewViewController: UIViewController {
                     if deadlineDate.compare(today) == .orderedSame || deadlineDate.compare(today) == .orderedDescending{
                         self.addresses.append(detailGoal)
                     }
+                }
+                if self.isTappedUpDate {
+                    self.initialSet()
+                } else {
+                    let bottomBorder = CALayer()
+                    bottomBorder.frame = CGRect(x: 0, y: self.addData.frame.height, width: self.addData.frame.width, height:2.0)
+                    bottomBorder.backgroundColor = UIColor.black.cgColor
+                    self.addData.layer.addSublayer(bottomBorder)
+                    let delete = CALayer()
+                    delete.frame = CGRect(x: 0, y: self.updateDate.frame.height, width: self.updateDate.frame.width, height:2.0)
+                    delete.backgroundColor = UIColor.white.cgColor
+                    self.updateDate.layer.addSublayer(delete)
+                    self.addresses.sort{$0.createdAt.dateValue() > $1.createdAt.dateValue()}
+                    self.saveCollectionView.reloadData()
                 }
                 self.saveCollectionView.reloadData()
                 print("目標が表示される")

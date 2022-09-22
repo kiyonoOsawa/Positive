@@ -41,7 +41,6 @@ class TargetDetailViewController: UIViewController {
         setTabelView.register(UINib(nibName: "DateTargetTableViewCell", bundle: nil), forCellReuseIdentifier: "dateTargetCell")
         setTabelView.register(UINib(nibName: "ImportanceTableViewCell", bundle: nil), forCellReuseIdentifier: "importanceCell")
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "戻る", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.back))
-        navigationItem.title = "目標詳細"
         design()
     }
     
@@ -90,6 +89,7 @@ class TargetDetailViewController: UIViewController {
     func transition() {
         self.dismiss(animated: true)
     }
+    
     func design() {
         targetTextView.text = Goal
         miniTargetTextView.text = MiniGoal

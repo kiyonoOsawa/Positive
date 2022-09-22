@@ -33,7 +33,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cgY-PT-Tcb">
-                        <rect key="frame" x="0.0" y="103" width="346" height="1"/>
+                        <rect key="frame" x="16" y="103" width="314" height="1"/>
                         <color key="backgroundColor" systemColor="systemGray4Color"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="gL3-G1-z29"/>
@@ -46,7 +46,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V7k-Cq-RhY">
-                        <rect key="frame" x="290" y="63" width="32" height="32"/>
+                        <rect key="frame" x="282" y="63" width="32" height="32"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="32" id="6HQ-31-Mql"/>
                             <constraint firstAttribute="width" constant="32" id="UQm-Sf-CZ4"/>
@@ -72,9 +72,9 @@
                 <constraint firstItem="6nP-xX-bDA" firstAttribute="top" secondItem="NpT-lh-5nQ" secondAttribute="bottom" constant="8" id="R9A-oj-7FZ"/>
                 <constraint firstItem="Wk8-92-Y7I" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="12" id="Rac-Gn-BJT"/>
                 <constraint firstAttribute="bottom" secondItem="cgY-PT-Tcb" secondAttribute="bottom" id="Y4X-iG-SUp"/>
-                <constraint firstItem="cgY-PT-Tcb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="pOi-RQ-FIf"/>
-                <constraint firstAttribute="trailing" secondItem="cgY-PT-Tcb" secondAttribute="trailing" id="vNg-9U-eWw"/>
-                <constraint firstAttribute="trailing" secondItem="V7k-Cq-RhY" secondAttribute="trailing" constant="24" id="wid-pC-VIl"/>
+                <constraint firstItem="cgY-PT-Tcb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="pOi-RQ-FIf"/>
+                <constraint firstAttribute="trailing" secondItem="cgY-PT-Tcb" secondAttribute="trailing" constant="16" id="vNg-9U-eWw"/>
+                <constraint firstAttribute="trailing" secondItem="V7k-Cq-RhY" secondAttribute="trailing" constant="32" id="wid-pC-VIl"/>
                 <constraint firstItem="NpT-lh-5nQ" firstAttribute="leading" secondItem="Wk8-92-Y7I" secondAttribute="trailing" constant="16" id="xMD-hX-kjP"/>
             </constraints>
             <size key="customSize" width="206" height="143"/>

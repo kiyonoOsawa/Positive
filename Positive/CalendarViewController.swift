@@ -269,7 +269,6 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
             }
             break
         case .affirmation:
-            cell.deleteButton.isHidden = true
             cell.bigTargetLabel.text = applicableData[indexPath.row].goal
             cell.miniTargetLabel.text = applicableData[indexPath.row].nowTodo
             cell.textLabel.text = "ミニ目標"
@@ -336,6 +335,26 @@ extension CalendarViewController: CalendarViewDelegate {
                             }
                         }
                     self.applicableDataReview.remove(at: indexPath.row)
+                    self.reportCollectionView.reloadData()
+                }
+            }
+        } else {
+            AlertDialog.shared.showAlert(title: "目標を削除しますか？", message: "", viewController: self) {
+                guard let user = self.user else {return}
+                if let indexPath = self.reportCollectionView.indexPath(for: cell){
+                    let documentId = self.addresses[indexPath.row].documentID
+                    self.db.collection("users")
+                        .document(user.uid)
+                        .collection("goals")
+                        .document(documentId)
+                        .delete() { err in
+                            if let err = err {
+                                print("Error removing document: \(err)")
+                            } else {
+                                print("Document successfully removed!")
+                            }
+                        }
+                    self.applicableData.remove(at: indexPath.row)
                     self.reportCollectionView.reloadData()
                 }
             }

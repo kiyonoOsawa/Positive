@@ -285,43 +285,43 @@ extension HomeViewController: FriendsCellDelegate{
         }
     }
 }
-    
-    extension HomeViewController: HomeViewCellDelegate {
-        func tappedDelete(cell: InnerCollectionViewCell) {
-            AlertDialog.shared.showAlert(title: "目標を削除しますか？", message: "", viewController: self) {
-                delete()
-            }
-            
-            func delete() {
-                guard let user = user else {return}
-                if let indexPath = targetCollection.indexPath(for: cell){
-                    let documentId = addresses[indexPath.row].documentID
-                    db.collection("users")
-                        .document(user.uid)
-                        .collection("goals")
-                        .document(documentId)
-                        .delete() { err in
-                            if let err = err {
-                                print("Error removing document: \(err)")
-                            } else {
-                                print("Document successfully removed!")
-                            }
-                        }
-                    self.addresses.remove(at: indexPath.row)
-                    targetCollection.reloadData()
-                    friendTargetCollection.reloadData()
-                }
-            }
+
+extension HomeViewController: HomeViewCellDelegate {
+    func tappedDelete(cell: InnerCollectionViewCell) {
+        AlertDialog.shared.showAlert(title: "目標を削除しますか？", message: "", viewController: self) {
+            delete()
         }
         
-        func tappedReview(cell: InnerCollectionViewCell) {
-            if let indexPath = targetCollection.indexPath(for: cell) {
-                let storyboard: UIStoryboard = self.storyboard!
-                let nc: UINavigationController = storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
-                nc.modalPresentationStyle = .fullScreen
-                let nextNC = nc.viewControllers[0] as! ReviewViewController
-                nextNC.targetData = addresses[indexPath.row]
-                self.present(nc, animated: true, completion: nil)
+        func delete() {
+            guard let user = user else {return}
+            if let indexPath = targetCollection.indexPath(for: cell){
+                let documentId = addresses[indexPath.row].documentID
+                db.collection("users")
+                    .document(user.uid)
+                    .collection("goals")
+                    .document(documentId)
+                    .delete() { err in
+                        if let err = err {
+                            print("Error removing document: \(err)")
+                        } else {
+                            print("Document successfully removed!")
+                        }
+                    }
+                self.addresses.remove(at: indexPath.row)
+                targetCollection.reloadData()
+                friendTargetCollection.reloadData()
             }
         }
     }
+    
+    func tappedReview(cell: InnerCollectionViewCell) {
+        if let indexPath = targetCollection.indexPath(for: cell) {
+            let storyboard: UIStoryboard = self.storyboard!
+            let nc: UINavigationController = storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
+            nc.modalPresentationStyle = .fullScreen
+            let nextNC = nc.viewControllers[0] as! ReviewViewController
+            nextNC.targetData = addresses[indexPath.row]
+            self.present(nc, animated: true, completion: nil)
+        }
+    }
+}

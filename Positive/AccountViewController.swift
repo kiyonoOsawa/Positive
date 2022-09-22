@@ -157,7 +157,7 @@ class AccountViewController: UIViewController, ChartViewDelegate {
     
     func design() {
         imageView.layer.cornerRadius = 36
-        editButton.layer.cornerRadius = 10
+        editButton.layer.cornerRadius = 15
         editButton.layer.borderWidth = 1
         editButton.layer.borderColor = UIColor.lightGray.cgColor
         chartBack.layer.cornerRadius = 20
