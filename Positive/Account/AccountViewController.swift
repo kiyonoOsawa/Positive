@@ -197,7 +197,7 @@ extension AccountViewController: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let cellWidth: CGFloat = 72
-        let cellHeight: CGFloat = 100
+        let cellHeight: CGFloat = 120
         return CGSize(width: cellWidth, height: cellHeight)
     }
     
@@ -207,6 +207,44 @@ extension AccountViewController: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 35
+    }
+}
+
+extension AccountViewController: FriendAccountDelegate {
+    func tappedDelete(cell: FriendAccCollectionViewCell) {
+        print("タップした")
+        AlertDialog.shared.showAlert(title: "目標を削除しますか？", message: "", viewController: self) {
+            delete()
+        }
+        
+        func delete() {
+            guard let user = user else {return}
+            if let indexPath = friendsCollection.indexPath(for: cell){
+                let friendList = accountList[indexPath.row].friendList
+                db.collection("users")
+                    .document("friendList")
+                    .updateData([friendList: FieldValue.delete()
+                                ]) { err in
+                        if let err = err {
+                            print("Error updating document: \(err)")
+                        } else {
+                            print("Document successfully updated")
+                        }
+                    }
+//                    .document(user.uid)
+//                    .collection("goals")
+//                    .document(documentId)
+//                    .delete() { err in
+//                        if let err = err {
+//                            print("Error removing document: \(err)")
+//                        } else {
+//                            print("Document successfully removed!")
+//                        }
+//                    }
+                self.accountList.remove(at: indexPath.row)
+                friendsCollection.reloadData()
+            }
+        }
     }
 }
 

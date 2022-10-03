@@ -26,7 +26,7 @@
                         <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="13"/>
                         <color key="tintColor" name="MainColor"/>
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                        <state key="normal" title="レビュー"/>
+                        <state key="normal" title="振り返り"/>
                         <connections>
                             <action selector="reviewButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="S9N-bl-6yz"/>
                         </connections>
@@ -50,7 +50,7 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="D6N-V3-EXi"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="23"/>
+                        <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="20"/>
                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -61,11 +61,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SnQ-0Z-sOh">
-                        <rect key="frame" x="296" y="16" width="40" height="40"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="40" id="1Y8-x6-8qN"/>
-                            <constraint firstAttribute="width" constant="40" id="kxN-AM-KMe"/>
-                        </constraints>
+                        <rect key="frame" x="306" y="8" width="30" height="24"/>
                         <fontDescription key="fontDescription" type="system" pointSize="29"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -94,10 +90,11 @@
                 <constraint firstItem="R7l-O8-Qz0" firstAttribute="top" secondItem="w9O-x8-NDT" secondAttribute="bottom" constant="8" id="2v6-Gh-bSW"/>
                 <constraint firstItem="dkz-71-G10" firstAttribute="top" secondItem="R7l-O8-Qz0" secondAttribute="bottom" constant="12" id="94M-3A-alw"/>
                 <constraint firstItem="OX5-f1-6aQ" firstAttribute="centerY" secondItem="gWU-Sr-5Ek" secondAttribute="centerY" id="AeX-77-UBi"/>
+                <constraint firstItem="hpB-qQ-fXj" firstAttribute="top" secondItem="SnQ-0Z-sOh" secondAttribute="bottom" id="BSq-uk-bt6"/>
                 <constraint firstAttribute="trailing" secondItem="OX5-f1-6aQ" secondAttribute="trailing" constant="24" id="CPP-wP-pWv"/>
                 <constraint firstItem="2aR-Ri-zvE" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="G7t-ac-rqG"/>
                 <constraint firstItem="hpB-qQ-fXj" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="24" id="IDu-PG-wpv"/>
-                <constraint firstItem="SnQ-0Z-sOh" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="Jto-D6-pG8"/>
+                <constraint firstItem="SnQ-0Z-sOh" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="Jto-D6-pG8"/>
                 <constraint firstItem="w9O-x8-NDT" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="K0r-st-8Jt"/>
                 <constraint firstItem="OX5-f1-6aQ" firstAttribute="leading" secondItem="gWU-Sr-5Ek" secondAttribute="trailing" constant="2" id="O9b-NR-Kxg"/>
                 <constraint firstAttribute="bottom" secondItem="OX5-f1-6aQ" secondAttribute="bottom" constant="18" id="RIW-qU-roy"/>

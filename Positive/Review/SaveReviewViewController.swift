@@ -148,9 +148,9 @@ extension SaveReviewViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let space: CGFloat = 10
-        let cellWidth: CGFloat = saveCollectionView.frame.width - space
-        let cellHeight: CGFloat = 48
+        let space: CGFloat = 8
+        let cellWidth: CGFloat = view.frame.width - space
+        let cellHeight: CGFloat = 80
         return CGSize(width: cellWidth, height: cellHeight)
     }
 }

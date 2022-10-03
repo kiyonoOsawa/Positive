@@ -11,6 +11,9 @@ class FriendAccCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var friendIcon: UIImageView!
     @IBOutlet weak var friendName: UILabel!
+    @IBOutlet weak var deleteButton: UIButton!
+    
+    weak var delegate:FriendAccountDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,8 +22,9 @@ class FriendAccCollectionViewCell: UICollectionViewCell {
     
     func design() {
         friendIcon.layer.cornerRadius = 36
-//        friendIcon.layer.borderWidth = 2
-//        friendIcon.layer.borderColor = UIColor(named: "grayTextColor")?.cgColor
     }
+}
 
+protocol FriendAccountDelegate: AnyObject{
+    func tappedDelete(cell: FriendAccCollectionViewCell)
 }

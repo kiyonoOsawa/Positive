@@ -13,7 +13,6 @@
 		CE644D9028B7C580008443BE /* FriendAccCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE644D8E28B7C580008443BE /* FriendAccCollectionViewCell.xib */; };
 		CE73D15A2839DF4C00B20D0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE73D1592839DF4C00B20D0D /* AppDelegate.swift */; };
 		CE73D15C2839DF4C00B20D0D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE73D15B2839DF4C00B20D0D /* SceneDelegate.swift */; };
-		CE73D15E2839DF4C00B20D0D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE73D15D2839DF4C00B20D0D /* ViewController.swift */; };
 		CE73D1612839DF4C00B20D0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE73D15F2839DF4C00B20D0D /* Main.storyboard */; };
 		CE73D1632839DF4E00B20D0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE73D1622839DF4E00B20D0D /* Assets.xcassets */; };
 		CE73D1662839DF4E00B20D0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE73D1642839DF4E00B20D0D /* LaunchScreen.storyboard */; };
@@ -89,7 +88,6 @@
 		CE73D1562839DF4C00B20D0D /* Positive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Positive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE73D1592839DF4C00B20D0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE73D15B2839DF4C00B20D0D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CE73D15D2839DF4C00B20D0D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CE73D1602839DF4C00B20D0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CE73D1622839DF4E00B20D0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = /Users/oosawakiyono/Desktop/Positive/Positive/Assets.xcassets; sourceTree = "<absolute>"; };
 		CE73D1652839DF4E00B20D0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -167,9 +165,11 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		CE6488E0287169DD0054408F /* MakeTargetViewItems */ = {
+		CE6488E0287169DD0054408F /* MakeTarget */ = {
 			isa = PBXGroup;
 			children = (
+				CEB4756A28713450002654E6 /* MakeTargetViewController.swift */,
+				CEB4755A285F65CD002654E6 /* QuestionViewController.swift */,
 				CEB4757C28713B11002654E6 /* DateTargetTableViewCell.swift */,
 				CEB4757D28713B11002654E6 /* DateTargetTableViewCell.xib */,
 				CEB4757428713986002654E6 /* ImportanceTableViewCell.swift */,
@@ -179,7 +179,7 @@
 				CEB47560285F6981002654E6 /* QuestionTableViewCell.swift */,
 				CEB47561285F6981002654E6 /* QuestionTableViewCell.xib */,
 			);
-			path = MakeTargetViewItems;
+			path = MakeTarget;
 			sourceTree = "<group>";
 		};
 		CE73D14D2839DF4C00B20D0D = {
@@ -204,43 +204,18 @@
 			children = (
 				CE73D1592839DF4C00B20D0D /* AppDelegate.swift */,
 				CE73D15B2839DF4C00B20D0D /* SceneDelegate.swift */,
-				CE73D15D2839DF4C00B20D0D /* ViewController.swift */,
-				CEEE82B7284B6A4400732497 /* TabBarViewController.swift */,
-				CE3E7833288C40A000548FFD /* TabBar.swift */,
-				CE7A58BA289AC3B200AD3946 /* APIClient.swift */,
 				CEC6855B28B0B3C5007C0967 /* Alert.swift */,
-				CE798A6C28D856AC00E5C340 /* DateFormat.swift */,
-				CED649C128BC5E6E00E12D61 /* User.swift */,
-				CE80C15628716EF9000646B2 /* Goal.swift */,
-				CEC6855928AFDA11007C0967 /* Review.swift */,
-				CE7A58C1289E1D5000AD3946 /* DataModel.swift */,
-				CED6A12E28C3487F0082D498 /* FlowLayout.swift */,
-				CEEE82B32847A99A00732497 /* SignUpViewController.swift */,
-				CEB475482859220A002654E6 /* LogInViewController.swift */,
-				CE73D16D2839F62600B20D0D /* HomeViewController.swift */,
-				CE8D8BE828B911840024B322 /* TargetDetailViewController.swift */,
-				CEB4756A28713450002654E6 /* MakeTargetViewController.swift */,
-				CEB4755A285F65CD002654E6 /* QuestionViewController.swift */,
-				CE73D16F2839F8AE00B20D0D /* CalendarViewController.swift */,
-				CEACDF4F289571AF0005F4A6 /* ReviewViewController.swift */,
-				CEC6855D28B12617007C0967 /* ReframingViewController.swift */,
-				CE798A6E28D9707100E5C340 /* SaveReviewViewController.swift */,
-				CEB4754A2859F894002654E6 /* AccountViewController.swift */,
-				CE08B05528BD19860054D0D6 /* EditAccountViewController.swift */,
-				CE8D8BEA28B9194C0024B322 /* CircleChart.swift */,
-				CED6A13028C3CCF40082D498 /* QRViewController.swift */,
-				CED649C528BC5F3300E12D61 /* CapturingViewController.swift */,
-				CED649BD28BC5DB600E12D61 /* MyQRCodeReader.swift */,
-				CE73D15F2839DF4C00B20D0D /* Main.storyboard */,
+				CECC289C28EB1F6F00219F98 /* TabBar */,
+				CECC289B28EB1F2900219F98 /* Data */,
+				CECC289D28EB1F9B00219F98 /* SignInUp */,
+				CEAE56C128975FA9002DBEA2 /* Home */,
+				CE6488E0287169DD0054408F /* MakeTarget */,
+				CECC28A128EB204700219F98 /* Calendar */,
+				CECC289E28EB1FE000219F98 /* Review */,
+				CECC289F28EB200000219F98 /* Account */,
+				CECC28A028EB201300219F98 /* QR */,
 				CE73D1622839DF4E00B20D0D /* Assets.xcassets */,
-				CE6488E0287169DD0054408F /* MakeTargetViewItems */,
-				CEAE56C128975FA9002DBEA2 /* HomeViewItems */,
-				CEB47564286B499C002654E6 /* CalendarTargetCollectionViewCell.swift */,
-				CEB47565286B499C002654E6 /* CalendarTargetCollectionViewCell.xib */,
-				CE798A7428D9AA5C00E5C340 /* SaveCollectionViewCell.swift */,
-				CE798A7528D9AA5C00E5C340 /* SaveCollectionViewCell.xib */,
-				CE644D8D28B7C580008443BE /* FriendAccCollectionViewCell.swift */,
-				CE644D8E28B7C580008443BE /* FriendAccCollectionViewCell.xib */,
+				CE73D15F2839DF4C00B20D0D /* Main.storyboard */,
 				CE73D1642839DF4E00B20D0D /* LaunchScreen.storyboard */,
 				CE73D1672839DF4E00B20D0D /* Info.plist */,
 				CED85ED528DA047100AE22A3 /* GoogleService-Info.plist */,
@@ -248,15 +223,93 @@
 			path = Positive;
 			sourceTree = "<group>";
 		};
-		CEAE56C128975FA9002DBEA2 /* HomeViewItems */ = {
+		CEAE56C128975FA9002DBEA2 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				CE73D16D2839F62600B20D0D /* HomeViewController.swift */,
+				CE8D8BE828B911840024B322 /* TargetDetailViewController.swift */,
 				CEAE56BE28974864002DBEA2 /* InnerCollectionViewCell.swift */,
 				CEAE56BB289746DB002DBEA2 /* InnerCollectionViewCell.xib */,
 				CEAE56C2289766FB002DBEA2 /* FriendsInnerCollectionViewCell.swift */,
 				CEAE56C3289766FB002DBEA2 /* FriendsInnerCollectionViewCell.xib */,
+				CED6A12E28C3487F0082D498 /* FlowLayout.swift */,
 			);
-			path = HomeViewItems;
+			path = Home;
+			sourceTree = "<group>";
+		};
+		CECC289B28EB1F2900219F98 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				CE798A6C28D856AC00E5C340 /* DateFormat.swift */,
+				CE7A58C1289E1D5000AD3946 /* DataModel.swift */,
+				CED649C128BC5E6E00E12D61 /* User.swift */,
+				CE80C15628716EF9000646B2 /* Goal.swift */,
+				CEC6855928AFDA11007C0967 /* Review.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		CECC289C28EB1F6F00219F98 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				CEEE82B7284B6A4400732497 /* TabBarViewController.swift */,
+				CE3E7833288C40A000548FFD /* TabBar.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		CECC289D28EB1F9B00219F98 /* SignInUp */ = {
+			isa = PBXGroup;
+			children = (
+				CEB475482859220A002654E6 /* LogInViewController.swift */,
+				CEEE82B32847A99A00732497 /* SignUpViewController.swift */,
+			);
+			path = SignInUp;
+			sourceTree = "<group>";
+		};
+		CECC289E28EB1FE000219F98 /* Review */ = {
+			isa = PBXGroup;
+			children = (
+				CEACDF4F289571AF0005F4A6 /* ReviewViewController.swift */,
+				CEC6855D28B12617007C0967 /* ReframingViewController.swift */,
+				CE798A6E28D9707100E5C340 /* SaveReviewViewController.swift */,
+				CE798A7428D9AA5C00E5C340 /* SaveCollectionViewCell.swift */,
+				CE798A7528D9AA5C00E5C340 /* SaveCollectionViewCell.xib */,
+				CE7A58BA289AC3B200AD3946 /* APIClient.swift */,
+			);
+			path = Review;
+			sourceTree = "<group>";
+		};
+		CECC289F28EB200000219F98 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				CEB4754A2859F894002654E6 /* AccountViewController.swift */,
+				CE08B05528BD19860054D0D6 /* EditAccountViewController.swift */,
+				CE8D8BEA28B9194C0024B322 /* CircleChart.swift */,
+				CE644D8D28B7C580008443BE /* FriendAccCollectionViewCell.swift */,
+				CE644D8E28B7C580008443BE /* FriendAccCollectionViewCell.xib */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		CECC28A028EB201300219F98 /* QR */ = {
+			isa = PBXGroup;
+			children = (
+				CED6A13028C3CCF40082D498 /* QRViewController.swift */,
+				CED649BD28BC5DB600E12D61 /* MyQRCodeReader.swift */,
+				CED649C528BC5F3300E12D61 /* CapturingViewController.swift */,
+			);
+			path = QR;
+			sourceTree = "<group>";
+		};
+		CECC28A128EB204700219F98 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				CE73D16F2839F8AE00B20D0D /* CalendarViewController.swift */,
+				CEB47564286B499C002654E6 /* CalendarTargetCollectionViewCell.swift */,
+				CEB47565286B499C002654E6 /* CalendarTargetCollectionViewCell.xib */,
+			);
+			path = Calendar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -372,7 +425,6 @@
 				CEAE56C4289766FB002DBEA2 /* FriendsInnerCollectionViewCell.swift in Sources */,
 				CE798A6F28D9707100E5C340 /* SaveReviewViewController.swift in Sources */,
 				CED6A12F28C3487F0082D498 /* FlowLayout.swift in Sources */,
-				CE73D15E2839DF4C00B20D0D /* ViewController.swift in Sources */,
 				CED649C628BC5F3300E12D61 /* CapturingViewController.swift in Sources */,
 				CEEE82B42847A99A00732497 /* SignUpViewController.swift in Sources */,
 				CE73D15A2839DF4C00B20D0D /* AppDelegate.swift in Sources */,

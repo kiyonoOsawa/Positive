@@ -74,7 +74,6 @@ class TargetDetailViewController: UIViewController {
             .collection("goals")
             .document(DocumentId)
             .updateData(updateGoal)
-        self.transition()
     }
     
     func dateFormat(date: Date) -> String {
@@ -85,16 +84,13 @@ class TargetDetailViewController: UIViewController {
         dateFormatter.dateFormat = "yyyy/MM/dd"
         return dateFormatter.string(from: date)
     }
-    
-    func transition() {
-        self.dismiss(animated: true)
-    }
-    
+
     func design() {
         targetTextView.text = Goal
         miniTargetTextView.text = MiniGoal
         essentialTextView.text = EssentialThing
         triggerTextView.text = Trigger
+        iineTextView.isEditable = false
         var string = ""
         userName.forEach { user in
             string += "＠\(user) "
