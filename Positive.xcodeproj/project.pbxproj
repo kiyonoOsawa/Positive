@@ -49,6 +49,17 @@
 		CEC6855A28AFDA11007C0967 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6855928AFDA11007C0967 /* Review.swift */; };
 		CEC6855C28B0B3C6007C0967 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6855B28B0B3C5007C0967 /* Alert.swift */; };
 		CEC6855E28B12617007C0967 /* ReframingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6855D28B12617007C0967 /* ReframingViewController.swift */; };
+		CECC28A728EB77B300219F98 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED85EDC28DB17B700AE22A3 /* WidgetKit.framework */; };
+		CECC28A828EB77B300219F98 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED85EDE28DB17B700AE22A3 /* SwiftUI.framework */; };
+		CECC28AB28EB77B300219F98 /* TaffiWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC28AA28EB77B300219F98 /* TaffiWidget.swift */; };
+		CECC28AE28EB77B400219F98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CECC28AD28EB77B400219F98 /* Assets.xcassets */; };
+		CECC28B028EB77B400219F98 /* TaffiWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = CECC28AC28EB77B300219F98 /* TaffiWidget.intentdefinition */; };
+		CECC28B128EB77B400219F98 /* TaffiWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = CECC28AC28EB77B300219F98 /* TaffiWidget.intentdefinition */; };
+		CECC28B428EB77B400219F98 /* TaffiWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = CECC28A628EB77B300219F98 /* TaffiWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		CECC28B928EB77DC00219F98 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = CECC28B828EB77DC00219F98 /* FirebaseAuth */; };
+		CECC28BB28EB77ED00219F98 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = CECC28BA28EB77ED00219F98 /* FirebaseFirestore */; };
+		CECC28BD28EB77F900219F98 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = CECC28BC28EB77F900219F98 /* FirebaseAnalytics */; };
+		CECC28C028EB7D8900219F98 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CED85ED528DA047100AE22A3 /* GoogleService-Info.plist */; };
 		CED649BE28BC5DB600E12D61 /* MyQRCodeReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED649BD28BC5DB600E12D61 /* MyQRCodeReader.swift */; };
 		CED649C228BC5E6E00E12D61 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED649C128BC5E6E00E12D61 /* User.swift */; };
 		CED649C628BC5F3300E12D61 /* CapturingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED649C528BC5F3300E12D61 /* CapturingViewController.swift */; };
@@ -67,6 +78,16 @@
 		CEEE82B8284B6A4400732497 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEE82B7284B6A4400732497 /* TabBarViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		CECC28B228EB77B400219F98 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE73D14E2839DF4C00B20D0D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CECC28A528EB77B300219F98;
+			remoteInfo = TaffiWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		CED85EEF28DB17B900AE22A3 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -74,6 +95,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				CECC28B428EB77B400219F98 /* TaffiWidgetExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -125,6 +147,13 @@
 		CEC6855928AFDA11007C0967 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		CEC6855B28B0B3C5007C0967 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		CEC6855D28B12617007C0967 /* ReframingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReframingViewController.swift; sourceTree = "<group>"; };
+		CECC28A628EB77B300219F98 /* TaffiWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TaffiWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		CECC28AA28EB77B300219F98 /* TaffiWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaffiWidget.swift; sourceTree = "<group>"; };
+		CECC28AC28EB77B300219F98 /* TaffiWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = TaffiWidget.intentdefinition; sourceTree = "<group>"; };
+		CECC28AD28EB77B400219F98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CECC28AF28EB77B400219F98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CECC28BE28EB780E00219F98 /* TaffiWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TaffiWidgetExtension.entitlements; sourceTree = "<group>"; };
+		CECC28BF28EB7C2F00219F98 /* Positive.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Positive.entitlements; sourceTree = "<group>"; };
 		CED649BD28BC5DB600E12D61 /* MyQRCodeReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyQRCodeReader.swift; sourceTree = "<group>"; };
 		CED649C128BC5E6E00E12D61 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CED649C528BC5F3300E12D61 /* CapturingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapturingViewController.swift; sourceTree = "<group>"; };
@@ -150,6 +179,18 @@
 				CEDA1BDD28BA5DC400D07A53 /* FirebaseAuth in Frameworks */,
 				CEDA1BE928BA5E5F00D07A53 /* FSCalendar in Frameworks */,
 				CEDA1BE328BA5DC400D07A53 /* FirebaseStorage in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CECC28A328EB77B300219F98 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CECC28A828EB77B300219F98 /* SwiftUI.framework in Frameworks */,
+				CECC28BB28EB77ED00219F98 /* FirebaseFirestore in Frameworks */,
+				CECC28B928EB77DC00219F98 /* FirebaseAuth in Frameworks */,
+				CECC28BD28EB77F900219F98 /* FirebaseAnalytics in Frameworks */,
+				CECC28A728EB77B300219F98 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,7 +226,9 @@
 		CE73D14D2839DF4C00B20D0D = {
 			isa = PBXGroup;
 			children = (
+				CECC28BE28EB780E00219F98 /* TaffiWidgetExtension.entitlements */,
 				CE73D1582839DF4C00B20D0D /* Positive */,
+				CECC28A928EB77B300219F98 /* TaffiWidget */,
 				CE73D1572839DF4C00B20D0D /* Products */,
 				C3278182D79C017D0B74DA11 /* Frameworks */,
 			);
@@ -195,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				CE73D1562839DF4C00B20D0D /* Positive.app */,
+				CECC28A628EB77B300219F98 /* TaffiWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -202,6 +246,7 @@
 		CE73D1582839DF4C00B20D0D /* Positive */ = {
 			isa = PBXGroup;
 			children = (
+				CECC28BF28EB7C2F00219F98 /* Positive.entitlements */,
 				CE73D1592839DF4C00B20D0D /* AppDelegate.swift */,
 				CE73D15B2839DF4C00B20D0D /* SceneDelegate.swift */,
 				CEC6855B28B0B3C5007C0967 /* Alert.swift */,
@@ -312,6 +357,17 @@
 			path = Calendar;
 			sourceTree = "<group>";
 		};
+		CECC28A928EB77B300219F98 /* TaffiWidget */ = {
+			isa = PBXGroup;
+			children = (
+				CECC28AA28EB77B300219F98 /* TaffiWidget.swift */,
+				CECC28AC28EB77B300219F98 /* TaffiWidget.intentdefinition */,
+				CECC28AD28EB77B400219F98 /* Assets.xcassets */,
+				CECC28AF28EB77B400219F98 /* Info.plist */,
+			);
+			path = TaffiWidget;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -327,6 +383,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				CECC28B328EB77B400219F98 /* PBXTargetDependency */,
 			);
 			name = Positive;
 			packageProductDependencies = (
@@ -343,6 +400,28 @@
 			productReference = CE73D1562839DF4C00B20D0D /* Positive.app */;
 			productType = "com.apple.product-type.application";
 		};
+		CECC28A528EB77B300219F98 /* TaffiWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CECC28B528EB77B400219F98 /* Build configuration list for PBXNativeTarget "TaffiWidgetExtension" */;
+			buildPhases = (
+				CECC28A228EB77B300219F98 /* Sources */,
+				CECC28A328EB77B300219F98 /* Frameworks */,
+				CECC28A428EB77B300219F98 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TaffiWidgetExtension;
+			packageProductDependencies = (
+				CECC28B828EB77DC00219F98 /* FirebaseAuth */,
+				CECC28BA28EB77ED00219F98 /* FirebaseFirestore */,
+				CECC28BC28EB77F900219F98 /* FirebaseAnalytics */,
+			);
+			productName = TaffiWidgetExtension;
+			productReference = CECC28A628EB77B300219F98 /* TaffiWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -355,6 +434,9 @@
 				TargetAttributes = {
 					CE73D1552839DF4C00B20D0D = {
 						CreatedOnToolsVersion = 13.2.1;
+					};
+					CECC28A528EB77B300219F98 = {
+						CreatedOnToolsVersion = 13.4.1;
 					};
 				};
 			};
@@ -378,6 +460,7 @@
 			projectRoot = "";
 			targets = (
 				CE73D1552839DF4C00B20D0D /* Positive */,
+				CECC28A528EB77B300219F98 /* TaffiWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -403,6 +486,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CECC28A428EB77B300219F98 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CECC28AE28EB77B400219F98 /* Assets.xcassets in Resources */,
+				CECC28C028EB7D8900219F98 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -425,6 +517,7 @@
 				CEAE56C4289766FB002DBEA2 /* FriendsInnerCollectionViewCell.swift in Sources */,
 				CE798A6F28D9707100E5C340 /* SaveReviewViewController.swift in Sources */,
 				CED6A12F28C3487F0082D498 /* FlowLayout.swift in Sources */,
+				CECC28B128EB77B400219F98 /* TaffiWidget.intentdefinition in Sources */,
 				CED649C628BC5F3300E12D61 /* CapturingViewController.swift in Sources */,
 				CEEE82B42847A99A00732497 /* SignUpViewController.swift in Sources */,
 				CE73D15A2839DF4C00B20D0D /* AppDelegate.swift in Sources */,
@@ -450,7 +543,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CECC28A228EB77B300219F98 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CECC28AB28EB77B300219F98 /* TaffiWidget.swift in Sources */,
+				CECC28B028EB77B400219F98 /* TaffiWidget.intentdefinition in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CECC28B328EB77B400219F98 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CECC28A528EB77B300219F98 /* TaffiWidgetExtension */;
+			targetProxy = CECC28B228EB77B400219F98 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		CE73D15F2839DF4C00B20D0D /* Main.storyboard */ = {
@@ -594,10 +704,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Positive/Positive.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = JNNV58CFF6;
+				DEVELOPMENT_TEAM = 7Y5RBD24LU;
 				EXCLUDED_ARCHS = "";
 				"EXCLUDED_ARCHS[sdk=*]" = x86_64;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -632,10 +743,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Positive/Positive.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = JNNV58CFF6;
+				DEVELOPMENT_TEAM = 7Y5RBD24LU;
 				EXCLUDED_ARCHS = "";
 				"EXCLUDED_ARCHS[sdk=*]" = x86_64;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -663,6 +775,66 @@
 			};
 			name = Release;
 		};
+		CECC28B628EB77B400219F98 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = TaffiWidgetExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7Y5RBD24LU;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TaffiWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TaffiWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kiyono.Positive.TaffiWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CECC28B728EB77B400219F98 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = TaffiWidgetExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7Y5RBD24LU;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TaffiWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TaffiWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kiyono.Positive.TaffiWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -680,6 +852,15 @@
 			buildConfigurations = (
 				CE73D16B2839DF4E00B20D0D /* Debug */,
 				CE73D16C2839DF4E00B20D0D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CECC28B528EB77B400219F98 /* Build configuration list for PBXNativeTarget "TaffiWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CECC28B628EB77B400219F98 /* Debug */,
+				CECC28B728EB77B400219F98 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -722,6 +903,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		CECC28B828EB77DC00219F98 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CEDA1BD928BA5DC400D07A53 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		CECC28BA28EB77ED00219F98 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CEDA1BD928BA5DC400D07A53 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		CECC28BC28EB77F900219F98 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CEDA1BD928BA5DC400D07A53 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
 		CEDA1BDA28BA5DC400D07A53 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CEDA1BD928BA5DC400D07A53 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

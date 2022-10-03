@@ -210,43 +210,43 @@ extension AccountViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
 }
 
-extension AccountViewController: FriendAccountDelegate {
-    func tappedDelete(cell: FriendAccCollectionViewCell) {
-        print("タップした")
-        AlertDialog.shared.showAlert(title: "目標を削除しますか？", message: "", viewController: self) {
-            delete()
-        }
-        
-        func delete() {
-            guard let user = user else {return}
-            if let indexPath = friendsCollection.indexPath(for: cell){
-                let friendList = accountList[indexPath.row].friendList
-                db.collection("users")
-                    .document("friendList")
-                    .updateData([friendList: FieldValue.delete()
-                                ]) { err in
-                        if let err = err {
-                            print("Error updating document: \(err)")
-                        } else {
-                            print("Document successfully updated")
-                        }
-                    }
-//                    .document(user.uid)
-//                    .collection("goals")
-//                    .document(documentId)
-//                    .delete() { err in
+//extension AccountViewController: FriendAccountDelegate {
+//    func tappedDelete(cell: FriendAccCollectionViewCell) {
+//        print("タップした")
+//        AlertDialog.shared.showAlert(title: "目標を削除しますか？", message: "", viewController: self) {
+//            delete()
+//        }
+//        
+//        func delete() {
+//            guard let user = user else {return}
+//            if let indexPath = friendsCollection.indexPath(for: cell){
+//                let friendList = accountList[indexPath.row].friendList
+//                db.collection("users")
+//                    .document("friendList")
+//                    .updateData([friendList: FieldValue.delete()
+//                                ]) { err in
 //                        if let err = err {
-//                            print("Error removing document: \(err)")
+//                            print("Error updating document: \(err)")
 //                        } else {
-//                            print("Document successfully removed!")
+//                            print("Document successfully updated")
 //                        }
 //                    }
-                self.accountList.remove(at: indexPath.row)
-                friendsCollection.reloadData()
-            }
-        }
-    }
-}
+////                    .document(user.uid)
+////                    .collection("goals")
+////                    .document(documentId)
+////                    .delete() { err in
+////                        if let err = err {
+////                            print("Error removing document: \(err)")
+////                        } else {
+////                            print("Document successfully removed!")
+////                        }
+////                    }
+//                self.accountList.remove(at: indexPath.row)
+//                friendsCollection.reloadData()
+//            }
+//        }
+//    }
+//}
 
 
 

@@ -13,18 +13,22 @@ class FriendAccCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var friendName: UILabel!
     @IBOutlet weak var deleteButton: UIButton!
     
-    weak var delegate:FriendAccountDelegate?
+//    weak var delegate:FriendAccountDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
         design()
     }
     
+//    @IBAction func deleteButton(_ sender: Any) {
+//        delegate?.tappedDelete(cell: self)
+//    }
+    
     func design() {
         friendIcon.layer.cornerRadius = 36
     }
 }
 
-protocol FriendAccountDelegate: AnyObject{
-    func tappedDelete(cell: FriendAccCollectionViewCell)
-}
+//protocol FriendAccountDelegate: AnyObject{
+//    func tappedDelete(cell: FriendAccCollectionViewCell)
+//}

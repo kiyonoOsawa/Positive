@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseCore
+import FirebaseAuth
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let firstLunch = [firstLunchKey: true]
         userDefaults.register(defaults: firstLunch)
         FirebaseApp.configure()
+        try? Auth.auth().useUserAccessGroup("7Y5RBD24LU.com.kiyono.Positive")
         return true
     }
 

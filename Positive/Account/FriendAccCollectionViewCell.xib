@@ -40,6 +40,9 @@
                         <color key="tintColor" systemColor="labelColor"/>
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain" title="×"/>
+                        <connections>
+                            <action selector="deleteButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="3xa-Ik-FjH"/>
+                        </connections>
                     </button>
                 </subviews>
             </view>
