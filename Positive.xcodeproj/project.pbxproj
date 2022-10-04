@@ -24,6 +24,11 @@
 		CE798A7728D9AA5C00E5C340 /* SaveCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE798A7528D9AA5C00E5C340 /* SaveCollectionViewCell.xib */; };
 		CE7A58BB289AC3B200AD3946 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7A58BA289AC3B200AD3946 /* APIClient.swift */; };
 		CE7A58C2289E1D5000AD3946 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7A58C1289E1D5000AD3946 /* DataModel.swift */; };
+		CE7F69A828EC6D4C00D9B990 /* MyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F69A728EC6D4C00D9B990 /* MyListViewController.swift */; };
+		CE7F69AB28EC6DA200D9B990 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F69A928EC6DA200D9B990 /* CategoryCollectionViewCell.swift */; };
+		CE7F69AC28EC6DA200D9B990 /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE7F69AA28EC6DA200D9B990 /* CategoryCollectionViewCell.xib */; };
+		CE7F69B328EC736300D9B990 /* SimpleEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F69B128EC734E00D9B990 /* SimpleEntry.swift */; };
+		CE7F69B428EC736700D9B990 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F69AF28EC731200D9B990 /* Provider.swift */; };
 		CE80C15728716EF9000646B2 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80C15628716EF9000646B2 /* Goal.swift */; };
 		CE8D8BE928B911840024B322 /* TargetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D8BE828B911840024B322 /* TargetDetailViewController.swift */; };
 		CE8D8BEB28B9194C0024B322 /* CircleChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D8BEA28B9194C0024B322 /* CircleChart.swift */; };
@@ -60,6 +65,8 @@
 		CECC28BB28EB77ED00219F98 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = CECC28BA28EB77ED00219F98 /* FirebaseFirestore */; };
 		CECC28BD28EB77F900219F98 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = CECC28BC28EB77F900219F98 /* FirebaseAnalytics */; };
 		CECC28C028EB7D8900219F98 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CED85ED528DA047100AE22A3 /* GoogleService-Info.plist */; };
+		CECC28C128EC1D6C00219F98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE73D1622839DF4E00B20D0D /* Assets.xcassets */; };
+		CECC28C228EC1D8400219F98 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE798A6C28D856AC00E5C340 /* DateFormat.swift */; };
 		CED649BE28BC5DB600E12D61 /* MyQRCodeReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED649BD28BC5DB600E12D61 /* MyQRCodeReader.swift */; };
 		CED649C228BC5E6E00E12D61 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED649C128BC5E6E00E12D61 /* User.swift */; };
 		CED649C628BC5F3300E12D61 /* CapturingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED649C528BC5F3300E12D61 /* CapturingViewController.swift */; };
@@ -122,6 +129,11 @@
 		CE798A7528D9AA5C00E5C340 /* SaveCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SaveCollectionViewCell.xib; sourceTree = "<group>"; };
 		CE7A58BA289AC3B200AD3946 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		CE7A58C1289E1D5000AD3946 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		CE7F69A728EC6D4C00D9B990 /* MyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListViewController.swift; sourceTree = "<group>"; };
+		CE7F69A928EC6DA200D9B990 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		CE7F69AA28EC6DA200D9B990 /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
+		CE7F69AF28EC731200D9B990 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
+		CE7F69B128EC734E00D9B990 /* SimpleEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleEntry.swift; sourceTree = "<group>"; };
 		CE80C15628716EF9000646B2 /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		CE8D8BE828B911840024B322 /* TargetDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetDetailViewController.swift; sourceTree = "<group>"; };
 		CE8D8BEA28B9194C0024B322 /* CircleChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleChart.swift; sourceTree = "<group>"; };
@@ -250,8 +262,9 @@
 				CE73D1592839DF4C00B20D0D /* AppDelegate.swift */,
 				CE73D15B2839DF4C00B20D0D /* SceneDelegate.swift */,
 				CEC6855B28B0B3C5007C0967 /* Alert.swift */,
+				CE798A6C28D856AC00E5C340 /* DateFormat.swift */,
 				CECC289C28EB1F6F00219F98 /* TabBar */,
-				CECC289B28EB1F2900219F98 /* Data */,
+				CECC289B28EB1F2900219F98 /* Model */,
 				CECC289D28EB1F9B00219F98 /* SignInUp */,
 				CEAE56C128975FA9002DBEA2 /* Home */,
 				CE6488E0287169DD0054408F /* MakeTarget */,
@@ -282,16 +295,15 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
-		CECC289B28EB1F2900219F98 /* Data */ = {
+		CECC289B28EB1F2900219F98 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				CE798A6C28D856AC00E5C340 /* DateFormat.swift */,
 				CE7A58C1289E1D5000AD3946 /* DataModel.swift */,
 				CED649C128BC5E6E00E12D61 /* User.swift */,
 				CE80C15628716EF9000646B2 /* Goal.swift */,
 				CEC6855928AFDA11007C0967 /* Review.swift */,
 			);
-			path = Data;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		CECC289C28EB1F6F00219F98 /* TabBar */ = {
@@ -329,10 +341,13 @@
 			isa = PBXGroup;
 			children = (
 				CEB4754A2859F894002654E6 /* AccountViewController.swift */,
+				CE7F69A728EC6D4C00D9B990 /* MyListViewController.swift */,
 				CE08B05528BD19860054D0D6 /* EditAccountViewController.swift */,
 				CE8D8BEA28B9194C0024B322 /* CircleChart.swift */,
 				CE644D8D28B7C580008443BE /* FriendAccCollectionViewCell.swift */,
 				CE644D8E28B7C580008443BE /* FriendAccCollectionViewCell.xib */,
+				CE7F69A928EC6DA200D9B990 /* CategoryCollectionViewCell.swift */,
+				CE7F69AA28EC6DA200D9B990 /* CategoryCollectionViewCell.xib */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -361,6 +376,8 @@
 			isa = PBXGroup;
 			children = (
 				CECC28AA28EB77B300219F98 /* TaffiWidget.swift */,
+				CE7F69AF28EC731200D9B990 /* Provider.swift */,
+				CE7F69B128EC734E00D9B990 /* SimpleEntry.swift */,
 				CECC28AC28EB77B300219F98 /* TaffiWidget.intentdefinition */,
 				CECC28AD28EB77B400219F98 /* Assets.xcassets */,
 				CECC28AF28EB77B400219F98 /* Info.plist */,
@@ -478,6 +495,7 @@
 				CE73D1632839DF4E00B20D0D /* Assets.xcassets in Resources */,
 				CEB47567286B499C002654E6 /* CalendarTargetCollectionViewCell.xib in Resources */,
 				CEB4757328713863002654E6 /* MakeTargetTableViewCell.xib in Resources */,
+				CE7F69AC28EC6DA200D9B990 /* CategoryCollectionViewCell.xib in Resources */,
 				CEB4757F28713B11002654E6 /* DateTargetTableViewCell.xib in Resources */,
 				CEAE56C5289766FB002DBEA2 /* FriendsInnerCollectionViewCell.xib in Resources */,
 				CE798A7728D9AA5C00E5C340 /* SaveCollectionViewCell.xib in Resources */,
@@ -491,6 +509,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CECC28AE28EB77B400219F98 /* Assets.xcassets in Resources */,
+				CECC28C128EC1D6C00219F98 /* Assets.xcassets in Resources */,
 				CECC28C028EB7D8900219F98 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -505,6 +524,7 @@
 				CEACDF50289571AF0005F4A6 /* ReviewViewController.swift in Sources */,
 				CE798A7628D9AA5C00E5C340 /* SaveCollectionViewCell.swift in Sources */,
 				CEB4757628713986002654E6 /* ImportanceTableViewCell.swift in Sources */,
+				CE7F69A828EC6D4C00D9B990 /* MyListViewController.swift in Sources */,
 				CEB4757228713863002654E6 /* MakeTargetTableViewCell.swift in Sources */,
 				CEEE82B8284B6A4400732497 /* TabBarViewController.swift in Sources */,
 				CED649C228BC5E6E00E12D61 /* User.swift in Sources */,
@@ -517,6 +537,7 @@
 				CEAE56C4289766FB002DBEA2 /* FriendsInnerCollectionViewCell.swift in Sources */,
 				CE798A6F28D9707100E5C340 /* SaveReviewViewController.swift in Sources */,
 				CED6A12F28C3487F0082D498 /* FlowLayout.swift in Sources */,
+				CE7F69AB28EC6DA200D9B990 /* CategoryCollectionViewCell.swift in Sources */,
 				CECC28B128EB77B400219F98 /* TaffiWidget.intentdefinition in Sources */,
 				CED649C628BC5F3300E12D61 /* CapturingViewController.swift in Sources */,
 				CEEE82B42847A99A00732497 /* SignUpViewController.swift in Sources */,
@@ -547,8 +568,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE7F69B328EC736300D9B990 /* SimpleEntry.swift in Sources */,
 				CECC28AB28EB77B300219F98 /* TaffiWidget.swift in Sources */,
 				CECC28B028EB77B400219F98 /* TaffiWidget.intentdefinition in Sources */,
+				CE7F69B428EC736700D9B990 /* Provider.swift in Sources */,
+				CECC28C228EC1D8400219F98 /* DateFormat.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

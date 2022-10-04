@@ -40,7 +40,7 @@ class TargetDetailViewController: UIViewController {
         setTabelView.dataSource = self
         setTabelView.register(UINib(nibName: "DateTargetTableViewCell", bundle: nil), forCellReuseIdentifier: "dateTargetCell")
         setTabelView.register(UINib(nibName: "ImportanceTableViewCell", bundle: nil), forCellReuseIdentifier: "importanceCell")
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "戻る", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.back))
+//        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "戻る", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.back))
         design()
     }
     
@@ -74,15 +74,6 @@ class TargetDetailViewController: UIViewController {
             .collection("goals")
             .document(DocumentId)
             .updateData(updateGoal)
-    }
-    
-    func dateFormat(date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.calendar = Calendar(identifier: .gregorian)
-        dateFormatter.locale = Locale(identifier: "ja_JP")
-        dateFormatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
-        dateFormatter.dateFormat = "yyyy/MM/dd"
-        return dateFormatter.string(from: date)
     }
 
     func design() {

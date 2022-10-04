@@ -68,15 +68,6 @@ class SaveReviewViewController: UIViewController {
         saveCollectionView.reloadData()
     }
     
-    func dateFormat(date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.calendar = Calendar(identifier: .gregorian)
-        dateFormatter.locale = Locale(identifier: "ja_JP")
-        dateFormatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
-        dateFormatter.dateFormat = "yyyy/MM/dd"
-        return dateFormatter.string(from: date)
-    }
-    
     private func fetchData() {
         guard let user = user else {
             return
@@ -93,9 +84,9 @@ class SaveReviewViewController: UIViewController {
                 print("ここでとる: \(querySnapShot.documents)")
                 for doc in querySnapShot.documents {
                     let detailGoal = DetailGoal(dictionary: doc.data(), documentID: doc.documentID)
-                    let deadlineDate = self.dateFormat(date: detailGoal.date.dateValue())
+                    let deadlineDate = DateFormat.shared.self.dateFormat(date: detailGoal.date.dateValue())
                     //                    let createDate = self.dateFormat(date: detailGoal.createdAt.dateValue())
-                    let today = self.dateFormat(date: Date())
+                    let today = DateFormat.shared.self.dateFormat(date: Date())
                     if deadlineDate.compare(today) == .orderedSame || deadlineDate.compare(today) == .orderedDescending{
                         self.addresses.append(detailGoal)
                     }
@@ -133,7 +124,7 @@ extension SaveReviewViewController: UICollectionViewDelegate, UICollectionViewDa
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "saveCell", for: indexPath) as! SaveCollectionViewCell
         cell.saveLabel.text = addresses[indexPath.row].goal
         let cellDate = addresses[indexPath.row].date.dateValue()
-        cell.dateLabel.text = dateFormat(date: cellDate)
+        cell.dateLabel.text = DateFormat.shared.dateFormat(date: cellDate)
         return cell
     }
     

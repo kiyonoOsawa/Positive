@@ -58,15 +58,6 @@ class CalendarViewController: UIViewController {
         design()
     }
     
-    func dateFormat(date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.calendar = Calendar(identifier: .gregorian)
-        dateFormatter.locale = Locale(identifier: "ja_JP")
-        dateFormatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
-        dateFormatter.dateFormat = "yyyy/MM/dd"
-        return dateFormatter.string(from: date)
-    }
-    
     private func fetchDataTarget(){
         guard let user = user else {
             return
@@ -87,7 +78,7 @@ class CalendarViewController: UIViewController {
                     let detailGoal = DetailGoal(dictionary: doc.data(), documentID: doc.documentID)
                     self.addresses.append(detailGoal)
                 }
-                if self.dateFormat(date: selectedDate) == self.dateFormat(date: Date()){
+                if DateFormat.shared.self.dateFormat(date: selectedDate) == DateFormat.shared.self.dateFormat(date: Date()){
                     self.filteringData(date: selectedDate)
                 }
                 self.reportCollectionView.reloadData()
@@ -119,7 +110,7 @@ class CalendarViewController: UIViewController {
                     self.addressesReview.append(review)
                     print("addressesReview: \(self.addressesReview)")
                 }
-                if self.dateFormat(date: selectedDate) == self.dateFormat(date: Date()){
+                if DateFormat.shared.self.dateFormat(date: selectedDate) == DateFormat.shared.self.dateFormat(date: Date()){
                     self.filteringData(date: selectedDate)
                 }
                 self.reportCollectionView.reloadData()
@@ -129,8 +120,8 @@ class CalendarViewController: UIViewController {
     private func checkEvents(date: Date) -> Int{
         let calendarDate = DateFormat.shared.dateFormat(date: date)
         events = addresses.filter({data in
-            let convertedDate = dateFormat(date: data.date.dateValue())
-            let startDate = dateFormat(date: data.createdAt.dateValue())
+            let convertedDate = DateFormat.shared.dateFormat(date: data.date.dateValue())
+            let startDate = DateFormat.shared.dateFormat(date: data.createdAt.dateValue())
             return (convertedDate.compare(calendarDate) == .orderedDescending || convertedDate.compare(calendarDate) == .orderedSame) && (startDate.compare(calendarDate) == .orderedAscending || startDate.compare(calendarDate) == .orderedSame)
         })
         if events.count == 0{
@@ -147,8 +138,8 @@ class CalendarViewController: UIViewController {
         let nextNC = nc.viewControllers[0] as! ReviewViewController
         nextNC.calendarSelectedDate = self.calendarView.selectedDate
         let deadLineData = addresses.filter { data in
-            let converteDate = dateFormat(date: data.date.dateValue())
-            let calendarDate = dateFormat(date: calendarView.selectedDate!)
+            let converteDate = DateFormat.shared.dateFormat(date: data.date.dateValue())
+            let calendarDate = DateFormat.shared.dateFormat(date: calendarView.selectedDate!)
             return converteDate.compare(calendarDate) == .orderedDescending || converteDate.compare(calendarDate) == .orderedSame
         }
         if deadLineData.isEmpty {
@@ -198,17 +189,17 @@ class CalendarViewController: UIViewController {
     }
     
     private func filteringData(date: Date){
-        let calendarDate = dateFormat(date: date)
+        let calendarDate = DateFormat.shared.dateFormat(date: date)
         applicableData.removeAll()
         applicableData = addresses.filter({data in
-            let converteDate = dateFormat(date: data.date.dateValue())
-            let calendarDate = dateFormat(date: calendarView.selectedDate!)
-            let startDate = dateFormat(date: data.createdAt.dateValue())
+            let converteDate = DateFormat.shared.dateFormat(date: data.date.dateValue())
+            let calendarDate = DateFormat.shared.dateFormat(date: calendarView.selectedDate!)
+            let startDate = DateFormat.shared.dateFormat(date: data.createdAt.dateValue())
             return (converteDate.compare(calendarDate) == .orderedDescending || converteDate.compare(calendarDate) == .orderedSame) && (startDate.compare( calendarDate) == .orderedAscending || startDate.compare(calendarDate) == .orderedSame)
         })
         applicableDataReview.removeAll()
         applicableDataReview = addressesReview.filter({ data in
-            let convertedDate = dateFormat(date: data.date.dateValue())
+            let convertedDate = DateFormat.shared.dateFormat(date: data.date.dateValue())
             return calendarDate == convertedDate
         })
         print("addressesCount: \(addresses.count)")
@@ -218,6 +209,7 @@ class CalendarViewController: UIViewController {
     }
     
     func design() {
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "戻る", style: .plain, target: nil, action: nil)
         reviewButton.layer.cornerRadius = 32
         reviewButton.layer.shadowColor = UIColor.black.cgColor
         reviewButton.layer.shadowOpacity = 0.15
@@ -370,17 +362,17 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource {
     }
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        let calendarDate = dateFormat(date: date)
+        let calendarDate = DateFormat.shared.dateFormat(date: date)
         applicableData.removeAll()
         applicableData = addresses.filter({data in
-            let convertedDate = dateFormat(date: data.date.dateValue())
-            let calendarDate = dateFormat(date: calendarView.selectedDate!)
-            let startDate = dateFormat(date: data.createdAt.dateValue())
+            let convertedDate = DateFormat.shared.dateFormat(date: data.date.dateValue())
+            let calendarDate = DateFormat.shared.dateFormat(date: calendarView.selectedDate!)
+            let startDate = DateFormat.shared.dateFormat(date: data.createdAt.dateValue())
             return (convertedDate.compare(calendarDate) == .orderedDescending || convertedDate.compare(calendarDate) == .orderedSame) && (startDate.compare(calendarDate) == .orderedAscending || startDate.compare(calendarDate) == .orderedSame)
         })
         applicableDataReview.removeAll()
         applicableDataReview = addressesReview.filter({ data in
-            let convertedDate = dateFormat(date: data.date.dateValue())
+            let convertedDate = DateFormat.shared.dateFormat(date: data.date.dateValue())
             return calendarDate == convertedDate
         })
         reportCollectionView.reloadData()

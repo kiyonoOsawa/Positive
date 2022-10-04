@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="categoryCell" id="gTV-IL-0wX" customClass="CategoryCollectionViewCell" customModule="Positive" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="313" height="74"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="313" height="74"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1P1-PC-BcV">
+                        <rect key="frame" x="0.0" y="0.0" width="313" height="74"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pzp-fF-baX">
+                        <rect key="frame" x="0.0" y="0.0" width="10" height="74"/>
+                        <color key="backgroundColor" name="MainColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="10" id="kRk-SA-57V"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xDT-SZ-WQa">
+                        <rect key="frame" x="34" y="29.5" width="40" height="15"/>
+                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dWE-rW-7DF">
+                        <rect key="frame" x="285" y="31" width="12" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="12" id="5Wd-8h-SNK"/>
+                            <constraint firstAttribute="width" constant="12" id="l6i-fv-RjG"/>
+                        </constraints>
+                        <color key="tintColor" systemColor="opaqueSeparatorColor"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain">
+                            <imageReference key="image" image="chevron.right" catalog="system" symbolScale="small"/>
+                        </buttonConfiguration>
+                    </button>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="Pzp-fF-baX" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="2aS-F9-Ewt"/>
+                <constraint firstAttribute="trailing" secondItem="dWE-rW-7DF" secondAttribute="trailing" constant="16" id="5a5-Hp-KIn"/>
+                <constraint firstAttribute="trailing" secondItem="1P1-PC-BcV" secondAttribute="trailing" id="6rg-yJ-mhT"/>
+                <constraint firstItem="xDT-SZ-WQa" firstAttribute="leading" secondItem="Pzp-fF-baX" secondAttribute="trailing" constant="24" id="DPF-H8-mQn"/>
+                <constraint firstItem="dWE-rW-7DF" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="NQH-n9-rdf"/>
+                <constraint firstAttribute="bottom" secondItem="1P1-PC-BcV" secondAttribute="bottom" id="PcU-ae-F5y"/>
+                <constraint firstItem="Pzp-fF-baX" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="TYD-4q-lwX"/>
+                <constraint firstItem="1P1-PC-BcV" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="VlC-bb-SAC"/>
+                <constraint firstItem="xDT-SZ-WQa" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="r4j-0G-HHN"/>
+                <constraint firstAttribute="bottom" secondItem="Pzp-fF-baX" secondAttribute="bottom" id="ty3-Wn-sL1"/>
+                <constraint firstItem="1P1-PC-BcV" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="yWe-ON-kjy"/>
+            </constraints>
+            <size key="customSize" width="313" height="74"/>
+            <connections>
+                <outlet property="backView" destination="1P1-PC-BcV" id="WKk-Ov-Ecy"/>
+                <outlet property="categoryLabel" destination="xDT-SZ-WQa" id="Aba-kG-Stn"/>
+                <outlet property="leftBar" destination="Pzp-fF-baX" id="tt5-sP-goO"/>
+            </connections>
+            <point key="canvasLocation" x="328.26086956521743" y="85.714285714285708"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="chevron.right" catalog="system" width="96" height="128"/>
+        <namedColor name="MainColor">
+            <color red="0.92549019607843142" green="0.32549019607843138" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

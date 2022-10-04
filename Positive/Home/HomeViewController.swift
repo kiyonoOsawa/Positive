@@ -52,15 +52,6 @@ class HomeViewController: UIViewController {
         fetchFriendsData()
     }
     
-    func dateFormat(date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.calendar = Calendar(identifier: .gregorian)
-        dateFormatter.locale = Locale(identifier: "ja_JP")
-        dateFormatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
-        dateFormatter.dateFormat = "yyyy/MM/dd"
-        return dateFormatter.string(from: date)
-    }
-    
     private func fetchData() {
         guard let user = user else {
             return
@@ -77,8 +68,8 @@ class HomeViewController: UIViewController {
                 print("ここでとる: \(querySnapShot.documents)")
                 for doc in querySnapShot.documents {
                     let detailGoal = DetailGoal(dictionary: doc.data(), documentID: doc.documentID)
-                    let deadlineDate = self.dateFormat(date: detailGoal.date.dateValue())
-                    let today = self.dateFormat(date: Date())
+                    let deadlineDate = DateFormat.shared.self.dateFormat(date: detailGoal.date.dateValue())
+                    let today = DateFormat.shared.self.dateFormat(date: Date())
                     if deadlineDate.compare(today) == .orderedSame || deadlineDate.compare(today) == .orderedDescending{
                         self.addresses.append(detailGoal)
                     }
@@ -126,6 +117,7 @@ class HomeViewController: UIViewController {
     func design() {
         self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController!.navigationBar.shadowImage = UIImage()
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "戻る", style: .plain, target: nil, action: nil)
         targetCollection.layer.cornerRadius = 25
         targetCollection.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         targetCollection.backgroundColor = .clear
@@ -170,7 +162,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             cell.layer.shadowRadius = 5
             cell.layer.masksToBounds = false
             let cellDate = addresses[indexPath.row].date.dateValue()
-            cell.dateLabel.text = dateFormat(date: cellDate)
+            cell.dateLabel.text = DateFormat.shared.dateFormat(date: cellDate)
             cell.goalLabel.text = addresses[indexPath.row].goal
             cell.miniGoal.text = addresses[indexPath.row].nowTodo
             let iineList = addresses[indexPath.row].iineUsers
@@ -275,6 +267,8 @@ extension HomeViewController: FriendsCellDelegate{
                     .collection("goals")
                     .document(documentId)
                     .updateData(["iineUsers": addressesFriends[indexPath.row].iineUsers])
+                let feedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
+                feedbackGenerator.impactOccurred()
             }else{
                 self.db.collection("users")
                     .document(userId)
