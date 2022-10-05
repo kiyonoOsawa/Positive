@@ -24,9 +24,12 @@
 		CE798A7728D9AA5C00E5C340 /* SaveCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE798A7528D9AA5C00E5C340 /* SaveCollectionViewCell.xib */; };
 		CE7A58BB289AC3B200AD3946 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7A58BA289AC3B200AD3946 /* APIClient.swift */; };
 		CE7A58C2289E1D5000AD3946 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7A58C1289E1D5000AD3946 /* DataModel.swift */; };
+		CE7E727928ECDD0000C0E550 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7E727728ECDD0000C0E550 /* CategoryTableViewCell.swift */; };
+		CE7E727A28ECDD0000C0E550 /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE7E727828ECDD0000C0E550 /* CategoryTableViewCell.xib */; };
+		CE7E727C28ED8D0700C0E550 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7E727B28ED8D0700C0E550 /* ListViewController.swift */; };
+		CE7E727F28ED8D3600C0E550 /* ListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7E727D28ED8D3600C0E550 /* ListCollectionViewCell.swift */; };
+		CE7E728028ED8D3600C0E550 /* ListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE7E727E28ED8D3600C0E550 /* ListCollectionViewCell.xib */; };
 		CE7F69A828EC6D4C00D9B990 /* MyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F69A728EC6D4C00D9B990 /* MyListViewController.swift */; };
-		CE7F69AB28EC6DA200D9B990 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F69A928EC6DA200D9B990 /* CategoryCollectionViewCell.swift */; };
-		CE7F69AC28EC6DA200D9B990 /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE7F69AA28EC6DA200D9B990 /* CategoryCollectionViewCell.xib */; };
 		CE7F69B328EC736300D9B990 /* SimpleEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F69B128EC734E00D9B990 /* SimpleEntry.swift */; };
 		CE7F69B428EC736700D9B990 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F69AF28EC731200D9B990 /* Provider.swift */; };
 		CE80C15728716EF9000646B2 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80C15628716EF9000646B2 /* Goal.swift */; };
@@ -129,9 +132,12 @@
 		CE798A7528D9AA5C00E5C340 /* SaveCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SaveCollectionViewCell.xib; sourceTree = "<group>"; };
 		CE7A58BA289AC3B200AD3946 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		CE7A58C1289E1D5000AD3946 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		CE7E727728ECDD0000C0E550 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
+		CE7E727828ECDD0000C0E550 /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
+		CE7E727B28ED8D0700C0E550 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		CE7E727D28ED8D3600C0E550 /* ListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCollectionViewCell.swift; sourceTree = "<group>"; };
+		CE7E727E28ED8D3600C0E550 /* ListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListCollectionViewCell.xib; sourceTree = "<group>"; };
 		CE7F69A728EC6D4C00D9B990 /* MyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListViewController.swift; sourceTree = "<group>"; };
-		CE7F69A928EC6DA200D9B990 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
-		CE7F69AA28EC6DA200D9B990 /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		CE7F69AF28EC731200D9B990 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 		CE7F69B128EC734E00D9B990 /* SimpleEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleEntry.swift; sourceTree = "<group>"; };
 		CE80C15628716EF9000646B2 /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
@@ -342,12 +348,15 @@
 			children = (
 				CEB4754A2859F894002654E6 /* AccountViewController.swift */,
 				CE7F69A728EC6D4C00D9B990 /* MyListViewController.swift */,
+				CE7E727B28ED8D0700C0E550 /* ListViewController.swift */,
 				CE08B05528BD19860054D0D6 /* EditAccountViewController.swift */,
 				CE8D8BEA28B9194C0024B322 /* CircleChart.swift */,
 				CE644D8D28B7C580008443BE /* FriendAccCollectionViewCell.swift */,
 				CE644D8E28B7C580008443BE /* FriendAccCollectionViewCell.xib */,
-				CE7F69A928EC6DA200D9B990 /* CategoryCollectionViewCell.swift */,
-				CE7F69AA28EC6DA200D9B990 /* CategoryCollectionViewCell.xib */,
+				CE7E727728ECDD0000C0E550 /* CategoryTableViewCell.swift */,
+				CE7E727828ECDD0000C0E550 /* CategoryTableViewCell.xib */,
+				CE7E727D28ED8D3600C0E550 /* ListCollectionViewCell.swift */,
+				CE7E727E28ED8D3600C0E550 /* ListCollectionViewCell.xib */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -492,10 +501,11 @@
 				CEAE56BD289746DB002DBEA2 /* InnerCollectionViewCell.xib in Resources */,
 				CE644D9028B7C580008443BE /* FriendAccCollectionViewCell.xib in Resources */,
 				CE73D1662839DF4E00B20D0D /* LaunchScreen.storyboard in Resources */,
+				CE7E728028ED8D3600C0E550 /* ListCollectionViewCell.xib in Resources */,
 				CE73D1632839DF4E00B20D0D /* Assets.xcassets in Resources */,
+				CE7E727A28ECDD0000C0E550 /* CategoryTableViewCell.xib in Resources */,
 				CEB47567286B499C002654E6 /* CalendarTargetCollectionViewCell.xib in Resources */,
 				CEB4757328713863002654E6 /* MakeTargetTableViewCell.xib in Resources */,
-				CE7F69AC28EC6DA200D9B990 /* CategoryCollectionViewCell.xib in Resources */,
 				CEB4757F28713B11002654E6 /* DateTargetTableViewCell.xib in Resources */,
 				CEAE56C5289766FB002DBEA2 /* FriendsInnerCollectionViewCell.xib in Resources */,
 				CE798A7728D9AA5C00E5C340 /* SaveCollectionViewCell.xib in Resources */,
@@ -534,14 +544,15 @@
 				CEB4756B28713450002654E6 /* MakeTargetViewController.swift in Sources */,
 				CEB47566286B499C002654E6 /* CalendarTargetCollectionViewCell.swift in Sources */,
 				CEB4755B285F65CD002654E6 /* QuestionViewController.swift in Sources */,
+				CE7E727928ECDD0000C0E550 /* CategoryTableViewCell.swift in Sources */,
 				CEAE56C4289766FB002DBEA2 /* FriendsInnerCollectionViewCell.swift in Sources */,
 				CE798A6F28D9707100E5C340 /* SaveReviewViewController.swift in Sources */,
 				CED6A12F28C3487F0082D498 /* FlowLayout.swift in Sources */,
-				CE7F69AB28EC6DA200D9B990 /* CategoryCollectionViewCell.swift in Sources */,
 				CECC28B128EB77B400219F98 /* TaffiWidget.intentdefinition in Sources */,
 				CED649C628BC5F3300E12D61 /* CapturingViewController.swift in Sources */,
 				CEEE82B42847A99A00732497 /* SignUpViewController.swift in Sources */,
 				CE73D15A2839DF4C00B20D0D /* AppDelegate.swift in Sources */,
+				CE7E727C28ED8D0700C0E550 /* ListViewController.swift in Sources */,
 				CED649BE28BC5DB600E12D61 /* MyQRCodeReader.swift in Sources */,
 				CEC6855C28B0B3C6007C0967 /* Alert.swift in Sources */,
 				CE73D15C2839DF4C00B20D0D /* SceneDelegate.swift in Sources */,
@@ -556,6 +567,7 @@
 				CEC6855A28AFDA11007C0967 /* Review.swift in Sources */,
 				CE73D16E2839F62600B20D0D /* HomeViewController.swift in Sources */,
 				CEB4757E28713B11002654E6 /* DateTargetTableViewCell.swift in Sources */,
+				CE7E727F28ED8D3600C0E550 /* ListCollectionViewCell.swift in Sources */,
 				CEB4754B2859F894002654E6 /* AccountViewController.swift in Sources */,
 				CE3E7834288C40A000548FFD /* TabBar.swift in Sources */,
 				CE7A58BB289AC3B200AD3946 /* APIClient.swift in Sources */,

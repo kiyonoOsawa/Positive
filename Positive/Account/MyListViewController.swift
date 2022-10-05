@@ -9,57 +9,71 @@ import UIKit
 
 class MyListViewController: UIViewController {
     
-    @IBOutlet weak var categoryListCollection: UICollectionView!
+    @IBOutlet weak var categoryListTable: UITableView!
+    
+    var allTargetCell = CategoryTableViewCell()
+    var deadTargetCell = CategoryTableViewCell()
+    var reviewCell = CategoryTableViewCell()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        categoryListCollection.register(UINib(nibName: "CategoryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "categoryCell")
-        categoryListCollection.delegate = self
-        categoryListCollection.dataSource = self
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "戻る", style: .plain, target: nil, action: nil)
+        categoryListTable.register(UINib(nibName: "CategoryTableViewCell", bundle: nil), forCellReuseIdentifier: "categoryCell")
+        categoryListTable.dataSource = self
+        categoryListTable.delegate = self
+    }
+    
+    @IBAction func backView() {
+        self.dismiss(animated: true)
     }
 }
 
-extension MyListViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.section == 0 {
+            allTargetCell = tableView.dequeueReusableCell(withIdentifier: "categoryCell") as! CategoryTableViewCell
+            allTargetCell.selectionStyle = UITableViewCell.SelectionStyle.none
+            allTargetCell.categoryTitle.text = "すべての目標"
+            allTargetCell.categoryIcon.image = UIImage(named: "categoryAll")
+            return allTargetCell
+        } else if indexPath.section == 1 {
+            deadTargetCell = tableView.dequeueReusableCell(withIdentifier: "categoryCell") as! CategoryTableViewCell
+            deadTargetCell.selectionStyle = UITableViewCell.SelectionStyle.none
+            deadTargetCell.categoryTitle.text = "期限切れ"
+            deadTargetCell.categoryIcon.image = UIImage(named: "categoryDead")
+            return deadTargetCell
+        } else {
+            reviewCell = tableView.dequeueReusableCell(withIdentifier: "categoryCell") as! CategoryTableViewCell
+            reviewCell.selectionStyle = UITableViewCell.SelectionStyle.none
+            reviewCell.categoryTitle.text = "振り返り一覧"
+            reviewCell.categoryIcon.image = UIImage(named: "categoryReview")
+            return reviewCell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            self.performSegue(withIdentifier: "toAllView", sender: nil)
+            print("画面遷移")
+        } else if indexPath.section == 1 {
+            
+            return
+        }
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as! CategoryCollectionViewCell
-        cell.layer.cornerRadius = 15
-        cell.layer.shadowColor = UIColor.black.cgColor
-        cell.layer.shadowOpacity = 0.25
-        cell.layer.shadowOffset = CGSize(width: 0, height: 0)
-        cell.layer.shadowRadius = 5
-        cell.layer.masksToBounds = false
-//        cell.leftBar.layer.cornerRadius = 10
-//        cell.leftBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
-        if indexPath.section == 0 {
-            cell.categoryLabel.text = "すべての目標"
-            return cell
-        } else if indexPath.section == 1 {
-            cell.categoryLabel.text = "締切日を過ぎた目標"
-            return cell
-        } else if indexPath.section == 2 {
-            cell.categoryLabel.text = "振り返り"
-            return cell
-        }
-        return cell
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 56
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let space: CGFloat = 24
-        let cellWidth: CGFloat = categoryListCollection.frame.width - space
-        let cellHeight: CGFloat = 72
-        return CGSize(width: cellWidth, height: cellHeight)
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return .leastNormalMagnitude
     }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 35
-    }
-    
 }

@@ -24,7 +24,6 @@ class HomeViewController: UIViewController {
     
     let db = Firestore.firestore()
     let user = Auth.auth().currentUser
-    var viewWidth: CGFloat = 366
     var addresses: [DetailGoal] = []
     var friends: User? = nil
     var addressesFriends: [DetailGoal] = []
@@ -119,8 +118,8 @@ class HomeViewController: UIViewController {
         self.navigationController!.navigationBar.shadowImage = UIImage()
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "戻る", style: .plain, target: nil, action: nil)
         targetCollection.layer.cornerRadius = 25
-        targetCollection.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        targetCollection.backgroundColor = .clear
+//        targetCollection.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+//        targetCollection.backgroundColor = .clear
         friendsBack.layer.cornerRadius = 25
         friendsBack.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         friendTargetCollection.backgroundColor = .clear
