@@ -17,14 +17,18 @@ class MyListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "戻る", style: .plain, target: nil, action: nil)
         categoryListTable.register(UINib(nibName: "CategoryTableViewCell", bundle: nil), forCellReuseIdentifier: "categoryCell")
         categoryListTable.dataSource = self
         categoryListTable.delegate = self
+        design()
     }
     
     @IBAction func backView() {
         self.dismiss(animated: true)
+    }
+    
+    func design() {
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "戻る", style: .plain, target: nil, action: nil)
     }
 }
 
@@ -61,6 +65,10 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
             print("画面遷移")
         } else if indexPath.section == 1 {
             self.performSegue(withIdentifier: "toDeadView", sender: nil)
+            print("画面遷移")
+            return
+        } else if indexPath.section == 2 {
+            self.performSegue(withIdentifier: "toReviewList", sender: nil)
             print("画面遷移")
             return
         }

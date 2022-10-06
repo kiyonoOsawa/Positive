@@ -30,6 +30,7 @@
 		CE7E727F28ED8D3600C0E550 /* ListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7E727D28ED8D3600C0E550 /* ListCollectionViewCell.swift */; };
 		CE7E728028ED8D3600C0E550 /* ListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE7E727E28ED8D3600C0E550 /* ListCollectionViewCell.xib */; };
 		CE7E728228EDC8E200C0E550 /* DeadListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7E728128EDC8E200C0E550 /* DeadListViewController.swift */; };
+		CE7E728528EF104F00C0E550 /* ReviewListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7E728428EF104F00C0E550 /* ReviewListViewController.swift */; };
 		CE7F69A828EC6D4C00D9B990 /* MyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F69A728EC6D4C00D9B990 /* MyListViewController.swift */; };
 		CE7F69B328EC736300D9B990 /* SimpleEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F69B128EC734E00D9B990 /* SimpleEntry.swift */; };
 		CE7F69B428EC736700D9B990 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F69AF28EC731200D9B990 /* Provider.swift */; };
@@ -139,6 +140,7 @@
 		CE7E727D28ED8D3600C0E550 /* ListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCollectionViewCell.swift; sourceTree = "<group>"; };
 		CE7E727E28ED8D3600C0E550 /* ListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListCollectionViewCell.xib; sourceTree = "<group>"; };
 		CE7E728128EDC8E200C0E550 /* DeadListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadListViewController.swift; sourceTree = "<group>"; };
+		CE7E728428EF104F00C0E550 /* ReviewListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewListViewController.swift; sourceTree = "<group>"; };
 		CE7F69A728EC6D4C00D9B990 /* MyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListViewController.swift; sourceTree = "<group>"; };
 		CE7F69AF28EC731200D9B990 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 		CE7F69B128EC734E00D9B990 /* SimpleEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleEntry.swift; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 			children = (
 				CE7E727B28ED8D0700C0E550 /* ListViewController.swift */,
 				CE7E728128EDC8E200C0E550 /* DeadListViewController.swift */,
+				CE7E728428EF104F00C0E550 /* ReviewListViewController.swift */,
 				CE7E727D28ED8D3600C0E550 /* ListCollectionViewCell.swift */,
 				CE7E727E28ED8D3600C0E550 /* ListCollectionViewCell.xib */,
 			);
@@ -584,6 +587,7 @@
 				CE7A58BB289AC3B200AD3946 /* APIClient.swift in Sources */,
 				CE7E728228EDC8E200C0E550 /* DeadListViewController.swift in Sources */,
 				CE08B05628BD19870054D0D6 /* EditAccountViewController.swift in Sources */,
+				CE7E728528EF104F00C0E550 /* ReviewListViewController.swift in Sources */,
 				CE644D8F28B7C580008443BE /* FriendAccCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

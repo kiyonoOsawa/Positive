@@ -16,18 +16,20 @@ struct TuffyWidgetEntryView : View {
     var entry: Provider.Entry
     
     var body: some View {
-            VStack(alignment: .leading, spacing:10) {
+            VStack(alignment: .leading, spacing:8) {
                 HStack{
                 Image("step_fire")
                         .resizable()
-                        .scaledToFit()
-                        .frame(width: 40, height: 40, alignment: .leading)
+                        .scaledToFill()
+                        .frame(width: 35, height: 35, alignment: .leading)
+                        .edgesIgnoringSafeArea(.all)
                         .padding()
                         
                 Text("今の目標")
-                        .padding(.init(top: 10, leading: 0, bottom: 10, trailing: 0))
-                        .font(.custom("Hiragino Sans", size: 20))
+                        .padding(.init(top: 20, leading: 0, bottom: 20, trailing: 0))
+                        .font(.custom("Hiragino Sans", size: 18))
                 }
+                
                 ForEach(entry.goals){goal in
                     HStack {
                         Circle()
@@ -36,7 +38,7 @@ struct TuffyWidgetEntryView : View {
                         Text(goal.goal)
                     }
                     .padding(.horizontal)
-                    .font(.custom("Hiragino Sans", size: 18))
+                    .font(.custom("Hiragino Sans", size: 13))
                     Divider()
                 }
                 Spacer()
@@ -66,7 +68,8 @@ struct TuffyWidget_Previews: PreviewProvider {
     static var previews: some View {
         TuffyWidgetEntryView(entry: SimpleEntry(date: Date(), goals:[
             GoalForWidget(id: "1", date: Date(), goal: "sampleA", miniGoal: "miniSample"),
-            GoalForWidget(id: "2", date: Date(), goal: "sampleB", miniGoal: "miniSample")
+            GoalForWidget(id: "2", date: Date(), goal: "sampleB", miniGoal: "miniSample"),
+            GoalForWidget(id: "3", date: Date(), goal: "sampleB", miniGoal: "miniSample")
         ] , configuration: ConfigurationIntent()))
         .previewContext(WidgetPreviewContext(family: .systemMedium))
     }

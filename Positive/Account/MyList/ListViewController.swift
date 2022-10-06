@@ -73,6 +73,7 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
         cell.layer.shadowOpacity = 0.2
         cell.layer.shadowOffset = CGSize(width: 0, height: 0)
         cell.layer.masksToBounds = false
+        cell.delegate = self
         cell.targetLabel.text = addresses[indexPath.row].goal
         let cellDate = addresses[indexPath.row].date.dateValue()
         let viewDate = DateFormat.shared.dateFormat(date: cellDate)
