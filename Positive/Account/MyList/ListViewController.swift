@@ -18,7 +18,6 @@ class ListViewController: UIViewController {
     let db = Firestore.firestore()
     let user = Auth.auth().currentUser
     var addresses: [DetailGoal] = []
-    var addressesDeadLine: [DetailGoal] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +25,6 @@ class ListViewController: UIViewController {
         listCollection.delegate = self
         listCollection.dataSource = self
         fetchData()
-        fetchDeadData()
         design()
     }
     
@@ -45,46 +43,18 @@ class ListViewController: UIViewController {
                 self.addresses.removeAll()
                 print("ここでとる: \(querySnapShot.documents)")
                 for doc in querySnapShot.documents {
-                    let detailGoal = DetailGoal(dictionary: doc.data(), documentID: doc.documentID)
-                    let deadlineDate = DateFormat.shared.self.dateFormat(date: detailGoal.date.dateValue())
-                    let today = DateFormat.shared.self.dateFormat(date: Date())
-                    if deadlineDate.compare(today) == .orderedSame || deadlineDate.compare(today) == .orderedDescending{
-                        self.addresses.append(detailGoal)
-                    }
-                }
-                self.listCollection.reloadData()
-                print("目標が表示される")
-            }
-    }
-    
-    private func fetchDeadData() {
-        guard let user = user else {
-            return
-        }
-        db.collection("users")
-            .document(user.uid)
-            .collection("goals")
-            .addSnapshotListener { QuerySnapshot, Error in
-                guard let querySnapShot = QuerySnapshot else {
-                    print("error: \(Error.debugDescription)")
-                    return
-                }
-                self.addressesDeadLine.removeAll()
-                print("ここでとる: \(querySnapShot.documents)")
-                for doc in querySnapShot.documents {
                     var detailGoal = DetailGoal(dictionary: doc.data(), documentID: doc.documentID)
                     let deadlineDate = DateFormat.shared.self.dateFormat(date: detailGoal.date.dateValue())
                     let today = DateFormat.shared.self.dateFormat(date: Date())
-                    detailGoal.isPassed = true
                     if deadlineDate.compare(today) == .orderedAscending {
-                        self.addressesDeadLine.append(detailGoal)
+                        detailGoal.isPassed = true
                     }
+                    self.addresses.append(detailGoal)
                 }
                 self.listCollection.reloadData()
                 print("目標が表示される")
             }
     }
-    
     
     func design() {
         self.navigationController?.navigationBar.tintColor = UIColor(named: "rightTextColor")
@@ -107,21 +77,61 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let cellDate = addresses[indexPath.row].date.dateValue()
         let viewDate = DateFormat.shared.dateFormat(date: cellDate)
         cell.deadLabel.text = viewDate
-        let cellDeadDate = addressesDeadLine[indexPath.row].date.dateValue()
-        cell.deadLabel.text = DateFormat.shared.dateFormat(date: cellDeadDate)
-        if addresses[indexPath.row].isShared == true {
-            cell.deadLabel.tintColor = .red
+        if addresses[indexPath.row].isPassed == true {
+            cell.deadLabel.textColor = .red
         }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cellWidth: CGFloat = self.view.frame.width - 16
-        let cellHeight: CGFloat = 98
+        let cellWidth: CGFloat = self.view.frame.width - 32
+        let cellHeight: CGFloat = 80
         return CGSize(width: cellWidth, height: cellHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 30, left: 0, bottom: 20, right: 0)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+            let nextNC = storyboard?.instantiateViewController(withIdentifier: "detailTarget") as! TargetDetailViewController
+            nextNC.modalTransitionStyle = .coverVertical
+            nextNC.modalPresentationStyle = .pageSheet
+            nextNC.Goal = addresses[indexPath.row].goal
+            nextNC.MiniGoal = addresses[indexPath.row].nowTodo!
+            nextNC.Trigger = addresses[indexPath.row].trigger!
+            nextNC.EssentialThing = addresses[indexPath.row].essentialThing!
+            nextNC.DocumentId = addresses[indexPath.row].documentID
+            nextNC.IsShared = addresses[indexPath.row].isShared ?? true
+            nextNC.userName = addresses[indexPath.row].iineUsers
+            navigationController?.pushViewController(nextNC, animated: true)
+    }
+}
+
+extension ListViewController: ListCollectionDelegate {
+    func tappedDelete(cell: ListCollectionViewCell) {
+        AlertDialog.shared.showAlert(title: "目標を削除しますか？", message: "", viewController: self) {
+            delete()
+        }
+        
+        func delete() {
+            guard let user = user else {return}
+            if let indexPath = listCollection.indexPath(for: cell){
+                let documentId = addresses[indexPath.row].documentID
+                db.collection("users")
+                    .document(user.uid)
+                    .collection("goals")
+                    .document(documentId)
+                    .delete() { err in
+                        if let err = err {
+                            print("Error removing document: \(err)")
+                        } else {
+                            print("Document successfully removed!")
+                        }
+                    }
+                self.addresses.remove(at: indexPath.row)
+                listCollection.reloadData()
+            }
+        }
     }
 }

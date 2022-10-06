@@ -11,10 +11,19 @@ class ListCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var targetLabel: UILabel!
     @IBOutlet weak var deadLabel: UILabel!
+    @IBOutlet weak var deleteButton: UIButton!
+
+    weak var delegate: ListCollectionDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
+    
+    @IBAction func deleteButton(_ sender: Any) {
+        delegate?.tappedDelete(cell: self)
+    }
+}
 
+protocol ListCollectionDelegate: AnyObject {
+    func tappedDelete(cell: ListCollectionViewCell)
 }

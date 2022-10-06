@@ -477,6 +477,44 @@
             </objects>
             <point key="canvasLocation" x="5157" y="1547"/>
         </scene>
+        <!--期限切れ-->
+        <scene sceneID="QXB-GG-evr">
+            <objects>
+                <viewController id="p3m-2q-10B" customClass="DeadListViewController" customModule="Positive" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eIK-4k-X5R">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cXq-hC-xb2">
+                                <rect key="frame" x="0.0" y="56" width="390" height="734"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4Bi-C8-TPQ">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="WDb-p9-Ysp"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="cXq-hC-xb2" firstAttribute="leading" secondItem="WDb-p9-Ysp" secondAttribute="leading" id="98Q-3L-GfT"/>
+                            <constraint firstItem="cXq-hC-xb2" firstAttribute="bottom" secondItem="WDb-p9-Ysp" secondAttribute="bottom" id="Grr-p4-Lq4"/>
+                            <constraint firstItem="cXq-hC-xb2" firstAttribute="top" secondItem="WDb-p9-Ysp" secondAttribute="top" id="hjT-HN-unY"/>
+                            <constraint firstItem="cXq-hC-xb2" firstAttribute="trailing" secondItem="WDb-p9-Ysp" secondAttribute="trailing" id="ueZ-FS-Woe"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="期限切れ" id="a6N-XR-ngz"/>
+                    <connections>
+                        <outlet property="deadListCollection" destination="cXq-hC-xb2" id="bus-JE-HUP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QXE-1l-bKS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6044.6153846153848" y="1546.9194312796208"/>
+        </scene>
         <!--Home View Controller-->
         <scene sceneID="7tl-0Q-aEC">
             <objects>
@@ -485,12 +523,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="自分の目標" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="79u-Xs-rKd">
-                                <rect key="frame" x="24" y="107" width="80" height="16"/>
-                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="16"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8Du-Wx-ds8">
                                 <rect key="frame" x="67" y="128" width="256" height="256"/>
                                 <constraints>
@@ -508,6 +540,12 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="自分の目標" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="79u-Xs-rKd">
+                                <rect key="frame" x="24" y="107" width="80" height="16"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sNq-EC-7fc">
                                 <rect key="frame" x="0.0" y="461" width="390" height="383"/>
                                 <subviews>
@@ -1037,13 +1075,14 @@
                     <connections>
                         <outlet property="categoryListTable" destination="CxK-DF-iN9" id="1zW-EO-fRE"/>
                         <segue destination="A34-oV-hI6" kind="show" identifier="toAllView" id="qWa-H4-NJr"/>
+                        <segue destination="p3m-2q-10B" kind="show" identifier="toDeadView" id="DCa-fP-DB7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yrF-KJ-t8m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5223.0769230769229" y="824.64454976303318"/>
         </scene>
-        <!--List View Controller-->
+        <!--すべての目標-->
         <scene sceneID="pdp-iN-Pnw">
             <objects>
                 <viewController id="A34-oV-hI6" customClass="ListViewController" customModule="Positive" customModuleProvider="target" sceneMemberID="viewController">
@@ -1072,7 +1111,7 @@
                             <constraint firstItem="dKq-1K-vbL" firstAttribute="bottom" secondItem="ahG-tn-PZZ" secondAttribute="bottom" id="dhO-A0-4Ij"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="7Vu-v0-EV4"/>
+                    <navigationItem key="navigationItem" title="すべての目標" id="7Vu-v0-EV4"/>
                     <connections>
                         <outlet property="listCollection" destination="dKq-1K-vbL" id="5rs-j7-70c"/>
                     </connections>

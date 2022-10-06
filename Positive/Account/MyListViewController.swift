@@ -60,7 +60,8 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
             self.performSegue(withIdentifier: "toAllView", sender: nil)
             print("画面遷移")
         } else if indexPath.section == 1 {
-            
+            self.performSegue(withIdentifier: "toDeadView", sender: nil)
+            print("画面遷移")
             return
         }
     }

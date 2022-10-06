@@ -118,8 +118,6 @@ class HomeViewController: UIViewController {
         self.navigationController!.navigationBar.shadowImage = UIImage()
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "戻る", style: .plain, target: nil, action: nil)
         targetCollection.layer.cornerRadius = 25
-//        targetCollection.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-//        targetCollection.backgroundColor = .clear
         friendsBack.layer.cornerRadius = 25
         friendsBack.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         friendTargetCollection.backgroundColor = .clear
@@ -206,7 +204,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView.tag == 0 {
             let cellWidth: CGFloat = self.view.frame.width - 76
-            let cellHeight: CGFloat = targetCollection.frame.height - 70
+            let cellHeight: CGFloat = targetCollection.frame.height - 60
             return CGSize(width: cellWidth, height: cellHeight)
         } else {
             let space: CGFloat = 10

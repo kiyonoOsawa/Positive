@@ -27,8 +27,6 @@ class SaveReviewViewController: UIViewController {
         saveCollectionView.register(UINib(nibName: "SaveCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "saveCell")
         saveCollectionView.delegate = self
         saveCollectionView.dataSource = self
-        //        pickerView.delegate = self
-        //        pickerView.dataSource = self
         fetchData()
         initialSet()
         design()

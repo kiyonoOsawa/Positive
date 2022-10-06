@@ -297,7 +297,6 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
             nextView.EssentialThing = applicableData[indexPath.row].essentialThing!
             nextView.DocumentId = applicableData[indexPath.row].documentID
             nextView.IsShared = applicableData[indexPath.row].isShared ?? true
-            //1行だけ追加
             navigationController?.pushViewController(nextView, animated: true)
         }
     }

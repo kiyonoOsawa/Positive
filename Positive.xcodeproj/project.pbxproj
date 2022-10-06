@@ -29,6 +29,7 @@
 		CE7E727C28ED8D0700C0E550 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7E727B28ED8D0700C0E550 /* ListViewController.swift */; };
 		CE7E727F28ED8D3600C0E550 /* ListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7E727D28ED8D3600C0E550 /* ListCollectionViewCell.swift */; };
 		CE7E728028ED8D3600C0E550 /* ListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE7E727E28ED8D3600C0E550 /* ListCollectionViewCell.xib */; };
+		CE7E728228EDC8E200C0E550 /* DeadListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7E728128EDC8E200C0E550 /* DeadListViewController.swift */; };
 		CE7F69A828EC6D4C00D9B990 /* MyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F69A728EC6D4C00D9B990 /* MyListViewController.swift */; };
 		CE7F69B328EC736300D9B990 /* SimpleEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F69B128EC734E00D9B990 /* SimpleEntry.swift */; };
 		CE7F69B428EC736700D9B990 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F69AF28EC731200D9B990 /* Provider.swift */; };
@@ -137,6 +138,7 @@
 		CE7E727B28ED8D0700C0E550 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		CE7E727D28ED8D3600C0E550 /* ListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCollectionViewCell.swift; sourceTree = "<group>"; };
 		CE7E727E28ED8D3600C0E550 /* ListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListCollectionViewCell.xib; sourceTree = "<group>"; };
+		CE7E728128EDC8E200C0E550 /* DeadListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadListViewController.swift; sourceTree = "<group>"; };
 		CE7F69A728EC6D4C00D9B990 /* MyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListViewController.swift; sourceTree = "<group>"; };
 		CE7F69AF28EC731200D9B990 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 		CE7F69B128EC734E00D9B990 /* SimpleEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleEntry.swift; sourceTree = "<group>"; };
@@ -287,6 +289,17 @@
 			path = Positive;
 			sourceTree = "<group>";
 		};
+		CE7E728328EE2A8900C0E550 /* MyList */ = {
+			isa = PBXGroup;
+			children = (
+				CE7E727B28ED8D0700C0E550 /* ListViewController.swift */,
+				CE7E728128EDC8E200C0E550 /* DeadListViewController.swift */,
+				CE7E727D28ED8D3600C0E550 /* ListCollectionViewCell.swift */,
+				CE7E727E28ED8D3600C0E550 /* ListCollectionViewCell.xib */,
+			);
+			path = MyList;
+			sourceTree = "<group>";
+		};
 		CEAE56C128975FA9002DBEA2 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -348,15 +361,13 @@
 			children = (
 				CEB4754A2859F894002654E6 /* AccountViewController.swift */,
 				CE7F69A728EC6D4C00D9B990 /* MyListViewController.swift */,
-				CE7E727B28ED8D0700C0E550 /* ListViewController.swift */,
 				CE08B05528BD19860054D0D6 /* EditAccountViewController.swift */,
 				CE8D8BEA28B9194C0024B322 /* CircleChart.swift */,
 				CE644D8D28B7C580008443BE /* FriendAccCollectionViewCell.swift */,
 				CE644D8E28B7C580008443BE /* FriendAccCollectionViewCell.xib */,
 				CE7E727728ECDD0000C0E550 /* CategoryTableViewCell.swift */,
 				CE7E727828ECDD0000C0E550 /* CategoryTableViewCell.xib */,
-				CE7E727D28ED8D3600C0E550 /* ListCollectionViewCell.swift */,
-				CE7E727E28ED8D3600C0E550 /* ListCollectionViewCell.xib */,
+				CE7E728328EE2A8900C0E550 /* MyList */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -571,6 +582,7 @@
 				CEB4754B2859F894002654E6 /* AccountViewController.swift in Sources */,
 				CE3E7834288C40A000548FFD /* TabBar.swift in Sources */,
 				CE7A58BB289AC3B200AD3946 /* APIClient.swift in Sources */,
+				CE7E728228EDC8E200C0E550 /* DeadListViewController.swift in Sources */,
 				CE08B05628BD19870054D0D6 /* EditAccountViewController.swift in Sources */,
 				CE644D8F28B7C580008443BE /* FriendAccCollectionViewCell.swift in Sources */,
 			);

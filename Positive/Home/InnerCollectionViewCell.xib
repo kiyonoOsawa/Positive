@@ -32,21 +32,21 @@
                         </connections>
                     </button>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="R7l-O8-Qz0">
-                        <rect key="frame" x="32" y="93" width="288" height="123"/>
+                        <rect key="frame" x="32" y="109" width="288" height="115"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <color key="textColor" systemColor="labelColor"/>
                         <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="14"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dkz-71-G10">
-                        <rect key="frame" x="148" y="228" width="56" height="56"/>
+                        <rect key="frame" x="148" y="236" width="56" height="56"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="56" id="Kel-zG-Fyb"/>
                             <constraint firstAttribute="height" constant="56" id="ULy-Hh-bTP"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hpB-qQ-fXj">
-                        <rect key="frame" x="24" y="32" width="304" height="40"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="あああああああああああああああ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hpB-qQ-fXj">
+                        <rect key="frame" x="24" y="40" width="304" height="40"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="D6N-V3-EXi"/>
                         </constraints>
@@ -55,13 +55,16 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w9O-x8-NDT">
-                        <rect key="frame" x="159" y="72" width="34.5" height="13"/>
+                        <rect key="frame" x="159" y="88" width="34.5" height="13"/>
                         <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="13"/>
                         <color key="textColor" name="grayTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SnQ-0Z-sOh">
-                        <rect key="frame" x="306" y="8" width="30" height="24"/>
+                        <rect key="frame" x="306" y="24" width="30" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="OpD-g1-w24"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="29"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -94,20 +97,19 @@
                 <constraint firstAttribute="trailing" secondItem="OX5-f1-6aQ" secondAttribute="trailing" constant="24" id="CPP-wP-pWv"/>
                 <constraint firstItem="2aR-Ri-zvE" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="G7t-ac-rqG"/>
                 <constraint firstItem="hpB-qQ-fXj" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="24" id="IDu-PG-wpv"/>
-                <constraint firstItem="SnQ-0Z-sOh" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="Jto-D6-pG8"/>
+                <constraint firstItem="SnQ-0Z-sOh" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="24" id="Jto-D6-pG8"/>
                 <constraint firstItem="w9O-x8-NDT" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="K0r-st-8Jt"/>
                 <constraint firstItem="OX5-f1-6aQ" firstAttribute="leading" secondItem="gWU-Sr-5Ek" secondAttribute="trailing" constant="2" id="O9b-NR-Kxg"/>
                 <constraint firstAttribute="bottom" secondItem="OX5-f1-6aQ" secondAttribute="bottom" constant="18" id="RIW-qU-roy"/>
                 <constraint firstItem="2aR-Ri-zvE" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="0.340909" id="TrE-eT-Zu7"/>
-                <constraint firstItem="2aR-Ri-zvE" firstAttribute="top" secondItem="dkz-71-G10" secondAttribute="bottom" constant="12" id="YYi-vz-4ov"/>
+                <constraint firstItem="2aR-Ri-zvE" firstAttribute="top" secondItem="dkz-71-G10" secondAttribute="bottom" constant="4" id="YYi-vz-4ov"/>
                 <constraint firstAttribute="bottom" secondItem="2aR-Ri-zvE" secondAttribute="bottom" constant="12" id="ZJP-3a-KWn"/>
                 <constraint firstItem="dkz-71-G10" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="bqs-GG-RqG"/>
                 <constraint firstItem="R7l-O8-Qz0" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="32" id="cD8-Ni-eRL"/>
+                <constraint firstItem="w9O-x8-NDT" firstAttribute="top" secondItem="hpB-qQ-fXj" secondAttribute="bottom" constant="8" id="kyb-zS-u2h"/>
                 <constraint firstAttribute="trailing" secondItem="R7l-O8-Qz0" secondAttribute="trailing" constant="32" id="mol-aT-heG"/>
                 <constraint firstAttribute="trailing" secondItem="SnQ-0Z-sOh" secondAttribute="trailing" constant="16" id="nL9-bN-KZK"/>
                 <constraint firstItem="hpB-qQ-fXj" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="tcD-qZ-294"/>
-                <constraint firstItem="hpB-qQ-fXj" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="32" id="z4p-fG-tdv"/>
-                <constraint firstItem="w9O-x8-NDT" firstAttribute="top" secondItem="hpB-qQ-fXj" secondAttribute="bottom" id="zKi-zj-VZP"/>
             </constraints>
             <size key="customSize" width="324" height="147"/>
             <connections>
@@ -119,7 +121,7 @@
                 <outlet property="reviewButton" destination="2aR-Ri-zvE" id="7DU-Uf-nmT"/>
                 <outlet property="stepView" destination="dkz-71-G10" id="l75-M2-jM6"/>
             </connections>
-            <point key="canvasLocation" x="218.84057971014494" y="65.625"/>
+            <point key="canvasLocation" x="199" y="59"/>
         </collectionViewCell>
     </objects>
     <resources>
