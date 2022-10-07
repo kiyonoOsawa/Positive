@@ -23,11 +23,11 @@ struct TuffyWidgetEntryView : View {
                         .scaledToFill()
                         .frame(width: 35, height: 35, alignment: .leading)
                         .edgesIgnoringSafeArea(.all)
-                        .padding()
+                        .padding(.init(top: 15, leading: 10, bottom: 5, trailing: 10))
                         
                 Text("今の目標")
-                        .padding(.init(top: 20, leading: 0, bottom: 20, trailing: 0))
-                        .font(.custom("Hiragino Sans", size: 18))
+                        .padding(.init(top: 15, leading: 0, bottom: 5, trailing: 0))
+                        .font(.custom("Hiragino Sans", size: 16))
                 }
                 
                 ForEach(entry.goals){goal in

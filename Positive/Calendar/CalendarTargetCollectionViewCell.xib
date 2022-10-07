@@ -71,7 +71,7 @@
                 <outlet property="miniTargetLabel" destination="nKw-BI-jCP" id="F3B-au-nMm"/>
                 <outlet property="textLabel" destination="JNU-4S-SOG" id="wCe-1J-Gjy"/>
             </connections>
-            <point key="canvasLocation" x="137.68115942028987" y="86.383928571428569"/>
+            <point key="canvasLocation" x="41" y="60"/>
         </collectionViewCell>
     </objects>
     <resources>
