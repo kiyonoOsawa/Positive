@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qUu-tt-rCg">
-                                <rect key="frame" x="0.0" y="503.66666666666674" width="390" height="245"/>
+                                <rect key="frame" x="0.0" y="475" width="390" height="245"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VIq-Nt-EDo">
                                         <rect key="frame" x="20" y="47.999999999999943" width="370" height="173"/>
@@ -78,7 +78,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pfa-E8-AYh">
-                                <rect key="frame" x="30" y="224" width="330" height="253.33333333333337"/>
+                                <rect key="frame" x="30" y="224" width="330" height="224.66666666666663"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ポジティブ度" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VNI-Qe-UaL">
                                         <rect key="frame" x="16" y="24" width="72" height="17"/>
@@ -90,7 +90,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cJa-52-p4m">
-                                        <rect key="frame" x="170" y="53" width="12.666666666666657" height="17"/>
+                                        <rect key="frame" x="170" y="50.666666666666686" width="12.666666666666657" height="17"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="17" id="jZT-gr-c1S"/>
                                         </constraints>
@@ -99,7 +99,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="０" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v21-YT-JIu">
-                                        <rect key="frame" x="96" y="40" width="66" height="42.666666666666657"/>
+                                        <rect key="frame" x="96" y="40" width="66" height="38"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="66" id="acg-e9-yvB"/>
                                         </constraints>
@@ -108,7 +108,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5xr-B4-EgR" customClass="LineChartView" customModule="Charts">
-                                        <rect key="frame" x="24" y="90.666666666666686" width="282" height="147"/>
+                                        <rect key="frame" x="24" y="86.000000000000014" width="282" height="130.33333333333337"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                 </subviews>
@@ -136,7 +136,7 @@
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Olr-cc-QI3">
-                                <rect key="frame" x="0.0" y="748.66666666666663" width="390" height="95.333333333333371"/>
+                                <rect key="frame" x="0.0" y="720" width="390" height="29"/>
                                 <color key="backgroundColor" name="rightColor"/>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shadowImage" translatesAutoresizingMaskIntoConstraints="NO" id="MQn-mP-Xpf">
@@ -476,44 +476,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dCj-UI-jD1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5157" y="1547"/>
-        </scene>
-        <!--期限切れ-->
-        <scene sceneID="QXB-GG-evr">
-            <objects>
-                <viewController id="p3m-2q-10B" customClass="DeadListViewController" customModule="Positive" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="eIK-4k-X5R">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cXq-hC-xb2">
-                                <rect key="frame" x="0.0" y="56" width="390" height="734"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4Bi-C8-TPQ">
-                                    <size key="itemSize" width="128" height="128"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells/>
-                            </collectionView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="WDb-p9-Ysp"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="cXq-hC-xb2" firstAttribute="leading" secondItem="WDb-p9-Ysp" secondAttribute="leading" id="98Q-3L-GfT"/>
-                            <constraint firstItem="cXq-hC-xb2" firstAttribute="bottom" secondItem="WDb-p9-Ysp" secondAttribute="bottom" id="Grr-p4-Lq4"/>
-                            <constraint firstItem="cXq-hC-xb2" firstAttribute="top" secondItem="WDb-p9-Ysp" secondAttribute="top" id="hjT-HN-unY"/>
-                            <constraint firstItem="cXq-hC-xb2" firstAttribute="trailing" secondItem="WDb-p9-Ysp" secondAttribute="trailing" id="ueZ-FS-Woe"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="期限切れ" id="a6N-XR-ngz"/>
-                    <connections>
-                        <outlet property="deadListCollection" destination="cXq-hC-xb2" id="bus-JE-HUP"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QXE-1l-bKS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="6044.6153846153848" y="1546.9194312796208"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="7tl-0Q-aEC">
@@ -1074,19 +1036,17 @@
                     </navigationItem>
                     <connections>
                         <outlet property="categoryListTable" destination="CxK-DF-iN9" id="1zW-EO-fRE"/>
-                        <segue destination="A34-oV-hI6" kind="show" identifier="toAllView" id="qWa-H4-NJr"/>
-                        <segue destination="p3m-2q-10B" kind="show" identifier="toDeadView" id="DCa-fP-DB7"/>
-                        <segue destination="91R-Ni-I8J" kind="show" identifier="toReviewList" id="MaV-9Z-DZs"/>
+                        <segue destination="A34-oV-hI6" kind="show" identifier="" id="qWa-H4-NJr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yrF-KJ-t8m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5223.0769230769229" y="824.64454976303318"/>
         </scene>
-        <!--すべての目標-->
+        <!--List View Controller-->
         <scene sceneID="pdp-iN-Pnw">
             <objects>
-                <viewController id="A34-oV-hI6" customClass="ListViewController" customModule="Positive" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="listView" id="A34-oV-hI6" customClass="ListViewController" customModule="Positive" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Ht-cw-eQN">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1112,7 +1072,7 @@
                             <constraint firstItem="dKq-1K-vbL" firstAttribute="bottom" secondItem="ahG-tn-PZZ" secondAttribute="bottom" id="dhO-A0-4Ij"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="すべての目標" id="7Vu-v0-EV4"/>
+                    <navigationItem key="navigationItem" id="7Vu-v0-EV4"/>
                     <connections>
                         <outlet property="listCollection" destination="dKq-1K-vbL" id="5rs-j7-70c"/>
                     </connections>
@@ -1120,44 +1080,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nVH-cO-0eK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6044.6153846153848" y="824.64454976303318"/>
-        </scene>
-        <!--振り返り一覧-->
-        <scene sceneID="S5E-3H-PER">
-            <objects>
-                <viewController id="91R-Ni-I8J" customClass="ReviewListViewController" customModule="Positive" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="6oV-5t-2ak">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cV1-8y-NwG">
-                                <rect key="frame" x="0.0" y="56" width="390" height="734"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fY1-1O-QnW">
-                                    <size key="itemSize" width="128" height="128"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells/>
-                            </collectionView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="IP9-UO-UJs"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="cV1-8y-NwG" firstAttribute="trailing" secondItem="IP9-UO-UJs" secondAttribute="trailing" id="8dW-cR-Whx"/>
-                            <constraint firstItem="cV1-8y-NwG" firstAttribute="bottom" secondItem="IP9-UO-UJs" secondAttribute="bottom" id="gpK-yO-4MG"/>
-                            <constraint firstItem="cV1-8y-NwG" firstAttribute="leading" secondItem="IP9-UO-UJs" secondAttribute="leading" id="lnn-OK-5aR"/>
-                            <constraint firstItem="cV1-8y-NwG" firstAttribute="top" secondItem="IP9-UO-UJs" secondAttribute="top" id="rG2-sc-9aq"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="振り返り一覧" id="W0j-Nt-i9n"/>
-                    <connections>
-                        <outlet property="reviewListCollection" destination="cV1-8y-NwG" id="DTJ-gM-Hva"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8F1-cN-EVh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="6921.538461538461" y="824.64454976303318"/>
         </scene>
         <!--Save Review View Controller-->
         <scene sceneID="KGE-Eh-f60">

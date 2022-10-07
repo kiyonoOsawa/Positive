@@ -11,9 +11,9 @@ import Firebase
 import FirebaseFirestore
 import FirebaseAuth
 
-enum SegmentState {
+enum SegmentState{
     case affirmation
-    case record
+    case task
 }
 
 class CalendarViewController: UIViewController {
@@ -33,7 +33,7 @@ class CalendarViewController: UIViewController {
     var addresses: [DetailGoal] = []
     var addressesReview: [Review] = []         //振り返りデータを格納
     var applicableData: [DetailGoal] = []         //addressesにフィルターをかけたものを格納
-    var segmentState: SegmentState? = .record
+    var segmentState: SegmentState? = .affirmation
     var viewWidth: CGFloat = 0.0
     var applicableDataReview: [Review] = []              //日付フィルターをかけた振り返りデータ
     var startingFrame : CGRect!
@@ -156,12 +156,12 @@ class CalendarViewController: UIViewController {
         switch sender.selectedSegmentIndex {
         case 0:
             reviewButton.isHidden = false
-            segmentState = .record
+            segmentState = .affirmation
             reportCollectionView.reloadData()
             break
         case 1:
             reviewButton.isHidden = true
-            segmentState = .affirmation
+            segmentState = .task
             reportCollectionView.reloadData()
             break
         default:
@@ -232,9 +232,9 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch segmentState{
-        case .affirmation:
+        case .task:
             return applicableData.count
-        case .record:
+        case .affirmation:
             return applicableDataReview.count
         default:
             return 0
@@ -251,7 +251,7 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
         cell.layer.masksToBounds = false
         
         switch segmentState {
-        case .record:
+        case .affirmation:
             cell.bigTargetLabel.text = applicableDataReview[indexPath.row].targetGoal
             cell.textLabel.text = "振り返り"
             if applicableDataReview[indexPath.row].reframing == nil {
@@ -260,7 +260,7 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
                 cell.miniTargetLabel.text = applicableDataReview[indexPath.row].reframing
             }
             break
-        case .affirmation:
+        case .task:
             cell.bigTargetLabel.text = applicableData[indexPath.row].goal
             cell.miniTargetLabel.text = applicableData[indexPath.row].nowTodo
             cell.textLabel.text = "ミニ目標"
@@ -287,7 +287,7 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if segmentState == .affirmation {
+        if segmentState == .task {
             let nextView = storyboard?.instantiateViewController(withIdentifier: "detailTarget") as! TargetDetailViewController
             nextView.modalTransitionStyle = .coverVertical
             nextView.modalPresentationStyle = .pageSheet
@@ -300,17 +300,14 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
             navigationController?.pushViewController(nextView, animated: true)
         }
     }
-    
-    enum SegmentState{
-        case record
-        case affirmation
-    }
 }
 
 extension CalendarViewController: CalendarViewDelegate {
     func tappedDelete(cell: CalendarTargetCollectionViewCell) {
-        if segmentState == .record {
-            AlertDialog.shared.showAlert(title: "振り返りを削除しますか？", message: "", viewController: self) {
+        let title = cell.bigTargetLabel.text
+        guard let title = title else { return }
+        if segmentState == .affirmation {
+            AlertDialog.shared.showAlert(title: "\(title)を削除しますか？", message: "", viewController: self) {
                 guard let user = self.user else {return}
                 if let indexPath = self.reportCollectionView.indexPath(for: cell){
                     let documentId = self.applicableDataReview[indexPath.row].reviewDocumentId
@@ -330,7 +327,7 @@ extension CalendarViewController: CalendarViewDelegate {
                 }
             }
         } else {
-            AlertDialog.shared.showAlert(title: "目標を削除しますか？", message: "", viewController: self) {
+            AlertDialog.shared.showAlert(title: "\(title)を削除しますか？", message: "", viewController: self) {
                 guard let user = self.user else {return}
                 if let indexPath = self.reportCollectionView.indexPath(for: cell){
                     let documentId = self.applicableData[indexPath.row].documentID

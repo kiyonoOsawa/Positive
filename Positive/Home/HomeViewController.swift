@@ -279,7 +279,9 @@ extension HomeViewController: FriendsCellDelegate{
 
 extension HomeViewController: HomeViewCellDelegate {
     func tappedDelete(cell: InnerCollectionViewCell) {
-        AlertDialog.shared.showAlert(title: "目標を削除しますか？", message: "", viewController: self) {
+        let title = cell.goalLabel.text
+        guard let title = title else { return }
+        AlertDialog.shared.showAlert(title: "\(title)を削除しますか？", message: "", viewController: self) {
             delete()
         }
         

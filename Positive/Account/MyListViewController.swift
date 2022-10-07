@@ -60,18 +60,18 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let nextNC = storyboard?.instantiateViewController(withIdentifier: "listView") as! ListViewController
+        nextNC.modalTransitionStyle = .coverVertical
+        nextNC.modalPresentationStyle = .pageSheet
         if indexPath.section == 0 {
-            self.performSegue(withIdentifier: "toAllView", sender: nil)
-            print("画面遷移")
+            nextNC.viewPattern = .allTask
         } else if indexPath.section == 1 {
-            self.performSegue(withIdentifier: "toDeadView", sender: nil)
-            print("画面遷移")
-            return
-        } else if indexPath.section == 2 {
-            self.performSegue(withIdentifier: "toReviewList", sender: nil)
-            print("画面遷移")
-            return
+            nextNC.viewPattern = .deadList
+        } else {
+            nextNC.viewPattern = .reviewList
         }
+        navigationController?.pushViewController(nextNC, animated: true)
+        return
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

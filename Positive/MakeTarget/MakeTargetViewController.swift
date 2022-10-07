@@ -37,7 +37,7 @@ class MakeTargetViewController: UIViewController {
         sectionTableView.register(UINib(nibName: "DateTargetTableViewCell", bundle: nil), forCellReuseIdentifier: "dateTargetCell")
         sectionTableView.dataSource = self
         sectionTableView.delegate = self
-        navigationItem.title = "目標設定"
+        design()
         fetchFiendName()
         setDismissKeyboard()
     }
@@ -111,6 +111,12 @@ class MakeTargetViewController: UIViewController {
             vc.eachAnswer[1] = self.essentialThing
             vc.eachAnswer[2] = self.trigger
         }
+    }
+    
+    func design() {
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "戻る", style: .plain, target: nil, action: nil)
+        self.navigationItem.title = "目標設定"
+
     }
 }
 

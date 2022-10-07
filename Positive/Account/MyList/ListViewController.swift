@@ -18,6 +18,14 @@ class ListViewController: UIViewController {
     let db = Firestore.firestore()
     let user = Auth.auth().currentUser
     var addresses: [DetailGoal] = []
+    var addressesReview: [Review] = []
+    var viewPattern: ViewPattern? = .allTask
+    
+    enum ViewPattern{
+        case allTask
+        case deadList
+        case reviewList
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +33,7 @@ class ListViewController: UIViewController {
         listCollection.delegate = self
         listCollection.dataSource = self
         fetchData()
+        fetchReviewData()
         design()
     }
     
@@ -56,14 +65,56 @@ class ListViewController: UIViewController {
             }
     }
     
+    func fetchReviewData() {
+        guard let user = user else {
+            return
+        }
+        db.collection("users")
+            .document(user.uid)
+            .collection("reviews")
+            .addSnapshotListener { QuerySnapshot, Error in
+                guard let querySnapshot = QuerySnapshot else {
+                    print("error: \(Error.debugDescription)")
+                    return
+                }
+                self.addressesReview.removeAll()
+                for doc in querySnapshot.documents{
+                    let review = Review(dictionary: doc.data(), reviewDocumentId: doc.documentID)
+                    self.addressesReview.append(review)
+                    print("addressesReview: \(self.addressesReview)")
+                }
+                self.listCollection.reloadData()
+                print("目標が表示される")
+            }
+    }
+    
     func design() {
         self.navigationController?.navigationBar.tintColor = UIColor(named: "rightTextColor")
+        switch viewPattern {
+        case .allTask:
+            self.navigationItem.title = "すべての目標"
+        case .deadList:
+            self.navigationItem.title = "期限切れ"
+        case .reviewList:
+            self.navigationItem.title = "振り返り一覧"
+        default:
+            break
+        }
     }
 }
 
 extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return addresses.count
+        switch viewPattern {
+        case .allTask:
+            return addresses.count
+        case .deadList:
+            return addresses.count
+        case .reviewList:
+            return addressesReview.count
+        default:
+            return 0
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -74,12 +125,31 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
         cell.layer.shadowOffset = CGSize(width: 0, height: 0)
         cell.layer.masksToBounds = false
         cell.delegate = self
-        cell.targetLabel.text = addresses[indexPath.row].goal
-        let cellDate = addresses[indexPath.row].date.dateValue()
-        let viewDate = DateFormat.shared.dateFormat(date: cellDate)
-        cell.deadLabel.text = viewDate
-        if addresses[indexPath.row].isPassed == true {
+        
+        switch viewPattern {
+        case .allTask:
+            cell.targetLabel.text = addresses[indexPath.row].goal
+            let cellDate = addresses[indexPath.row].date.dateValue()
+            let viewDate = DateFormat.shared.dateFormat(date: cellDate)
+            cell.deadLabel.text = viewDate
+            if addresses[indexPath.row].isPassed == true {
+                cell.deadLabel.textColor = .red
+            }
+        case .deadList:
+            cell.targetLabel.text = addresses[indexPath.row].goal
+            let cellDate = addresses[indexPath.row].date.dateValue()
+            cell.deadLabel.text = DateFormat.shared.dateFormat(date: cellDate)
             cell.deadLabel.textColor = .red
+        case .reviewList:
+            if addressesReview[indexPath.row].reframing == nil {
+                cell.targetLabel.text = addressesReview[indexPath.row].original
+            } else {
+                cell.targetLabel.text = addressesReview[indexPath.row].reframing
+            }
+            let cellDate = addressesReview[indexPath.row].date.dateValue()
+            cell.deadLabel.text = DateFormat.shared.dateFormat(date: cellDate)
+        default:
+            break
         }
         return cell
     }
@@ -95,6 +165,17 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch viewPattern {
+        case .allTask:
+            nextData()
+        case .deadList:
+            nextData()
+        case .reviewList:
+            break
+        default:
+            break
+        }
+        func nextData() {
             let nextNC = storyboard?.instantiateViewController(withIdentifier: "detailTarget") as! TargetDetailViewController
             nextNC.modalTransitionStyle = .coverVertical
             nextNC.modalPresentationStyle = .pageSheet
@@ -106,13 +187,29 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
             nextNC.IsShared = addresses[indexPath.row].isShared ?? true
             nextNC.userName = addresses[indexPath.row].iineUsers
             navigationController?.pushViewController(nextNC, animated: true)
+        }
     }
 }
 
 extension ListViewController: ListCollectionDelegate {
     func tappedDelete(cell: ListCollectionViewCell) {
-        AlertDialog.shared.showAlert(title: "目標を削除しますか？", message: "", viewController: self) {
-            delete()
+        let title = cell.targetLabel.text
+        guard let title = title else { return }
+        switch viewPattern {
+        case .allTask:
+            AlertDialog.shared.showAlert(title: "\(title)を削除しますか？", message: "", viewController: self) {
+                delete()
+            }
+        case .deadList:
+            AlertDialog.shared.showAlert(title: "\(title)を削除しますか？", message: "", viewController: self) {
+                delete()
+            }
+        case .reviewList:
+            AlertDialog.shared.showAlert(title: "\(title)削除しますか？", message: "", viewController: self) {
+                deleteReview()
+            }
+        default:
+            break
         }
         
         func delete() {
@@ -132,6 +229,27 @@ extension ListViewController: ListCollectionDelegate {
                     }
                 self.addresses.remove(at: indexPath.row)
                 listCollection.reloadData()
+            }
+        }
+        
+        func deleteReview() {
+            guard let user = self.user else {return}
+            if let indexPath = self.listCollection.indexPath(for: cell){
+                let documentId = self.addressesReview[indexPath.row].reviewDocumentId
+                self.db.collection("users")
+                    .document(user.uid)
+                    .collection("reviews")
+                    .document(documentId)
+                    .delete() { err in
+                        if let err = err {
+                            print("Error removing document: \(err)")
+                        } else {
+                            print("Document successfully removed!")
+                        }
+                    }
+                self.addressesReview.remove(at: indexPath.row)
+                self.listCollection.reloadData()
+                
             }
         }
     }
