@@ -25,7 +25,7 @@ class CalendarViewController: UIViewController {
     @IBOutlet weak var reviewButton: UIButton!
     
     var data: [Bool] = []
-    var events: [DetailGoal] = []
+    var events: [Review] = []
     let fsCalendar = FSCalendar()
     let db = Firestore.firestore()
     let user = Auth.auth().currentUser
@@ -119,10 +119,11 @@ class CalendarViewController: UIViewController {
     
     private func checkEvents(date: Date) -> Int{
         let calendarDate = DateFormat.shared.dateFormat(date: date)
-        events = addresses.filter({data in
+        events = addressesReview.filter({data in
             let convertedDate = DateFormat.shared.dateFormat(date: data.date.dateValue())
-            let startDate = DateFormat.shared.dateFormat(date: data.createdAt.dateValue())
-            return (convertedDate.compare(calendarDate) == .orderedDescending || convertedDate.compare(calendarDate) == .orderedSame) && (startDate.compare(calendarDate) == .orderedAscending || startDate.compare(calendarDate) == .orderedSame)
+//            let startDate = DateFormat.shared.dateFormat(date: data.createdAt.dateValue())
+            return convertedDate.compare(calendarDate) == .orderedSame
+                //.orderedDescending || convertedDate.compare(calendarDate) == .orderedSame) // && (startDate.compare(calendarDate) == .orderedAscending || startDate.compare(calendarDate) == .orderedSame)
         })
         if events.count == 0{
             return 0

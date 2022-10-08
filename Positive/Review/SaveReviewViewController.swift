@@ -83,7 +83,6 @@ class SaveReviewViewController: UIViewController {
                 for doc in querySnapShot.documents {
                     let detailGoal = DetailGoal(dictionary: doc.data(), documentID: doc.documentID)
                     let deadlineDate = DateFormat.shared.self.dateFormat(date: detailGoal.date.dateValue())
-                    //                    let createDate = self.dateFormat(date: detailGoal.createdAt.dateValue())
                     let today = DateFormat.shared.self.dateFormat(date: Date())
                     if deadlineDate.compare(today) == .orderedSame || deadlineDate.compare(today) == .orderedDescending{
                         self.addresses.append(detailGoal)
@@ -139,30 +138,11 @@ extension SaveReviewViewController: UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let space: CGFloat = 8
         let cellWidth: CGFloat = view.frame.width - space
-        let cellHeight: CGFloat = 80
+        let cellHeight: CGFloat = 72
         return CGSize(width: cellWidth, height: cellHeight)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
+    }
 }
-
-//extension SaveReviewViewController: UISearchBarDelegate {
-//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-//        guard let searchText = searchBar.text else {
-//            return
-//        }
-//        print(searchText)  //SeachBarに入力された文字列が出力されるはず
-//    }
-//
-//    private func search(_ text: String) {
-//        var filterdArr: [String:Any] = [:]
-//        if let text = searchBar.text {
-//            if text == "" {
-//                saveCollectionView.reloadData()
-//            } else {
-//                filterdArr = addresses.filter { (str) -> Bool in
-//                    return str.contains(text)
-//                }
-//                saveCollectionView.reloadData()
-//            }
-//        }
-//    }
-//}

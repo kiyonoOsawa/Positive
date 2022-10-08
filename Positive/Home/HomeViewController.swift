@@ -102,7 +102,9 @@ class HomeViewController: UIViewController {
                         self.addressesFriends.removeAll()
                         for doc in querySnapshot.documents {
                             let detailGoal = DetailGoal(dictionary: doc.data(), documentID: doc.documentID)
-                            if detailGoal.isShared ?? true{
+                            let deadlineDate = DateFormat.shared.self.dateFormat(date: detailGoal.date.dateValue())
+                            let today = DateFormat.shared.self.dateFormat(date: Date())
+                            if deadlineDate.compare(today) == .orderedSame || deadlineDate.compare(today) == .orderedDescending{
                                 self.addressesFriends.append(detailGoal)
                             }
                             print("addressesFriends:\(self.addressesFriends)")
