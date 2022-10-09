@@ -116,6 +116,7 @@
                 <outlet property="dateLabel" destination="w9O-x8-NDT" id="yLA-Xh-Y0Y"/>
                 <outlet property="deleteButton" destination="SnQ-0Z-sOh" id="zxP-81-hHK"/>
                 <outlet property="goalLabel" destination="hpB-qQ-fXj" id="jDT-mw-KOK"/>
+                <outlet property="hartImage" destination="gWU-Sr-5Ek" id="JR7-za-JiW"/>
                 <outlet property="iineLabel" destination="OX5-f1-6aQ" id="Ahr-TY-zux"/>
                 <outlet property="miniGoal" destination="R7l-O8-Qz0" id="NuD-6a-Gcm"/>
                 <outlet property="reviewButton" destination="2aR-Ri-zvE" id="7DU-Uf-nmT"/>

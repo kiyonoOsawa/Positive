@@ -36,6 +36,7 @@ class HomeViewController: UIViewController {
         print(friendsBack.frame.width)
         targetCollection.delegate = self
         targetCollection.dataSource = self
+        targetCollection.reloadData()
         friendTargetCollection.delegate = self
         friendTargetCollection.dataSource = self
         targetCollection.register(UINib(nibName: "InnerCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "targetHome")
@@ -165,10 +166,15 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             cell.goalLabel.text = addresses[indexPath.row].goal
             cell.miniGoal.text = addresses[indexPath.row].nowTodo
             let iineList = addresses[indexPath.row].iineUsers
-            if !iineList.isEmpty{
-                cell.iineLabel.text = "\(iineList.count)"
+            if addresses[indexPath.row].isShared == true {
+                if !iineList.isEmpty{
+                    cell.iineLabel.text = "\(iineList.count)"
+                } else {
+                    cell.iineLabel.text = "0"
+                }
             } else {
-                cell.iineLabel.text = "0"
+                cell.iineLabel.isHidden = true
+                cell.hartImage.isHidden = true
             }
             cell.delegate = self
             return cell

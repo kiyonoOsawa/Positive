@@ -1169,21 +1169,6 @@
             </objects>
             <point key="canvasLocation" x="6045" y="92"/>
         </scene>
-        <!--First View Controller-->
-        <scene sceneID="2FZ-Fl-W0a">
-            <objects>
-                <viewController id="AGo-lT-Ze0" customClass="FirstViewController" customModule="Positive" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="2wC-eY-EpK">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="3eE-Ep-jIC"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cAW-H3-pjk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1710" y="112"/>
-        </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="bAL-7I-PS2">
             <objects>

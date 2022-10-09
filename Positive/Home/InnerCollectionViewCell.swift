@@ -16,6 +16,7 @@ class InnerCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var stepView: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var iineLabel: UILabel!
+    @IBOutlet weak var hartImage: UIImageView!
     
     weak var delegate: HomeViewCellDelegate?
     
