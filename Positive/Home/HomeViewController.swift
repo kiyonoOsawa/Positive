@@ -188,6 +188,9 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
                 cell.iineButton.setImage(image, for: state)
             }
             let imagesRef = self.storageRef.child("userProfile").child("\(friendId).jpg")
+            let indicator = ActivityIndicator.shared
+            indicator.showIndicator(view: view)
+            indicator.activityIndicatorView.startAnimating()
             imagesRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
                 if let error = error {
                     print("画像の取り出しに失敗: \(error)")
@@ -197,6 +200,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
                     cell.iconImage.contentMode = .scaleAspectFill
                     cell.iconImage.clipsToBounds = true
                     cell.iconImage.image = image
+                    indicator.activityIndicatorView.stopAnimating()
                 }
             }
             return cell
@@ -266,14 +270,14 @@ extension HomeViewController: FriendsCellDelegate{
                     .collection("goals")
                     .document(documentId)
                     .updateData(["iineUsers": addressesFriends[indexPath.row].iineUsers])
-                let feedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
-                feedbackGenerator.impactOccurred()
             }else{
                 self.db.collection("users")
                     .document(userId)
                     .collection("goals")
                     .document(documentId)
                     .updateData(["iineUsers": FieldValue.arrayUnion(iineList)])
+                let feedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
+                feedbackGenerator.impactOccurred()
             }
         }
     }

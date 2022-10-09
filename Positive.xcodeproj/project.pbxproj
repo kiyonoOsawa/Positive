@@ -84,8 +84,11 @@
 		CEDA1BE628BA5E2A00D07A53 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CEDA1BE528BA5E2A00D07A53 /* Alamofire */; };
 		CEDA1BE928BA5E5F00D07A53 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = CEDA1BE828BA5E5F00D07A53 /* FSCalendar */; };
 		CEDA1BEC28BA5F1D00D07A53 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = CEDA1BEB28BA5F1D00D07A53 /* Charts */; };
+		CEDC752428F26549003B24BD /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC752328F26549003B24BD /* FirstViewController.swift */; };
 		CEEE82B42847A99A00732497 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEE82B32847A99A00732497 /* SignUpViewController.swift */; };
 		CEEE82B8284B6A4400732497 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEE82B7284B6A4400732497 /* TabBarViewController.swift */; };
+		CEF07DA128F3161C005AACA3 /* TransferValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF07DA028F3161C005AACA3 /* TransferValue.swift */; };
+		CEF07DA328F317EF005AACA3 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF07DA228F317EF005AACA3 /* ActivityIndicator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -180,8 +183,11 @@
 		CED85ED528DA047100AE22A3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CED85EDC28DB17B700AE22A3 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		CED85EDE28DB17B700AE22A3 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		CEDC752328F26549003B24BD /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		CEEE82B32847A99A00732497 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		CEEE82B7284B6A4400732497 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		CEF07DA028F3161C005AACA3 /* TransferValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferValue.swift; sourceTree = "<group>"; };
+		CEF07DA228F317EF005AACA3 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,6 +275,8 @@
 				CE73D15B2839DF4C00B20D0D /* SceneDelegate.swift */,
 				CEC6855B28B0B3C5007C0967 /* Alert.swift */,
 				CE798A6C28D856AC00E5C340 /* DateFormat.swift */,
+				CEDC752328F26549003B24BD /* FirstViewController.swift */,
+				CEF07DA228F317EF005AACA3 /* ActivityIndicator.swift */,
 				CECC289C28EB1F6F00219F98 /* TabBar */,
 				CECC289B28EB1F2900219F98 /* Model */,
 				CECC289D28EB1F9B00219F98 /* SignInUp */,
@@ -315,6 +323,7 @@
 			isa = PBXGroup;
 			children = (
 				CE7A58C1289E1D5000AD3946 /* DataModel.swift */,
+				CEF07DA028F3161C005AACA3 /* TransferValue.swift */,
 				CED649C128BC5E6E00E12D61 /* User.swift */,
 				CE80C15628716EF9000646B2 /* Goal.swift */,
 				CEC6855928AFDA11007C0967 /* Review.swift */,
@@ -547,12 +556,15 @@
 				CEEE82B8284B6A4400732497 /* TabBarViewController.swift in Sources */,
 				CED649C228BC5E6E00E12D61 /* User.swift in Sources */,
 				CEB47562285F6981002654E6 /* QuestionTableViewCell.swift in Sources */,
+				CEDC752428F26549003B24BD /* FirstViewController.swift in Sources */,
 				CEAE56BF28974864002DBEA2 /* InnerCollectionViewCell.swift in Sources */,
 				CE73D1702839F8AE00B20D0D /* CalendarViewController.swift in Sources */,
 				CEB4756B28713450002654E6 /* MakeTargetViewController.swift in Sources */,
+				CEF07DA128F3161C005AACA3 /* TransferValue.swift in Sources */,
 				CEB47566286B499C002654E6 /* CalendarTargetCollectionViewCell.swift in Sources */,
 				CEB4755B285F65CD002654E6 /* QuestionViewController.swift in Sources */,
 				CE7E727928ECDD0000C0E550 /* CategoryTableViewCell.swift in Sources */,
+				CEF07DA328F317EF005AACA3 /* ActivityIndicator.swift in Sources */,
 				CEAE56C4289766FB002DBEA2 /* FriendsInnerCollectionViewCell.swift in Sources */,
 				CE798A6F28D9707100E5C340 /* SaveReviewViewController.swift in Sources */,
 				CED6A12F28C3487F0082D498 /* FlowLayout.swift in Sources */,
@@ -677,7 +689,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -732,7 +744,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

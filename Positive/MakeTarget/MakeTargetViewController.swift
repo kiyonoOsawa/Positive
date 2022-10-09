@@ -29,6 +29,7 @@ class MakeTargetViewController: UIViewController {
     var dateCell: DateTargetTableViewCell!
     var date = Date()
     var isShared: Bool = true
+    var transferViewModel = TransferValue.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +42,13 @@ class MakeTargetViewController: UIViewController {
         fetchFiendName()
         setDismissKeyboard()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+            self.nowTodo = transferViewModel.eachAnswer[0]
+            self.essentialThing = transferViewModel.eachAnswer[1]
+            self.trigger = transferViewModel.eachAnswer[2]
+        }
     
     @IBAction func tappedSaveButton() {
         print("保存したよん")

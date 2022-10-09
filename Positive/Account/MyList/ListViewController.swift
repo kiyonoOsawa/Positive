@@ -134,6 +134,8 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
             cell.deadLabel.text = viewDate
             if addresses[indexPath.row].isPassed == true {
                 cell.deadLabel.textColor = .red
+            } else {
+                cell.deadLabel.textColor = .black
             }
         case .deadList:
             cell.targetLabel.text = addresses[indexPath.row].goal

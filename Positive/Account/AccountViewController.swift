@@ -182,6 +182,9 @@ extension AccountViewController: UICollectionViewDelegate, UICollectionViewDataS
         let friendId: String = accountList[indexPath.row].userId ?? ""
         cell.friendName.text = accountList[indexPath.row].userName
         let imagesRef = self.storageRef.child("userProfile").child("\(friendId).jpg")
+        let indicator = ActivityIndicator.shared
+        indicator.showIndicator(view: view)
+        indicator.activityIndicatorView.startAnimating()
         imagesRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
             if let error = error {
                 print("画像の取り出しに失敗: \(error)")
@@ -190,6 +193,8 @@ extension AccountViewController: UICollectionViewDelegate, UICollectionViewDataS
                 cell.friendIcon.contentMode = .scaleAspectFill
                 cell.friendIcon.clipsToBounds = true
                 cell.friendIcon.image = image
+                indicator.activityIndicatorView.stopAnimating()
+                
             }
         }
         return cell

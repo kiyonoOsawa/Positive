@@ -30,12 +30,16 @@ class QuestionViewController: UIViewController {
         questionTableView.dataSource = self
         questionTableView.register(UINib(nibName: "QuestionTableViewCell", bundle: nil), forCellReuseIdentifier: "questionCell")
         navigationItem.title = "詳細"
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "戻る", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.back))
         for _ in 0...numberOfQuestion {
             data.append(false)
         }
         design()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+         super.viewWillDisappear(animated)
+         transferValue()
+     }
     
     @objc private func back() {
         transferValue()
@@ -43,11 +47,7 @@ class QuestionViewController: UIViewController {
     }
     
     private func transferValue() {
-        let preNC = self.navigationController!
-        let preVC = preNC.viewControllers[preNC.viewControllers.count - 2] as! MakeTargetViewController
-        preVC.nowTodo = eachAnswer[0]
-        preVC.essentialThing = eachAnswer[1]
-        preVC.trigger = eachAnswer[2]
+        TransferValue.shared.transferValue(nowToDo: eachAnswer[0], essentialThing: eachAnswer[1], trigger: eachAnswer[2])
     }
     
     private func fetchData() {
