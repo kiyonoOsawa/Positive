@@ -145,7 +145,6 @@ extension MakeTargetViewController: DateTargetTableViewCellDelegate, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            //            if indexPath.section.cell
             targetCell = tableView.dequeueReusableCell(withIdentifier: "makeTargetCell") as! MakeTargetTableViewCell
             targetCell.selectionStyle = UITableViewCell.SelectionStyle.none
             return targetCell
@@ -164,6 +163,7 @@ extension MakeTargetViewController: DateTargetTableViewCellDelegate, UITableView
         } else {
             dateCell = tableView.dequeueReusableCell(withIdentifier: "dateTargetCell") as! DateTargetTableViewCell
             dateCell.selectionStyle = UITableViewCell.SelectionStyle.none
+            dateCell.dateLabel.isHidden = true
             dateCell.delegate = self
             return dateCell
         }

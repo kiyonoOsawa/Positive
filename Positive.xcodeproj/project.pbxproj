@@ -275,8 +275,8 @@
 				CE73D15B2839DF4C00B20D0D /* SceneDelegate.swift */,
 				CEC6855B28B0B3C5007C0967 /* Alert.swift */,
 				CE798A6C28D856AC00E5C340 /* DateFormat.swift */,
-				CEDC752328F26549003B24BD /* FirstViewController.swift */,
 				CEF07DA228F317EF005AACA3 /* ActivityIndicator.swift */,
+				CEDC752328F26549003B24BD /* FirstViewController.swift */,
 				CECC289C28EB1F6F00219F98 /* TabBar */,
 				CECC289B28EB1F2900219F98 /* Model */,
 				CECC289D28EB1F9B00219F98 /* SignInUp */,
@@ -353,8 +353,8 @@
 			isa = PBXGroup;
 			children = (
 				CEACDF4F289571AF0005F4A6 /* ReviewViewController.swift */,
-				CEC6855D28B12617007C0967 /* ReframingViewController.swift */,
 				CE798A6E28D9707100E5C340 /* SaveReviewViewController.swift */,
+				CEC6855D28B12617007C0967 /* ReframingViewController.swift */,
 				CE798A7428D9AA5C00E5C340 /* SaveCollectionViewCell.swift */,
 				CE798A7528D9AA5C00E5C340 /* SaveCollectionViewCell.xib */,
 				CE7A58BA289AC3B200AD3946 /* APIClient.swift */,

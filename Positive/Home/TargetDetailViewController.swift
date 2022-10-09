@@ -33,6 +33,7 @@ class TargetDetailViewController: UIViewController {
     var DocumentId = String()
     var IsShared = Bool()
     var userName: [String] = []
+    var deadDate = Date()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -125,6 +126,7 @@ extension TargetDetailViewController: DateTargetTableViewCellDelegate, UITableVi
             dateCell = tableView.dequeueReusableCell(withIdentifier: "dateTargetCell") as! DateTargetTableViewCell
             dateCell.selectionStyle = UITableViewCell.SelectionStyle.none
             dateCell.delegate = self
+            dateCell.dateLabel.text = DateFormat.shared.dateFormat(date: deadDate)
             return dateCell
         }
     }

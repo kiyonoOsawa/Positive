@@ -11,6 +11,7 @@ class DateTargetTableViewCell: UITableViewCell {
     
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     
     weak var delegate: DateTargetTableViewCellDelegate?
 

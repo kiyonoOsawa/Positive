@@ -73,6 +73,11 @@ class ReviewViewController: UIViewController {
     private func measuringStatus() {
             let apiClient = APIClient.shared
             apiClient.getDegreeofSentiment(encodedWord: reviewTextView.text ?? "") { [self] response in
+                if saveGoalLabel.text == nil {
+                    AlertDialog.shared.showAlert(title: "保存先ありません", message: "保存先を選択してください", viewController: self) {
+                        print()
+                    }
+                }
                 switch response {
                 case .success(let data):
                     let positiveness: Double = Double(data.negaposi+3)

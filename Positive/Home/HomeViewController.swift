@@ -244,6 +244,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             nextNC.DocumentId = addresses[indexPath.row].documentID
             nextNC.IsShared = addresses[indexPath.row].isShared ?? true
             nextNC.userName = addresses[indexPath.row].iineUsers
+            nextNC.deadDate = addresses[indexPath.row].date.dateValue()
             navigationController?.pushViewController(nextNC, animated: true)
         } else {
             return
