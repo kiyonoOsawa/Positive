@@ -28,7 +28,7 @@ class HomeViewController: UIViewController {
     var friends: User? = nil
     var addressesFriends: [DetailGoal] = []
     var userName: String = ""
-    let storageRef = Storage.storage().reference(forURL: "gs://positive-898d1.appspot.com")
+    let storageRef = Storage.storage().reference(forURL: "gs://taffi-f610f.appspot.com/")
     
     override func viewDidLoad() {
         super.viewDidLoad()

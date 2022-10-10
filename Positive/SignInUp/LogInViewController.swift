@@ -19,7 +19,7 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var logIn: UIButton!
     
-    let storeRef = Storage.storage().reference(forURL: "gs://positive-898d1.appspot.com")
+    let storeRef = Storage.storage().reference(forURL: "gs://taffi-f610f.appspot.com/")
     let auth = Auth.auth()
     
     override func viewDidLoad() {

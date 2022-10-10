@@ -21,7 +21,7 @@ class EditAccountViewController: UIViewController, UINavigationControllerDelegat
     @IBOutlet weak var backView: UIView!
     @IBOutlet var textFieldImage: [UITextField]!
     
-    let storageRef = Storage.storage().reference(forURL: "gs://positive-898d1.appspot.com")
+//    let storageRef = Storage.storage().reference(forURL: "gs://positive-898d1.appspot.com")
     let user = Auth.auth().currentUser
     let db = Firestore.firestore()
     var password = String()

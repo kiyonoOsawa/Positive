@@ -23,7 +23,7 @@ class AccountViewController: UIViewController, ChartViewDelegate {
     @IBOutlet weak var friendsBack: UIView!
     @IBOutlet weak var friendsCollection: UICollectionView!
     
-    let storageRef = Storage.storage().reference(forURL: "gs://positive-898d1.appspot.com")
+    let storageRef = Storage.storage().reference(forURL: "gs://taffi-f610f.appspot.com/")
     let user = Auth.auth().currentUser
     let db = Firestore.firestore()
     var addresses: [DetailGoal] = []

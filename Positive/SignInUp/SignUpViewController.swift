@@ -25,7 +25,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var error2: UILabel!
     @IBOutlet weak var error3: UILabel!
     
-    let storageRef = Storage.storage().reference(forURL: "gs://positive-898d1.appspot.com")
+    let storageRef = Storage.storage().reference(forURL: "gs://taffi-f610f.appspot.com/")
     let user = Auth.auth().currentUser
     
     override func viewDidLoad() {
