@@ -15,4 +15,10 @@ class TransferValue{
         eachAnswer[1] = essentialThing
         eachAnswer[2] = trigger
     }
+    
+    func resetValue(){
+           eachAnswer[0] = ""
+           eachAnswer[1] = ""
+           eachAnswer[2] = ""
+       }
 }

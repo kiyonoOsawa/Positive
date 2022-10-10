@@ -55,10 +55,19 @@ class ListViewController: UIViewController {
                     var detailGoal = DetailGoal(dictionary: doc.data(), documentID: doc.documentID)
                     let deadlineDate = DateFormat.shared.self.dateFormat(date: detailGoal.date.dateValue())
                     let today = DateFormat.shared.self.dateFormat(date: Date())
-                    if deadlineDate.compare(today) == .orderedAscending {
-                        detailGoal.isPassed = true
+                    switch self.viewPattern{
+                    case .allTask:
+                        if deadlineDate.compare(today) == .orderedAscending {
+                            detailGoal.isPassed = true
+                        }
+                        self.addresses.append(detailGoal)
+                    case .deadList:
+                        if deadlineDate.compare(today) == .orderedAscending {
+                            detailGoal.isPassed = true
+                            self.addresses.append(detailGoal)
+                        }
+                    default: break
                     }
-                    self.addresses.append(detailGoal)
                 }
                 self.listCollection.reloadData()
                 print("目標が表示される")

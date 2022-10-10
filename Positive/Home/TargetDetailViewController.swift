@@ -126,6 +126,7 @@ extension TargetDetailViewController: DateTargetTableViewCellDelegate, UITableVi
             dateCell = tableView.dequeueReusableCell(withIdentifier: "dateTargetCell") as! DateTargetTableViewCell
             dateCell.selectionStyle = UITableViewCell.SelectionStyle.none
             dateCell.delegate = self
+            dateCell.datePicker.date = deadDate
             dateCell.dateLabel.text = DateFormat.shared.dateFormat(date: deadDate)
             return dateCell
         }

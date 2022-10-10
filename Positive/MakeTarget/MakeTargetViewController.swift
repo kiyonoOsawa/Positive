@@ -38,6 +38,7 @@ class MakeTargetViewController: UIViewController {
         sectionTableView.register(UINib(nibName: "DateTargetTableViewCell", bundle: nil), forCellReuseIdentifier: "dateTargetCell")
         sectionTableView.dataSource = self
         sectionTableView.delegate = self
+        transferViewModel.resetValue()
         design()
         fetchFiendName()
         setDismissKeyboard()
