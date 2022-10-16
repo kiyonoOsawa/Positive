@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ALo-n5-FHe">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--詳細-->
+        <scene sceneID="LTS-dh-srH">
+            <objects>
+                <viewController storyboardIdentifier="detailTarget" id="mN9-fb-4Yv" customClass="TargetDetailViewController" customModule="Positive" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mFT-HX-W2v">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7SZ-FH-164">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <color key="backgroundColor" name="systemColor"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="目標：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBw-2X-zBl">
+                                <rect key="frame" x="20" y="104" width="36" height="12"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="12"/>
+                                <color key="textColor" name="grayTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="いいねした人：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uPy-FF-jiE">
+                                <rect key="frame" x="20" y="486" width="84" height="12"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="12"/>
+                                <color key="textColor" name="grayTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ミニ目標：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kx2-VX-jbV">
+                                <rect key="frame" x="20" y="169" width="60" height="12"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="12"/>
+                                <color key="textColor" name="grayTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="chr-FR-YLN">
+                                <rect key="frame" x="20" y="185" width="374" height="165"/>
+                                <color key="backgroundColor" name="systemColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="cHk-zt-vre">
+                                <rect key="frame" x="0.0" y="542" width="414" height="320"/>
+                                <color key="backgroundColor" name="systemColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="320" id="1ce-ib-yhc"/>
+                                </constraints>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="必要なモノ・コト：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="au9-r5-5wb">
+                                <rect key="frame" x="20" y="358" width="108" height="12"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="12"/>
+                                <color key="textColor" name="grayTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lVS-PS-8Mb">
+                                <rect key="frame" x="20" y="502" width="374" height="40"/>
+                                <color key="backgroundColor" name="systemColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="bsh-KX-iHf"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Uo7-MK-bSX">
+                                <rect key="frame" x="20" y="374" width="374" height="40"/>
+                                <color key="backgroundColor" name="systemColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Lw3-0k-y8z"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="szh-kj-fID">
+                                <rect key="frame" x="20" y="438" width="374" height="40"/>
+                                <color key="backgroundColor" name="systemColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="9af-gP-l11"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="きっかけ：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ure-BJ-TPc">
+                                <rect key="frame" x="20" y="422" width="60" height="12"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="12"/>
+                                <color key="textColor" name="grayTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="aaaa" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="Oa1-cx-oaI">
+                                <rect key="frame" x="20" y="124" width="374" height="32"/>
+                                <color key="backgroundColor" name="systemColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="yWh-Tn-zRz"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="FzR-hc-avC"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Oa1-cx-oaI" firstAttribute="centerX" secondItem="mFT-HX-W2v" secondAttribute="centerX" id="0CO-xH-huK"/>
+                            <constraint firstItem="au9-r5-5wb" firstAttribute="top" secondItem="chr-FR-YLN" secondAttribute="bottom" constant="8" id="0vB-bB-2kU"/>
+                            <constraint firstItem="Uo7-MK-bSX" firstAttribute="leading" secondItem="FzR-hc-avC" secondAttribute="leading" constant="20" id="1jF-SY-kc2"/>
+                            <constraint firstItem="lVS-PS-8Mb" firstAttribute="leading" secondItem="FzR-hc-avC" secondAttribute="leading" constant="20" id="3II-Au-jrH"/>
+                            <constraint firstAttribute="bottom" secondItem="7SZ-FH-164" secondAttribute="bottom" id="5zp-pd-zTK"/>
+                            <constraint firstItem="kx2-VX-jbV" firstAttribute="leading" secondItem="FzR-hc-avC" secondAttribute="leading" constant="20" id="7kE-4E-Zyh"/>
+                            <constraint firstItem="7SZ-FH-164" firstAttribute="leading" secondItem="FzR-hc-avC" secondAttribute="leading" id="ACc-wR-Gr6"/>
+                            <constraint firstItem="uPy-FF-jiE" firstAttribute="top" secondItem="szh-kj-fID" secondAttribute="bottom" constant="8" id="Esa-RE-qQU"/>
+                            <constraint firstItem="chr-FR-YLN" firstAttribute="leading" secondItem="FzR-hc-avC" secondAttribute="leading" constant="20" id="F9O-Vl-326"/>
+                            <constraint firstItem="Uo7-MK-bSX" firstAttribute="top" secondItem="au9-r5-5wb" secondAttribute="bottom" constant="4" id="GbD-Eb-WKn"/>
+                            <constraint firstItem="cHk-zt-vre" firstAttribute="trailing" secondItem="FzR-hc-avC" secondAttribute="trailing" id="KZi-qq-iLN"/>
+                            <constraint firstItem="Uo7-MK-bSX" firstAttribute="centerX" secondItem="mFT-HX-W2v" secondAttribute="centerX" id="Kor-LI-fEI"/>
+                            <constraint firstItem="szh-kj-fID" firstAttribute="top" secondItem="ure-BJ-TPc" secondAttribute="bottom" constant="4" id="LGq-J3-T5f"/>
+                            <constraint firstItem="Oa1-cx-oaI" firstAttribute="top" secondItem="FBw-2X-zBl" secondAttribute="bottom" constant="8" id="Lnp-lt-yTh"/>
+                            <constraint firstItem="au9-r5-5wb" firstAttribute="leading" secondItem="FzR-hc-avC" secondAttribute="leading" constant="20" id="NBl-ti-PAm"/>
+                            <constraint firstItem="FBw-2X-zBl" firstAttribute="top" secondItem="FzR-hc-avC" secondAttribute="top" constant="16" id="Rea-Zh-bQ5"/>
+                            <constraint firstItem="FBw-2X-zBl" firstAttribute="leading" secondItem="FzR-hc-avC" secondAttribute="leading" constant="20" id="TzJ-My-xLU"/>
+                            <constraint firstItem="ure-BJ-TPc" firstAttribute="leading" secondItem="FzR-hc-avC" secondAttribute="leading" constant="20" id="Yms-Ek-cfN"/>
+                            <constraint firstItem="ure-BJ-TPc" firstAttribute="top" secondItem="Uo7-MK-bSX" secondAttribute="bottom" constant="8" id="Ynn-uj-Ndv"/>
+                            <constraint firstItem="lVS-PS-8Mb" firstAttribute="centerX" secondItem="mFT-HX-W2v" secondAttribute="centerX" id="ZWD-GA-MRN"/>
+                            <constraint firstItem="7SZ-FH-164" firstAttribute="top" secondItem="FzR-hc-avC" secondAttribute="top" id="arh-Hx-DlG"/>
+                            <constraint firstItem="szh-kj-fID" firstAttribute="centerX" secondItem="mFT-HX-W2v" secondAttribute="centerX" id="dfM-yU-WzC"/>
+                            <constraint firstItem="szh-kj-fID" firstAttribute="leading" secondItem="FzR-hc-avC" secondAttribute="leading" constant="20" id="dpA-di-5nQ"/>
+                            <constraint firstItem="cHk-zt-vre" firstAttribute="top" secondItem="lVS-PS-8Mb" secondAttribute="bottom" id="f9G-c2-8Ql"/>
+                            <constraint firstItem="7SZ-FH-164" firstAttribute="trailing" secondItem="FzR-hc-avC" secondAttribute="trailing" id="fJ6-vd-r75"/>
+                            <constraint firstItem="cHk-zt-vre" firstAttribute="leading" secondItem="FzR-hc-avC" secondAttribute="leading" id="fmo-ll-TRS"/>
+                            <constraint firstItem="lVS-PS-8Mb" firstAttribute="top" secondItem="uPy-FF-jiE" secondAttribute="bottom" constant="4" id="hZS-hC-xzy"/>
+                            <constraint firstItem="chr-FR-YLN" firstAttribute="centerX" secondItem="mFT-HX-W2v" secondAttribute="centerX" id="ilH-9I-g44"/>
+                            <constraint firstItem="cHk-zt-vre" firstAttribute="bottom" secondItem="FzR-hc-avC" secondAttribute="bottom" id="jOX-uj-8Rh"/>
+                            <constraint firstItem="Oa1-cx-oaI" firstAttribute="leading" secondItem="FzR-hc-avC" secondAttribute="leading" constant="20" id="vFi-vd-wkx"/>
+                            <constraint firstItem="chr-FR-YLN" firstAttribute="top" secondItem="kx2-VX-jbV" secondAttribute="bottom" constant="4" id="vKQ-rz-e08"/>
+                            <constraint firstItem="uPy-FF-jiE" firstAttribute="leading" secondItem="FzR-hc-avC" secondAttribute="leading" constant="20" id="yZX-Rg-4kw"/>
+                            <constraint firstItem="kx2-VX-jbV" firstAttribute="top" secondItem="Oa1-cx-oaI" secondAttribute="bottom" constant="13" id="ynA-S5-l0x"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="詳細" id="iRa-LN-hbL">
+                        <barButtonItem key="rightBarButtonItem" title="変更" style="done" id="yBV-f4-Psc">
+                            <color key="tintColor" name="MainColor"/>
+                            <connections>
+                                <action selector="tappedSave" destination="mN9-fb-4Yv" id="SkE-n9-VFo"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="essentialTextView" destination="Uo7-MK-bSX" id="IDY-9X-c2H"/>
+                        <outlet property="iineTextView" destination="lVS-PS-8Mb" id="yly-vu-X3W"/>
+                        <outlet property="miniTargetTextView" destination="chr-FR-YLN" id="oYr-ew-rhT"/>
+                        <outlet property="setTabelView" destination="cHk-zt-vre" id="Cc3-7m-eHa"/>
+                        <outlet property="targetTextView" destination="Oa1-cx-oaI" id="fbN-jT-gqI"/>
+                        <outlet property="triggerTextView" destination="szh-kj-fID" id="QXP-sT-pNr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6DB-A9-eOP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4295.652173913044" y="-1353.3482142857142"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Fkn-FV-ZJr">
+            <objects>
+                <navigationController storyboardIdentifier="toNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="ALo-n5-FHe" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="IM6-Jm-f75">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="barTintColor" systemColor="labelColor"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="mN9-fb-4Yv" kind="relationship" relationship="rootViewController" id="QA2-k3-SLF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CFX-yA-gi3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3396" y="-1353"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="MainColor">
+            <color red="0.92549019607843142" green="0.32549019607843138" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="grayTextColor">
+            <color red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="systemColor">
+            <color red="0.97254901960784312" green="0.95686274509803926" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

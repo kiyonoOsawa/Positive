@@ -44,7 +44,7 @@ class LogInViewController: UIViewController {
     }
     
     func transition() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let storyboard = UIStoryboard(name: "MainStory", bundle: nil)
         let tabView = storyboard.instantiateViewController(withIdentifier: "tab") as! UITabBarController
         tabView.modalPresentationStyle = .fullScreen
         tabView.selectedIndex = 0
