@@ -208,15 +208,15 @@ extension ListViewController: ListCollectionDelegate {
         guard let title = title else { return }
         switch viewPattern {
         case .allTask:
-            AlertDialog.shared.showAlert(title: "\(title)を削除しますか？", message: "", viewController: self) {
+            AlertDialog.shared.showAlert(title: "\(title) を削除しますか？", message: "", viewController: self) {
                 delete()
             }
         case .deadList:
-            AlertDialog.shared.showAlert(title: "\(title)を削除しますか？", message: "", viewController: self) {
+            AlertDialog.shared.showAlert(title: "\(title) を削除しますか？", message: "", viewController: self) {
                 delete()
             }
         case .reviewList:
-            AlertDialog.shared.showAlert(title: "\(title)削除しますか？", message: "", viewController: self) {
+            AlertDialog.shared.showAlert(title: "\(title) を削除しますか？", message: "", viewController: self) {
                 deleteReview()
             }
         default:

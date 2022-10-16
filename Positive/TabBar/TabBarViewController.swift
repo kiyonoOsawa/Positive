@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class TabBarViewController: UITabBarController {
+    
+    let user = Auth.auth().currentUser
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +31,11 @@ class TabBarViewController: UITabBarController {
         let firstLunchKey = "firstLunchKey"
         if userDefaults.bool(forKey: firstLunchKey) {
             userDefaults.set(false, forKey: firstLunchKey)
+            let nextVC = storyboard?.instantiateViewController(withIdentifier: "firstAccView")
+            nextVC?.modalPresentationStyle = .fullScreen
+            self.present(nextVC!, animated: true, completion: nil)
+        }
+        if user == nil{
             let nextVC = storyboard?.instantiateViewController(withIdentifier: "firstAccView")
             nextVC?.modalPresentationStyle = .fullScreen
             self.present(nextVC!, animated: true, completion: nil)

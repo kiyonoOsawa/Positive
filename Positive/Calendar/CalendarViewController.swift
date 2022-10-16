@@ -308,7 +308,7 @@ extension CalendarViewController: CalendarViewDelegate {
         let title = cell.bigTargetLabel.text
         guard let title = title else { return }
         if segmentState == .affirmation {
-            AlertDialog.shared.showAlert(title: "\(title)を削除しますか？", message: "", viewController: self) {
+            AlertDialog.shared.showAlert(title: "\(title) を削除しますか？", message: "", viewController: self) {
                 guard let user = self.user else {return}
                 if let indexPath = self.reportCollectionView.indexPath(for: cell){
                     let documentId = self.applicableDataReview[indexPath.row].reviewDocumentId
@@ -328,7 +328,7 @@ extension CalendarViewController: CalendarViewDelegate {
                 }
             }
         } else {
-            AlertDialog.shared.showAlert(title: "\(title)を削除しますか？", message: "", viewController: self) {
+            AlertDialog.shared.showAlert(title: "\(title) を削除しますか？", message: "", viewController: self) {
                 guard let user = self.user else {return}
                 if let indexPath = self.reportCollectionView.indexPath(for: cell){
                     let documentId = self.applicableData[indexPath.row].documentID

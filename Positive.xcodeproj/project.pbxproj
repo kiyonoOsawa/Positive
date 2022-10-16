@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		CE08B05628BD19870054D0D6 /* EditAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE08B05528BD19860054D0D6 /* EditAccountViewController.swift */; };
 		CE3E7834288C40A000548FFD /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3E7833288C40A000548FFD /* TabBar.swift */; };
-		CE5B3A4728F447800007C0B4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE5B3A4628F447800007C0B4 /* GoogleService-Info.plist */; };
-		CE5B3A4828F447800007C0B4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE5B3A4628F447800007C0B4 /* GoogleService-Info.plist */; };
 		CE644D8F28B7C580008443BE /* FriendAccCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE644D8D28B7C580008443BE /* FriendAccCollectionViewCell.swift */; };
 		CE644D9028B7C580008443BE /* FriendAccCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE644D8E28B7C580008443BE /* FriendAccCollectionViewCell.xib */; };
 		CE73D15A2839DF4C00B20D0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE73D1592839DF4C00B20D0D /* AppDelegate.swift */; };
@@ -117,7 +115,6 @@
 /* Begin PBXFileReference section */
 		CE08B05528BD19860054D0D6 /* EditAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountViewController.swift; sourceTree = "<group>"; };
 		CE3E7833288C40A000548FFD /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
-		CE5B3A4628F447800007C0B4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CE644D8D28B7C580008443BE /* FriendAccCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendAccCollectionViewCell.swift; sourceTree = "<group>"; };
 		CE644D8E28B7C580008443BE /* FriendAccCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendAccCollectionViewCell.xib; sourceTree = "<group>"; };
 		CE73D1562839DF4C00B20D0D /* Positive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Positive.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -403,7 +400,6 @@
 				CECC28AC28EB77B300219F98 /* TaffiWidget.intentdefinition */,
 				CECC28AD28EB77B400219F98 /* Assets.xcassets */,
 				CECC28AF28EB77B400219F98 /* Info.plist */,
-				CE5B3A4628F447800007C0B4 /* GoogleService-Info.plist */,
 			);
 			path = TaffiWidget;
 			sourceTree = "<group>";
@@ -512,7 +508,6 @@
 			files = (
 				CEB4757728713986002654E6 /* ImportanceTableViewCell.xib in Resources */,
 				CEAE56BD289746DB002DBEA2 /* InnerCollectionViewCell.xib in Resources */,
-				CE5B3A4728F447800007C0B4 /* GoogleService-Info.plist in Resources */,
 				CE644D9028B7C580008443BE /* FriendAccCollectionViewCell.xib in Resources */,
 				CE73D1662839DF4E00B20D0D /* LaunchScreen.storyboard in Resources */,
 				CE7E728028ED8D3600C0E550 /* ListCollectionViewCell.xib in Resources */,
@@ -534,7 +529,6 @@
 			files = (
 				CECC28AE28EB77B400219F98 /* Assets.xcassets in Resources */,
 				CECC28C128EC1D6C00219F98 /* Assets.xcassets in Resources */,
-				CE5B3A4828F447800007C0B4 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -69,7 +69,6 @@ class ReviewViewController: UIViewController {
         present(viewController, animated: true)
     }
     
-    // ポジティブ度を測定
     private func measuringStatus() {
             let apiClient = APIClient.shared
             apiClient.getDegreeofSentiment(encodedWord: reviewTextView.text ?? "") { [self] response in
@@ -93,13 +92,10 @@ class ReviewViewController: UIViewController {
                         guard let targetData = self.targetData else {
                             return
                            }
-                        //ここが変わってる。
                         AlertDialog.shared.showAlertReview(title: "選択してください", message: "保存かリフレーミングか選べます", viewController: self) {
-                            //無視して保存する
                             self.addReview(score: percentage)
                             self.dismiss(animated: true)
                         } completionReframing: {
-                            //リフレーミングする
                             self.refShowModal(value: percentage, originalText: self.reviewTextView.text!, targetDocumentId: targetData.documentID, targetGoal: targetData.goal, calendarDate: self.calendarSelectedDate ?? Date())
                         }
                     }

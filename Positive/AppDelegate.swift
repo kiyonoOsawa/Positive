@@ -21,7 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let firstLunch = [firstLunchKey: true]
         userDefaults.register(defaults: firstLunch)
         FirebaseApp.configure()
-        try? Auth.auth().useUserAccessGroup("7Y5RBD24LU.com.kiyono.Positive")
+        do {
+          try Auth.auth().useUserAccessGroup("7Y5RBD24LU.com.kiyono.Positive.taffi")
+        } catch let error as NSError {
+          print("Error changing user access group: %@", error)
+        }
         return true
     }
     

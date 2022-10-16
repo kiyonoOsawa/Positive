@@ -105,13 +105,14 @@ class HomeViewController: UIViewController {
                             let detailGoal = DetailGoal(dictionary: doc.data(), documentID: doc.documentID)
                             let deadlineDate = DateFormat.shared.self.dateFormat(date: detailGoal.date.dateValue())
                             let today = DateFormat.shared.self.dateFormat(date: Date())
-                            if deadlineDate.compare(today) == .orderedSame || deadlineDate.compare(today) == .orderedDescending{
-                                self.addressesFriends.append(detailGoal)
+                            if detailGoal.isShared == true{
+                                if deadlineDate.compare(today) == .orderedSame || deadlineDate.compare(today) == .orderedDescending{
+                                    self.addressesFriends.append(detailGoal)
+                                }
                             }
                             print("addressesFriends:\(self.addressesFriends)")
                         }
                         self.friendTargetCollection.reloadData()
-                        
                     }
             }
     }
@@ -133,7 +134,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         if collectionView.tag == 0 {
             if addresses.count == 0 {
                 nilTargetImage.image = UIImage(named: "myTarget")
-                myLabel.isHidden = true
+                myLabel.isHidden = false
             } else {
                 nilTargetImage.image = nil
                 myLabel.isHidden = false
@@ -172,9 +173,6 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
                 } else {
                     cell.iineLabel.text = "0"
                 }
-            } else {
-                cell.iineLabel.isHidden = true
-                cell.hartImage.isHidden = true
             }
             cell.delegate = self
             return cell
@@ -277,6 +275,8 @@ extension HomeViewController: FriendsCellDelegate{
                     .collection("goals")
                     .document(documentId)
                     .updateData(["iineUsers": addressesFriends[indexPath.row].iineUsers])
+                let feedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
+                feedbackGenerator.impactOccurred()
             }else{
                 self.db.collection("users")
                     .document(userId)
