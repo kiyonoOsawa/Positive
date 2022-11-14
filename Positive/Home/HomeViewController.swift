@@ -10,6 +10,7 @@ import Firebase
 import FirebaseFirestore
 import FirebaseAuth
 import FirebaseStorage
+import FirebaseFirestoreSwift
 
 class HomeViewController: UIViewController {
     
@@ -70,8 +71,10 @@ class HomeViewController: UIViewController {
                     let detailGoal = DetailGoal(dictionary: doc.data(), documentID: doc.documentID)
                     let deadlineDate = DateFormat.shared.self.dateFormat(date: detailGoal.date.dateValue())
                     let today = DateFormat.shared.self.dateFormat(date: Date())
-                    if deadlineDate.compare(today) == .orderedSame || deadlineDate.compare(today) == .orderedDescending{
-                        self.addresses.append(detailGoal)
+                    if detailGoal.isDoneTarget == false {
+                        if deadlineDate.compare(today) == .orderedSame || deadlineDate.compare(today) == .orderedDescending{
+                            self.addresses.append(detailGoal)
+                        }
                     }
                 }
                 self.targetCollection.reloadData()
@@ -330,4 +333,33 @@ extension HomeViewController: HomeViewCellDelegate {
             self.present(nc, animated: true, completion: nil)
         }
     }
+    
+    func tappedDone(cell: InnerCollectionViewCell) {
+        let title = cell.goalLabel.text
+        guard let title = title else { return }
+        AlertDialog.shared.showAlert(title: "\(title)を完了しますか？", message: "", viewController: self) {
+            doneAction()
+        }
+        targetCollection.reloadData()
+        print("タップした")
+        func doneAction() {
+            guard let user = user else {
+                return
+            }
+            if let indexPath = targetCollection.indexPath(for: cell) {
+                let documentId = addresses[indexPath.row].documentID
+                var doneTarget = addresses[indexPath.row].isDoneTarget
+                doneTarget = true
+                let upDateDoneTarget: [String:Any] = [
+                    "isDoneTarget": doneTarget
+                ]
+                db.collection("users")
+                    .document(user.uid)
+                    .collection("goals")
+                    .document(documentId)
+                    .updateData(upDateDoneTarget)
+            }
+        }
+    }
 }
+

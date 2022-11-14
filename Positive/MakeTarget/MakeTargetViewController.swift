@@ -29,6 +29,7 @@ class MakeTargetViewController: UIViewController {
     var dateCell: DateTargetTableViewCell!
     var date = Date()
     var isShared: Bool = true
+    var isDoneTarget: Bool = false
     var transferViewModel = TransferValue.shared
     
     override func viewDidLoad() {
@@ -97,7 +98,8 @@ class MakeTargetViewController: UIViewController {
             "userId": user.uid,
             "userName": userName,
             "createdAt": Timestamp(date: Date()),
-            "isShared": isShared
+            "isShared": isShared,
+            "isDoneTarget": isDoneTarget
         ]
         db.collection("users")
             .document(user.uid)

@@ -21,6 +21,7 @@ struct DetailGoal {
     let userName: String?
     let createdAt: Timestamp
     let isShared: Bool?
+    var isDoneTarget: Bool?
     var iineUsers: [String] = []
     var isPassed: Bool? = false
     
@@ -37,6 +38,7 @@ struct DetailGoal {
         self.userName = dictionary["userName"] as? String
         self.createdAt = dictionary["createdAt"] as! Timestamp
         self.isShared = dictionary["isShared"] as? Bool
+        self.isDoneTarget = dictionary["isDoneTarget"] as? Bool
         self.iineUsers = dictionary["iineUsers"] as? [String] ?? []
         self.isPassed = dictionary["isPassed"] as? Bool
     }

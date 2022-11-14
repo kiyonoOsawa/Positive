@@ -10,15 +10,15 @@ import Firebase
 import FirebaseFirestore
 import FirebaseStorage
 import FirebaseAuth
-import Charts
+import SwiftUI
 
-class AccountViewController: UIViewController, ChartViewDelegate {
+class AccountViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var chartBack: UIView!
-    @IBOutlet weak var lineChartView: LineChartView!
+//    @IBOutlet weak var lineChartView: LineChartView!
     @IBOutlet weak var aveLabel: UILabel!
     @IBOutlet weak var friendsBack: UIView!
     @IBOutlet weak var friendsCollection: UICollectionView!
@@ -42,7 +42,6 @@ class AccountViewController: UIViewController, ChartViewDelegate {
         friendsCollection.collectionViewLayout = layout
         fetchMyData()
         fetchReviewData()
-        lineChart()
         design()
     }
     
@@ -102,57 +101,21 @@ class AccountViewController: UIViewController, ChartViewDelegate {
                 for doc in querySnapshot.documents {
                     let review = Review(dictionary: doc.data(), reviewDocumentId: doc.documentID)
                     self.rawDataGraph.append(Int(review.score ?? 0))
-                    let entries = self.rawDataGraph.enumerated().map { ChartDataEntry(x: Double($0.offset),y: Double($0.element))}
-                    self.setChartData(entries: entries)
+//                    let entries = self.rawDataGraph.enumerated().map { ChartDataEntry(x: Double($0.offset),y: Double($0.element))}
+//                    self.setChartData(entries: entries)
                     self.setAverageData(scores: self.rawDataGraph)
                 }
             }
     }
     
-    private func setChartData(entries: [ChartDataEntry]) {
-        let dataSet = LineChartDataSet(entries: entries)
-        self.lineChartView.data = LineChartData(dataSet: dataSet)
-    }
+//    private func setChartData(entries: [ChartDataEntry]) {
+//        let dataSet = LineChartDataSet(entries: entries)
+//        self.lineChartView.data = LineChartData(dataSet: dataSet)
+//    }
     
     private func setAverageData(scores: [Int]) {
         let average = scores.reduce(0, +) / scores.count
         aveLabel.text = String(average)
-    }
-    
-    func lineChart() {
-        // Chart dataSet準備
-        let entries = rawDataGraph.enumerated().map { ChartDataEntry(x: Double($0.offset), y: Double($0.element)) }
-        let dataSet = LineChartDataSet(entries: entries)
-        dataSet.lineWidth = 5        // 線の太さ
-        dataSet.drawValuesEnabled = false        // 各プロットのラベル表示
-        dataSet.drawCirclesEnabled = true        // 各プロットの丸表示
-        dataSet.circleRadius = 2        // 各プロットの丸の大きさ
-        let MainColor = UIColor(named: "MainColor")
-        guard let MainColor = MainColor else { return }
-        dataSet.circleColors = [MainColor]     // 各プロットの丸の色
-        lineChartView.data = LineChartData(dataSet: dataSet)        // 作成したデータセットをLineChartViewに追加
-        lineChartView.xAxis.labelPosition = .bottom        // X軸のラベルの位置を下に設定
-        lineChartView.xAxis.labelTextColor = .systemGray        // X軸のラベルの色を設定
-        lineChartView.xAxis.drawGridLinesEnabled = false        // X軸の線、グリッドを非表示にする
-        lineChartView.xAxis.drawAxisLineEnabled = false
-        lineChartView.rightAxis.enabled = false        // 右側のY座標軸は非表示にする
-        lineChartView.leftAxis.axisMinimum = 0        // Y座標の値が0始まりになるように設定
-        lineChartView.leftAxis.axisMaximum = 100.0
-        lineChartView.leftAxis.drawZeroLineEnabled = true
-        lineChartView.leftAxis.zeroLineColor = .systemGray
-        let limitLine = ChartLimitLine(limit: 72, label: "ポジティブライン")        // グラフに境界線(横)を追加
-        limitLine.lineColor = .darkGray
-        limitLine.valueTextColor = .darkGray
-        lineChartView.leftAxis.addLimitLine(limitLine)
-        lineChartView.leftAxis.labelCount = 5        // ラベルの数を設定
-        lineChartView.leftAxis.labelTextColor = .systemGray        // ラベルの色を設定
-        lineChartView.leftAxis.gridColor = .systemGray        // グリッドの色を設定
-        lineChartView.leftAxis.drawAxisLineEnabled = false        // 軸線は非表示にする
-        lineChartView.legend.enabled = false        // 凡例を非表示
-        lineChartView.highlightPerTapEnabled = false        // タップでプロットを選択できないようにする
-        lineChartView.pinchZoomEnabled = false         // ピンチズームオフ
-        lineChartView.doubleTapToZoomEnabled = false         // ダブルタップズームオフ
-        lineChartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0, easingOption: .easeInCubic)         // アニメーションをつける
     }
     
     func design() {
@@ -214,3 +177,19 @@ extension AccountViewController: UICollectionViewDelegate, UICollectionViewDataS
         return 35
     }
 }
+
+//private extension AccountViewController{
+//    @available(iOS 16.0, *)
+//    func hostingGraphView(){
+//        let chartView = LineChartView(graphViewModel: GraphViewModel)
+//        let controller = UIHostingController(rootView: chartView)
+//        addChild(controller)
+//        chartBack.addSubview(controller.view)
+//        controller.didMove(toParent: self)
+//        controller.view?.translatesAutoresizingMaskIntoConstraints = false
+//        controller.view.heightAnchor.constraint(equalToConstant: 80).isActive = true
+//        controller.view?.leftAnchor.constraint(equalTo: self.chartBack.leftAnchor, constant: 50).isActive = true
+//        controller.view?.rightAnchor.constraint(equalTo: self.chartBack.rightAnchor, constant: 50).isActive = true
+//        controller.view?.centerYAnchor.constraint(equalTo: self.chartBack.centerYAnchor).isActive = true
+//    }
+//}

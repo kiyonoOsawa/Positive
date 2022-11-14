@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		CE08B05628BD19870054D0D6 /* EditAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE08B05528BD19860054D0D6 /* EditAccountViewController.swift */; };
-		CE360FCF28FBDCF600C7E7B8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE360FCE28FBDCF600C7E7B8 /* GoogleService-Info.plist */; };
-		CE360FD028FBDCF600C7E7B8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE360FCE28FBDCF600C7E7B8 /* GoogleService-Info.plist */; };
 		CE3E7834288C40A000548FFD /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3E7833288C40A000548FFD /* TabBar.swift */; };
 		CE4A6C1228FBD4BC00BA3FCC /* HomeStory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE4A6C1128FBD4BC00BA3FCC /* HomeStory.storyboard */; };
 		CE4A6C1428FBD52C00BA3FCC /* TargetDetailStory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE4A6C1328FBD52C00BA3FCC /* TargetDetailStory.storyboard */; };
@@ -49,6 +47,7 @@
 		CEAE56BF28974864002DBEA2 /* InnerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAE56BE28974864002DBEA2 /* InnerCollectionViewCell.swift */; };
 		CEAE56C4289766FB002DBEA2 /* FriendsInnerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAE56C2289766FB002DBEA2 /* FriendsInnerCollectionViewCell.swift */; };
 		CEAE56C5289766FB002DBEA2 /* FriendsInnerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEAE56C3289766FB002DBEA2 /* FriendsInnerCollectionViewCell.xib */; };
+		CEB0F50F2920B8D90053766B /* FirebaseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0F50E2920B8D90053766B /* FirebaseClient.swift */; };
 		CEB475492859220A002654E6 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB475482859220A002654E6 /* LogInViewController.swift */; };
 		CEB4754B2859F894002654E6 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB4754A2859F894002654E6 /* AccountViewController.swift */; };
 		CEB4755B285F65CD002654E6 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB4755A285F65CD002654E6 /* QuestionViewController.swift */; };
@@ -63,6 +62,9 @@
 		CEB4757728713986002654E6 /* ImportanceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEB4757528713986002654E6 /* ImportanceTableViewCell.xib */; };
 		CEB4757E28713B11002654E6 /* DateTargetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB4757C28713B11002654E6 /* DateTargetTableViewCell.swift */; };
 		CEB4757F28713B11002654E6 /* DateTargetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEB4757D28713B11002654E6 /* DateTargetTableViewCell.xib */; };
+		CEC444822920917B007FEF1C /* ChartDataEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC444812920917B007FEF1C /* ChartDataEntry.swift */; };
+		CEC4448429209261007FEF1C /* GraphViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4448329209261007FEF1C /* GraphViewModel.swift */; };
+		CEC4448629209564007FEF1C /* LineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4448529209563007FEF1C /* LineChartView.swift */; };
 		CEC6855A28AFDA11007C0967 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6855928AFDA11007C0967 /* Review.swift */; };
 		CEC6855C28B0B3C6007C0967 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6855B28B0B3C5007C0967 /* Alert.swift */; };
 		CEC6855E28B12617007C0967 /* ReframingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6855D28B12617007C0967 /* ReframingViewController.swift */; };
@@ -78,6 +80,8 @@
 		CECC28BD28EB77F900219F98 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = CECC28BC28EB77F900219F98 /* FirebaseAnalytics */; };
 		CECC28C128EC1D6C00219F98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE73D1622839DF4E00B20D0D /* Assets.xcassets */; };
 		CECC28C228EC1D8400219F98 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE798A6C28D856AC00E5C340 /* DateFormat.swift */; };
+		CED18C6428FED5EC0008FF7C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE360FCE28FBDCF600C7E7B8 /* GoogleService-Info.plist */; };
+		CED18C6528FED5ED0008FF7C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE360FCE28FBDCF600C7E7B8 /* GoogleService-Info.plist */; };
 		CED649BE28BC5DB600E12D61 /* MyQRCodeReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED649BD28BC5DB600E12D61 /* MyQRCodeReader.swift */; };
 		CED649C228BC5E6E00E12D61 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED649C128BC5E6E00E12D61 /* User.swift */; };
 		CED649C628BC5F3300E12D61 /* CapturingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED649C528BC5F3300E12D61 /* CapturingViewController.swift */; };
@@ -90,7 +94,6 @@
 		CEDA1BE328BA5DC400D07A53 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = CEDA1BE228BA5DC400D07A53 /* FirebaseStorage */; };
 		CEDA1BE628BA5E2A00D07A53 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CEDA1BE528BA5E2A00D07A53 /* Alamofire */; };
 		CEDA1BE928BA5E5F00D07A53 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = CEDA1BE828BA5E5F00D07A53 /* FSCalendar */; };
-		CEDA1BEC28BA5F1D00D07A53 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = CEDA1BEB28BA5F1D00D07A53 /* Charts */; };
 		CEEE82B42847A99A00732497 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEE82B32847A99A00732497 /* SignUpViewController.swift */; };
 		CEEE82B8284B6A4400732497 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEE82B7284B6A4400732497 /* TabBarViewController.swift */; };
 		CEF07DA128F3161C005AACA3 /* TransferValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF07DA028F3161C005AACA3 /* TransferValue.swift */; };
@@ -165,6 +168,7 @@
 		CEAE56BE28974864002DBEA2 /* InnerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnerCollectionViewCell.swift; sourceTree = "<group>"; };
 		CEAE56C2289766FB002DBEA2 /* FriendsInnerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsInnerCollectionViewCell.swift; sourceTree = "<group>"; };
 		CEAE56C3289766FB002DBEA2 /* FriendsInnerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendsInnerCollectionViewCell.xib; sourceTree = "<group>"; };
+		CEB0F50E2920B8D90053766B /* FirebaseClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseClient.swift; sourceTree = "<group>"; };
 		CEB475482859220A002654E6 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		CEB4754A2859F894002654E6 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		CEB4755A285F65CD002654E6 /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
@@ -179,6 +183,9 @@
 		CEB4757528713986002654E6 /* ImportanceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImportanceTableViewCell.xib; sourceTree = "<group>"; };
 		CEB4757C28713B11002654E6 /* DateTargetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTargetTableViewCell.swift; sourceTree = "<group>"; };
 		CEB4757D28713B11002654E6 /* DateTargetTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateTargetTableViewCell.xib; sourceTree = "<group>"; };
+		CEC444812920917B007FEF1C /* ChartDataEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDataEntry.swift; sourceTree = "<group>"; };
+		CEC4448329209261007FEF1C /* GraphViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewModel.swift; sourceTree = "<group>"; };
+		CEC4448529209563007FEF1C /* LineChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartView.swift; sourceTree = "<group>"; };
 		CEC6855928AFDA11007C0967 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		CEC6855B28B0B3C5007C0967 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		CEC6855D28B12617007C0967 /* ReframingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReframingViewController.swift; sourceTree = "<group>"; };
@@ -211,7 +218,6 @@
 				CEDA1BE628BA5E2A00D07A53 /* Alamofire in Frameworks */,
 				CEDA1BDB28BA5DC400D07A53 /* FirebaseAnalytics in Frameworks */,
 				CEDA1BDF28BA5DC400D07A53 /* FirebaseFirestore in Frameworks */,
-				CEDA1BEC28BA5F1D00D07A53 /* Charts in Frameworks */,
 				CEDA1BDD28BA5DC400D07A53 /* FirebaseAuth in Frameworks */,
 				CEDA1BE928BA5E5F00D07A53 /* FSCalendar in Frameworks */,
 				CEDA1BE328BA5DC400D07A53 /* FirebaseStorage in Frameworks */,
@@ -303,6 +309,7 @@
 				CE798A6C28D856AC00E5C340 /* DateFormat.swift */,
 				CEF07DA228F317EF005AACA3 /* ActivityIndicator.swift */,
 				CE360FCE28FBDCF600C7E7B8 /* GoogleService-Info.plist */,
+				CEB0F50E2920B8D90053766B /* FirebaseClient.swift */,
 				CECC289C28EB1F6F00219F98 /* TabBar */,
 				CECC289B28EB1F2900219F98 /* Model */,
 				CECC289D28EB1F9B00219F98 /* SignInUp */,
@@ -353,6 +360,8 @@
 				CED649C128BC5E6E00E12D61 /* User.swift */,
 				CE80C15628716EF9000646B2 /* Goal.swift */,
 				CEC6855928AFDA11007C0967 /* Review.swift */,
+				CEC444812920917B007FEF1C /* ChartDataEntry.swift */,
+				CEC4448329209261007FEF1C /* GraphViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -392,6 +401,7 @@
 			isa = PBXGroup;
 			children = (
 				CEB4754A2859F894002654E6 /* AccountViewController.swift */,
+				CEC4448529209563007FEF1C /* LineChartView.swift */,
 				CE7F69A728EC6D4C00D9B990 /* MyListViewController.swift */,
 				CE08B05528BD19860054D0D6 /* EditAccountViewController.swift */,
 				CE8D8BEA28B9194C0024B322 /* CircleChart.swift */,
@@ -463,7 +473,6 @@
 				CEDA1BE228BA5DC400D07A53 /* FirebaseStorage */,
 				CEDA1BE528BA5E2A00D07A53 /* Alamofire */,
 				CEDA1BE828BA5E5F00D07A53 /* FSCalendar */,
-				CEDA1BEB28BA5F1D00D07A53 /* Charts */,
 			);
 			productName = Positive;
 			productReference = CE73D1562839DF4C00B20D0D /* Positive.app */;
@@ -522,7 +531,6 @@
 				CEDA1BD928BA5DC400D07A53 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				CEDA1BE428BA5E2A00D07A53 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				CEDA1BE728BA5E5F00D07A53 /* XCRemoteSwiftPackageReference "FSCalendar" */,
-				CEDA1BEA28BA5F1D00D07A53 /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = CE73D1572839DF4C00B20D0D /* Products */;
 			projectDirPath = "";
@@ -558,7 +566,7 @@
 				CEB47563285F6981002654E6 /* QuestionTableViewCell.xib in Resources */,
 				CE4A6C1A28FBD5FB00BA3FCC /* AccountStory.storyboard in Resources */,
 				CE4A6C1428FBD52C00BA3FCC /* TargetDetailStory.storyboard in Resources */,
-				CE360FCF28FBDCF600C7E7B8 /* GoogleService-Info.plist in Resources */,
+				CED18C6428FED5EC0008FF7C /* GoogleService-Info.plist in Resources */,
 				CE4A6C1628FBD58200BA3FCC /* CalendarStory.storyboard in Resources */,
 				CE73D1612839DF4C00B20D0D /* Main.storyboard in Resources */,
 			);
@@ -570,7 +578,7 @@
 			files = (
 				CECC28AE28EB77B400219F98 /* Assets.xcassets in Resources */,
 				CECC28C128EC1D6C00219F98 /* Assets.xcassets in Resources */,
-				CE360FD028FBDCF600C7E7B8 /* GoogleService-Info.plist in Resources */,
+				CED18C6528FED5ED0008FF7C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -589,7 +597,9 @@
 				CEEE82B8284B6A4400732497 /* TabBarViewController.swift in Sources */,
 				CED649C228BC5E6E00E12D61 /* User.swift in Sources */,
 				CEB47562285F6981002654E6 /* QuestionTableViewCell.swift in Sources */,
+				CEC444822920917B007FEF1C /* ChartDataEntry.swift in Sources */,
 				CEAE56BF28974864002DBEA2 /* InnerCollectionViewCell.swift in Sources */,
+				CEC4448629209564007FEF1C /* LineChartView.swift in Sources */,
 				CE73D1702839F8AE00B20D0D /* CalendarViewController.swift in Sources */,
 				CEB4756B28713450002654E6 /* MakeTargetViewController.swift in Sources */,
 				CEF07DA128F3161C005AACA3 /* TransferValue.swift in Sources */,
@@ -597,6 +607,7 @@
 				CEB4755B285F65CD002654E6 /* QuestionViewController.swift in Sources */,
 				CE7E727928ECDD0000C0E550 /* CategoryTableViewCell.swift in Sources */,
 				CEF07DA328F317EF005AACA3 /* ActivityIndicator.swift in Sources */,
+				CEC4448429209261007FEF1C /* GraphViewModel.swift in Sources */,
 				CEAE56C4289766FB002DBEA2 /* FriendsInnerCollectionViewCell.swift in Sources */,
 				CE798A6F28D9707100E5C340 /* SaveReviewViewController.swift in Sources */,
 				CED6A12F28C3487F0082D498 /* FlowLayout.swift in Sources */,
@@ -625,6 +636,7 @@
 				CE7A58BB289AC3B200AD3946 /* APIClient.swift in Sources */,
 				CE08B05628BD19870054D0D6 /* EditAccountViewController.swift in Sources */,
 				CE644D8F28B7C580008443BE /* FriendAccCollectionViewCell.swift in Sources */,
+				CEB0F50F2920B8D90053766B /* FirebaseClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -980,14 +992,6 @@
 				minimumVersion = 2.0.0;
 			};
 		};
-		CEDA1BEA28BA5F1D00D07A53 /* XCRemoteSwiftPackageReference "Charts" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/danielgindi/Charts.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1040,11 +1044,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CEDA1BE728BA5E5F00D07A53 /* XCRemoteSwiftPackageReference "FSCalendar" */;
 			productName = FSCalendar;
-		};
-		CEDA1BEB28BA5F1D00D07A53 /* Charts */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CEDA1BEA28BA5F1D00D07A53 /* XCRemoteSwiftPackageReference "Charts" */;
-			productName = Charts;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

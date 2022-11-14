@@ -18,19 +18,45 @@
                 <rect key="frame" x="0.0" y="0.0" width="352" height="352"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2aR-Ri-zvE">
-                        <rect key="frame" x="116" y="296" width="120" height="44"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Yw-VE-adL">
+                        <rect key="frame" x="74" y="300" width="204" height="40"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6R8-5W-Ec5">
+                                <rect key="frame" x="0.0" y="0.0" width="96" height="40"/>
+                                <color key="backgroundColor" name="MainColor"/>
+                                <color key="tintColor" systemColor="systemBackgroundColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="完了">
+                                    <fontDescription key="titleFontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="13"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="doneButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="21O-aV-jyb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2aR-Ri-zvE">
+                                <rect key="frame" x="108" y="0.0" width="96" height="40"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="13"/>
+                                <color key="tintColor" name="MainColor"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="振り返り"/>
+                                <connections>
+                                    <action selector="reviewButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="S9N-bl-6yz"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="44" id="835-aC-KFz"/>
+                            <constraint firstItem="2aR-Ri-zvE" firstAttribute="width" secondItem="0Yw-VE-adL" secondAttribute="width" multiplier="0.471698" id="8Gf-i5-9ZN"/>
+                            <constraint firstItem="6R8-5W-Ec5" firstAttribute="top" secondItem="0Yw-VE-adL" secondAttribute="top" id="Acy-kj-U66"/>
+                            <constraint firstAttribute="height" constant="40" id="CBb-Kd-AAC"/>
+                            <constraint firstItem="6R8-5W-Ec5" firstAttribute="width" secondItem="0Yw-VE-adL" secondAttribute="width" multiplier="0.471698" id="FG0-Ig-5sV"/>
+                            <constraint firstAttribute="bottom" secondItem="2aR-Ri-zvE" secondAttribute="bottom" id="IIu-tU-PFJ"/>
+                            <constraint firstItem="6R8-5W-Ec5" firstAttribute="leading" secondItem="0Yw-VE-adL" secondAttribute="leading" id="LT2-44-Q9Q"/>
+                            <constraint firstItem="2aR-Ri-zvE" firstAttribute="top" secondItem="0Yw-VE-adL" secondAttribute="top" id="R5n-rR-dIT"/>
+                            <constraint firstAttribute="trailing" secondItem="2aR-Ri-zvE" secondAttribute="trailing" id="gHC-Rs-OHk"/>
+                            <constraint firstAttribute="bottom" secondItem="6R8-5W-Ec5" secondAttribute="bottom" id="lgQ-MG-vBd"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="13"/>
-                        <color key="tintColor" name="MainColor"/>
-                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                        <state key="normal" title="振り返り"/>
-                        <connections>
-                            <action selector="reviewButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="S9N-bl-6yz"/>
-                        </connections>
-                    </button>
+                    </view>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="R7l-O8-Qz0">
                         <rect key="frame" x="32" y="109" width="288" height="115"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -95,26 +121,27 @@
                 <constraint firstItem="OX5-f1-6aQ" firstAttribute="centerY" secondItem="gWU-Sr-5Ek" secondAttribute="centerY" id="AeX-77-UBi"/>
                 <constraint firstItem="hpB-qQ-fXj" firstAttribute="top" secondItem="SnQ-0Z-sOh" secondAttribute="bottom" id="BSq-uk-bt6"/>
                 <constraint firstAttribute="trailing" secondItem="OX5-f1-6aQ" secondAttribute="trailing" constant="24" id="CPP-wP-pWv"/>
-                <constraint firstItem="2aR-Ri-zvE" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="G7t-ac-rqG"/>
                 <constraint firstItem="hpB-qQ-fXj" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="24" id="IDu-PG-wpv"/>
                 <constraint firstItem="SnQ-0Z-sOh" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="24" id="Jto-D6-pG8"/>
                 <constraint firstItem="w9O-x8-NDT" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="K0r-st-8Jt"/>
                 <constraint firstItem="OX5-f1-6aQ" firstAttribute="leading" secondItem="gWU-Sr-5Ek" secondAttribute="trailing" constant="2" id="O9b-NR-Kxg"/>
                 <constraint firstAttribute="bottom" secondItem="OX5-f1-6aQ" secondAttribute="bottom" constant="18" id="RIW-qU-roy"/>
-                <constraint firstItem="2aR-Ri-zvE" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="0.340909" id="TrE-eT-Zu7"/>
-                <constraint firstItem="2aR-Ri-zvE" firstAttribute="top" secondItem="dkz-71-G10" secondAttribute="bottom" constant="4" id="YYi-vz-4ov"/>
-                <constraint firstAttribute="bottom" secondItem="2aR-Ri-zvE" secondAttribute="bottom" constant="12" id="ZJP-3a-KWn"/>
                 <constraint firstItem="dkz-71-G10" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="bqs-GG-RqG"/>
                 <constraint firstItem="R7l-O8-Qz0" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="32" id="cD8-Ni-eRL"/>
+                <constraint firstItem="0Yw-VE-adL" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="jJk-9Z-Knp"/>
+                <constraint firstItem="gWU-Sr-5Ek" firstAttribute="leading" secondItem="0Yw-VE-adL" secondAttribute="trailing" constant="16" id="kOu-8r-mAx"/>
                 <constraint firstItem="w9O-x8-NDT" firstAttribute="top" secondItem="hpB-qQ-fXj" secondAttribute="bottom" constant="8" id="kyb-zS-u2h"/>
                 <constraint firstAttribute="trailing" secondItem="R7l-O8-Qz0" secondAttribute="trailing" constant="32" id="mol-aT-heG"/>
                 <constraint firstAttribute="trailing" secondItem="SnQ-0Z-sOh" secondAttribute="trailing" constant="16" id="nL9-bN-KZK"/>
+                <constraint firstItem="0Yw-VE-adL" firstAttribute="top" secondItem="dkz-71-G10" secondAttribute="bottom" constant="8" symbolic="YES" id="oQ2-gu-iaA"/>
                 <constraint firstItem="hpB-qQ-fXj" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="tcD-qZ-294"/>
+                <constraint firstAttribute="bottom" secondItem="0Yw-VE-adL" secondAttribute="bottom" constant="12" id="tu6-k0-nB9"/>
             </constraints>
             <size key="customSize" width="324" height="147"/>
             <connections>
                 <outlet property="dateLabel" destination="w9O-x8-NDT" id="yLA-Xh-Y0Y"/>
                 <outlet property="deleteButton" destination="SnQ-0Z-sOh" id="zxP-81-hHK"/>
+                <outlet property="doneButton" destination="6R8-5W-Ec5" id="Iq5-ip-2XR"/>
                 <outlet property="goalLabel" destination="hpB-qQ-fXj" id="jDT-mw-KOK"/>
                 <outlet property="hartImage" destination="gWU-Sr-5Ek" id="JR7-za-JiW"/>
                 <outlet property="iineLabel" destination="OX5-f1-6aQ" id="Ahr-TY-zux"/>
@@ -122,7 +149,7 @@
                 <outlet property="reviewButton" destination="2aR-Ri-zvE" id="7DU-Uf-nmT"/>
                 <outlet property="stepView" destination="dkz-71-G10" id="l75-M2-jM6"/>
             </connections>
-            <point key="canvasLocation" x="199" y="59"/>
+            <point key="canvasLocation" x="198.55072463768118" y="58.928571428571423"/>
         </collectionViewCell>
     </objects>
     <resources>
