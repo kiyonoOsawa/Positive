@@ -12,13 +12,13 @@ import FirebaseStorage
 import FirebaseAuth
 import SwiftUI
 
+@available(iOS 16.0, *)
 class AccountViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var chartBack: UIView!
-//    @IBOutlet weak var lineChartView: LineChartView!
     @IBOutlet weak var aveLabel: UILabel!
     @IBOutlet weak var friendsBack: UIView!
     @IBOutlet weak var friendsCollection: UICollectionView!
@@ -26,6 +26,7 @@ class AccountViewController: UIViewController {
     let storageRef = Storage.storage().reference(forURL: "gs://taffi-f610f.appspot.com/")
     let user = Auth.auth().currentUser
     let db = Firestore.firestore()
+    let viewModel = GraphViewModel()
     var addresses: [DetailGoal] = []
     var friends: User? = nil
     var addressesFriends: [DetailGoal] = []
@@ -43,6 +44,7 @@ class AccountViewController: UIViewController {
         fetchMyData()
         fetchReviewData()
         design()
+        hostingGraphView()
     }
     
     private func fetchMyData() {
@@ -101,17 +103,11 @@ class AccountViewController: UIViewController {
                 for doc in querySnapshot.documents {
                     let review = Review(dictionary: doc.data(), reviewDocumentId: doc.documentID)
                     self.rawDataGraph.append(Int(review.score ?? 0))
-//                    let entries = self.rawDataGraph.enumerated().map { ChartDataEntry(x: Double($0.offset),y: Double($0.element))}
-//                    self.setChartData(entries: entries)
+                    self.viewModel.update(value: review.score, number: Double(self.rawDataGraph.count - 1))
                     self.setAverageData(scores: self.rawDataGraph)
                 }
             }
     }
-    
-//    private func setChartData(entries: [ChartDataEntry]) {
-//        let dataSet = LineChartDataSet(entries: entries)
-//        self.lineChartView.data = LineChartData(dataSet: dataSet)
-//    }
     
     private func setAverageData(scores: [Int]) {
         let average = scores.reduce(0, +) / scores.count
@@ -133,6 +129,7 @@ class AccountViewController: UIViewController {
     }
 }
 
+@available(iOS 16.0, *)
 extension AccountViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -178,18 +175,20 @@ extension AccountViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
 }
 
-//private extension AccountViewController{
-//    @available(iOS 16.0, *)
-//    func hostingGraphView(){
-//        let chartView = LineChartView(graphViewModel: GraphViewModel)
-//        let controller = UIHostingController(rootView: chartView)
-//        addChild(controller)
-//        chartBack.addSubview(controller.view)
-//        controller.didMove(toParent: self)
-//        controller.view?.translatesAutoresizingMaskIntoConstraints = false
-//        controller.view.heightAnchor.constraint(equalToConstant: 80).isActive = true
-//        controller.view?.leftAnchor.constraint(equalTo: self.chartBack.leftAnchor, constant: 50).isActive = true
-//        controller.view?.rightAnchor.constraint(equalTo: self.chartBack.rightAnchor, constant: 50).isActive = true
-//        controller.view?.centerYAnchor.constraint(equalTo: self.chartBack.centerYAnchor).isActive = true
-//    }
-//}
+@available(iOS 16.0, *)
+private extension AccountViewController{
+    @available(iOS 16.0, *)
+    func hostingGraphView(){
+        let chartView = LineChartView(graphViewModel: viewModel)
+        let controller = UIHostingController(rootView: chartView)
+        addChild(controller)
+        chartBack.addSubview(controller.view)
+        controller.didMove(toParent: self)
+        controller.view?.translatesAutoresizingMaskIntoConstraints = false
+        controller.view.heightAnchor.constraint(equalToConstant: 0).isActive = true
+        controller.view?.leftAnchor.constraint(equalTo: self.chartBack.leftAnchor, constant: 20).isActive = true
+        controller.view?.rightAnchor.constraint(equalTo: self.chartBack.rightAnchor, constant: 0).isActive = true
+        controller.view.topAnchor.constraint(equalTo: self.aveLabel.bottomAnchor, constant: 80).isActive = true
+        controller.view?.centerXAnchor.constraint(equalTo: self.chartBack.centerXAnchor).isActive = true
+    }
+}
