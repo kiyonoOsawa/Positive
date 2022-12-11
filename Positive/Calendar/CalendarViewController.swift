@@ -133,7 +133,7 @@ class CalendarViewController: UIViewController {
     }
     
     @IBAction func toReviewViewButton() {
-        let storyboard: UIStoryboard = self.storyboard!
+        let storyboard = UIStoryboard(name: "ReviewStory", bundle: nil)
         let nc: UINavigationController = storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
         nc.modalPresentationStyle = .fullScreen
         let nextNC = nc.viewControllers[0] as! ReviewViewController

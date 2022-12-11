@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nsA-oF-L89">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nsA-oF-L89">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -14,11 +15,11 @@
             <objects>
                 <viewController id="lgm-cU-k13" customClass="QRViewController" customModule="Positive" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IYs-PX-rdv">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RVo-KF-vbC">
-                                <rect key="frame" x="87" y="248" width="240" height="240"/>
+                                <rect key="frame" x="76.666666666666686" y="263" width="240" height="240"/>
                                 <color key="backgroundColor" name="systemColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="9cA-jp-V51"/>
@@ -26,7 +27,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lME-Fk-Kjb">
-                                <rect key="frame" x="135" y="552" width="144" height="48"/>
+                                <rect key="frame" x="124.66666666666669" y="567" width="144" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="144" id="WiF-zq-xaj"/>
                                     <constraint firstAttribute="height" constant="48" id="X5D-Ls-tBz"/>
@@ -59,14 +60,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="20Z-X4-bne" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4297" y="1547"/>
+            <point key="canvasLocation" x="4295.652173913044" y="1546.875"/>
         </scene>
         <!--Capturing View Controller-->
         <scene sceneID="2iu-D5-gZd">
             <objects>
                 <viewController id="0av-I9-Yys" customClass="CapturingViewController" customModule="Positive" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hsw-qx-UdY">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="Fhi-ZA-26k"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -84,7 +85,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="G7O-YL-D7M"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="FvF-Mo-Wn2">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
