@@ -47,7 +47,7 @@ class ReviewViewController: UIViewController {
     }
     
     private func refShowModal(value: Double, originalText: String, targetDocumentId: String, targetGoal: String, calendarDate: Date) {
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let storyBoard = UIStoryboard(name: "ReviewStory", bundle: nil)
         let viewController = storyBoard.instantiateViewController(withIdentifier: "ReframingViewController") as! ReframingViewController
         if let sheet = viewController.sheetPresentationController {
             sheet.detents = [.medium()]
@@ -61,7 +61,7 @@ class ReviewViewController: UIViewController {
     }
     
     private func saveShowModal() {
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let storyBoard = UIStoryboard(name: "ReviewStory", bundle: nil)
         let viewController = storyBoard.instantiateViewController(withIdentifier: "SaveReviewViewController") as! SaveReviewViewController
         if let sheet = viewController.sheetPresentationController {
             sheet.detents = [.medium()]

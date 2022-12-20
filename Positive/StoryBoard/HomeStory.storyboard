@@ -108,7 +108,8 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="g9E-w2-GEg">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="questionmark.square" catalog="system" id="PzV-D5-am7">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="questionmark" catalog="system" id="PzV-D5-am7">
+                            <color key="tintColor" name="MainColor"/>
                             <connections>
                                 <segue destination="GnB-Ey-yBO" kind="presentation" id="cMf-Ca-Mmc"/>
                             </connections>
@@ -268,7 +269,7 @@
     <resources>
         <image name="home_1x" width="24" height="24"/>
         <image name="homed_1x" width="24" height="24"/>
-        <image name="questionmark.square" catalog="system" width="128" height="114"/>
+        <image name="questionmark" catalog="system" width="94" height="128"/>
         <image name="shadowImage" width="5430" height="107"/>
         <namedColor name="MainColor">
             <color red="0.92549019607843142" green="0.32549019607843138" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

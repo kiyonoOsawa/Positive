@@ -13,7 +13,7 @@
         <!--詳細-->
         <scene sceneID="LTS-dh-srH">
             <objects>
-                <viewController id="mN9-fb-4Yv" customClass="TargetDetailViewController" customModule="Positive" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="detailTarget" id="mN9-fb-4Yv" customClass="TargetDetailViewController" customModule="Positive" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mFT-HX-W2v">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -169,7 +169,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Fkn-FV-ZJr">
             <objects>
-                <navigationController storyboardIdentifier="detailTarget" automaticallyAdjustsScrollViewInsets="NO" id="ALo-n5-FHe" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ALo-n5-FHe" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="IM6-Jm-f75">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>

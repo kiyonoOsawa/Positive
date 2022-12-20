@@ -15,16 +15,34 @@ class PageViewController: UIPageViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        delegate = self
+        dataSource = self
         setController()
     }
     
-    private func setController(){
-        let firstController = storyboard!.instantiateViewController(withIdentifier: "FirstViewController")
-        let secondController = storyboard!.instantiateViewController(withIdentifier: "SecondViewController")
-        let thirdController = storyboard!.instantiateViewController(withIdentifier: "ThirdViewController")
-        let fourthController = storyboard!.instantiateViewController(withIdentifier: "FourthViewController")
-        controllers = [firstController, secondController]
+    private func setController() {
+        let firstController = storyboard!.instantiateViewController(withIdentifier: "FirstViewController") as! FirstViewController
+        let secondController = storyboard!.instantiateViewController(withIdentifier: "SecondViewController") as! SecondViewController
+        let thirdController = storyboard!.instantiateViewController(withIdentifier: "ThirdViewController") as! ThirdViewController
+        let fourthController = storyboard!.instantiateViewController(withIdentifier: "FourthViewController") as! FourthViewController
+        controllers = [firstController, secondController, thirdController, fourthController]
         self.setViewControllers([controllers[0]], direction: .forward, animated: true, completion: nil)
+        firstController.tappedButton = {
+            self.displayedPage = 0
+            self.setViewControllers([self.controllers[1]], direction: .forward, animated: true, completion: nil)
+        }
+        secondController.tappedButton = {
+            self.displayedPage = 1
+            self.setViewControllers([self.controllers[2]], direction: .forward, animated: true, completion: nil)
+        }
+        thirdController.tappedButton = {
+            self.displayedPage = 2
+            self.setViewControllers([self.controllers[3]], direction: .forward, animated: true, completion: nil)
+        }
+        fourthController.tappedButton = {
+            self.displayedPage = 3
+            self.setViewControllers([self.controllers[0]], direction: .forward, animated: true, completion: nil)
+        }
     }
 }
 
@@ -41,7 +59,7 @@ extension PageViewController: UIPageViewControllerDelegate, UIPageViewController
     //MARK: 現在の後ろのページ指定
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         let index = controllers.firstIndex(of: viewController)
-        if index == 1{
+        if index == controllers.count - 1 {
             return nil
         }else{
             return controllers[index!+1]

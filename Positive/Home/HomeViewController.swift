@@ -241,7 +241,8 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView.tag == 0 {
-            let nextNC = storyboard?.instantiateViewController(withIdentifier: "detailTarget") as! TargetDetailViewController
+            let storyboard = UIStoryboard(name: "TargetDetailStory", bundle: nil)
+            let nextNC = storyboard.instantiateViewController(withIdentifier: "detailTarget") as! TargetDetailViewController
             nextNC.modalTransitionStyle = .coverVertical
             nextNC.modalPresentationStyle = .pageSheet
             nextNC.Goal = addresses[indexPath.row].goal
@@ -325,7 +326,7 @@ extension HomeViewController: HomeViewCellDelegate {
     
     func tappedReview(cell: InnerCollectionViewCell) {
         if let indexPath = targetCollection.indexPath(for: cell) {
-            let storyboard: UIStoryboard = self.storyboard!
+            let storyboard = UIStoryboard(name: "ReviewStory", bundle: nil)
             let nc: UINavigationController = storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
             nc.modalPresentationStyle = .fullScreen
             let nextNC = nc.viewControllers[0] as! ReviewViewController

@@ -27,6 +27,7 @@ class SignUpViewController: UIViewController {
     
     let storageRef = Storage.storage().reference(forURL: "gs://taffi-f610f.appspot.com/")
     let user = Auth.auth().currentUser
+    let authStateManager = AuthStateManager.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,7 +61,30 @@ class SignUpViewController: UIViewController {
 
         }
         if emailField.text != nil && passwordField.text != nil{
-        createUser(emailText: emailField.text!, passwordText: passwordField.text!)
+            authStateManager.createUser(emailText: emailField.text!, passwordText: passwordField.text!) { uid in
+                let reference = self.storageRef.child("userProfile").child("\(uid).jpg")
+                guard let image = self.userImageButton.imageView?.image else {
+                    return
+                }
+                guard let uploadImage = image.jpegData(compressionQuality: 0.2) else {
+                    return
+                }
+                reference.putData(uploadImage, metadata: nil) { (metadata, err) in
+                    if let error = err {
+                        print("error: \(error)")
+                    }
+                }
+                let addData: [String:Any] = [
+                    "userName": self.userNameField.text!,
+                    "userId": uid,
+                    "password": self.passwordField.text!
+                ] as [String : Any]
+                let db = Firestore.firestore()
+                db.collection("users")
+                    .document(uid)
+                    .setData(addData)
+                self.transition()
+            }
         }
     }
     
@@ -68,36 +92,37 @@ class SignUpViewController: UIViewController {
         self.performSegue(withIdentifier: "toLogIn", sender: nil)
     }
     
-    func createUser(emailText: String, passwordText: String) {
-        Auth.auth().createUser(withEmail: emailText, password: passwordText) { FIRAuthDataResult, Error in
-            guard let authResult = FIRAuthDataResult else {
-                print("error: \(Error)")
-                return
-            }
-            let reference = self.storageRef.child("userProfile").child("\(authResult.user.uid).jpg")
-            guard let image = self.userImageButton.imageView?.image else {
-                return
-            }
-            guard let uploadImage = image.jpegData(compressionQuality: 0.2) else {
-                return
-            }
-            reference.putData(uploadImage, metadata: nil) { (metadata, err) in
-                if let error = err {
-                    print("error: \(error)")
-                }
-            }
-            let addData: [String:Any] = [
-                "userName": self.userNameField.text!,
-                "userId": authResult.user.uid,
-                "password": self.passwordField.text!
-            ] as [String : Any]
-            let db = Firestore.firestore()
-            db.collection("users")
-                .document(authResult.user.uid)
-                .setData(addData)
-            self.transition()
-        }
-    }
+//    func createUser(emailText: String, passwordText: String) {
+//        Auth.auth().createUser(withEmail: emailText, password: passwordText) { FIRAuthDataResult, Error in
+//            guard let authResult = FIRAuthDataResult else {
+//                self.authStateManager.handlingError(error: Error!)
+//                print("error: \(Error)")
+//                return
+//            }
+//            let reference = self.storageRef.child("userProfile").child("\(authResult.user.uid).jpg")
+//            guard let image = self.userImageButton.imageView?.image else {
+//                return
+//            }
+//            guard let uploadImage = image.jpegData(compressionQuality: 0.2) else {
+//                return
+//            }
+//            reference.putData(uploadImage, metadata: nil) { (metadata, err) in
+//                if let error = err {
+//                    print("error: \(error)")
+//                }
+//            }
+//            let addData: [String:Any] = [
+//                "userName": self.userNameField.text!,
+//                "userId": authResult.user.uid,
+//                "password": self.passwordField.text!
+//            ] as [String : Any]
+//            let db = Firestore.firestore()
+//            db.collection("users")
+//                .document(authResult.user.uid)
+//                .setData(addData)
+//            self.transition()
+//        }
+//    }
     
     func transition() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)

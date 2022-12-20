@@ -21,6 +21,7 @@ class LogInViewController: UIViewController {
     
     let storeRef = Storage.storage().reference(forURL: "gs://taffi-f610f.appspot.com/")
     let auth = Auth.auth()
+    let authStateManager = AuthStateManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
