@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 import Firebase
 import FirebaseAuth
 import FirebaseStorage
@@ -23,16 +24,21 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var error1: UILabel!
     @IBOutlet weak var error2: UILabel!
-    @IBOutlet weak var error3: UILabel!
     
     let storageRef = Storage.storage().reference(forURL: "gs://taffi-f610f.appspot.com/")
     let user = Auth.auth().currentUser
     let authStateManager = AuthStateManager.shared
+    let signInUpViewModel = SignInUpViewModel.shared
+    var cancellables: Set<AnyCancellable> = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        signInUpViewModel.$errMessage.sink(receiveValue: { errMessage in
+            self.error1.text = errMessage
+            self.error2.text = errMessage
+        }).store(in: &cancellables)
         fieldImage()
         design()
     }
@@ -41,7 +47,6 @@ class SignUpViewController: UIViewController {
         super.viewDidAppear(animated)
         self.error1.isHidden = true
         self.error2.isHidden = true
-        self.error3.isHidden = true
     }
     
     @IBAction func tappedImageButton(_ sender: Any) {
@@ -92,40 +97,40 @@ class SignUpViewController: UIViewController {
         self.performSegue(withIdentifier: "toLogIn", sender: nil)
     }
     
-//    func createUser(emailText: String, passwordText: String) {
-//        Auth.auth().createUser(withEmail: emailText, password: passwordText) { FIRAuthDataResult, Error in
-//            guard let authResult = FIRAuthDataResult else {
-//                self.authStateManager.handlingError(error: Error!)
-//                print("error: \(Error)")
-//                return
-//            }
-//            let reference = self.storageRef.child("userProfile").child("\(authResult.user.uid).jpg")
-//            guard let image = self.userImageButton.imageView?.image else {
-//                return
-//            }
-//            guard let uploadImage = image.jpegData(compressionQuality: 0.2) else {
-//                return
-//            }
-//            reference.putData(uploadImage, metadata: nil) { (metadata, err) in
-//                if let error = err {
-//                    print("error: \(error)")
-//                }
-//            }
-//            let addData: [String:Any] = [
-//                "userName": self.userNameField.text!,
-//                "userId": authResult.user.uid,
-//                "password": self.passwordField.text!
-//            ] as [String : Any]
-//            let db = Firestore.firestore()
-//            db.collection("users")
-//                .document(authResult.user.uid)
-//                .setData(addData)
-//            self.transition()
-//        }
-//    }
+    func createUser(emailText: String, passwordText: String) {
+        Auth.auth().createUser(withEmail: emailText, password: passwordText) { FIRAuthDataResult, Error in
+            guard let authResult = FIRAuthDataResult else {
+                self.authStateManager.handlingError(error: Error!)
+                print("error: \(Error)")
+                return
+            }
+            let reference = self.storageRef.child("userProfile").child("\(authResult.user.uid).jpg")
+            guard let image = self.userImageButton.imageView?.image else {
+                return
+            }
+            guard let uploadImage = image.jpegData(compressionQuality: 0.2) else {
+                return
+            }
+            reference.putData(uploadImage, metadata: nil) { (metadata, err) in
+                if let error = err {
+                    print("error: \(error)")
+                }
+            }
+            let addData: [String:Any] = [
+                "userName": self.userNameField.text!,
+                "userId": authResult.user.uid,
+                "password": self.passwordField.text!
+            ] as [String : Any]
+            let db = Firestore.firestore()
+            db.collection("users")
+                .document(authResult.user.uid)
+                .setData(addData)
+            self.transition()
+        }
+    }
     
     func transition() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let storyboard = UIStoryboard(name: "MainStory", bundle: nil)
         let tabView = storyboard.instantiateViewController(withIdentifier: "tab") as! UITabBarController
         tabView.modalPresentationStyle = .fullScreen
         tabView.selectedIndex = 0
@@ -167,12 +172,14 @@ class SignUpViewController: UIViewController {
      passwordField.text = ""
     }
     
-    func design() {
+    private func design() {
         userImageButton.layer.cornerRadius = 40
         userImageButton.layer.borderWidth = 1
         userImageButton.layer.borderColor = UIColor.darkGray.cgColor
         backView.layer.cornerRadius = 15
         signUp.layer.cornerRadius = 10
+        error1.text = authStateManager.errorMessage
+        error2.text = authStateManager.errorMessage
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {

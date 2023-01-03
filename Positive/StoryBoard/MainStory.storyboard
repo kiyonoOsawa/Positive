@@ -111,19 +111,13 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メールアドレスの形式が違います。" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8NA-3h-Eq8">
-                                        <rect key="frame" x="114.66666666666666" y="184" width="163.99999999999997" height="12"/>
+                                        <rect key="frame" x="133" y="184" width="164" height="12"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <color key="textColor" systemColor="systemRedColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6ケタ以上で入力してください。" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bpr-qV-xSD">
-                                        <rect key="frame" x="92" y="268" width="150" height="12"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                        <color key="textColor" systemColor="systemRedColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="このメールアドレスは既に使用されています。" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6kf-mr-oqk">
-                                        <rect key="frame" x="114.66666666666666" y="184" width="214.99999999999997" height="12"/>
+                                        <rect key="frame" x="147" y="268" width="150" height="12"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <color key="textColor" systemColor="systemRedColor"/>
                                         <nil key="highlightedColor"/>
@@ -148,7 +142,6 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="400" id="1as-RW-d62"/>
                                     <constraint firstAttribute="trailing" secondItem="cXa-Qu-mQh" secondAttribute="trailing" constant="24" id="3Jx-NI-pIq"/>
-                                    <constraint firstItem="Bpr-qV-xSD" firstAttribute="leading" secondItem="ais-YH-cZD" secondAttribute="trailing" constant="16" id="4Nh-g2-iVz"/>
                                     <constraint firstItem="qYP-5y-uOJ" firstAttribute="leading" secondItem="MeG-UI-LEh" secondAttribute="leading" constant="16" id="5SA-WF-0Cy"/>
                                     <constraint firstItem="nLX-ih-blo" firstAttribute="top" secondItem="wi4-DE-SbL" secondAttribute="bottom" constant="8" id="5qH-N8-Rup"/>
                                     <constraint firstItem="nLX-ih-blo" firstAttribute="centerX" secondItem="MeG-UI-LEh" secondAttribute="centerX" id="5vm-7v-2S9"/>
@@ -166,12 +159,11 @@
                                     <constraint firstItem="ais-YH-cZD" firstAttribute="leading" secondItem="MeG-UI-LEh" secondAttribute="leading" constant="16" id="USB-r9-aaH"/>
                                     <constraint firstAttribute="trailing" secondItem="2p0-Ci-b1V" secondAttribute="trailing" constant="24" id="aAw-SL-Mq9"/>
                                     <constraint firstItem="2p0-Ci-b1V" firstAttribute="centerY" secondItem="qYP-5y-uOJ" secondAttribute="centerY" id="b5h-j8-reF"/>
-                                    <constraint firstItem="6kf-mr-oqk" firstAttribute="centerY" secondItem="gxz-lV-A56" secondAttribute="centerY" id="bI4-ZB-hsQ"/>
-                                    <constraint firstItem="6kf-mr-oqk" firstAttribute="leading" secondItem="gxz-lV-A56" secondAttribute="trailing" constant="16" id="dar-ld-Dup"/>
+                                    <constraint firstItem="8NA-3h-Eq8" firstAttribute="trailing" secondItem="W2h-na-obn" secondAttribute="trailing" id="c8b-6t-jhg"/>
                                     <constraint firstItem="8NA-3h-Eq8" firstAttribute="centerY" secondItem="gxz-lV-A56" secondAttribute="centerY" id="eGt-Mv-iek"/>
                                     <constraint firstAttribute="trailing" secondItem="9KD-so-v3c" secondAttribute="trailing" constant="24" id="fm9-q4-lre"/>
-                                    <constraint firstItem="8NA-3h-Eq8" firstAttribute="leading" secondItem="gxz-lV-A56" secondAttribute="trailing" constant="16" id="gbK-Qm-Sgq"/>
                                     <constraint firstItem="nLX-ih-blo" firstAttribute="leading" secondItem="MeG-UI-LEh" secondAttribute="leading" constant="16" id="k8h-oH-OXa"/>
+                                    <constraint firstItem="qYP-5y-uOJ" firstAttribute="trailing" secondItem="Bpr-qV-xSD" secondAttribute="trailing" id="q8h-rW-gwN"/>
                                     <constraint firstItem="e3a-gd-5HH" firstAttribute="centerX" secondItem="MeG-UI-LEh" secondAttribute="centerX" id="tHL-5P-Ler"/>
                                     <constraint firstItem="9KD-so-v3c" firstAttribute="centerY" secondItem="W2h-na-obn" secondAttribute="centerY" id="umy-wJ-4HP"/>
                                     <constraint firstItem="ais-YH-cZD" firstAttribute="top" secondItem="W2h-na-obn" secondAttribute="bottom" constant="16" id="vca-VO-67x"/>
@@ -254,8 +246,7 @@
                         <outlet property="backView" destination="MeG-UI-LEh" id="62a-qh-3V3"/>
                         <outlet property="emailField" destination="W2h-na-obn" id="lAW-0h-goB"/>
                         <outlet property="error1" destination="8NA-3h-Eq8" id="cOa-Uc-UP9"/>
-                        <outlet property="error2" destination="6kf-mr-oqk" id="Asy-PG-od9"/>
-                        <outlet property="error3" destination="Bpr-qV-xSD" id="EeA-Ju-B7M"/>
+                        <outlet property="error2" destination="Bpr-qV-xSD" id="Rtt-vT-I84"/>
                         <outlet property="passwordField" destination="qYP-5y-uOJ" id="wis-L0-HeC"/>
                         <outlet property="signUp" destination="SmD-Zp-RkP" id="pvd-uU-hsn"/>
                         <outlet property="userImageButton" destination="e3a-gd-5HH" id="h40-ZQ-Aze"/>
@@ -350,12 +341,27 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メールアドレスの形式が違います。" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N0R-Ib-t1P">
+                                        <rect key="frame" x="133" y="32" width="164" height="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <color key="textColor" systemColor="systemRedColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メールアドレスの形式が違います。" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EjG-iq-lbC">
+                                        <rect key="frame" x="133" y="118" width="164" height="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <color key="textColor" systemColor="systemRedColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" name="rightColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="nbD-Af-NgN" secondAttribute="trailing" constant="24" id="0DU-e5-8Qw"/>
                                     <constraint firstAttribute="trailing" secondItem="8fR-0k-uFS" secondAttribute="trailing" constant="24" id="4Ms-sc-q4o"/>
+                                    <constraint firstItem="N0R-Ib-t1P" firstAttribute="centerY" secondItem="4Uh-UA-4k0" secondAttribute="centerY" id="JFw-od-ycC"/>
+                                    <constraint firstItem="N0R-Ib-t1P" firstAttribute="centerY" secondItem="4Uh-UA-4k0" secondAttribute="centerY" id="P9N-Sf-UX3"/>
                                     <constraint firstItem="zxa-TP-1W8" firstAttribute="leading" secondItem="4Uh-UA-4k0" secondAttribute="leading" constant="16" id="Pvl-Bf-bMv"/>
+                                    <constraint firstItem="EjG-iq-lbC" firstAttribute="centerY" secondItem="woE-gQ-wsg" secondAttribute="centerY" id="Qwm-mp-8cO"/>
                                     <constraint firstItem="prG-tD-kZh" firstAttribute="centerX" secondItem="4Uh-UA-4k0" secondAttribute="centerX" id="UOV-Ll-5uW"/>
                                     <constraint firstItem="nbD-Af-NgN" firstAttribute="centerY" secondItem="xi7-ce-F3z" secondAttribute="centerY" id="UwZ-7R-ba3"/>
                                     <constraint firstItem="prG-tD-kZh" firstAttribute="top" secondItem="woE-gQ-wsg" secondAttribute="bottom" constant="8" id="Wid-Qw-PQV"/>
@@ -366,8 +372,13 @@
                                     <constraint firstItem="xi7-ce-F3z" firstAttribute="centerX" secondItem="4Uh-UA-4k0" secondAttribute="centerX" id="hPU-A2-IV7"/>
                                     <constraint firstItem="zxa-TP-1W8" firstAttribute="top" secondItem="4Uh-UA-4k0" secondAttribute="top" constant="32" id="hQz-WG-kmY"/>
                                     <constraint firstItem="prG-tD-kZh" firstAttribute="leading" secondItem="4Uh-UA-4k0" secondAttribute="leading" constant="16" id="ku7-Ui-1yA"/>
+                                    <constraint firstItem="EjG-iq-lbC" firstAttribute="trailing" secondItem="prG-tD-kZh" secondAttribute="trailing" id="pW0-5v-7WS"/>
+                                    <constraint firstItem="zxa-TP-1W8" firstAttribute="centerY" secondItem="4Uh-UA-4k0" secondAttribute="centerY" id="qWx-TG-Pyr"/>
                                     <constraint firstItem="xi7-ce-F3z" firstAttribute="top" secondItem="zxa-TP-1W8" secondAttribute="bottom" constant="8" id="r3d-4t-Ybm"/>
+                                    <constraint firstItem="N0R-Ib-t1P" firstAttribute="centerY" secondItem="zxa-TP-1W8" secondAttribute="centerY" id="sgH-81-g6B"/>
                                     <constraint firstItem="xi7-ce-F3z" firstAttribute="leading" secondItem="4Uh-UA-4k0" secondAttribute="leading" constant="16" id="tdx-ON-I3A"/>
+                                    <constraint firstItem="zxa-TP-1W8" firstAttribute="centerY" secondItem="4Uh-UA-4k0" secondAttribute="centerY" id="uKs-xk-EhC"/>
+                                    <constraint firstItem="N0R-Ib-t1P" firstAttribute="trailing" secondItem="xi7-ce-F3z" secondAttribute="trailing" id="uhp-KU-vs0"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kT0-04-y2Q">
@@ -402,6 +413,8 @@
                     <connections>
                         <outlet property="backView" destination="4Uh-UA-4k0" id="hae-vh-BuI"/>
                         <outlet property="emailField" destination="xi7-ce-F3z" id="y1m-Qt-aqV"/>
+                        <outlet property="error1" destination="N0R-Ib-t1P" id="LrU-5l-Pxg"/>
+                        <outlet property="error2" destination="EjG-iq-lbC" id="qY3-V9-XAV"/>
                         <outlet property="logIn" destination="kT0-04-y2Q" id="jEt-Z7-gLD"/>
                         <outlet property="passwordField" destination="prG-tD-kZh" id="2qj-5u-xzV"/>
                         <outletCollection property="textFieldCollection" destination="xi7-ce-F3z" collectionClass="NSMutableArray" id="jkK-xx-R46"/>

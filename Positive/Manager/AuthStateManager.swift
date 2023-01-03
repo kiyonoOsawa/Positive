@@ -10,6 +10,7 @@ import FirebaseAuth
 
 final class AuthStateManager {
     static let shared = AuthStateManager()
+    let signInUpViewModel = SignInUpViewModel.shared
     var errorMessage = ""
         
     func createUser(emailText: String, passwordText: String, completion:@escaping(String) -> Void) {
@@ -54,6 +55,7 @@ final class AuthStateManager {
                     self.errorMessage = "不明なエラーが発生しました"
                 }
             }
+            signInUpViewModel.errMessage = self.errorMessage
         }
     }
     

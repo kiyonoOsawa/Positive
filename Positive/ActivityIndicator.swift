@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+
 struct ActivityIndicator{
     static let shared = ActivityIndicator()
     let activityIndicatorView = UIActivityIndicatorView()

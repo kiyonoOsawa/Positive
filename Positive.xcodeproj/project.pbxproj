@@ -100,6 +100,7 @@
 		CEDA1BE328BA5DC400D07A53 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = CEDA1BE228BA5DC400D07A53 /* FirebaseStorage */; };
 		CEDA1BE628BA5E2A00D07A53 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CEDA1BE528BA5E2A00D07A53 /* Alamofire */; };
 		CEDA1BE928BA5E5F00D07A53 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = CEDA1BE828BA5E5F00D07A53 /* FSCalendar */; };
+		CEED455329644F29006CBD2A /* SignInUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEED455229644F29006CBD2A /* SignInUpViewModel.swift */; };
 		CEEE82B42847A99A00732497 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEE82B32847A99A00732497 /* SignUpViewController.swift */; };
 		CEEE82B8284B6A4400732497 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEE82B7284B6A4400732497 /* TabBarViewController.swift */; };
 		CEF07DA128F3161C005AACA3 /* TransferValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF07DA028F3161C005AACA3 /* TransferValue.swift */; };
@@ -215,6 +216,7 @@
 		CED6A13028C3CCF40082D498 /* QRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRViewController.swift; sourceTree = "<group>"; };
 		CED85EDC28DB17B700AE22A3 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		CED85EDE28DB17B700AE22A3 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		CEED455229644F29006CBD2A /* SignInUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUpViewModel.swift; sourceTree = "<group>"; };
 		CEEE82B32847A99A00732497 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		CEEE82B7284B6A4400732497 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		CEF07DA028F3161C005AACA3 /* TransferValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferValue.swift; sourceTree = "<group>"; };
@@ -396,6 +398,7 @@
 				CEC6855928AFDA11007C0967 /* Review.swift */,
 				CEC444812920917B007FEF1C /* ChartDataEntry.swift */,
 				CEC4448329209261007FEF1C /* GraphViewModel.swift */,
+				CEED455229644F29006CBD2A /* SignInUpViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -412,8 +415,8 @@
 		CECC289D28EB1F9B00219F98 /* SignInUp */ = {
 			isa = PBXGroup;
 			children = (
-				CEB475482859220A002654E6 /* LogInViewController.swift */,
 				CEEE82B32847A99A00732497 /* SignUpViewController.swift */,
+				CEB475482859220A002654E6 /* LogInViewController.swift */,
 			);
 			path = SignInUp;
 			sourceTree = "<group>";
@@ -646,6 +649,7 @@
 				CE798A6F28D9707100E5C340 /* SaveReviewViewController.swift in Sources */,
 				CED6A12F28C3487F0082D498 /* FlowLayout.swift in Sources */,
 				CECC28B128EB77B400219F98 /* TaffiWidget.intentdefinition in Sources */,
+				CEED455329644F29006CBD2A /* SignInUpViewModel.swift in Sources */,
 				CED649C628BC5F3300E12D61 /* CapturingViewController.swift in Sources */,
 				CEEE82B42847A99A00732497 /* SignUpViewController.swift in Sources */,
 				CE73D15A2839DF4C00B20D0D /* AppDelegate.swift in Sources */,
@@ -765,7 +769,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -820,7 +824,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 import Firebase
 import FirebaseFirestore
 import FirebaseAuth
@@ -18,14 +19,22 @@ class LogInViewController: UIViewController {
     @IBOutlet var textFieldCollection: [UITextField]!
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var logIn: UIButton!
+    @IBOutlet weak var error1: UILabel!
+    @IBOutlet weak var error2: UILabel!
     
     let storeRef = Storage.storage().reference(forURL: "gs://taffi-f610f.appspot.com/")
     let auth = Auth.auth()
     let authStateManager = AuthStateManager()
+    let signInUpViewModel = SignInUpViewModel.shared
+    var cancellables: Set<AnyCancellable> = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        signInUpViewModel.$errMessage.sink(receiveValue: { errMessage in
+            self.error1.text = errMessage
+            self.error2.text = errMessage
+        }).store(in: &cancellables)
         fieldImage()
         design()
     }
@@ -82,9 +91,11 @@ class LogInViewController: UIViewController {
         passwordField.text = ""
     }
     
-    func design() {
+    private func design() {
         backView.layer.cornerRadius = 15
         logIn.layer.cornerRadius = 10
+        error1.text = authStateManager.errorMessage
+        error2.text = authStateManager.errorMessage
     }
     
     //    @objc func keyboardWillShow(notification: NSNotification) {
