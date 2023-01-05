@@ -120,7 +120,7 @@ class HomeViewController: UIViewController {
             }
     }
     
-    func design() {
+    private func design() {
         self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController!.navigationBar.shadowImage = UIImage()
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "戻る", style: .plain, target: nil, action: nil)

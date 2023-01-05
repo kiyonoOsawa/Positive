@@ -101,6 +101,7 @@
 		CEDA1BE628BA5E2A00D07A53 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CEDA1BE528BA5E2A00D07A53 /* Alamofire */; };
 		CEDA1BE928BA5E5F00D07A53 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = CEDA1BE828BA5E5F00D07A53 /* FSCalendar */; };
 		CEED455329644F29006CBD2A /* SignInUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEED455229644F29006CBD2A /* SignInUpViewModel.swift */; };
+		CEED455929671096006CBD2A /* PagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEED455829671096006CBD2A /* PagingViewController.swift */; };
 		CEEE82B42847A99A00732497 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEE82B32847A99A00732497 /* SignUpViewController.swift */; };
 		CEEE82B8284B6A4400732497 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEE82B7284B6A4400732497 /* TabBarViewController.swift */; };
 		CEF07DA128F3161C005AACA3 /* TransferValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF07DA028F3161C005AACA3 /* TransferValue.swift */; };
@@ -217,6 +218,7 @@
 		CED85EDC28DB17B700AE22A3 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		CED85EDE28DB17B700AE22A3 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		CEED455229644F29006CBD2A /* SignInUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUpViewModel.swift; sourceTree = "<group>"; };
+		CEED455829671096006CBD2A /* PagingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingViewController.swift; sourceTree = "<group>"; };
 		CEEE82B32847A99A00732497 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		CEEE82B7284B6A4400732497 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		CEF07DA028F3161C005AACA3 /* TransferValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferValue.swift; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 				CEC67BCC29457D7F0090994D /* ThirdViewController.swift */,
 				CEC67BCE29457D940090994D /* FourthViewController.swift */,
 				CE2F3B7D2934D861006D1FF1 /* PageViewController.swift */,
+				CEED455829671096006CBD2A /* PagingViewController.swift */,
 			);
 			path = Tutorial;
 			sourceTree = "<group>";
@@ -652,6 +655,7 @@
 				CEED455329644F29006CBD2A /* SignInUpViewModel.swift in Sources */,
 				CED649C628BC5F3300E12D61 /* CapturingViewController.swift in Sources */,
 				CEEE82B42847A99A00732497 /* SignUpViewController.swift in Sources */,
+				CEED455929671096006CBD2A /* PagingViewController.swift in Sources */,
 				CE73D15A2839DF4C00B20D0D /* AppDelegate.swift in Sources */,
 				CE7E727C28ED8D0700C0E550 /* ListViewController.swift in Sources */,
 				CED649BE28BC5DB600E12D61 /* MyQRCodeReader.swift in Sources */,

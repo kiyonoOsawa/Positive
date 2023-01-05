@@ -36,17 +36,14 @@ class SignUpViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         signInUpViewModel.$errMessage.sink(receiveValue: { errMessage in
-            self.error1.text = errMessage
-            self.error2.text = errMessage
+            if self.authStateManager.errorMessage == "メールアドレスは既に利用されています" {
+                self.error1.text = errMessage
+        } else if self.authStateManager.errorMessage == "パスワードを強力にしてください" {
+                self.error2.text = errMessage
+        }
         }).store(in: &cancellables)
         fieldImage()
         design()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        self.error1.isHidden = true
-        self.error2.isHidden = true
     }
     
     @IBAction func tappedImageButton(_ sender: Any) {
@@ -57,14 +54,13 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func tappedSignUp(_ sender: Any) {
-        if (userNameField.text?.isEmpty == true) || (emailField.text?.isEmpty ==  true) || (passwordField.text?.isEmpty == true ) || (userImageButton.imageView?.image == nil) {
-            let alert = UIAlertController(title: "", message: "プロフィール画像,e-mail,名前,パスワードを全て入力してください", preferredStyle: .alert)
-            let ok = UIAlertAction(title: "OK", style: .default) { (action) in
-            }
-            alert.addAction(ok)
-            present(alert, animated: true, completion: nil)
-
-        }
+//        if (userNameField.text?.isEmpty == true) || (emailField.text?.isEmpty ==  true) || (passwordField.text?.isEmpty == true ) || (userImageButton.imageView?.image == nil) {
+//            let alert = UIAlertController(title: "", message: "プロフィール画像,e-mail,名前,パスワードを全て入力してください", preferredStyle: .alert)
+//            let ok = UIAlertAction(title: "OK", style: .default) { (action) in
+//            }
+//            alert.addAction(ok)
+//            present(alert, animated: true, completion: nil)
+//        }
         if emailField.text != nil && passwordField.text != nil{
             authStateManager.createUser(emailText: emailField.text!, passwordText: passwordField.text!) { uid in
                 let reference = self.storageRef.child("userProfile").child("\(uid).jpg")

@@ -32,8 +32,14 @@ class LogInViewController: UIViewController {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         signInUpViewModel.$errMessage.sink(receiveValue: { errMessage in
-            self.error1.text = errMessage
-            self.error2.text = errMessage
+            if self.authStateManager.errorMessage == "メールアドレスが違います" {
+                self.error1.text = errMessage
+            } else if self.authStateManager.errorMessage == "パスワードが間違っています" {
+                self.error2.text = errMessage
+            } else {
+                self.error1.text = errMessage
+                self.error2.text = errMessage
+            }
         }).store(in: &cancellables)
         fieldImage()
         design()
@@ -94,8 +100,6 @@ class LogInViewController: UIViewController {
     private func design() {
         backView.layer.cornerRadius = 15
         logIn.layer.cornerRadius = 10
-        error1.text = authStateManager.errorMessage
-        error2.text = authStateManager.errorMessage
     }
     
     //    @objc func keyboardWillShow(notification: NSNotification) {

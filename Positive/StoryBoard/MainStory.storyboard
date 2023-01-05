@@ -281,6 +281,9 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メールアドレス" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zxa-TP-1W8">
                                         <rect key="frame" x="16" y="32.000000000000028" width="89.666666666666671" height="13"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="13" id="3Gd-a9-wop"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -342,13 +345,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メールアドレスの形式が違います。" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N0R-Ib-t1P">
-                                        <rect key="frame" x="133" y="32" width="164" height="12"/>
+                                        <rect key="frame" x="133" y="117.33333333333334" width="164" height="12"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <color key="textColor" systemColor="systemRedColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メールアドレスの形式が違います。" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EjG-iq-lbC">
-                                        <rect key="frame" x="133" y="118" width="164" height="12"/>
+                                        <rect key="frame" x="133" y="32.333333333333343" width="164" height="12"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <color key="textColor" systemColor="systemRedColor"/>
                                         <nil key="highlightedColor"/>
@@ -358,12 +361,11 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="nbD-Af-NgN" secondAttribute="trailing" constant="24" id="0DU-e5-8Qw"/>
                                     <constraint firstAttribute="trailing" secondItem="8fR-0k-uFS" secondAttribute="trailing" constant="24" id="4Ms-sc-q4o"/>
-                                    <constraint firstItem="N0R-Ib-t1P" firstAttribute="centerY" secondItem="4Uh-UA-4k0" secondAttribute="centerY" id="JFw-od-ycC"/>
-                                    <constraint firstItem="N0R-Ib-t1P" firstAttribute="centerY" secondItem="4Uh-UA-4k0" secondAttribute="centerY" id="P9N-Sf-UX3"/>
                                     <constraint firstItem="zxa-TP-1W8" firstAttribute="leading" secondItem="4Uh-UA-4k0" secondAttribute="leading" constant="16" id="Pvl-Bf-bMv"/>
-                                    <constraint firstItem="EjG-iq-lbC" firstAttribute="centerY" secondItem="woE-gQ-wsg" secondAttribute="centerY" id="Qwm-mp-8cO"/>
+                                    <constraint firstItem="N0R-Ib-t1P" firstAttribute="centerY" secondItem="woE-gQ-wsg" secondAttribute="centerY" id="TkB-dL-P1J"/>
                                     <constraint firstItem="prG-tD-kZh" firstAttribute="centerX" secondItem="4Uh-UA-4k0" secondAttribute="centerX" id="UOV-Ll-5uW"/>
                                     <constraint firstItem="nbD-Af-NgN" firstAttribute="centerY" secondItem="xi7-ce-F3z" secondAttribute="centerY" id="UwZ-7R-ba3"/>
+                                    <constraint firstItem="EjG-iq-lbC" firstAttribute="centerY" secondItem="zxa-TP-1W8" secondAttribute="centerY" id="Vtd-UM-xE6"/>
                                     <constraint firstItem="prG-tD-kZh" firstAttribute="top" secondItem="woE-gQ-wsg" secondAttribute="bottom" constant="8" id="Wid-Qw-PQV"/>
                                     <constraint firstItem="woE-gQ-wsg" firstAttribute="top" secondItem="xi7-ce-F3z" secondAttribute="bottom" constant="16" id="YIQ-6g-EDq"/>
                                     <constraint firstItem="woE-gQ-wsg" firstAttribute="leading" secondItem="4Uh-UA-4k0" secondAttribute="leading" constant="16" id="dC6-oQ-bxF"/>
@@ -373,11 +375,8 @@
                                     <constraint firstItem="zxa-TP-1W8" firstAttribute="top" secondItem="4Uh-UA-4k0" secondAttribute="top" constant="32" id="hQz-WG-kmY"/>
                                     <constraint firstItem="prG-tD-kZh" firstAttribute="leading" secondItem="4Uh-UA-4k0" secondAttribute="leading" constant="16" id="ku7-Ui-1yA"/>
                                     <constraint firstItem="EjG-iq-lbC" firstAttribute="trailing" secondItem="prG-tD-kZh" secondAttribute="trailing" id="pW0-5v-7WS"/>
-                                    <constraint firstItem="zxa-TP-1W8" firstAttribute="centerY" secondItem="4Uh-UA-4k0" secondAttribute="centerY" id="qWx-TG-Pyr"/>
                                     <constraint firstItem="xi7-ce-F3z" firstAttribute="top" secondItem="zxa-TP-1W8" secondAttribute="bottom" constant="8" id="r3d-4t-Ybm"/>
-                                    <constraint firstItem="N0R-Ib-t1P" firstAttribute="centerY" secondItem="zxa-TP-1W8" secondAttribute="centerY" id="sgH-81-g6B"/>
                                     <constraint firstItem="xi7-ce-F3z" firstAttribute="leading" secondItem="4Uh-UA-4k0" secondAttribute="leading" constant="16" id="tdx-ON-I3A"/>
-                                    <constraint firstItem="zxa-TP-1W8" firstAttribute="centerY" secondItem="4Uh-UA-4k0" secondAttribute="centerY" id="uKs-xk-EhC"/>
                                     <constraint firstItem="N0R-Ib-t1P" firstAttribute="trailing" secondItem="xi7-ce-F3z" secondAttribute="trailing" id="uhp-KU-vs0"/>
                                 </constraints>
                             </view>
@@ -402,10 +401,10 @@
                         <constraints>
                             <constraint firstItem="4Uh-UA-4k0" firstAttribute="top" secondItem="cQu-C0-Nk3" secondAttribute="bottom" constant="40" id="Bp1-SK-nTT"/>
                             <constraint firstItem="cQu-C0-Nk3" firstAttribute="leading" secondItem="cQf-PU-Kkr" secondAttribute="leading" constant="24" id="LX0-88-Zxi"/>
-                            <constraint firstItem="4Uh-UA-4k0" firstAttribute="centerY" secondItem="p1v-gT-4gr" secondAttribute="centerY" id="UxA-4c-eZr"/>
                             <constraint firstItem="kT0-04-y2Q" firstAttribute="centerX" secondItem="p1v-gT-4gr" secondAttribute="centerX" id="Wau-BK-d7S"/>
                             <constraint firstItem="cQf-PU-Kkr" firstAttribute="trailing" secondItem="4Uh-UA-4k0" secondAttribute="trailing" constant="40" id="eGm-S4-Psh"/>
                             <constraint firstItem="kT0-04-y2Q" firstAttribute="top" secondItem="4Uh-UA-4k0" secondAttribute="bottom" constant="-24" id="pQt-6q-j64"/>
+                            <constraint firstItem="4Uh-UA-4k0" firstAttribute="centerY" secondItem="p1v-gT-4gr" secondAttribute="centerY" id="sdL-1b-WxR"/>
                             <constraint firstItem="4Uh-UA-4k0" firstAttribute="leading" secondItem="cQf-PU-Kkr" secondAttribute="leading" constant="40" id="y5I-K2-isr"/>
                         </constraints>
                     </view>
