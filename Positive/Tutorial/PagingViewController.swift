@@ -14,13 +14,13 @@ class PagingViewController: UIViewController, UIScrollViewDelegate {
     var button: UIButton!
     var viewWidth: CGFloat!
     var viewHeigh: CGFloat!
-    // 画像の文字列の配列
-    let backgroundImageArray: [String] = ["page1", "page2", "page3", "page4"]
+    var backgroundImageArray: [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         viewWidth = self.view.frame.width
         viewHeigh = self.view.frame.height
+        setImageSize()
         setScrollView()
         setImage()
         setPageControl()
@@ -47,6 +47,32 @@ class PagingViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
+    private func setImageSize() {
+        var screenResolution = UIScreen.main.nativeBounds.size
+        print(screenResolution)
+        if screenResolution == CGSize(width: 750, height: 1334) { // iPhone 6, 6s, 7, 8, SE2
+            backgroundImageArray.append(contentsOf: ["1","2","3","4"])
+        } else if screenResolution == CGSize(width: 1080, height: 2340) { // iPhone 12 mini, 13 mini
+            backgroundImageArray.append(contentsOf: ["page2-1","page2-2","page2-3","page2-4"])
+        } else if screenResolution == CGSize(width: 1242, height: 2208) { // iPhone 6, 6s, 7, 8 plus
+            backgroundImageArray.append(contentsOf: ["page3-1","page3-2","page3-3","page3-4"])
+        } else if screenResolution == CGSize(width: 1125, height: 2436) { // iPhone X, XS, 11 Pro
+            backgroundImageArray.append(contentsOf: ["page4-1","page4-2","page4-3","page4-4"])
+        } else if screenResolution == CGSize(width: 828, height: 1792) { // iPhone XR, 11
+            backgroundImageArray.append(contentsOf: ["page5-1","page5-2","page5-3","page5-4"])
+        } else if screenResolution == CGSize(width: 1170, height: 2532) { // iPhone 12, 13, 12 Pro, 13 Pro, 14
+            backgroundImageArray.append(contentsOf: ["page6-1","page6-2","page6-3","page6-4"])
+        } else if screenResolution == CGSize(width: 1242, height: 2688) { // iPhone XS, 11 Pro Max
+            backgroundImageArray.append(contentsOf: ["page7-1","page7-2","page7-3","page7-4"])
+        } else if screenResolution == CGSize(width: 1284, height: 2778) { // iPhone 12 Pro Max, 13 Pro Max, 14 plus
+            backgroundImageArray.append(contentsOf: ["page8-1","page8-2","page8-3","page8-4"])
+        } else if screenResolution == CGSize(width: 1179, height: 2556) { // 14pro
+            backgroundImageArray.append(contentsOf: ["page8-1","page8-2","page8-3","page8-4"])
+        } else if screenResolution == CGSize(width: 1284, height: 2796){ // 14Pro Max
+            backgroundImageArray.append(contentsOf: ["page9-1","page9-2","page9-3","page9-4"])
+        }
+    }
+    
     private func setPageControl() {
         pageControl = UIPageControl()
         pageControl.frame = CGRect(x: (Int(viewWidth)-200)/2, y: Int(viewHeigh)-150, width: 200, height: 50)
@@ -57,8 +83,13 @@ class PagingViewController: UIViewController, UIScrollViewDelegate {
     
     private func setButton() {
         button = UIButton()
-        button.frame = CGRect(x: Int(viewWidth)-100, y: Int(viewHeigh)-180, width: 60, height: 60)
-        button.setTitle("次へ", for: .normal)
+        button.frame = CGRect(x: Int(viewWidth)-65, y: Int(viewHeigh)-130, width: 60, height: 60)
+        if pageControl.currentPage == backgroundImageArray.count-1 {
+            button.setTitle("閉じる", for: .normal)
+        } else {
+            button.setTitle("次へ", for: .normal)
+        }
+        button.titleLabel?.font = UIFont(name: "Helvetica-Bold", size: 18)
         button.addTarget(self, action: #selector(tappedButton(sender: )), for: .touchUpInside)
         self.view.addSubview(button)
     }
@@ -71,6 +102,14 @@ class PagingViewController: UIViewController, UIScrollViewDelegate {
             pageControl.currentPage += 1
         } else if pageControl.currentPage == backgroundImageArray.count-1 {
             self.dismiss(animated: true, completion: nil)
+        }
+    }
+}
+
+extension PagingViewController: UIPageViewControllerDelegate {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        if fmod(scrollView.contentOffset.x, scrollView.frame.maxX) == 0 {
+            pageControl.currentPage = Int(scrollView.contentOffset.x / scrollView.frame.maxX)
         }
     }
 }
