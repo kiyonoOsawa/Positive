@@ -63,7 +63,7 @@ class ReframingViewController: UIViewController {
         apiClient.getDegreeofSentiment(encodedWord: reframingTextField.text ?? "") { response in
             switch response {
             case .success(let data):
-                if data.negaposi > 0 {
+                if data.documentSentiment.score > 0 {
                     AlertDialog.shared.showAlert(title: "リフレーミング完了", message: "ポジティブになりました", viewController: self) {
                         self.addReframingData()
                         self.presentingViewController?.presentingViewController?.dismiss(animated: true)

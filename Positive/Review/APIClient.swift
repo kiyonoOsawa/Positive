@@ -10,29 +10,39 @@ import Alamofire
 
 struct APIClient {
     static let shared = APIClient()
-    fileprivate let apiKey = "B2D31DB6A39BE1DB48F26CBC3E409E4CC9E45955"
-    let format = "json"
+    fileprivate let apiKey = "3e38fb0200f56821a34d16a244e39832eec3aef7"
+    //    let format = "json"
     func getDegreeofSentiment(encodedWord: String, completion: @escaping(Result < DataModel, Error>)->Void) {
-        let strToUTF8 = encodedWord.utf8
-        let url: String = "http://ap.mextractr.net/ma9/negaposi_analyzer?out=\(format)&apikey=\(apiKey)&text=\(strToUTF8)"
-        let encodeURL = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-        AF.request(encodeURL)
-            .responseDecodable(of: DataModel.self) { response in
-                switch response.result {
-                case .success:
-                    guard let data = response.data else {
-                        return
-                    }
-                    do {
-                        let sentiments = try JSONDecoder().decode(DataModel.self, from: data)
-                        completion(.success(sentiments))
-                    } catch {
-                        completion(.failure(error))
-                        print("decode error")
-                    }
-                case .failure:
-                    print("error: \(response.result)")
+        let jsonRequest: Parameters =
+        ["document":[
+            "type":"PLAIN_TEXT",
+            "language": "ja",
+            "content":"\(encodedWord)"
+        ],
+         "encodingType":"UTF8"
+        ]
+        let url: String = "https://language.googleapis.com/v1/documents:analyzeSentiment?key=\(apiKey)"
+        //②
+        let headers: HTTPHeaders = [
+            "X-Ios-Bundle-Identifier": "\(Bundle.main.bundleIdentifier ?? "")",
+            "Content-Type": "application/json"
+        ]
+        AF.request(url, method: .post ,parameters: jsonRequest, encoding: JSONEncoding.default, headers: headers).responseDecodable(of: DataModel.self) { response in
+            switch response.result{
+            case .success(_):
+                guard let data = response.data else {
+                    return
                 }
+                do {
+                    let sentiments = try JSONDecoder().decode(DataModel.self, from: data)
+                    completion(.success(sentiments))
+                } catch {
+                    completion(.failure(error))
+                    print("decode error: \(error)")
+                }
+            case .failure(_):
+                print("error: \(response.result)")
             }
+        }
     }
 }

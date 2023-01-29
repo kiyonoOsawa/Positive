@@ -79,11 +79,13 @@ class ReviewViewController: UIViewController {
                 }
                 switch response {
                 case .success(let data):
-                    let positiveness: Double = Double(data.negaposi+3)
-                    let percentage: Double = positiveness/6*100
+                    let positiveness: Double = Double(data.documentSentiment.score)
+                    let percentage: Double = (positiveness+1)*50
+//                    let positiveness: Double = Double(data.negaposi+3)
+//                    let percentage: Double = positiveness/6*100
                     print("negaposi: \(positiveness)")
                     print("percentage: \(percentage)")
-                    if data.negaposi>0 {
+                    if data.documentSentiment.score>0 {
                         AlertDialog.shared.showAlert(title: "ポジティブ!", message: "ポジティブ\(percentage)%！", viewController: self) {
                             self.addReview(score: percentage)
                             self.dismiss(animated: true, completion: nil)
