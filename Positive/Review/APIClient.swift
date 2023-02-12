@@ -10,7 +10,7 @@ import Alamofire
 
 struct APIClient {
     static let shared = APIClient()
-    fileprivate let apiKey = "3e38fb0200f56821a34d16a244e39832eec3aef7"
+    fileprivate let apiKey = "AIzaSyB09q-_nkpDJAP4fGa7-XDo3k6xURb0qNk"
     //    let format = "json"
     func getDegreeofSentiment(encodedWord: String, completion: @escaping(Result < DataModel, Error>)->Void) {
         let jsonRequest: Parameters =

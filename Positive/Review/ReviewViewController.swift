@@ -94,7 +94,7 @@ class ReviewViewController: UIViewController {
                         guard let targetData = self.targetData else {
                             return
                            }
-                        AlertDialog.shared.showAlertReview(title: "選択してください", message: "保存かリフレーミングか選べます", viewController: self) {
+                        AlertDialog.shared.showAlertReview(title: "ポジティブ度が低いです", message: "保存かリフレーミングか選べます", viewController: self) {
                             self.addReview(score: percentage)
                             self.dismiss(animated: true)
                         } completionReframing: {
