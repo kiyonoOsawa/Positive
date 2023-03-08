@@ -423,6 +423,20 @@
                                     <action selector="tappedSave" destination="Xxd-8u-OB3" eventType="touchUpInside" id="3lu-vD-Y3t"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gfy-4N-tGe">
+                                <rect key="frame" x="149.66666666666666" y="655.66666666666663" width="94" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="dfg-IN-Tnw"/>
+                                </constraints>
+                                <color key="tintColor" red="0.92549019610000005" green="0.32549019610000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="アカウント削除">
+                                    <fontDescription key="titleFontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="10"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="tappedDelete" destination="Xxd-8u-OB3" eventType="touchUpInside" id="mBK-1X-dQn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BCP-vk-6pQ"/>
                         <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
@@ -433,7 +447,9 @@
                             <constraint firstItem="tgy-q4-vBU" firstAttribute="centerY" secondItem="hSY-XG-rn4" secondAttribute="centerY" id="NWe-ng-vpK"/>
                             <constraint firstItem="QW5-1w-FAz" firstAttribute="centerY" secondItem="ISS-bh-9uH" secondAttribute="centerY" id="PRc-l7-ggd"/>
                             <constraint firstItem="tgy-q4-vBU" firstAttribute="leading" secondItem="BCP-vk-6pQ" secondAttribute="leading" constant="40" id="YPc-Tj-gIr"/>
+                            <constraint firstItem="Gfy-4N-tGe" firstAttribute="centerX" secondItem="hSY-XG-rn4" secondAttribute="centerX" id="btb-ka-ibI"/>
                             <constraint firstItem="a7Y-EL-zGw" firstAttribute="centerX" secondItem="hSY-XG-rn4" secondAttribute="centerX" id="fG1-f9-ZNw"/>
+                            <constraint firstItem="Gfy-4N-tGe" firstAttribute="top" secondItem="a7Y-EL-zGw" secondAttribute="bottom" constant="40" id="oSA-Yx-gQy"/>
                             <constraint firstItem="BCP-vk-6pQ" firstAttribute="trailing" secondItem="tgy-q4-vBU" secondAttribute="trailing" constant="40" id="qDz-LX-2TR"/>
                             <constraint firstItem="tgy-q4-vBU" firstAttribute="top" secondItem="ISS-bh-9uH" secondAttribute="bottom" constant="32" id="rix-AK-Xqe"/>
                         </constraints>
@@ -441,6 +457,7 @@
                     <navigationItem key="navigationItem" id="zau-1C-SCg"/>
                     <connections>
                         <outlet property="backView" destination="tgy-q4-vBU" id="Fm9-jC-UT8"/>
+                        <outlet property="deleteButton" destination="Gfy-4N-tGe" id="LIj-p3-6tj"/>
                         <outlet property="doneButton" destination="a7Y-EL-zGw" id="lWu-f1-8ov"/>
                         <outlet property="emailField" destination="Smh-hy-c3Z" id="bDt-4l-2fe"/>
                         <outlet property="nameField" destination="Fbn-tL-N2P" id="bWJ-V4-Tvx"/>

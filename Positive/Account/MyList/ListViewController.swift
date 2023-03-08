@@ -187,7 +187,8 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
             break
         }
         func nextData() {
-            let nextNC = storyboard?.instantiateViewController(withIdentifier: "detailTarget") as! TargetDetailViewController
+            let detailStoryboard: UIStoryboard = UIStoryboard(name: "TargetDetailStory", bundle: nil)
+            let nextNC = detailStoryboard.instantiateViewController(withIdentifier: "detailTarget") as! TargetDetailViewController
             nextNC.modalTransitionStyle = .coverVertical
             nextNC.modalPresentationStyle = .pageSheet
             nextNC.Goal = addresses[indexPath.row].goal

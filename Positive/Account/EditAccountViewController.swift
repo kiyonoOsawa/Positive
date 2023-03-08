@@ -20,8 +20,9 @@ class EditAccountViewController: UIViewController, UINavigationControllerDelegat
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var backView: UIView!
     @IBOutlet var textFieldImage: [UITextField]!
+    @IBOutlet weak var deleteButton: UIButton!
     
-//    let storageRef = Storage.storage().reference(forURL: "gs://positive-898d1.appspot.com")
+    //    let storageRef = Storage.storage().reference(forURL: "gs://positive-898d1.appspot.com")
     let user = Auth.auth().currentUser
     let db = Firestore.firestore()
     var password = String()
@@ -38,9 +39,10 @@ class EditAccountViewController: UIViewController, UINavigationControllerDelegat
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
-            let nextVC = storyboard?.instantiateViewController(withIdentifier: "firstAccView")
-            nextVC?.modalPresentationStyle = .fullScreen
-            self.present(nextVC!, animated: true, completion: nil)
+            let storyboard: UIStoryboard = UIStoryboard(name: "MainStory", bundle: nil)
+            let nextVC = storyboard.instantiateViewController(withIdentifier: "firstAccView")
+            nextVC.modalPresentationStyle = .fullScreen
+            self.present(nextVC, animated: true, completion: nil)
         } catch let signOutError as NSError {
             print("Error signing out: %@", signOutError)
         }
@@ -56,6 +58,10 @@ class EditAccountViewController: UIViewController, UINavigationControllerDelegat
                 self.transition()
             }
         }
+    }
+    
+    @IBAction func tappedDelete() {
+        deleteUser()
     }
     
     private func fetchMyData() {
@@ -92,6 +98,54 @@ class EditAccountViewController: UIViewController, UINavigationControllerDelegat
             .document(user.uid)
             .updateData(updateData)
     }
+    
+    private func deleteDetail(reference: CollectionReference) {
+        reference.getDocuments { QuerySnapshot, Error in
+            guard let querySnapshot = QuerySnapshot else {return}
+            let document: [QueryDocumentSnapshot] = querySnapshot.documents
+            let alignmentArray: [[QueryDocumentSnapshot]] =  document.chunked(by: 300)
+            alignmentArray.forEach { batchMax in
+                let batch: WriteBatch = reference.firestore.batch()
+                batchMax.forEach { snapshot in
+                    batch.deleteDocument(snapshot.reference)
+                }
+                batch.commit()
+            }
+        }
+    }
+    
+    private func deleteUserInfo(){
+        guard let user = self.user else {return}
+        self.db.collection("users")
+            .document(user.uid)
+            .delete{error in
+                if let err = error{
+                    print(err)
+                }else{
+                    DispatchQueue.global().async {
+                        let refGoal = self.db.collection("users").document(user.uid).collection("goals")
+                        let refReview = self.db.collection("users").document(user.uid).collection("reviews")
+                        self.deleteDetail(reference: refGoal)
+                        self.deleteDetail(reference: refReview)
+                    }
+                }
+            }
+    }
+    
+    private func deleteUser(){
+           guard let user = self.user else {return}
+           guard let userEmail = user.email else {return}
+           let credential = EmailAuthProvider.credential(withEmail: userEmail, password: password)
+           user.reauthenticate(with: credential) { AuthDataResult, Error in
+               guard let result = AuthDataResult else {return}
+               result.user.delete()
+               self.deleteUserInfo()
+               let toSignUp: UIStoryboard = UIStoryboard(name: "MainStory", bundle: nil)
+               let nextVC = toSignUp.instantiateViewController(withIdentifier: "firstAccView")
+               nextVC.modalPresentationStyle = .fullScreen
+               self.present(nextVC, animated: true, completion: nil)
+           }
+       }
     
     func transition() {
         dismiss(animated: true, completion: nil)
@@ -149,6 +203,14 @@ class EditAccountViewController: UIViewController, UINavigationControllerDelegat
     @objc func keyboardWillHide(notification: NSNotification) {
         if self.view.frame.origin.y != 0 {
             self.view.frame.origin.y = 0
+        }
+    }
+}
+
+extension Array {
+    func chunked(by chunkSize: Int) -> [[Element]] {
+        return stride(from: 0, to: self.count, by: chunkSize).map {
+            Array(self[$0..<Swift.min($0 + chunkSize, self.count)])
         }
     }
 }

@@ -6,16 +6,17 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class PagingViewController: UIViewController, UIScrollViewDelegate {
-
+    
     var scrollView: UIScrollView!
     var pageControl: UIPageControl!
     var button: UIButton!
     var viewWidth: CGFloat!
     var viewHeigh: CGFloat!
     var backgroundImageArray: [String] = []
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewWidth = self.view.frame.width
@@ -101,7 +102,15 @@ class PagingViewController: UIViewController, UIScrollViewDelegate {
             }
             pageControl.currentPage += 1
         } else if pageControl.currentPage == backgroundImageArray.count-1 {
-            self.dismiss(animated: true, completion: nil)
+            let user = Auth.auth().currentUser
+            if user == nil{
+                let storyboard: UIStoryboard = UIStoryboard(name: "MainStory", bundle: nil)
+                let nextVC = storyboard.instantiateViewController(withIdentifier: "firstAccView")
+                nextVC.modalPresentationStyle = .fullScreen
+                self.present(nextVC, animated: true, completion: nil)
+            }else{
+                self.dismiss(animated: true, completion: nil)
+            }
         }
     }
 }

@@ -289,7 +289,8 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if segmentState == .task {
-            let nextView = storyboard?.instantiateViewController(withIdentifier: "detailTarget") as! TargetDetailViewController
+            let storyboard: UIStoryboard = UIStoryboard(name: "MainStory", bundle: nil)
+            let nextView = storyboard.instantiateViewController(withIdentifier: "detailTarget") as! TargetDetailViewController
             nextView.modalTransitionStyle = .coverVertical
             nextView.modalPresentationStyle = .pageSheet
             nextView.Goal = applicableData[indexPath.row].goal

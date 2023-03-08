@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseAuth
 import FirebaseFirestore
+import AVFoundation
 
 class QRViewController: UIViewController {
     
@@ -42,4 +43,35 @@ class QRViewController: UIViewController {
         camenraButton.layer.borderWidth = 3
         qrImageView.backgroundColor = UIColor(named: "systemColor")
     }
+    
+    @IBAction func tappedCameraButton(_ sender: Any) {
+          var status = AVCaptureDevice.authorizationStatus(for: .video)
+          
+          switch status{
+          case .authorized:
+              self.performSegue(withIdentifier: "toCamera", sender: nil)
+          case .notDetermined:
+              AlertDialog.shared.showAlert(title: "エラー", message: "ユーザにカメラのアクセスが許可されていません", viewController: self) {
+                  print("error")
+              }
+          case .restricted:
+              AVCaptureDevice.requestAccess(for: .video) { isGranted in
+                  if isGranted{
+                      self.performSegue(withIdentifier: "toCamera", sender: nil)
+                  }else{
+                      status = .denied
+                  }
+              }
+          case .denied:
+              AlertDialog.shared.showAlert(title: "エラー", message: "アクセス許可されていません", viewController: self) {
+                  AVCaptureDevice.requestAccess(for: .video) { isGranted in
+                      if isGranted{
+                          self.performSegue(withIdentifier: "toCamera", sender: nil)
+                      }
+                  }
+              }
+          default:
+              break
+          }
+      }
 }

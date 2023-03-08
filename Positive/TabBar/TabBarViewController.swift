@@ -27,18 +27,19 @@ class TabBarViewController: UITabBarController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        let userDefaults = UserDefaults.standard
-        let firstLunchKey = "firstLunchKey"
-        if userDefaults.bool(forKey: firstLunchKey) {
-            userDefaults.set(false, forKey: firstLunchKey)
-            let nextVC = storyboard?.instantiateViewController(withIdentifier: "firstAccView")
-            nextVC?.modalPresentationStyle = .fullScreen
-            self.present(nextVC!, animated: true, completion: nil)
-        }
+//        let userDefaults = UserDefaults.standard
+//        let firstLunchKey = "firstLunchKey"
+//        if userDefaults.bool(forKey: firstLunchKey) {
+//            userDefaults.set(false, forKey: firstLunchKey)
+//            let nextVC = storyboard?.instantiateViewController(withIdentifier: "firstAccView")
+//            nextVC?.modalPresentationStyle = .fullScreen
+//            self.present(nextVC!, animated: true, completion: nil)
+//        }
         if user == nil{
-            let nextVC = storyboard?.instantiateViewController(withIdentifier: "firstAccView")
-            nextVC?.modalPresentationStyle = .fullScreen
-            self.present(nextVC!, animated: true, completion: nil)
+            let storyboard: UIStoryboard = UIStoryboard(name: "MainStory", bundle: nil)
+            let nextVC = storyboard.instantiateViewController(withIdentifier: "firstAccView")
+            nextVC.modalPresentationStyle = .fullScreen
+            self.present(nextVC, animated: true, completion: nil)
         }
     }
 }

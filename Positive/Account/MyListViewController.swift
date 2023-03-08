@@ -60,7 +60,8 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let nextNC = storyboard?.instantiateViewController(withIdentifier: "listView") as! ListViewController
+        let accountStoryboard: UIStoryboard = UIStoryboard(name: "AccountStory", bundle: nil)
+        let nextNC = accountStoryboard.instantiateViewController(withIdentifier: "listView") as! ListViewController
         nextNC.modalTransitionStyle = .coverVertical
         nextNC.modalPresentationStyle = .pageSheet
         if indexPath.section == 0 {
