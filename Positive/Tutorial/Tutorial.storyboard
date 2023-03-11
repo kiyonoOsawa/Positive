@@ -12,7 +12,7 @@
         <!--Page View Controller-->
         <scene sceneID="MSX-M5-q4K">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="KJc-VT-Ksg" sceneMemberID="viewController"/>
+                <pageViewController storyboardIdentifier="PagingView" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="KJc-VT-Ksg" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="le0-uJ-Dyf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-462" y="-138"/>

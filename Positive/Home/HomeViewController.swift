@@ -201,6 +201,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             imagesRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
                 if let error = error {
                     print("画像の取り出しに失敗: \(error)")
+                    indicator.activityIndicatorView.stopAnimating()
                 } else {
                     
                     let image = UIImage(data: data!)

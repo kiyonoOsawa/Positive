@@ -19,6 +19,9 @@ class PagingViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillLayoutSubviews() {
         viewWidth = self.view.frame.width
         viewHeigh = self.view.frame.height
         setImageSize()
@@ -49,6 +52,7 @@ class PagingViewController: UIViewController, UIScrollViewDelegate {
     }
     
     private func setImageSize() {
+        backgroundImageArray = []
         var screenResolution = UIScreen.main.nativeBounds.size
         print(screenResolution)
         if screenResolution == CGSize(width: 750, height: 1334) { // iPhone 6, 6s, 7, 8, SE2
@@ -70,6 +74,8 @@ class PagingViewController: UIViewController, UIScrollViewDelegate {
         } else if screenResolution == CGSize(width: 1179, height: 2556) { // 14pro
             backgroundImageArray.append(contentsOf: ["page8-1","page8-2","page8-3","page8-4"])
         } else if screenResolution == CGSize(width: 1284, height: 2796){ // 14Pro Max
+            backgroundImageArray.append(contentsOf: ["page9-1","page9-2","page9-3","page9-4"])
+        } else {
             backgroundImageArray.append(contentsOf: ["page9-1","page9-2","page9-3","page9-4"])
         }
     }
@@ -103,7 +109,13 @@ class PagingViewController: UIViewController, UIScrollViewDelegate {
             pageControl.currentPage += 1
         } else if pageControl.currentPage == backgroundImageArray.count-1 {
             let user = Auth.auth().currentUser
-            if user == nil{
+            let userDefaults = UserDefaults.standard
+            let firstLunchKey = "firstLunchKey"
+            var keyStatus: Bool?
+            keyStatus = userDefaults.bool(forKey: firstLunchKey)
+            
+            if user == nil || keyStatus == true{
+                userDefaults.set(false, forKey: firstLunchKey)
                 let storyboard: UIStoryboard = UIStoryboard(name: "MainStory", bundle: nil)
                 let nextVC = storyboard.instantiateViewController(withIdentifier: "firstAccView")
                 nextVC.modalPresentationStyle = .fullScreen

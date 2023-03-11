@@ -10,6 +10,8 @@ import UIKit
 
 class MyQRCodeReader {
     
+    @Published var cameraStatus: AVAuthorizationStatus?
+    
     let captureSession = AVCaptureSession()
     let videoDevice = AVCaptureDevice.default(for: AVMediaType.video)
     var metadataOutput = AVCaptureMetadataOutput()
@@ -29,31 +31,31 @@ class MyQRCodeReader {
 
     //info.plist Privacy - Camera Usage Description:String
     func setupCamera( view:UIView, borderWidth:Int = 1, borderColor:CGColor =  UIColor.red.cgColor ){
-        
         self.preview = view
-        
         //デバイスからの入力
+        let status = AVCaptureDevice.authorizationStatus(for: .video)
         do {
-            let videoInput = try AVCaptureDeviceInput(device: self.videoDevice!) as AVCaptureDeviceInput
-            self.captureSession.addInput(videoInput)
+            if status == .authorized {
+                let videoInput = try AVCaptureDeviceInput(device: self.videoDevice!) as AVCaptureDeviceInput
+                self.captureSession.addInput(videoInput)
+
+            } else {
+                self.cameraStatus = status
+                return
+            }
         } catch let error as NSError {
             print(error)
         }
         //出力
         self.captureSession.addOutput(self.metadataOutput)
-        
         //読み込み対象タイプ
         self.metadataOutput.metadataObjectTypes = [AVMetadataObject.ObjectType.qr]
-
         //カメラ映像を表示
         self.cameraPreview(view)
-        
         //認識QRの確認表示
         self.targetCapture( borderWidth:borderWidth, borderColor: borderColor )
-        
         // 読み取り開始
         self.captureSession.startRunning()
-
     }
        
     private func cameraPreview( _ view:UIView ){

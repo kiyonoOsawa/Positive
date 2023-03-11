@@ -19,12 +19,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         userDefaults.register(defaults: firstLunch)
         guard let _ = (scene as? UIWindowScene) else { return }
         let windows = UIWindow(windowScene: scene as! UIWindowScene)
-        self.window = windows
+//        self.window = windows
         windows.makeKeyAndVisible()
+        self.window = windows
         let tutorial: UIStoryboard = UIStoryboard(name: "Tutorial", bundle: nil)
         let main: UIStoryboard = UIStoryboard(name: "MainStory", bundle: nil)
         if userDefaults.bool(forKey: "firstLunchKey") {
-            userDefaults.set(false, forKey: firstLunchKey)
+//            userDefaults.set(false, forKey: firstLunchKey)
             let vc = tutorial.instantiateViewController(withIdentifier: "PagingView")
             window!.rootViewController = vc
         } else {
