@@ -37,19 +37,19 @@ struct Provider: IntentTimelineProvider {
             var goals = [GoalForWidget]()
             var filterData = [GoalForWidget]()
             guard let user = Auth.auth().currentUser else {
-                Auth.auth().signIn(withEmail: "nonuser@gmail.com", password: "nonuser") { AuthDataResult, Error in
-                    guard let result = AuthDataResult else {return}
-                    db.collection("users")
-                        .document(result.user.uid)
-                        .collection("goals")
-                        .document("nonuser")
-                        .getDocument { DocumentSnapshot, Error in
-                            guard let document = DocumentSnapshot?.data() else {return}
-                            let dummyData: GoalForWidget = GoalForWidget(id: "dummy", date: Date(), goal: document["goal"] as! String, miniGoal: "")
+//                Auth.auth().signIn(withEmail: "nonuser@gmail.com", password: "nonuser") { AuthDataResult, Error in
+//                    guard let result = AuthDataResult else {return}
+//                    db.collection("users")
+//                        .document(result.user.uid)
+//                        .collection("goals")
+//                        .document("nonuser")
+//                        .getDocument { DocumentSnapshot, Error in
+//                            guard let document = DocumentSnapshot?.data() else {return}
+                            let dummyData: GoalForWidget = GoalForWidget(id: "dummy", date: Date(), goal: "目標を追加していく", miniGoal: "")
                             goals.append(dummyData)
                             completion(goals)
-                        }
-                }
+//                        }
+//                }
                 return
             }
             db.collection("users")
