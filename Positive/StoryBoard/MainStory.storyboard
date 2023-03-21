@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VcX-uk-UML">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -111,14 +110,14 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メールアドレスの形式が違います。" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8NA-3h-Eq8">
-                                        <rect key="frame" x="133" y="184" width="164" height="12"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <rect key="frame" x="140" y="185" width="157" height="10"/>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="10"/>
                                         <color key="textColor" systemColor="systemRedColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6ケタ以上で入力してください。" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bpr-qV-xSD">
-                                        <rect key="frame" x="147" y="268" width="150" height="12"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <rect key="frame" x="151" y="269" width="146" height="10"/>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="10"/>
                                         <color key="textColor" systemColor="systemRedColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -227,6 +226,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m3n-gb-Pyd">
+                                <rect key="frame" x="146" y="682" width="101" height="25"/>
+                                <color key="tintColor" red="0.92549019610000005" green="0.32549019610000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="チュートリアル">
+                                    <fontDescription key="titleFontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="11"/>
+                                </buttonConfiguration>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="MYW-Gj-BHx"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -238,8 +245,10 @@
                             <constraint firstItem="MeG-UI-LEh" firstAttribute="top" secondItem="poh-Nq-aYu" secondAttribute="bottom" constant="32" id="RRh-mX-ZM2"/>
                             <constraint firstItem="MYW-Gj-BHx" firstAttribute="trailing" secondItem="2Rb-le-tCr" secondAttribute="trailing" constant="40" id="Wgb-gd-a18"/>
                             <constraint firstItem="MYW-Gj-BHx" firstAttribute="trailing" secondItem="MeG-UI-LEh" secondAttribute="trailing" constant="40" id="WqC-sj-hek"/>
+                            <constraint firstItem="m3n-gb-Pyd" firstAttribute="centerX" secondItem="dTi-t3-Y1l" secondAttribute="centerX" id="e3c-zF-dxU"/>
                             <constraint firstItem="SmD-Zp-RkP" firstAttribute="top" secondItem="MeG-UI-LEh" secondAttribute="bottom" constant="-24" id="gqB-Ex-krN"/>
                             <constraint firstItem="MeG-UI-LEh" firstAttribute="centerY" secondItem="dTi-t3-Y1l" secondAttribute="centerY" id="lOL-lF-m5J"/>
+                            <constraint firstItem="m3n-gb-Pyd" firstAttribute="top" secondItem="SmD-Zp-RkP" secondAttribute="bottom" constant="32" id="veW-lg-u1d"/>
                         </constraints>
                     </view>
                     <connections>
@@ -345,14 +354,14 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メールアドレスの形式が違います。" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N0R-Ib-t1P">
-                                        <rect key="frame" x="133" y="117.33333333333334" width="164" height="12"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <rect key="frame" x="139.33333333333337" y="118.33333333333334" width="157.66666666666663" height="10"/>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="10"/>
                                         <color key="textColor" systemColor="systemRedColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メールアドレスの形式が違います。" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EjG-iq-lbC">
-                                        <rect key="frame" x="133" y="32.333333333333343" width="164" height="12"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <rect key="frame" x="139.33333333333337" y="33.333333333333343" width="157.66666666666663" height="10"/>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="10"/>
                                         <color key="textColor" systemColor="systemRedColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>

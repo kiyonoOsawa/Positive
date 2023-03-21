@@ -16,6 +16,7 @@ class PagingViewController: UIViewController, UIScrollViewDelegate {
     var viewWidth: CGFloat!
     var viewHeigh: CGFloat!
     var backgroundImageArray: [String] = []
+    var fromSignUp: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -113,8 +114,9 @@ class PagingViewController: UIViewController, UIScrollViewDelegate {
             let firstLunchKey = "firstLunchKey"
             var keyStatus: Bool?
             keyStatus = userDefaults.bool(forKey: firstLunchKey)
-            
-            if user == nil || keyStatus == true{
+            if fromSignUp == true {
+                self.dismiss(animated: true, completion: nil)
+            } else if user == nil || keyStatus == true{
                 userDefaults.set(false, forKey: firstLunchKey)
                 let storyboard: UIStoryboard = UIStoryboard(name: "MainStory", bundle: nil)
                 let nextVC = storyboard.instantiateViewController(withIdentifier: "firstAccView")

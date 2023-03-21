@@ -125,6 +125,13 @@ class SignUpViewController: UIViewController {
         }
     }
     
+    @IBAction func tappedToTutorial() {
+        let storyboard: UIStoryboard = UIStoryboard(name: "Tutorial", bundle: nil)
+               let vc = storyboard.instantiateViewController(withIdentifier: "PagingView") as! PagingViewController
+               vc.fromSignUp = true
+               self.present(vc, animated: true)
+    }
+    
     func transition() {
         let storyboard = UIStoryboard(name: "MainStory", bundle: nil)
         let tabView = storyboard.instantiateViewController(withIdentifier: "tab") as! UITabBarController
