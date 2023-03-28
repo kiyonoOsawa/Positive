@@ -35,11 +35,13 @@ class TabBarViewController: UITabBarController {
 //            nextVC?.modalPresentationStyle = .fullScreen
 //            self.present(nextVC!, animated: true, completion: nil)
 //        }
-        if user == nil{
-            let storyboard: UIStoryboard = UIStoryboard(name: "MainStory", bundle: nil)
-            let nextVC = storyboard.instantiateViewController(withIdentifier: "firstAccView")
-            nextVC.modalPresentationStyle = .fullScreen
-            self.present(nextVC, animated: true, completion: nil)
+        if user == nil {
+            AlertDialog.shared.showAlert(title: "ユーザーが存在していません", message: "ログインしてください", viewController: self){
+                let storyboard: UIStoryboard = UIStoryboard(name: "MainStory", bundle: nil)
+                let nextVC = storyboard.instantiateViewController(withIdentifier: "firstAccView")
+                nextVC.modalPresentationStyle = .fullScreen
+                self.present(nextVC, animated: true, completion: nil)
+            }
         }
     }
 }

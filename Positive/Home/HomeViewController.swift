@@ -53,6 +53,14 @@ class HomeViewController: UIViewController {
         fetchFriendsData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidLoad()
+        if user == nil {
+            var saveUserData: UserDefaults = UserDefaults.standard
+            var nilDataString = saveUserData.object(forKey: "nilData")
+        }
+    }
+    
     private func fetchData() {
         guard let user = user else {
             return

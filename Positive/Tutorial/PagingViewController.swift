@@ -116,7 +116,7 @@ class PagingViewController: UIViewController, UIScrollViewDelegate {
             keyStatus = userDefaults.bool(forKey: firstLunchKey)
             if fromSignUp == true {
                 self.dismiss(animated: true, completion: nil)
-            } else if user == nil || keyStatus == true{
+            } else if keyStatus == true{
                 userDefaults.set(false, forKey: firstLunchKey)
                 let storyboard: UIStoryboard = UIStoryboard(name: "MainStory", bundle: nil)
                 let nextVC = storyboard.instantiateViewController(withIdentifier: "firstAccView")

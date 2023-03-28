@@ -115,6 +115,11 @@ class CalendarViewController: UIViewController {
                 }
                 self.reportCollectionView.reloadData()
             }
+        
+        if user == nil {
+            var saveUserData: UserDefaults = UserDefaults.standard
+            saveUserData.set("データを登録しよう", forKey: "nilData")
+        }
     }
     
     private func checkEvents(date: Date) -> Int{

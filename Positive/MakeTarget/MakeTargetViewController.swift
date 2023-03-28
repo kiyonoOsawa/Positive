@@ -50,7 +50,14 @@ class MakeTargetViewController: UIViewController {
             self.nowTodo = transferViewModel.eachAnswer[0]
             self.essentialThing = transferViewModel.eachAnswer[1]
             self.trigger = transferViewModel.eachAnswer[2]
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if user == nil {
+            var saveUserData: UserDefaults = UserDefaults.standard
+            saveUserData.set("データを登録しよう", forKey: "nilData")
         }
+    }
     
     @IBAction func tappedSaveButton() {
         print("保存したよん")

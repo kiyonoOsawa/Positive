@@ -44,6 +44,14 @@ class TargetDetailViewController: UIViewController {
         design()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidLoad()
+        if user == nil {
+            var saveUserData: UserDefaults = UserDefaults.standard
+            var nilDataString = saveUserData.object(forKey: "nilData")
+        }
+    }
+    
     @objc private func back() {
         self.navigationController?.popViewController(animated: true)
     }
