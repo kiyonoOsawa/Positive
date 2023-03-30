@@ -50,7 +50,7 @@ class AccountViewController: UIViewController {
     
     private func transfar() {
         var userData: UserDefaults = UserDefaults.standard
-        var nilData = userData.object(forKey: "logout") as! String
+        let nilData = userData.object(forKey: "logout") as? String
         print(nilData)
         if nilData == "userNill" {
             let vc = HomeViewController()

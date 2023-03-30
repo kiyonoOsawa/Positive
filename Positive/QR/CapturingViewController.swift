@@ -20,30 +20,12 @@ class CapturingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func viewWillLayoutSubviews() {
         myQRCodeReader.delegate = self
         myQRCodeReader.setupCamera(view:self.view)
         //読み込めるカメラ範囲
         myQRCodeReader.readRange()
     }
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//        myQRCodeReader.$cameraStatus.sink { status in
-//            if status != .authorized{
-//                self.allowAccessingCamera()
-//            }
-//        }.store(in: &cancellables)
-//    }
-//    private func allowAccessingCamera(){
-//        AlertDialog.shared.showAlert(title: "エラー", message: "カメラのアクセスを許可してください", viewController: self) {
-//            if let url = URL(string: UIApplication.openSettingsURLString), UIApplication.shared.canOpenURL(url) {
-//                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-//            }
-//        }
-//    }
+
 }
 
 extension CapturingViewController: AVCaptureMetadataOutputObjectsDelegate{

@@ -36,8 +36,8 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="カメラ"/>
                                 <connections>
-                                    <action selector="tappedCameraButton:" destination="lgm-cU-k13" eventType="touchUpInside" id="Pq5-4Y-8mM"/>
-                                    <segue destination="0av-I9-Yys" kind="modal" id="BFs-br-bSJ"/>
+                                    <action selector="tappedCameraButton:" destination="lgm-cU-k13" eventType="touchUpInside" id="DPl-Ys-nUJ"/>
+                                    <segue destination="0av-I9-Yys" kind="modal" identifier="toCamera" id="BFs-br-bSJ"/>
                                 </connections>
                             </button>
                         </subviews>

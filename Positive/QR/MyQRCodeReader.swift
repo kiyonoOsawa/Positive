@@ -31,6 +31,8 @@ class MyQRCodeReader {
 
     //info.plist Privacy - Camera Usage Description:String
     func setupCamera( view:UIView, borderWidth:Int = 1, borderColor:CGColor =  UIColor.red.cgColor ){
+        
+        
         self.preview = view
         //デバイスからの入力
         let status = AVCaptureDevice.authorizationStatus(for: .video)
