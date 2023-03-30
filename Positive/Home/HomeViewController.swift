@@ -24,12 +24,16 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var friendLabel: UILabel!
     
     let db = Firestore.firestore()
-    let user = Auth.auth().currentUser
     var addresses: [DetailGoal] = []
     var friends: User? = nil
     var addressesFriends: [DetailGoal] = []
     var userName: String = ""
     let storageRef = Storage.storage().reference(forURL: "gs://taffi-f610f.appspot.com/")
+    
+    override func viewWillAppear(_ animated: Bool) {
+        fetchData()
+        fetchFriendsData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,16 +57,12 @@ class HomeViewController: UIViewController {
         fetchFriendsData()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewDidLoad()
-        if user == nil {
-            var saveUserData: UserDefaults = UserDefaults.standard
-            var nilDataString = saveUserData.object(forKey: "nilData")
-        }
-    }
-    
     private func fetchData() {
+        let user = Auth.auth().currentUser
         guard let user = user else {
+            addresses = []
+            self.targetCollection.reloadData()
+            self.friendTargetCollection.reloadData()
             return
         }
         db.collection("users")
@@ -92,6 +92,7 @@ class HomeViewController: UIViewController {
     }
     
     private func fetchFriendsData() {
+        let user = Auth.auth().currentUser
         guard let user = user else {
             return
         }
@@ -129,13 +130,29 @@ class HomeViewController: UIViewController {
     }
     
     private func design() {
-        self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController!.navigationBar.shadowImage = UIImage()
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "戻る", style: .plain, target: nil, action: nil)
+        guard let navigationController = self.navigationController else {
+            return
+        }
+        navigationController.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController.navigationBar.shadowImage = UIImage()
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "戻る", style: .plain, target: nil, action: nil)
         targetCollection.layer.cornerRadius = 25
         friendsBack.layer.cornerRadius = 25
         friendsBack.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         friendTargetCollection.backgroundColor = .clear
+    }
+    
+    @IBAction func addItems() {
+        let user = Auth.auth().currentUser
+        if user == nil {
+            let storyboard : UIStoryboard = UIStoryboard(name: "MainStory", bundle: nil)
+            let nextVC = storyboard.instantiateViewController(withIdentifier: "firstAccView")
+            self.present(nextVC, animated: true, completion: nil)
+        } else {
+            let storyboard: UIStoryboard = UIStoryboard(name: "HomeStory", bundle: nil)
+            let nextVC = storyboard.instantiateViewController(withIdentifier: "navAddTarget")
+            self.present(nextVC, animated: true, completion: nil)
+        }
     }
 }
 
@@ -312,6 +329,7 @@ extension HomeViewController: HomeViewCellDelegate {
         }
         
         func delete() {
+            let user = Auth.auth().currentUser
             guard let user = user else {return}
             if let indexPath = targetCollection.indexPath(for: cell){
                 let documentId = addresses[indexPath.row].documentID
@@ -353,6 +371,7 @@ extension HomeViewController: HomeViewCellDelegate {
         targetCollection.reloadData()
         print("タップした")
         func doneAction() {
+            let user = Auth.auth().currentUser
             guard let user = user else {
                 return
             }

@@ -185,14 +185,14 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Rb-le-tCr">
-                                <rect key="frame" x="249" y="163" width="104" height="32"/>
+                                <rect key="frame" x="295" y="163" width="58" height="32"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UIA-Bw-7ah">
-                                        <rect key="frame" x="0.0" y="0.0" width="104" height="32"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UIA-Bw-7ah">
+                                        <rect key="frame" x="0.0" y="0.0" width="58" height="32"/>
                                         <accessibility key="accessibilityConfiguration" identifier="toLogIn"/>
                                         <color key="tintColor" name="grayTextColor"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="arrow.right" catalog="system" title=""/>
+                                        <buttonConfiguration key="configuration" style="plain" title=""/>
                                         <connections>
                                             <action selector="tappedToLogIn:" destination="tMv-yG-n4f" eventType="touchUpInside" id="n5k-rc-f27"/>
                                         </connections>
@@ -211,7 +211,7 @@
                                 <constraints>
                                     <constraint firstItem="Cpj-JH-TDv" firstAttribute="top" secondItem="2Rb-le-tCr" secondAttribute="top" id="EZz-pA-g7g"/>
                                     <constraint firstItem="UIA-Bw-7ah" firstAttribute="top" secondItem="2Rb-le-tCr" secondAttribute="top" id="EqR-fY-nca"/>
-                                    <constraint firstAttribute="width" constant="104" id="GOs-K3-8Gl"/>
+                                    <constraint firstAttribute="width" constant="58" id="GOs-K3-8Gl"/>
                                     <constraint firstAttribute="bottom" secondItem="UIA-Bw-7ah" secondAttribute="bottom" id="MGz-cE-Ebg"/>
                                     <constraint firstAttribute="bottom" secondItem="Cpj-JH-TDv" secondAttribute="bottom" id="lZR-Sq-lQV"/>
                                     <constraint firstAttribute="height" constant="32" id="rEd-bj-tZT"/>
@@ -251,6 +251,7 @@
                             <constraint firstItem="m3n-gb-Pyd" firstAttribute="top" secondItem="SmD-Zp-RkP" secondAttribute="bottom" constant="32" id="veW-lg-u1d"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="c3V-ir-Lsq"/>
                     <connections>
                         <outlet property="backView" destination="MeG-UI-LEh" id="62a-qh-3V3"/>
                         <outlet property="emailField" destination="W2h-na-obn" id="lAW-0h-goB"/>
@@ -269,7 +270,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jdj-9K-MCT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-897.10144927536237" y="91.741071428571431"/>
+            <point key="canvasLocation" x="954.96183206106866" y="91.549295774647888"/>
         </scene>
         <!--Log In View Controller-->
         <scene sceneID="3DJ-1a-IDH">
@@ -431,7 +432,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SWS-Tr-ztn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-113" y="92"/>
+            <point key="canvasLocation" x="1739.6946564885495" y="91.549295774647888"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="Aw5-D4-LBr">
@@ -454,7 +455,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jwP-8C-cRp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="753.62318840579712" y="91.741071428571431"/>
+            <point key="canvasLocation" x="2606.8702290076335" y="91.549295774647888"/>
         </scene>
         <!--HomeStory-->
         <scene sceneID="IO3-o7-ge2">
@@ -464,7 +465,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OlP-1c-hwY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1349" y="-141"/>
+            <point key="canvasLocation" x="3202.2900763358775" y="-141.5492957746479"/>
         </scene>
         <!--CalendarStory-->
         <scene sceneID="dPd-1a-YnB">
@@ -474,7 +475,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="seF-oP-uYB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1349" y="92"/>
+            <point key="canvasLocation" x="3201.5267175572517" y="91.549295774647888"/>
         </scene>
         <!--AccountStory-->
         <scene sceneID="QsD-rn-yRV">
@@ -484,12 +485,11 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qZS-Cf-YCm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1349" y="318"/>
+            <point key="canvasLocation" x="3202.2900763358775" y="316.90140845070425"/>
         </scene>
     </scenes>
     <resources>
         <image name="acced_1x" width="24" height="24"/>
-        <image name="arrow.right" catalog="system" width="128" height="95"/>
         <image name="calendar_1x" width="24" height="24"/>
         <image name="calendared_1x" width="24" height="24"/>
         <image name="home_1x" width="24" height="24"/>

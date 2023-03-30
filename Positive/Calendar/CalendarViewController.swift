@@ -28,7 +28,6 @@ class CalendarViewController: UIViewController {
     var events: [Review] = []
     let fsCalendar = FSCalendar()
     let db = Firestore.firestore()
-    let user = Auth.auth().currentUser
     var goal: String = ""
     var addresses: [DetailGoal] = []
     var addressesReview: [Review] = []         //振り返りデータを格納
@@ -59,7 +58,10 @@ class CalendarViewController: UIViewController {
     }
     
     private func fetchDataTarget(){
+        let user = Auth.auth().currentUser
         guard let user = user else {
+            addresses = []
+            self.reportCollectionView.reloadData()
             return
         }
         guard let selectedDate = calendarView.selectedDate else {
@@ -86,7 +88,10 @@ class CalendarViewController: UIViewController {
     }
     
     private func fetchDataReview(){
+        let user = Auth.auth().currentUser
         guard let user = user else {
+            addressesReview = []
+            self.reportCollectionView.reloadData()
             return
         }
         guard let calendarDate = calendarView.selectedDate else {
@@ -115,20 +120,13 @@ class CalendarViewController: UIViewController {
                 }
                 self.reportCollectionView.reloadData()
             }
-        
-        if user == nil {
-            var saveUserData: UserDefaults = UserDefaults.standard
-            saveUserData.set("データを登録しよう", forKey: "nilData")
-        }
     }
     
     private func checkEvents(date: Date) -> Int{
         let calendarDate = DateFormat.shared.dateFormat(date: date)
         events = addressesReview.filter({data in
             let convertedDate = DateFormat.shared.dateFormat(date: data.date.dateValue())
-//            let startDate = DateFormat.shared.dateFormat(date: data.createdAt.dateValue())
             return convertedDate.compare(calendarDate) == .orderedSame
-                //.orderedDescending || convertedDate.compare(calendarDate) == .orderedSame) // && (startDate.compare(calendarDate) == .orderedAscending || startDate.compare(calendarDate) == .orderedSame)
         })
         if events.count == 0{
             return 0
@@ -138,6 +136,13 @@ class CalendarViewController: UIViewController {
     }
     
     @IBAction func toReviewViewButton() {
+        let user = Auth.auth().currentUser
+        if user == nil {
+            let storyboard : UIStoryboard = UIStoryboard(name: "MainStory", bundle: nil)
+            let nextVC = storyboard.instantiateViewController(withIdentifier: "firstAccView")
+//            nextVC.modalPresentationStyle = .fullScreen
+            self.present(nextVC, animated: true, completion: nil)
+        }
         let storyboard = UIStoryboard(name: "ReviewStory", bundle: nil)
         let nc: UINavigationController = storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
         nc.modalPresentationStyle = .fullScreen
@@ -311,11 +316,13 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
 
 extension CalendarViewController: CalendarViewDelegate {
     func tappedDelete(cell: CalendarTargetCollectionViewCell) {
+        
+        
         let title = cell.bigTargetLabel.text
         guard let title = title else { return }
         if segmentState == .affirmation {
             AlertDialog.shared.showAlert(title: "\(title) を削除しますか？", message: "", viewController: self) {
-                guard let user = self.user else {return}
+                let user = Auth.auth().currentUser!
                 if let indexPath = self.reportCollectionView.indexPath(for: cell){
                     let documentId = self.applicableDataReview[indexPath.row].reviewDocumentId
                     self.db.collection("users")
@@ -335,7 +342,7 @@ extension CalendarViewController: CalendarViewDelegate {
             }
         } else {
             AlertDialog.shared.showAlert(title: "\(title) を削除しますか？", message: "", viewController: self) {
-                guard let user = self.user else {return}
+                let user = Auth.auth().currentUser!
                 if let indexPath = self.reportCollectionView.indexPath(for: cell){
                     let documentId = self.applicableData[indexPath.row].documentID
                     self.db.collection("users")

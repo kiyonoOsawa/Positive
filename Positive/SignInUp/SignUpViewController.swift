@@ -54,13 +54,6 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func tappedSignUp(_ sender: Any) {
-//        if (userNameField.text?.isEmpty == true) || (emailField.text?.isEmpty ==  true) || (passwordField.text?.isEmpty == true ) || (userImageButton.imageView?.image == nil) {
-//            let alert = UIAlertController(title: "", message: "プロフィール画像,e-mail,名前,パスワードを全て入力してください", preferredStyle: .alert)
-//            let ok = UIAlertAction(title: "OK", style: .default) { (action) in
-//            }
-//            alert.addAction(ok)
-//            present(alert, animated: true, completion: nil)
-//        }
         if emailField.text != nil && passwordField.text != nil{
             authStateManager.createUser(emailText: emailField.text!, passwordText: passwordField.text!) { uid in
                 let reference = self.storageRef.child("userProfile").child("\(uid).jpg")
@@ -91,6 +84,9 @@ class SignUpViewController: UIViewController {
     
     @IBAction func tappedToLogIn(_ sender: Any) {
         self.performSegue(withIdentifier: "toLogIn", sender: nil)
+//        let storyboard: UIStoryboard = UIStoryboard(name: "MainStory", bundle: nil)
+//        let nextVC = storyboard.instantiateViewController(withIdentifier: "logInVC")
+//        navigationController?.pushViewController(nextVC, animated: true)
     }
     
     func createUser(emailText: String, passwordText: String) {

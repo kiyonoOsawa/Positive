@@ -13,11 +13,6 @@ import FirebaseAuth
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        //         Override point for customization after application launch.
-//        let userDefaults = UserDefaults.standard
-//        let firstLunchKey = "firstLunchKey"
-//        let firstLunch = [firstLunchKey: true]
-//        userDefaults.register(defaults: firstLunch)
         FirebaseApp.configure()
         do {
           try Auth.auth().useUserAccessGroup("7Y5RBD24LU.com.kiyono.Positive.taffi")

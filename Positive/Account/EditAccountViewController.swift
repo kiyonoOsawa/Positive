@@ -35,14 +35,19 @@ class EditAccountViewController: UIViewController, UINavigationControllerDelegat
         design()
     }
     
+    @IBAction func cancel() {
+        self.dismiss(animated: true, completion: nil)
+        var userData: UserDefaults = UserDefaults.standard
+        userData.set("user", forKey: "logout")
+    }
+    
     @IBAction func tappedLogOut() {
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
-            let storyboard: UIStoryboard = UIStoryboard(name: "MainStory", bundle: nil)
-            let nextVC = storyboard.instantiateViewController(withIdentifier: "firstAccView")
-            nextVC.modalPresentationStyle = .fullScreen
-            self.present(nextVC, animated: true, completion: nil)
+            self.dismiss(animated: true, completion: nil)
+            var userData: UserDefaults = UserDefaults.standard
+            userData.set("userNill", forKey: "logout")
         } catch let signOutError as NSError {
             print("Error signing out: %@", signOutError)
         }

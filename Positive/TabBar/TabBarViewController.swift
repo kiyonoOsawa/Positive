@@ -8,12 +8,11 @@
 import UIKit
 import FirebaseAuth
 
-class TabBarViewController: UITabBarController {
-    
-    let user = Auth.auth().currentUser
+class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        delegate = self
         UITabBarItem.appearance().setTitleTextAttributes([.font: UIFont.init(name: "HelveticaNeue-Bold", size: 13), .foregroundColor: UIColor(named: "MainColor")], for: .selected)
         tabBar.layer.shadowOffset = CGSize(width: 0, height: 1)
         tabBar.layer.shadowRadius = 6
@@ -24,24 +23,27 @@ class TabBarViewController: UITabBarController {
         tabBar.layer.maskedCorners = [.layerMaxXMinYCorner,.layerMinXMinYCorner]
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-//        let userDefaults = UserDefaults.standard
-//        let firstLunchKey = "firstLunchKey"
-//        if userDefaults.bool(forKey: firstLunchKey) {
-//            userDefaults.set(false, forKey: firstLunchKey)
-//            let nextVC = storyboard?.instantiateViewController(withIdentifier: "firstAccView")
-//            nextVC?.modalPresentationStyle = .fullScreen
-//            self.present(nextVC!, animated: true, completion: nil)
-//        }
-        if user == nil {
-            AlertDialog.shared.showAlert(title: "ユーザーが存在していません", message: "ログインしてください", viewController: self){
-                let storyboard: UIStoryboard = UIStoryboard(name: "MainStory", bundle: nil)
-                let nextVC = storyboard.instantiateViewController(withIdentifier: "firstAccView")
-                nextVC.modalPresentationStyle = .fullScreen
-                self.present(nextVC, animated: true, completion: nil)
-            }
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        let user = Auth.auth().currentUser
+        if user == nil && viewController == tabBarController.viewControllers?[2] {
+            let storyboard : UIStoryboard = UIStoryboard(name: "MainStory", bundle: nil)
+            let nextVC = storyboard.instantiateViewController(withIdentifier: "firstAccView")
+            self.present(nextVC, animated: true, completion: nil)
+            return false
         }
+        return true
     }
+    
+    
+    //    override func viewDidAppear(_ animated: Bool) {
+    //        super.viewDidAppear(animated)
+    //        if user == nil {
+    //            AlertDialog.shared.showAlert(title: "ユーザーが存在していません", message: "ログインしてください", viewController: self){
+    //                let storyboard: UIStoryboard = UIStoryboard(name: "MainStory", bundle: nil)
+    //                let nextVC = storyboard.instantiateViewController(withIdentifier: "firstAccView")
+    //                nextVC.modalPresentationStyle = .fullScreen
+    //                self.present(nextVC, animated: true, completion: nil)
+    //            }
+    //        }
+    //    }
 }

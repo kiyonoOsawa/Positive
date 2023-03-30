@@ -116,7 +116,7 @@
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="1RS-ZX-5mb">
                             <color key="tintColor" name="MainColor"/>
                             <connections>
-                                <segue destination="O7W-rw-BcW" kind="modal" identifier="nextMakeView" id="Xfy-lf-I7Z"/>
+                                <action selector="addItems" destination="YgT-N4-Txz" id="JBl-P0-IPC"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -124,7 +124,7 @@
                         <outlet property="addItem" destination="1RS-ZX-5mb" id="rr2-Vq-AGs"/>
                         <outlet property="friendLabel" destination="yvx-qn-RjD" id="fZD-OT-42i"/>
                         <outlet property="friendTargetCollection" destination="bzI-wW-G1V" id="1UM-Tl-ukV"/>
-                        <outlet property="friendsBack" destination="u7R-vj-ael" id="lTO-qe-nwF"/>
+                        <outlet property="friendsBack" destination="u7R-vj-ael" id="X0H-AA-D3g"/>
                         <outlet property="myLabel" destination="rOc-dq-LMG" id="xdM-kX-JK3"/>
                         <outlet property="nilFriendSTarget" destination="AIP-gE-SRJ" id="Vlc-Dl-zwh"/>
                         <outlet property="nilTargetImage" destination="3fp-Jt-mKm" id="VCS-Ub-Bjn"/>
@@ -150,11 +150,11 @@
             <objects>
                 <viewController storyboardIdentifier="nextMakeView" id="RcY-kr-sME" customClass="MakeTargetViewController" customModule="Positive" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qo3-fx-Nxf">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="xfV-Ve-lcN">
-                                <rect key="frame" x="0.0" y="56" width="393" height="727"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="749"/>
                                 <color key="backgroundColor" name="systemColor"/>
                             </tableView>
                         </subviews>
@@ -195,11 +195,11 @@
             <objects>
                 <viewController id="laa-aq-ccl" customClass="QuestionViewController" customModule="Positive" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ksW-NY-CcG">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Q9X-mh-I7N">
-                                <rect key="frame" x="0.0" y="56" width="393" height="727"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                                 <color key="backgroundColor" name="systemColor"/>
                             </tableView>
                         </subviews>
@@ -247,10 +247,10 @@
         <!--Navigation Controller-->
         <scene sceneID="C6g-7s-27K">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="O7W-rw-BcW" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="navAddTarget" automaticallyAdjustsScrollViewInsets="NO" id="O7W-rw-BcW" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="F5r-gm-s4N">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="56"/>
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
