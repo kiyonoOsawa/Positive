@@ -61,6 +61,7 @@ class CalendarViewController: UIViewController {
         let user = Auth.auth().currentUser
         guard let user = user else {
             addresses = []
+            applicableData = []
             self.reportCollectionView.reloadData()
             return
         }
@@ -91,6 +92,7 @@ class CalendarViewController: UIViewController {
         let user = Auth.auth().currentUser
         guard let user = user else {
             addressesReview = []
+            applicableDataReview = []
             self.reportCollectionView.reloadData()
             return
         }
@@ -140,7 +142,6 @@ class CalendarViewController: UIViewController {
         if user == nil {
             let storyboard : UIStoryboard = UIStoryboard(name: "MainStory", bundle: nil)
             let nextVC = storyboard.instantiateViewController(withIdentifier: "firstAccView")
-//            nextVC.modalPresentationStyle = .fullScreen
             self.present(nextVC, animated: true, completion: nil)
         }
         let storyboard = UIStoryboard(name: "ReviewStory", bundle: nil)

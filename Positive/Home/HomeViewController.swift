@@ -61,6 +61,7 @@ class HomeViewController: UIViewController {
         let user = Auth.auth().currentUser
         guard let user = user else {
             addresses = []
+            addressesFriends = []
             self.targetCollection.reloadData()
             self.friendTargetCollection.reloadData()
             return
