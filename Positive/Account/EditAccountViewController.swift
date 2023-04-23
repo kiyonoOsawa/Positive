@@ -13,6 +13,7 @@ import FirebaseAuth
 
 class EditAccountViewController: UIViewController, UINavigationControllerDelegate {
     
+//    @IBOutlet weak var userImage: UIBU
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passField: UITextField!
@@ -37,8 +38,8 @@ class EditAccountViewController: UIViewController, UINavigationControllerDelegat
     
     @IBAction func cancel() {
         self.dismiss(animated: true, completion: nil)
-        var userData: UserDefaults = UserDefaults.standard
-        userData.set("user", forKey: "logout")
+        var userNilData: UserDefaults = UserDefaults.standard
+        userNilData.set("user", forKey: "logout")
     }
     
     @IBAction func tappedLogOut() {
@@ -46,8 +47,8 @@ class EditAccountViewController: UIViewController, UINavigationControllerDelegat
         do {
             try firebaseAuth.signOut()
             self.dismiss(animated: true, completion: nil)
-            var userData: UserDefaults = UserDefaults.standard
-            userData.set("userNill", forKey: "logout")
+            var userNilData: UserDefaults = UserDefaults.standard
+            userNilData.set("nil", forKey: "logout")
         } catch let signOutError as NSError {
             print("Error signing out: %@", signOutError)
         }

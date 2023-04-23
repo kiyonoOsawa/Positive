@@ -119,7 +119,7 @@ class PagingViewController: UIViewController, UIScrollViewDelegate {
             } else if keyStatus == true{
                 userDefaults.set(false, forKey: firstLunchKey)
                 let storyboard: UIStoryboard = UIStoryboard(name: "MainStory", bundle: nil)
-                let nextVC = storyboard.instantiateViewController(withIdentifier: "firstAccView")
+                let nextVC = storyboard.instantiateViewController(withIdentifier: "tab")
                 nextVC.modalPresentationStyle = .fullScreen
                 self.present(nextVC, animated: true, completion: nil)
             }else{

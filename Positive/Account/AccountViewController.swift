@@ -22,16 +22,15 @@ class AccountViewController: UIViewController {
     @IBOutlet weak var aveLabel: UILabel!
     @IBOutlet weak var friendsBack: UIView!
     @IBOutlet weak var friendsCollection: UICollectionView!
+    @IBOutlet weak var friendsAddTextImage: UIImageView!
     
     let storageRef = Storage.storage().reference(forURL: "gs://taffi-f610f.appspot.com/")
     let db = Firestore.firestore()
     let viewModel = GraphViewModel()
     var addresses: [DetailGoal] = []
-    var friends: User? = nil
     var addressesFriends: [DetailGoal] = []
     var accountList: [User] = []
     var rawDataGraph: [Int] = []
-//    var userData = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,19 +44,27 @@ class AccountViewController: UIViewController {
         fetchReviewData()
         design()
         hostingGraphView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         transfar()
+        fetchMyData()
+        fetchReviewData()
     }
     
     private func transfar() {
-        var userData: UserDefaults = UserDefaults.standard
-        let nilData = userData.object(forKey: "logout") as? String
-        print(nilData)
-        if nilData == "userNill" {
+        var userNilData: UserDefaults = UserDefaults.standard
+        let nilData = userNilData.object(forKey: "logout") as? String
+        print("ここ!!!!!: \(nilData)")
+        if nilData == "nil" {
             let vc = HomeViewController()
             let rootVC = UIApplication.shared.windows.first?.rootViewController as? UITabBarController
             let navigationController = rootVC?.children as? UINavigationController
             rootVC?.selectedIndex = 0
             navigationController?.pushViewController(vc, animated: false)
+            return
+        } else if nilData == "user" {
             return
         } else {
             return
@@ -67,6 +74,9 @@ class AccountViewController: UIViewController {
     private func fetchMyData() {
         let user = Auth.auth().currentUser
         guard let user = user else {
+            addresses = []
+            self.imageView.reloadInputViews()
+            self.nameLabel.reloadInputViews()
             return
         }
         db.collection("users")
@@ -92,12 +102,13 @@ class AccountViewController: UIViewController {
     }
     
     private func fetchFriendList(friendList: [String]) {
-//        let user = Auth.auth().currentUser
-//        guard let user = user else {
-//            addressesFriends = []
-//            self.friendsCollection.reloadData()
-//            return
-//        }
+        let user = Auth.auth().currentUser
+        guard let user = user else {
+            addressesFriends = []
+            accountList = []
+            self.friendsCollection.reloadData()
+            return
+        }
         db.collection("users")
             .whereField("userId", in: friendList)
             .addSnapshotListener { QuerySnapshot, Error in
@@ -117,6 +128,9 @@ class AccountViewController: UIViewController {
     private func fetchReviewData() {
         let user = Auth.auth().currentUser
         guard let user = user else {
+            rawDataGraph = []
+            nameLabel.text = " "
+            self.chartBack.reloadInputViews()
             return
         }
         db.collection("users")
@@ -144,6 +158,12 @@ class AccountViewController: UIViewController {
         let nextVC = storyboard.instantiateViewController(withIdentifier: "editAccView")
         self.present(nextVC, animated: true, completion: nil)
     }
+    
+    //    @IBAction func toLogInVC() {
+    //        let storyboard : UIStoryboard = UIStoryboard(name: "MainStory", bundle: nil)
+    //        let nextVC = storyboard.instantiateViewController(withIdentifier: "firstAccView")
+    //        self.present(nextVC, animated: true, completion: nil)
+    //    }
     
     func design() {
         imageView.layer.cornerRadius = 36

@@ -46,16 +46,22 @@ class MakeTargetViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-            super.viewWillAppear(animated)
-            self.nowTodo = transferViewModel.eachAnswer[0]
-            self.essentialThing = transferViewModel.eachAnswer[1]
-            self.trigger = transferViewModel.eachAnswer[2]
+        super.viewWillAppear(animated)
+        self.nowTodo = transferViewModel.eachAnswer[0]
+        self.essentialThing = transferViewModel.eachAnswer[1]
+        self.trigger = transferViewModel.eachAnswer[2]
     }
     
     @IBAction func tappedSaveButton() {
-        print("保存したよん")
-        addQuestion()
-        self.dismiss(animated: true)
+        let user = Auth.auth().currentUser
+        if user == nil {
+            addQuestion()
+        } else {
+            print("保存したよん")
+            self.dismiss(animated: true)
+            addQuestion()
+        }
+
     }
     
     @IBAction func backView() {
@@ -81,6 +87,13 @@ class MakeTargetViewController: UIViewController {
     
     private func addQuestion() {
         guard let user = user else {
+            if user == nil {
+                let storyboard : UIStoryboard = UIStoryboard(name: "MainStory", bundle: nil)
+                let nextVC = storyboard.instantiateViewController(withIdentifier: "firstAccView")
+                self.present(nextVC, animated: true, completion: nil)
+            } else {
+                return
+            }
             return
         }
         if data == true {
@@ -127,7 +140,7 @@ class MakeTargetViewController: UIViewController {
     func design() {
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "戻る", style: .plain, target: nil, action: nil)
         self.navigationItem.title = "目標設定"
-
+        
     }
 }
 

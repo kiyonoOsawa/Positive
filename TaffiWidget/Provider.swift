@@ -6,6 +6,7 @@
 //
 
 import WidgetKit
+import Firebase
 import FirebaseCore
 import FirebaseAuth
 import FirebaseFirestore
@@ -21,7 +22,6 @@ struct Provider: IntentTimelineProvider {
     }
     
     func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<SimpleEntry>) -> ()) {
-        
         let date = Date()
         let nextUpdate = Calendar.current.date(byAdding: .minute, value: 15, to: date)!
         fetchData { goal in
@@ -36,7 +36,9 @@ struct Provider: IntentTimelineProvider {
             let db = Firestore.firestore()
             var goals = [GoalForWidget]()
             var filterData = [GoalForWidget]()
-            guard let user = Auth.auth().currentUser else {
+        let user = Auth.auth().currentUser
+        guard let user = user else {
+//            guard let user = Auth.auth().currentUser else {
 //                Auth.auth().signIn(withEmail: "nonuser@gmail.com", password: "nonuser") { AuthDataResult, Error in
 //                    guard let result = AuthDataResult else {return}
 //                    db.collection("users")

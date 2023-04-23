@@ -50,11 +50,11 @@ struct TuffyWidgetEntryView : View {
 struct TuffyWidget: Widget {
     init(){
         FirebaseApp.configure()
-        do {
-          try Auth.auth().useUserAccessGroup("7Y5RBD24LU.com.kiyono.Positive.taffi")
-        } catch let error as NSError {
-          print("Error changing user access group: %@", error)
-        }
+//        do {
+          try? Auth.auth().useUserAccessGroup("7Y5RBD24LU.com.kiyono.Positive.taffi")
+//        } catch let error as NSError {
+//          print("Error changing user access group: %@", error)
+//        }
     }
     let kind: String = "TuffyWidget"
     

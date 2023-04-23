@@ -14,11 +14,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
-        do {
-          try Auth.auth().useUserAccessGroup("7Y5RBD24LU.com.kiyono.Positive.taffi")
-        } catch let error as NSError {
-          print("Error changing user access group: %@", error)
-        }
+//        do {
+          try?Auth.auth().useUserAccessGroup("7Y5RBD24LU.com.kiyono.Positive.taffi")
+//        } catch let error as NSError {
+//          print("Error changing user access group: %@", error)
+//        }
         return true
     }
     

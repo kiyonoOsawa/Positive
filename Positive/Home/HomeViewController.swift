@@ -12,6 +12,8 @@ import FirebaseAuth
 import FirebaseStorage
 import FirebaseFirestoreSwift
 
+import AudioToolbox
+
 class HomeViewController: UIViewController {
     
     @IBOutlet weak var addItem: UIBarButtonItem!
@@ -144,16 +146,16 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func addItems() {
-        let user = Auth.auth().currentUser
-        if user == nil {
-            let storyboard : UIStoryboard = UIStoryboard(name: "MainStory", bundle: nil)
-            let nextVC = storyboard.instantiateViewController(withIdentifier: "firstAccView")
-            self.present(nextVC, animated: true, completion: nil)
-        } else {
+//        let user = Auth.auth().currentUser
+//        if user == nil {
+//            let storyboard : UIStoryboard = UIStoryboard(name: "MainStory", bundle: nil)
+//            let nextVC = storyboard.instantiateViewController(withIdentifier: "firstAccView")
+//            self.present(nextVC, animated: true, completion: nil)
+//        } else {
             let storyboard: UIStoryboard = UIStoryboard(name: "HomeStory", bundle: nil)
             let nextVC = storyboard.instantiateViewController(withIdentifier: "navAddTarget")
             self.present(nextVC, animated: true, completion: nil)
-        }
+//        }
     }
 }
 
@@ -390,6 +392,7 @@ extension HomeViewController: HomeViewCellDelegate {
                     .updateData(upDateDoneTarget)
             }
         }
+        AudioServicesPlayAlertSoundWithCompletion(SystemSoundID(1521)) {}
     }
 }
 

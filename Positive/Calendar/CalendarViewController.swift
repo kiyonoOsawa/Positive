@@ -50,19 +50,28 @@ class CalendarViewController: UIViewController {
         reportCollectionView.register(UINib(nibName: "CalendarTargetCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "reportCell")
         viewWidth = view.frame.width
         print(data)
-        reportCollectionView.reloadData()
-        configureSizes()
+//        reportCollectionView.reloadData()
+//        configureSizes()
         fetchDataReview()
         fetchDataTarget()
+        configureSizes()
         design()
+        reportCollectionView.reloadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchDataReview()
+        fetchDataTarget()
+        self.calendarView.reloadData()
     }
     
     private func fetchDataTarget(){
         let user = Auth.auth().currentUser
         guard let user = user else {
             addresses = []
-            applicableData = []
-            self.reportCollectionView.reloadData()
+//            applicableData = []
+            self.calendarView.reloadData()
             return
         }
         guard let selectedDate = calendarView.selectedDate else {
@@ -94,6 +103,7 @@ class CalendarViewController: UIViewController {
             addressesReview = []
             applicableDataReview = []
             self.reportCollectionView.reloadData()
+            self.calendarView.reloadData()
             return
         }
         guard let calendarDate = calendarView.selectedDate else {
@@ -286,7 +296,7 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let space: CGFloat = 32
         let cellWidth: CGFloat = viewWidth - space
-        let cellHeight: CGFloat = 98
+        let cellHeight: CGFloat = 120
         return CGSize(width: cellWidth, height: cellHeight)
     }
     
@@ -300,7 +310,7 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if segmentState == .task {
-            let storyboard: UIStoryboard = UIStoryboard(name: "MainStory", bundle: nil)
+            let storyboard: UIStoryboard = UIStoryboard(name: "TargetDetailStory", bundle: nil)
             let nextView = storyboard.instantiateViewController(withIdentifier: "detailTarget") as! TargetDetailViewController
             nextView.modalTransitionStyle = .coverVertical
             nextView.modalPresentationStyle = .pageSheet
@@ -311,13 +321,22 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
             nextView.DocumentId = applicableData[indexPath.row].documentID
             nextView.IsShared = applicableData[indexPath.row].isShared ?? true
             navigationController?.pushViewController(nextView, animated: true)
+        } else if segmentState == .affirmation {
+            let storyboard: UIStoryboard = UIStoryboard(name: "AffDetail", bundle: nil)
+            let nextVC = storyboard.instantiateViewController(withIdentifier: "affirmationDetail") as! AffirmationDetailController
+            nextVC.modalTransitionStyle = .coverVertical
+            nextVC.modalPresentationStyle = .pageSheet
+            nextVC.target = applicableData[indexPath.row].goal
+            nextVC.review = applicableDataReview[indexPath.row].original!
+            let score: Double = addressesReview[indexPath.row].score
+            nextVC.affirmationScore = score
+            navigationController?.pushViewController(nextVC, animated: true)
         }
     }
 }
 
 extension CalendarViewController: CalendarViewDelegate {
     func tappedDelete(cell: CalendarTargetCollectionViewCell) {
-        
         
         let title = cell.bigTargetLabel.text
         guard let title = title else { return }

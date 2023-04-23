@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		CE08B05628BD19870054D0D6 /* EditAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE08B05528BD19860054D0D6 /* EditAccountViewController.swift */; };
+		CE29E8C029F4FB0B008D772F /* AffirmationDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE29E8BF29F4FB0B008D772F /* AffirmationDetailController.swift */; };
+		CE29E8C229F50643008D772F /* AffDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE29E8C129F50643008D772F /* AffDetail.storyboard */; };
 		CE2F3B772934D14C006D1FF1 /* Tutorial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE2F3B762934D14C006D1FF1 /* Tutorial.storyboard */; };
 		CE3E7834288C40A000548FFD /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3E7833288C40A000548FFD /* TabBar.swift */; };
 		CE4A6C1228FBD4BC00BA3FCC /* HomeStory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE4A6C1128FBD4BC00BA3FCC /* HomeStory.storyboard */; };
@@ -19,6 +21,7 @@
 		CE4A6C1F28FBD7A300BA3FCC /* MainStory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE4A6C1E28FBD7A300BA3FCC /* MainStory.storyboard */; };
 		CE644D8F28B7C580008443BE /* FriendAccCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE644D8D28B7C580008443BE /* FriendAccCollectionViewCell.swift */; };
 		CE644D9028B7C580008443BE /* FriendAccCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE644D8E28B7C580008443BE /* FriendAccCollectionViewCell.xib */; };
+		CE68C57D29DC7235000C5EC0 /* TaffiWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = CECC28AC28EB77B300219F98 /* TaffiWidget.intentdefinition */; };
 		CE73D15A2839DF4C00B20D0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE73D1592839DF4C00B20D0D /* AppDelegate.swift */; };
 		CE73D15C2839DF4C00B20D0D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE73D15B2839DF4C00B20D0D /* SceneDelegate.swift */; };
 		CE73D1632839DF4E00B20D0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE73D1622839DF4E00B20D0D /* Assets.xcassets */; };
@@ -74,7 +77,6 @@
 		CECC28AB28EB77B300219F98 /* TaffiWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC28AA28EB77B300219F98 /* TaffiWidget.swift */; };
 		CECC28AE28EB77B400219F98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CECC28AD28EB77B400219F98 /* Assets.xcassets */; };
 		CECC28B028EB77B400219F98 /* TaffiWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = CECC28AC28EB77B300219F98 /* TaffiWidget.intentdefinition */; };
-		CECC28B128EB77B400219F98 /* TaffiWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = CECC28AC28EB77B300219F98 /* TaffiWidget.intentdefinition */; };
 		CECC28B428EB77B400219F98 /* TaffiWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = CECC28A628EB77B300219F98 /* TaffiWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CECC28B928EB77DC00219F98 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = CECC28B828EB77DC00219F98 /* FirebaseAuth */; };
 		CECC28BB28EB77ED00219F98 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = CECC28BA28EB77ED00219F98 /* FirebaseFirestore */; };
@@ -129,6 +131,8 @@
 
 /* Begin PBXFileReference section */
 		CE08B05528BD19860054D0D6 /* EditAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountViewController.swift; sourceTree = "<group>"; };
+		CE29E8BF29F4FB0B008D772F /* AffirmationDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffirmationDetailController.swift; sourceTree = "<group>"; };
+		CE29E8C129F50643008D772F /* AffDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AffDetail.storyboard; sourceTree = "<group>"; };
 		CE2F3B762934D14C006D1FF1 /* Tutorial.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tutorial.storyboard; sourceTree = "<group>"; };
 		CE360FCE28FBDCF600C7E7B8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CE3E7833288C40A000548FFD /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
@@ -165,6 +169,7 @@
 		CE7F69AF28EC731200D9B990 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 		CE7F69B128EC734E00D9B990 /* SimpleEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleEntry.swift; sourceTree = "<group>"; };
 		CE80C15628716EF9000646B2 /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
+		CE85B59629E412AA0006A072 /* TaffiWidgetExtensionRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TaffiWidgetExtensionRelease.entitlements; sourceTree = "<group>"; };
 		CE8D8BE828B911840024B322 /* TargetDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetDetailViewController.swift; sourceTree = "<group>"; };
 		CE8D8BEA28B9194C0024B322 /* CircleChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleChart.swift; sourceTree = "<group>"; };
 		CEACDF4F289571AF0005F4A6 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
@@ -271,6 +276,7 @@
 				CE4A6C1128FBD4BC00BA3FCC /* HomeStory.storyboard */,
 				CE4A6C1328FBD52C00BA3FCC /* TargetDetailStory.storyboard */,
 				CE4A6C1528FBD58200BA3FCC /* CalendarStory.storyboard */,
+				CE29E8C129F50643008D772F /* AffDetail.storyboard */,
 				CE4A6C1728FBD5AA00BA3FCC /* ReviewStory.storyboard */,
 				CE4A6C1928FBD5FB00BA3FCC /* AccountStory.storyboard */,
 				CE4A6C1B28FBD61800BA3FCC /* QRStory.storyboard */,
@@ -298,6 +304,7 @@
 		CE73D14D2839DF4C00B20D0D = {
 			isa = PBXGroup;
 			children = (
+				CE85B59629E412AA0006A072 /* TaffiWidgetExtensionRelease.entitlements */,
 				CECC28BE28EB780E00219F98 /* TaffiWidgetExtension.entitlements */,
 				CE73D1582839DF4C00B20D0D /* Positive */,
 				CECC28A928EB77B300219F98 /* TaffiWidget */,
@@ -457,6 +464,7 @@
 				CE73D16F2839F8AE00B20D0D /* CalendarViewController.swift */,
 				CEB47564286B499C002654E6 /* CalendarTargetCollectionViewCell.swift */,
 				CEB47565286B499C002654E6 /* CalendarTargetCollectionViewCell.xib */,
+				CE29E8BF29F4FB0B008D772F /* AffirmationDetailController.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -593,6 +601,7 @@
 				CE4A6C1228FBD4BC00BA3FCC /* HomeStory.storyboard in Resources */,
 				CEB47563285F6981002654E6 /* QuestionTableViewCell.xib in Resources */,
 				CE4A6C1A28FBD5FB00BA3FCC /* AccountStory.storyboard in Resources */,
+				CE29E8C229F50643008D772F /* AffDetail.storyboard in Resources */,
 				CE4A6C1428FBD52C00BA3FCC /* TargetDetailStory.storyboard in Resources */,
 				CED18C6428FED5EC0008FF7C /* GoogleService-Info.plist in Resources */,
 				CE4A6C1628FBD58200BA3FCC /* CalendarStory.storyboard in Resources */,
@@ -622,8 +631,10 @@
 				CE7F69A828EC6D4C00D9B990 /* MyListViewController.swift in Sources */,
 				CEB4757228713863002654E6 /* MakeTargetTableViewCell.swift in Sources */,
 				CEEE82B8284B6A4400732497 /* TabBarViewController.swift in Sources */,
+				CE68C57D29DC7235000C5EC0 /* TaffiWidget.intentdefinition in Sources */,
 				CED649C228BC5E6E00E12D61 /* User.swift in Sources */,
 				CEB47562285F6981002654E6 /* QuestionTableViewCell.swift in Sources */,
+				CE29E8C029F4FB0B008D772F /* AffirmationDetailController.swift in Sources */,
 				CEC444822920917B007FEF1C /* ChartDataEntry.swift in Sources */,
 				CEAE56BF28974864002DBEA2 /* InnerCollectionViewCell.swift in Sources */,
 				CEC4448629209564007FEF1C /* LineChartView.swift in Sources */,
@@ -638,7 +649,6 @@
 				CEAE56C4289766FB002DBEA2 /* FriendsInnerCollectionViewCell.swift in Sources */,
 				CE798A6F28D9707100E5C340 /* SaveReviewViewController.swift in Sources */,
 				CED6A12F28C3487F0082D498 /* FlowLayout.swift in Sources */,
-				CECC28B128EB77B400219F98 /* TaffiWidget.intentdefinition in Sources */,
 				CEED455329644F29006CBD2A /* SignInUpViewModel.swift in Sources */,
 				CED649C628BC5F3300E12D61 /* CapturingViewController.swift in Sources */,
 				CEEE82B42847A99A00732497 /* SignUpViewController.swift in Sources */,
@@ -850,7 +860,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.0.1;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kiyono.Positive.taffi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -894,7 +904,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kiyono.Positive.taffi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -927,7 +937,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kiyono.Positive.taffi.TaffiWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -942,7 +952,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = TaffiWidgetExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = TaffiWidgetExtensionRelease.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
@@ -957,7 +967,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kiyono.Positive.taffi.TaffiWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

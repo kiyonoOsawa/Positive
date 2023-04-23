@@ -224,7 +224,7 @@
         <!--Navigation Controller-->
         <scene sceneID="mtV-fq-BWb">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9A6-sv-iyK" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="homeNC" automaticallyAdjustsScrollViewInsets="NO" id="9A6-sv-iyK" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="home_1x" selectedImage="homed_1x" id="AhI-Se-EuR"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="LtA-LS-aPA">
