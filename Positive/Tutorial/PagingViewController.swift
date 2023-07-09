@@ -83,7 +83,7 @@ class PagingViewController: UIViewController, UIScrollViewDelegate {
     
     private func setPageControl() {
         pageControl = UIPageControl()
-        pageControl.frame = CGRect(x: (Int(viewWidth)-200)/2, y: Int(viewHeigh)-150, width: 200, height: 50)
+        pageControl.frame = CGRect(x: (Int(viewWidth)-200)/2, y: Int(viewHeigh)-750, width: 200, height: 50)
         pageControl.numberOfPages = backgroundImageArray.count
         pageControl.currentPage = 0
         self.view.addSubview(pageControl)
@@ -91,7 +91,7 @@ class PagingViewController: UIViewController, UIScrollViewDelegate {
     
     private func setButton() {
         button = UIButton()
-        button.frame = CGRect(x: Int(viewWidth)-65, y: Int(viewHeigh)-130, width: 60, height: 60)
+        button.frame = CGRect(x: Int(viewWidth)-95, y: Int(viewHeigh)-760, width: 60, height: 60)
         if pageControl.currentPage == backgroundImageArray.count-1 {
             button.setTitle("閉じる", for: .normal)
         } else {

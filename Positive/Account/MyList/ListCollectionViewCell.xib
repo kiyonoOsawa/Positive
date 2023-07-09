@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -19,7 +20,7 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="目標" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zjR-Bi-no4">
-                        <rect key="frame" x="24" y="31" width="36" height="18"/>
+                        <rect key="frame" x="24" y="31" width="332" height="18"/>
                         <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="18"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -53,6 +54,7 @@
                 <constraint firstItem="zjR-Bi-no4" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="0E5-Ph-aYa"/>
                 <constraint firstAttribute="trailing" secondItem="l9O-li-ZEh" secondAttribute="trailing" constant="24" id="6Je-O8-AIo"/>
                 <constraint firstItem="l9O-li-ZEh" firstAttribute="top" secondItem="zjR-Bi-no4" secondAttribute="bottom" constant="8" id="Hu0-1y-mc3"/>
+                <constraint firstAttribute="trailing" secondItem="zjR-Bi-no4" secondAttribute="trailing" constant="24" id="J9j-jg-XbJ"/>
                 <constraint firstItem="zjR-Bi-no4" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="24" id="MhC-N2-7oB"/>
                 <constraint firstItem="clr-7d-4Yh" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="4" id="mJ9-wY-rSS"/>
                 <constraint firstAttribute="trailing" secondItem="clr-7d-4Yh" secondAttribute="trailing" constant="8" id="oHf-k6-8bq"/>
@@ -71,7 +73,7 @@
             <color red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

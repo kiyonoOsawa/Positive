@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -73,9 +73,9 @@
                 <constraint firstItem="6nP-xX-bDA" firstAttribute="top" secondItem="NpT-lh-5nQ" secondAttribute="bottom" constant="8" id="R9A-oj-7FZ"/>
                 <constraint firstItem="Wk8-92-Y7I" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="12" id="Rac-Gn-BJT"/>
                 <constraint firstAttribute="bottom" secondItem="cgY-PT-Tcb" secondAttribute="bottom" id="Y4X-iG-SUp"/>
+                <constraint firstAttribute="trailing" secondItem="V7k-Cq-RhY" secondAttribute="trailing" constant="32" id="i6d-HX-CmL"/>
                 <constraint firstItem="cgY-PT-Tcb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="pOi-RQ-FIf"/>
                 <constraint firstAttribute="trailing" secondItem="cgY-PT-Tcb" secondAttribute="trailing" constant="16" id="vNg-9U-eWw"/>
-                <constraint firstAttribute="trailing" secondItem="V7k-Cq-RhY" secondAttribute="trailing" constant="32" id="wid-pC-VIl"/>
                 <constraint firstItem="NpT-lh-5nQ" firstAttribute="leading" secondItem="Wk8-92-Y7I" secondAttribute="trailing" constant="16" id="xMD-hX-kjP"/>
             </constraints>
             <size key="customSize" width="206" height="143"/>

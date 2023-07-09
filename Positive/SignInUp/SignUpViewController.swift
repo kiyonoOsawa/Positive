@@ -84,9 +84,6 @@ class SignUpViewController: UIViewController {
     
     @IBAction func tappedToLogIn(_ sender: Any) {
         self.performSegue(withIdentifier: "toLogIn", sender: nil)
-//        let storyboard: UIStoryboard = UIStoryboard(name: "MainStory", bundle: nil)
-//        let nextVC = storyboard.instantiateViewController(withIdentifier: "logInVC")
-//        navigationController?.pushViewController(nextVC, animated: true)
     }
     
     func createUser(emailText: String, passwordText: String) {

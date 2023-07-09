@@ -43,4 +43,13 @@ struct AlertDialog {
             alert.addAction(cancel)
             viewController.present(alert, animated: true, completion: nil)
         }
+    
+    func singleAlert(title: String, message: String,viewController: UIViewController,completion: @escaping()->Void){
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            let ok = UIAlertAction(title: "OK", style: .default) { (action) in
+                completion()
+            }
+            alert.addAction(ok)
+            viewController.present(alert, animated: true, completion: nil)
+        }
 }

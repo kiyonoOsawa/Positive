@@ -79,9 +79,7 @@ class MyQRCodeReader {
     
     //読み取り範囲の指定
     public func readRange( frame:CGRect = CGRect(x: 0.2, y: 0.3, width: 0.6, height: 0.4) ){
-        
         self.metadataOutput.rectOfInterest = CGRect(x: frame.minY,y: 1-frame.minX-frame.size.width, width: frame.size.height,height: frame.size.width)
-        
         let v = UIView()
         v.layer.borderWidth = 1
         v.layer.borderColor = UIColor.red.cgColor

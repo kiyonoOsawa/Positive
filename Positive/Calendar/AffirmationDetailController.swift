@@ -6,8 +6,6 @@
 //
 
 import UIKit
-import Firebase
-import FirebaseStorage
 
 class AffirmationDetailController: UIViewController {
     
@@ -31,10 +29,7 @@ class AffirmationDetailController: UIViewController {
         let positiveness: Double = Double(affirmationScore)
         affirmationScoreLabel.text = "\(positiveness)"
         targetLabel.text = target
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
+        self.navigationController?.navigationItem.leftBarButtonItem?.tintColor = UIColor(named: "rightTextColor")
     }
-    
-    private func fetchReviewData() {
-//        let user =
-    }
-    
 }

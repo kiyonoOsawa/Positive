@@ -9,6 +9,7 @@ import UIKit
 import Firebase
 import FirebaseFirestore
 import FirebaseAuth
+import NotificationCenter
 
 class MakeTargetViewController: UIViewController {
     
@@ -60,8 +61,9 @@ class MakeTargetViewController: UIViewController {
             print("保存したよん")
             self.dismiss(animated: true)
             addQuestion()
+            addNotification()
         }
-
+        
     }
     
     @IBAction func backView() {
@@ -118,6 +120,32 @@ class MakeTargetViewController: UIViewController {
             .document(user.uid)
             .collection("goals")
             .addDocument(data: addData)
+    }
+    
+    //通知
+    private func addNotification() {
+        let datePickerTime = dateCell.datePicker.date
+        let notificationTitle: String = "目標は達成できましたか？"
+        let notificationBody: String = "今日は目標達成の最終日です。アプリで確認しよう！"
+        let calendar: Calendar = Calendar.current
+        let trigger: UNCalendarNotificationTrigger = UNCalendarNotificationTrigger(dateMatching: calendar.dateComponents([.hour, .minute], from: datePickerTime), repeats: false)
+        let content: UNMutableNotificationContent = UNMutableNotificationContent()
+        content.title = notificationTitle
+        content.body = notificationBody
+        content.sound = UNNotificationSound.default
+        content.badge = 1
+        // 通知の削除
+        let center = UNUserNotificationCenter.current()
+        center.removePendingNotificationRequests(withIdentifiers: [UUID().uuidString])
+        
+        let request: UNNotificationRequest = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request) { (error: Error?) in
+            if error != nil {
+                print("error")
+            } else {
+                print("success")
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {

@@ -133,15 +133,17 @@ class AccountViewController: UIViewController {
             self.chartBack.reloadInputViews()
             return
         }
+        viewModel.chartDataEntries = []
         db.collection("users")
             .document(user.uid)
             .collection("reviews")
+            .order(by: "date", descending: false)
             .addSnapshotListener { QuerySnapshot, Error in
                 guard let querySnapshot = QuerySnapshot else { return }
                 self.rawDataGraph.removeAll()
                 for doc in querySnapshot.documents {
                     let review = Review(dictionary: doc.data(), reviewDocumentId: doc.documentID)
-                    self.rawDataGraph.append(Int(review.score ?? 0))
+                    self.rawDataGraph.append(Int(review.score))
                     self.viewModel.update(value: review.score, number: Double(self.rawDataGraph.count - 1))
                     self.setAverageData(scores: self.rawDataGraph)
                 }

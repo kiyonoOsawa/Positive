@@ -25,7 +25,6 @@ class CapturingViewController: UIViewController {
         //読み込めるカメラ範囲
         myQRCodeReader.readRange()
     }
-
 }
 
 extension CapturingViewController: AVCaptureMetadataOutputObjectsDelegate{

@@ -4,11 +4,11 @@
 <dict>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.Kiyono.Positive.taffi</string>
+		<string>group.com.Kiyono.Positive.taffi</string>
 	</array>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>$(AppIdentifierPrefix)com.kiyono.Positive.taffi.TaffiWidget</string>
+		<string>$(AppIdentifierPrefix)com.kiyono.Positive.taffi</string>
 	</array>
 </dict>
 </plist>
