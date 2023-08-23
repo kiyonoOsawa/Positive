@@ -50,8 +50,6 @@ class CalendarViewController: UIViewController {
         reportCollectionView.register(UINib(nibName: "CalendarTargetCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "reportCell")
         viewWidth = view.frame.width
         print(data)
-//        reportCollectionView.reloadData()
-//        configureSizes()
         fetchDataReview()
         fetchDataTarget()
         configureSizes()
@@ -70,7 +68,6 @@ class CalendarViewController: UIViewController {
         let user = Auth.auth().currentUser
         guard let user = user else {
             addresses = []
-//            applicableData = []
             self.calendarView.reloadData()
             return
         }
@@ -165,7 +162,7 @@ class CalendarViewController: UIViewController {
             return converteDate.compare(calendarDate) == .orderedDescending || converteDate.compare(calendarDate) == .orderedSame
         }
         if deadLineData.isEmpty {
-            AlertDialog.shared.showAlert(title: "目標の設定がありません", message: "Home画面で目標を設定してください", viewController: self) {
+            AlertDialog.shared.showSaveAlert(title: "目標の設定がありません", message: "Home画面で目標を設定してください", viewController: self) {
                 print("empty Array:\(self.addressesReview)")
             }
             return
@@ -341,7 +338,7 @@ extension CalendarViewController: CalendarViewDelegate {
         let title = cell.bigTargetLabel.text
         guard let title = title else { return }
         if segmentState == .affirmation {
-            AlertDialog.shared.showAlert(title: "\(title) を削除しますか？", message: "", viewController: self) {
+            AlertDialog.shared.showSaveAlert(title: "\(title) を削除しますか？", message: "", viewController: self) {
                 let user = Auth.auth().currentUser!
                 if let indexPath = self.reportCollectionView.indexPath(for: cell){
                     let documentId = self.applicableDataReview[indexPath.row].reviewDocumentId
@@ -361,7 +358,7 @@ extension CalendarViewController: CalendarViewDelegate {
                 }
             }
         } else {
-            AlertDialog.shared.showAlert(title: "\(title) を削除しますか？", message: "", viewController: self) {
+            AlertDialog.shared.showSaveAlert(title: "\(title) を削除しますか？", message: "", viewController: self) {
                 let user = Auth.auth().currentUser!
                 if let indexPath = self.reportCollectionView.indexPath(for: cell){
                     let documentId = self.applicableData[indexPath.row].documentID

@@ -73,7 +73,7 @@ class ReviewViewController: UIViewController {
             let apiClient = APIClient.shared
             apiClient.getDegreeofSentiment(encodedWord: reviewTextView.text ?? "") { [self] response in
                 if saveGoalLabel.text == nil {
-                    AlertDialog.shared.showAlert(title: "保存先ありません", message: "保存先を選択してください", viewController: self) {
+                    AlertDialog.shared.showSaveAlert(title: "保存先ありません", message: "保存先を選択してください", viewController: self) {
                         print()
                     }
                 }
@@ -81,12 +81,10 @@ class ReviewViewController: UIViewController {
                 case .success(let data):
                     let positiveness: Double = Double(data.documentSentiment.score)
                     let percentage: Double = (positiveness+1)*50
-//                    let positiveness: Double = Double(data.negaposi+3)
-//                    let percentage: Double = positiveness/6*100
                     print("negaposi: \(positiveness)")
                     print("percentage: \(percentage)")
                     if data.documentSentiment.score>0 {
-                        AlertDialog.shared.showAlert(title: "ポジティブ!", message: "ポジティブ\(percentage)%！", viewController: self) {
+                        AlertDialog.shared.showSaveAlert(title: "ポジティブ!", message: "ポジティブ\(percentage)%！", viewController: self) {
                             self.addReview(score: percentage)
                             self.dismiss(animated: true, completion: nil)
                         }
@@ -94,7 +92,7 @@ class ReviewViewController: UIViewController {
                         guard let targetData = self.targetData else {
                             return
                            }
-                        AlertDialog.shared.showAlertReview(title: "ポジティブ度が低いです", message: "保存かリフレーミングか選べます", viewController: self) {
+                        AlertDialog.shared.showReviewAlert(title: "ポジティブ度が低いです", message: "保存かリフレーミングか選べます", viewController: self) {
                             self.addReview(score: percentage)
                             self.dismiss(animated: true)
                         } completionReframing: {
@@ -103,7 +101,7 @@ class ReviewViewController: UIViewController {
                     }
                     break
                 case .failure(let error):
-                    AlertDialog.shared.showAlert(title: "計測失敗", message: "文章を形成し直してください", viewController: self) {
+                    AlertDialog.shared.showSaveAlert(title: "計測失敗", message: "文章を形成し直してください", viewController: self) {
                         print(error)
                     }
                     break

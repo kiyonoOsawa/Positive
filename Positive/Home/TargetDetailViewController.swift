@@ -57,7 +57,7 @@ class TargetDetailViewController: UIViewController {
     }
     
     @IBAction func tappedSave() {
-        AlertDialog.shared.showAlert(title: "目標を更新します", message: "", viewController: self) {
+        AlertDialog.shared.showSaveAlert(title: "目標を更新します", message: "", viewController: self) {
             self.updateGoal()
             self.navigationController?.popViewController(animated: true)
         }

@@ -35,13 +35,13 @@ class DetectQRViewController: UIViewController {
     
     @IBAction func tappedAddFriendButton(_ sender: Any) {
         if let storedImage = self.storedImage{
-            alertDialog.showAlert(title: "友達追加", message: "表示されたQRから友達を追加しますか", viewController: self) {
+            alertDialog.showSaveAlert(title: "友達追加", message: "表示されたQRから友達を追加しますか", viewController: self) {
                 self.getString(image: storedImage)
                 //前画面に戻る
                 self.dismiss(animated: true)
             }
         }else{
-            alertDialog.singleAlert(title: "Qrが読み込まれていません", message: "Qrを読み込んでください", viewController: self) {
+            alertDialog.showSingleAlert(title: "Qrが読み込まれていません", message: "Qrを読み込んでください", viewController: self) {
                 self.displayPicker()
             }
         }

@@ -46,13 +46,11 @@
 		CE7F69B428EC736700D9B990 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F69AF28EC731200D9B990 /* Provider.swift */; };
 		CE80C15728716EF9000646B2 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80C15628716EF9000646B2 /* Goal.swift */; };
 		CE8D8BE928B911840024B322 /* TargetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D8BE828B911840024B322 /* TargetDetailViewController.swift */; };
-		CE8D8BEB28B9194C0024B322 /* CircleChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D8BEA28B9194C0024B322 /* CircleChart.swift */; };
 		CEACDF50289571AF0005F4A6 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEACDF4F289571AF0005F4A6 /* ReviewViewController.swift */; };
 		CEAE56BD289746DB002DBEA2 /* InnerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEAE56BB289746DB002DBEA2 /* InnerCollectionViewCell.xib */; };
 		CEAE56BF28974864002DBEA2 /* InnerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAE56BE28974864002DBEA2 /* InnerCollectionViewCell.swift */; };
 		CEAE56C4289766FB002DBEA2 /* FriendsInnerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAE56C2289766FB002DBEA2 /* FriendsInnerCollectionViewCell.swift */; };
 		CEAE56C5289766FB002DBEA2 /* FriendsInnerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEAE56C3289766FB002DBEA2 /* FriendsInnerCollectionViewCell.xib */; };
-		CEB0F50F2920B8D90053766B /* FirebaseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB0F50E2920B8D90053766B /* FirebaseClient.swift */; };
 		CEB475492859220A002654E6 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB475482859220A002654E6 /* LogInViewController.swift */; };
 		CEB4754B2859F894002654E6 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB4754A2859F894002654E6 /* AccountViewController.swift */; };
 		CEB4755B285F65CD002654E6 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB4755A285F65CD002654E6 /* QuestionViewController.swift */; };
@@ -175,13 +173,11 @@
 		CE80C15628716EF9000646B2 /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		CE85B59629E412AA0006A072 /* TaffiWidgetExtensionRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TaffiWidgetExtensionRelease.entitlements; sourceTree = "<group>"; };
 		CE8D8BE828B911840024B322 /* TargetDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetDetailViewController.swift; sourceTree = "<group>"; };
-		CE8D8BEA28B9194C0024B322 /* CircleChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleChart.swift; sourceTree = "<group>"; };
 		CEACDF4F289571AF0005F4A6 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		CEAE56BB289746DB002DBEA2 /* InnerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InnerCollectionViewCell.xib; sourceTree = "<group>"; };
 		CEAE56BE28974864002DBEA2 /* InnerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnerCollectionViewCell.swift; sourceTree = "<group>"; };
 		CEAE56C2289766FB002DBEA2 /* FriendsInnerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsInnerCollectionViewCell.swift; sourceTree = "<group>"; };
 		CEAE56C3289766FB002DBEA2 /* FriendsInnerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendsInnerCollectionViewCell.xib; sourceTree = "<group>"; };
-		CEB0F50E2920B8D90053766B /* FirebaseClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseClient.swift; sourceTree = "<group>"; };
 		CEB475482859220A002654E6 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		CEB4754A2859F894002654E6 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		CEB4755A285F65CD002654E6 /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
@@ -331,7 +327,6 @@
 			isa = PBXGroup;
 			children = (
 				CE68C57C29D8E5D0000C5EC0 /* PositiveRelease.entitlements */,
-				CE2F3B782934D154006D1FF1 /* Tutorial */,
 				CECC28BF28EB7C2F00219F98 /* Positive.entitlements */,
 				CE73D1592839DF4C00B20D0D /* AppDelegate.swift */,
 				CE73D15B2839DF4C00B20D0D /* SceneDelegate.swift */,
@@ -339,7 +334,7 @@
 				CE798A6C28D856AC00E5C340 /* DateFormat.swift */,
 				CEF07DA228F317EF005AACA3 /* ActivityIndicator.swift */,
 				CE360FCE28FBDCF600C7E7B8 /* GoogleService-Info.plist */,
-				CEB0F50E2920B8D90053766B /* FirebaseClient.swift */,
+				CE2F3B782934D154006D1FF1 /* Tutorial */,
 				CEC67BD229459FC70090994D /* Manager */,
 				CECC289C28EB1F6F00219F98 /* TabBar */,
 				CECC289B28EB1F2900219F98 /* Model */,
@@ -443,7 +438,6 @@
 				CEC4448529209563007FEF1C /* LineChartView.swift */,
 				CE7F69A728EC6D4C00D9B990 /* MyListViewController.swift */,
 				CE08B05528BD19860054D0D6 /* EditAccountViewController.swift */,
-				CE8D8BEA28B9194C0024B322 /* CircleChart.swift */,
 				CE644D8D28B7C580008443BE /* FriendAccCollectionViewCell.swift */,
 				CE644D8E28B7C580008443BE /* FriendAccCollectionViewCell.xib */,
 				CE7E727728ECDD0000C0E550 /* CategoryTableViewCell.swift */,
@@ -673,7 +667,6 @@
 				CEC6855E28B12617007C0967 /* ReframingViewController.swift in Sources */,
 				CE7A58C2289E1D5000AD3946 /* DataModel.swift in Sources */,
 				CE798A6D28D856AC00E5C340 /* DateFormat.swift in Sources */,
-				CE8D8BEB28B9194C0024B322 /* CircleChart.swift in Sources */,
 				CEC6855A28AFDA11007C0967 /* Review.swift in Sources */,
 				CE73D16E2839F62600B20D0D /* HomeViewController.swift in Sources */,
 				CEB4757E28713B11002654E6 /* DateTargetTableViewCell.swift in Sources */,
@@ -684,7 +677,6 @@
 				CE08B05628BD19870054D0D6 /* EditAccountViewController.swift in Sources */,
 				CE644D8F28B7C580008443BE /* FriendAccCollectionViewCell.swift in Sources */,
 				CEC67BD1294599090090994D /* AuthStateManager.swift in Sources */,
-				CEB0F50F2920B8D90053766B /* FirebaseClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -773,7 +765,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -828,7 +820,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -847,7 +839,7 @@
 				CODE_SIGN_ENTITLEMENTS = Positive/Positive.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 7Y5RBD24LU;
 				EXCLUDED_ARCHS = "";
 				"EXCLUDED_ARCHS[sdk=*]" = x86_64;
@@ -863,12 +855,12 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.4;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kiyono.Positive.taffi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -891,7 +883,7 @@
 				CODE_SIGN_ENTITLEMENTS = Positive/PositiveRelease.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 7Y5RBD24LU;
 				EXCLUDED_ARCHS = "";
 				"EXCLUDED_ARCHS[sdk=*]" = x86_64;
@@ -907,12 +899,12 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kiyono.Positive.taffi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -933,7 +925,7 @@
 				CODE_SIGN_ENTITLEMENTS = TaffiWidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 7Y5RBD24LU;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TaffiWidget/Info.plist;
@@ -945,7 +937,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kiyono.Positive.taffi.TaffiWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -963,7 +955,7 @@
 				CODE_SIGN_ENTITLEMENTS = TaffiWidgetExtensionRelease.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 7Y5RBD24LU;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TaffiWidget/Info.plist;
@@ -975,7 +967,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kiyono.Positive.taffi.TaffiWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

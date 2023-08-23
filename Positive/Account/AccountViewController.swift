@@ -41,7 +41,6 @@ class AccountViewController: UIViewController {
         layout.scrollDirection = .horizontal // 横スクロール
         friendsCollection.collectionViewLayout = layout
         fetchMyData()
-        fetchReviewData()
         design()
         hostingGraphView()
     }
@@ -160,12 +159,6 @@ class AccountViewController: UIViewController {
         let nextVC = storyboard.instantiateViewController(withIdentifier: "editAccView")
         self.present(nextVC, animated: true, completion: nil)
     }
-    
-    //    @IBAction func toLogInVC() {
-    //        let storyboard : UIStoryboard = UIStoryboard(name: "MainStory", bundle: nil)
-    //        let nextVC = storyboard.instantiateViewController(withIdentifier: "firstAccView")
-    //        self.present(nextVC, animated: true, completion: nil)
-    //    }
     
     func design() {
         imageView.layer.cornerRadius = 36

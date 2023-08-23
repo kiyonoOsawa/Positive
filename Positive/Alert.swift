@@ -10,7 +10,7 @@ import UIKit
 
 struct AlertDialog {
     static let shared = AlertDialog()
-    func showAlert(title: String, message: String, viewController: UIViewController, completion: @escaping() -> Void) {
+    func showSaveAlert(title: String, message: String, viewController: UIViewController, completion: @escaping() -> Void) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let ok = UIAlertAction(title: "OK", style: .default) { (action) in
             completion()
@@ -24,7 +24,7 @@ struct AlertDialog {
         viewController.present(alert, animated: true, completion: nil)
     }
     
-    func showAlertReview(title: String, message: String, viewController: UIViewController, completionSave: @escaping() -> Void, completionReframing: @escaping() -> Void) {
+    func showReviewAlert(title: String, message: String, viewController: UIViewController, completionSave: @escaping() -> Void, completionReframing: @escaping() -> Void) {
             
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
             let save = UIAlertAction(title: "そのまま保存", style: .default) { (action) in
@@ -44,7 +44,7 @@ struct AlertDialog {
             viewController.present(alert, animated: true, completion: nil)
         }
     
-    func singleAlert(title: String, message: String,viewController: UIViewController,completion: @escaping()->Void){
+    func showSingleAlert(title: String, message: String,viewController: UIViewController,completion: @escaping()->Void){
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
             let ok = UIAlertAction(title: "OK", style: .default) { (action) in
                 completion()

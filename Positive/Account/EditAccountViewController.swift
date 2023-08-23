@@ -13,7 +13,6 @@ import FirebaseAuth
 
 class EditAccountViewController: UIViewController, UINavigationControllerDelegate {
     
-//    @IBOutlet weak var userImage: UIBU
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passField: UITextField!
@@ -23,7 +22,6 @@ class EditAccountViewController: UIViewController, UINavigationControllerDelegat
     @IBOutlet var textFieldImage: [UITextField]!
     @IBOutlet weak var deleteButton: UIButton!
     
-    //    let storageRef = Storage.storage().reference(forURL: "gs://positive-898d1.appspot.com")
     let user = Auth.auth().currentUser
     let db = Firestore.firestore()
     var password = String()

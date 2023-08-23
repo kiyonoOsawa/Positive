@@ -40,6 +40,7 @@ class QRViewController: UIViewController {
     
     @IBAction func tappedCaptureButton() {
         savePhotoToLibrary(image: takeScreenshot())
+        showAlert()
     }
     
     override func viewDidLoad() {
@@ -74,6 +75,11 @@ class QRViewController: UIViewController {
         UIImageWriteToSavedPhotosAlbum(image , self, #selector(image(image: didFinishSavingWithError: contextInfo:)), nil)
     }
     
+    func showAlert() {
+        AlertDialog.shared.showSingleAlert(title: "完了", message: "自分のQRを保存しました", viewController: self) {
+        }
+    }
+    
     @objc func image(image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
         if let error = error {
             print("Failed to save photo: \(error)")
@@ -101,7 +107,7 @@ class QRViewController: UIViewController {
     }
     
     private func allowAccessingCamera(){
-        AlertDialog.shared.showAlert(title: "エラー", message: "カメラのアクセスを許可してください", viewController: self) {
+        AlertDialog.shared.showSaveAlert(title: "エラー", message: "カメラのアクセスを許可してください", viewController: self) {
             if let url = URL(string: UIApplication.openSettingsURLString), UIApplication.shared.canOpenURL(url) {
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
             }

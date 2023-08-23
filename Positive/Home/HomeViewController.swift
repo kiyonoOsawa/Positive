@@ -146,16 +146,9 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func addItems() {
-//        let user = Auth.auth().currentUser
-//        if user == nil {
-//            let storyboard : UIStoryboard = UIStoryboard(name: "MainStory", bundle: nil)
-//            let nextVC = storyboard.instantiateViewController(withIdentifier: "firstAccView")
-//            self.present(nextVC, animated: true, completion: nil)
-//        } else {
             let storyboard: UIStoryboard = UIStoryboard(name: "HomeStory", bundle: nil)
             let nextVC = storyboard.instantiateViewController(withIdentifier: "navAddTarget")
             self.present(nextVC, animated: true, completion: nil)
-//        }
     }
 }
 
@@ -327,7 +320,7 @@ extension HomeViewController: HomeViewCellDelegate {
     func tappedDelete(cell: InnerCollectionViewCell) {
         let title = cell.goalLabel.text
         guard let title = title else { return }
-        AlertDialog.shared.showAlert(title: "\(title)を削除しますか？", message: "", viewController: self) {
+        AlertDialog.shared.showSaveAlert(title: "\(title)を削除しますか？", message: "", viewController: self) {
             delete()
         }
         
@@ -368,7 +361,7 @@ extension HomeViewController: HomeViewCellDelegate {
     func tappedDone(cell: InnerCollectionViewCell) {
         let title = cell.goalLabel.text
         guard let title = title else { return }
-        AlertDialog.shared.showAlert(title: "\(title)を完了しますか？", message: "", viewController: self) {
+        AlertDialog.shared.showSaveAlert(title: "\(title)を完了しますか？", message: "", viewController: self) {
             doneAction()
         }
         targetCollection.reloadData()

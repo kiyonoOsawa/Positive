@@ -25,8 +25,6 @@ class QuestionTableViewCell: UITableViewCell {
     
     func design() {
         answerTextView.layer.cornerRadius = 15
-//        answerTextView.layer.borderWidth = 0.5
-//        answerTextView.layer.borderColor = UIColor(named: "grayTextColor")?.cgColor
         answerTextView.textContainerInset = UIEdgeInsets(top: 15, left: 5, bottom: 5, right: 5)
     }
     

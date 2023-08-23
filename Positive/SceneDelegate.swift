@@ -24,7 +24,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let tutorial: UIStoryboard = UIStoryboard(name: "Tutorial", bundle: nil)
         let main: UIStoryboard = UIStoryboard(name: "MainStory", bundle: nil)
         if userDefaults.bool(forKey: "firstLunchKey") {
-//            userDefaults.set(false, forKey: firstLunchKey)
             let vc = tutorial.instantiateViewController(withIdentifier: "PagingView")
             window!.rootViewController = vc
         } else {

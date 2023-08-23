@@ -32,16 +32,3 @@ class Sentiment: Decodable, Identifiable {
     let magnitude: Double
     let score: Double
 }
-
-//    var negaposi: Int
-//    var analyzedText: String
-
-//    init(negaposi: Int, analyzedText: String) {
-//        self.negaposi = negaposi
-//        self.analyzedText = analyzedText
-//    }
-//    enum CodingKeys: String,CodingKey {
-//        case negaposi = "negaposi"
-//        case analyzedText = "analyzed_text"
-//    }
-//}

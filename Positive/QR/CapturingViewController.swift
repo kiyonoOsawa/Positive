@@ -38,7 +38,7 @@ extension CapturingViewController: AVCaptureMetadataOutputObjectsDelegate{
             //QRデータを表示
             if let str = metadata.stringValue {
                 guard let user = user else {return}
-                AlertDialog.shared.showAlert(title: "友達登録", message: "フレンド登録しますか？", viewController: self) {
+                AlertDialog.shared.showSaveAlert(title: "友達登録", message: "フレンド登録しますか？", viewController: self) {
                     self.db.collection("users")
                         .document(user.uid)
                         .updateData(["friendList": FieldValue.arrayUnion([str])])

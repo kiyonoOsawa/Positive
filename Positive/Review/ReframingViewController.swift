@@ -64,12 +64,12 @@ class ReframingViewController: UIViewController {
             switch response {
             case .success(let data):
                 if data.documentSentiment.score > 0 {
-                    AlertDialog.shared.showAlert(title: "リフレーミング完了", message: "ポジティブになりました", viewController: self) {
+                    AlertDialog.shared.showSaveAlert(title: "リフレーミング完了", message: "ポジティブになりました", viewController: self) {
                         self.addReframingData()
                         self.presentingViewController?.presentingViewController?.dismiss(animated: true)
                     }
                 } else {
-                    AlertDialog.shared.showAlert(title: "ポジティブ度が低いです…", message: "リフレーミングをもう一度してください", viewController: self) {
+                    AlertDialog.shared.showSaveAlert(title: "ポジティブ度が低いです…", message: "リフレーミングをもう一度してください", viewController: self) {
                         print("はにゃ")
                     }
                 }

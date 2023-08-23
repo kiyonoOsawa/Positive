@@ -29,21 +29,9 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
             let storyboard : UIStoryboard = UIStoryboard(name: "MainStory", bundle: nil)
             let nextVC = storyboard.instantiateViewController(withIdentifier: "firstAccView")
             self.present(nextVC, animated: true, completion: nil)
-            return false
+//            return false
+            return true
         }
         return true
     }
-    
-    
-    //    override func viewDidAppear(_ animated: Bool) {
-    //        super.viewDidAppear(animated)
-    //        if user == nil {
-    //            AlertDialog.shared.showAlert(title: "ユーザーが存在していません", message: "ログインしてください", viewController: self){
-    //                let storyboard: UIStoryboard = UIStoryboard(name: "MainStory", bundle: nil)
-    //                let nextVC = storyboard.instantiateViewController(withIdentifier: "firstAccView")
-    //                nextVC.modalPresentationStyle = .fullScreen
-    //                self.present(nextVC, animated: true, completion: nil)
-    //            }
-    //        }
-    //    }
 }

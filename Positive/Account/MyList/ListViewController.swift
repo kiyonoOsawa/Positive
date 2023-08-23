@@ -128,7 +128,7 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "listCell", for: indexPath) as! ListCollectionViewCell
-        cell.layer.cornerRadius = 15
+        cell.layer.cornerRadius = 13
         cell.layer.shadowColor = UIColor.black.cgColor
         cell.layer.shadowOpacity = 0.2
         cell.layer.shadowOffset = CGSize(width: 0, height: 0)
@@ -166,9 +166,14 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cellWidth: CGFloat = self.view.frame.width - 32
+        let space: CGFloat = 32
+        let cellWidth: CGFloat = self.view.frame.width - space
         let cellHeight: CGFloat = 80
         return CGSize(width: cellWidth, height: cellHeight)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -209,15 +214,15 @@ extension ListViewController: ListCollectionDelegate {
         guard let title = title else { return }
         switch viewPattern {
         case .allTask:
-            AlertDialog.shared.showAlert(title: "\(title) を削除しますか？", message: "", viewController: self) {
+            AlertDialog.shared.showSaveAlert(title: "\(title) を削除しますか？", message: "", viewController: self) {
                 delete()
             }
         case .deadList:
-            AlertDialog.shared.showAlert(title: "\(title) を削除しますか？", message: "", viewController: self) {
+            AlertDialog.shared.showSaveAlert(title: "\(title) を削除しますか？", message: "", viewController: self) {
                 delete()
             }
         case .reviewList:
-            AlertDialog.shared.showAlert(title: "\(title) を削除しますか？", message: "", viewController: self) {
+            AlertDialog.shared.showSaveAlert(title: "\(title) を削除しますか？", message: "", viewController: self) {
                 deleteReview()
             }
         default:
