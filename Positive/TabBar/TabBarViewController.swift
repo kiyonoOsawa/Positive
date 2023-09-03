@@ -10,6 +10,8 @@ import FirebaseAuth
 
 class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
     
+    var authStateManager = AuthStateManager.shared
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate = self
@@ -26,11 +28,8 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         let user = Auth.auth().currentUser
         if user == nil && viewController == tabBarController.viewControllers?[2] {
-            let storyboard : UIStoryboard = UIStoryboard(name: "MainStory", bundle: nil)
-            let nextVC = storyboard.instantiateViewController(withIdentifier: "firstAccView")
-            self.present(nextVC, animated: true, completion: nil)
-//            return false
-            return true
+            authStateManager.promptLogin(viewController: self)
+            return false
         }
         return true
     }

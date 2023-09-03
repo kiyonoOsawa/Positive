@@ -25,6 +25,7 @@ class EditAccountViewController: UIViewController, UINavigationControllerDelegat
     let user = Auth.auth().currentUser
     let db = Firestore.firestore()
     var password = String()
+    var authStateManager = AuthStateManager.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,20 +37,10 @@ class EditAccountViewController: UIViewController, UINavigationControllerDelegat
     
     @IBAction func cancel() {
         self.dismiss(animated: true, completion: nil)
-        var userNilData: UserDefaults = UserDefaults.standard
-        userNilData.set("user", forKey: "logout")
     }
     
     @IBAction func tappedLogOut() {
-        let firebaseAuth = Auth.auth()
-        do {
-            try firebaseAuth.signOut()
-            self.dismiss(animated: true, completion: nil)
-            var userNilData: UserDefaults = UserDefaults.standard
-            userNilData.set("nil", forKey: "logout")
-        } catch let signOutError as NSError {
-            print("Error signing out: %@", signOutError)
-        }
+        authStateManager.logoutTransition(viewController: self)
     }
     
     @IBAction func tappedSave() {
@@ -137,19 +128,10 @@ class EditAccountViewController: UIViewController, UINavigationControllerDelegat
     }
     
     private func deleteUser(){
-           guard let user = self.user else {return}
-           guard let userEmail = user.email else {return}
-           let credential = EmailAuthProvider.credential(withEmail: userEmail, password: password)
-           user.reauthenticate(with: credential) { AuthDataResult, Error in
-               guard let result = AuthDataResult else {return}
-               result.user.delete()
-               self.deleteUserInfo()
-               let toSignUp: UIStoryboard = UIStoryboard(name: "MainStory", bundle: nil)
-               let nextVC = toSignUp.instantiateViewController(withIdentifier: "firstAccView")
-               nextVC.modalPresentationStyle = .fullScreen
-               self.present(nextVC, animated: true, completion: nil)
-           }
-       }
+        authStateManager.deleteUser(viewController: self, password: self.password) {
+            self.deleteUserInfo()
+        }
+    }
     
     func transition() {
         dismiss(animated: true, completion: nil)

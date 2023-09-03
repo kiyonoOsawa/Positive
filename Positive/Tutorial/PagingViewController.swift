@@ -76,6 +76,8 @@ class PagingViewController: UIViewController, UIScrollViewDelegate {
             backgroundImageArray.append(contentsOf: ["page8-1","page8-2","page8-3","page8-4"])
         } else if screenResolution == CGSize(width: 1284, height: 2796){ // 14Pro Max
             backgroundImageArray.append(contentsOf: ["page9-1","page9-2","page9-3","page9-4"])
+        } else if screenResolution == CGSize(width: 768, height: 1024)||screenResolution == CGSize(width: 1536, height: 2048)||screenResolution == CGSize(width: 1620, height: 2160)||screenResolution == CGSize(width: 1668, height: 2224)||screenResolution == CGSize(width: 1640, height: 2360)||screenResolution == CGSize(width: 2048, height: 2732)||screenResolution == CGSize(width: 834, height: 1194){
+            backgroundImageArray.append(contentsOf: ["ipad_1","ipad_2","ipad_3","ipad_4"])
         } else {
             backgroundImageArray.append(contentsOf: ["page9-1","page9-2","page9-3","page9-4"])
         }

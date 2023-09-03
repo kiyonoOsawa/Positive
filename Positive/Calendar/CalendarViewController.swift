@@ -38,6 +38,7 @@ class CalendarViewController: UIViewController {
     var startingFrame : CGRect!
     var endingFrame : CGRect!
     var datesWithEvents: Set<String> = []
+    var authStateManager = AuthStateManager.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -145,12 +146,7 @@ class CalendarViewController: UIViewController {
     }
     
     @IBAction func toReviewViewButton() {
-        let user = Auth.auth().currentUser
-        if user == nil {
-            let storyboard : UIStoryboard = UIStoryboard(name: "MainStory", bundle: nil)
-            let nextVC = storyboard.instantiateViewController(withIdentifier: "firstAccView")
-            self.present(nextVC, animated: true, completion: nil)
-        }
+        authStateManager.promptLogin(viewController: self)
         let storyboard = UIStoryboard(name: "ReviewStory", bundle: nil)
         let nc: UINavigationController = storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
         nc.modalPresentationStyle = .fullScreen

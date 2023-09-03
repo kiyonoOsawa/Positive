@@ -32,6 +32,7 @@ class MakeTargetViewController: UIViewController {
     var isShared: Bool = true
     var isDoneTarget: Bool = false
     var transferViewModel = TransferValue.shared
+    var authStateManager = AuthStateManager.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,16 +89,17 @@ class MakeTargetViewController: UIViewController {
     }
     
     private func addQuestion() {
-        guard let user = user else {
-            if user == nil {
-                let storyboard : UIStoryboard = UIStoryboard(name: "MainStory", bundle: nil)
-                let nextVC = storyboard.instantiateViewController(withIdentifier: "firstAccView")
-                self.present(nextVC, animated: true, completion: nil)
-            } else {
-                return
-            }
-            return
-        }
+//        guard let user = user else {
+//            if user == nil {
+//                let storyboard : UIStoryboard = UIStoryboard(name: "MainStory", bundle: nil)
+//                let nextVC = storyboard.instantiateViewController(withIdentifier: "firstAccView")
+//                self.present(nextVC, animated: true, completion: nil)
+//            } else {
+//                return
+//            }
+//            return
+//        }
+        authStateManager.promptLogin(viewController: self)
         if data == true {
             date = dateCell.datePicker.date
         }
@@ -110,14 +112,14 @@ class MakeTargetViewController: UIViewController {
             "person": self.person,
             "review": "review",
             "date": convertedDate,
-            "userId": user.uid,
+            "userId": user!.uid,
             "userName": userName,
             "createdAt": Timestamp(date: Date()),
             "isShared": isShared,
             "isDoneTarget": isDoneTarget
         ]
         db.collection("users")
-            .document(user.uid)
+            .document(user!.uid)
             .collection("goals")
             .addDocument(data: addData)
     }

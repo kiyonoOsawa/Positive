@@ -47,27 +47,8 @@ class AccountViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        transfar()
         fetchMyData()
         fetchReviewData()
-    }
-    
-    private func transfar() {
-        var userNilData: UserDefaults = UserDefaults.standard
-        let nilData = userNilData.object(forKey: "logout") as? String
-        print("ここ!!!!!: \(nilData)")
-        if nilData == "nil" {
-            let vc = HomeViewController()
-            let rootVC = UIApplication.shared.windows.first?.rootViewController as? UITabBarController
-            let navigationController = rootVC?.children as? UINavigationController
-            rootVC?.selectedIndex = 0
-            navigationController?.pushViewController(vc, animated: false)
-            return
-        } else if nilData == "user" {
-            return
-        } else {
-            return
-        }
     }
     
     private func fetchMyData() {

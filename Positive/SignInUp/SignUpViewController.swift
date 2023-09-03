@@ -29,6 +29,7 @@ class SignUpViewController: UIViewController {
     let user = Auth.auth().currentUser
     let authStateManager = AuthStateManager.shared
     let signInUpViewModel = SignInUpViewModel.shared
+    let alertHelper = AlertDialog.shared
     var cancellables: Set<AnyCancellable> = []
     
     override func viewDidLoad() {
@@ -38,9 +39,9 @@ class SignUpViewController: UIViewController {
         signInUpViewModel.$errMessage.sink(receiveValue: { errMessage in
             if self.authStateManager.errorMessage == "メールアドレスは既に利用されています" {
                 self.error1.text = errMessage
-        } else if self.authStateManager.errorMessage == "パスワードを強力にしてください" {
+            } else if self.authStateManager.errorMessage == "パスワードを強力にしてください" {
                 self.error2.text = errMessage
-        }
+            }
         }).store(in: &cancellables)
         fieldImage()
         design()
@@ -120,9 +121,9 @@ class SignUpViewController: UIViewController {
     
     @IBAction func tappedToTutorial() {
         let storyboard: UIStoryboard = UIStoryboard(name: "Tutorial", bundle: nil)
-               let vc = storyboard.instantiateViewController(withIdentifier: "PagingView") as! PagingViewController
-               vc.fromSignUp = true
-               self.present(vc, animated: true)
+        let vc = storyboard.instantiateViewController(withIdentifier: "PagingView") as! PagingViewController
+        vc.fromSignUp = true
+        self.present(vc, animated: true)
     }
     
     func transition() {
@@ -157,15 +158,15 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func deleteText1(_ sender: UIButton) {
-     userNameField.text = ""
+        userNameField.text = ""
     }
     
     @IBAction func deleteText2(_ sender: UIButton) {
-     emailField.text = ""
+        emailField.text = ""
     }
     
     @IBAction func deleteText3(_ sender: UIButton) {
-     passwordField.text = ""
+        passwordField.text = ""
     }
     
     private func design() {
@@ -182,7 +183,7 @@ class SignUpViewController: UIViewController {
         if !passwordField.isFirstResponder {
             return
         }
-    
+        
         if self.view.frame.origin.y == 0 {
             if let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
                 self.view.frame.origin.y -= keyboardRect.height - passwordField.frame.origin.y
