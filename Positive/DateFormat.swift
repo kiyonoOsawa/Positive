@@ -1,10 +1,3 @@
-//
-//  DateFormat.swift
-//  Positive
-//
-//  Created by 大澤清乃 on 2022/09/19.
-//
-
 import Foundation
 struct DateFormat{
     static let shared = DateFormat()

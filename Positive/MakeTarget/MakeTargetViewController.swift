@@ -64,7 +64,6 @@ class MakeTargetViewController: UIViewController {
             addQuestion()
             addNotification()
         }
-        
     }
     
     @IBAction func backView() {
@@ -89,16 +88,6 @@ class MakeTargetViewController: UIViewController {
     }
     
     private func addQuestion() {
-//        guard let user = user else {
-//            if user == nil {
-//                let storyboard : UIStoryboard = UIStoryboard(name: "MainStory", bundle: nil)
-//                let nextVC = storyboard.instantiateViewController(withIdentifier: "firstAccView")
-//                self.present(nextVC, animated: true, completion: nil)
-//            } else {
-//                return
-//            }
-//            return
-//        }
         authStateManager.promptLogin(viewController: self)
         if data == true {
             date = dateCell.datePicker.date

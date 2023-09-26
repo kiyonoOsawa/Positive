@@ -31,6 +31,7 @@ class HomeViewController: UIViewController {
     var addressesFriends: [DetailGoal] = []
     var userName: String = ""
     let storageRef = Storage.storage().reference(forURL: "gs://taffi-f610f.appspot.com/")
+    var authStateManager = AuthStateManager.shared
     
     override func viewWillAppear(_ animated: Bool) {
         fetchData()
@@ -145,10 +146,19 @@ class HomeViewController: UIViewController {
         friendTargetCollection.backgroundColor = .clear
     }
     
+    private func toAddView(){
+        authStateManager.promptLogin(viewController: self)
+    }
+    
     @IBAction func addItems() {
+        let user = Auth.auth().currentUser
+        if user == nil {
+            toAddView()
+        } else {
             let storyboard: UIStoryboard = UIStoryboard(name: "HomeStory", bundle: nil)
             let nextVC = storyboard.instantiateViewController(withIdentifier: "navAddTarget")
             self.present(nextVC, animated: true, completion: nil)
+        }
     }
 }
 

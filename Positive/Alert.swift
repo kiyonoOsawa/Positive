@@ -1,10 +1,3 @@
-//
-//  Alert.swift
-//  Positive
-//
-//  Created by 大澤清乃 on 2022/08/20.
-//
-
 import Foundation
 import UIKit
 
